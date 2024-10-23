@@ -1,0 +1,38 @@
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-navbar {
+    border: 2px solid greenyellow;
+    width: 100%;
+    min-height: 65px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#main-container {
+    border: 2px solid purple;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+#main-sidebar {
+    border: 2px solid red;
+    width: 250px;
+    overflow: auto;
+}
+
+#main-body {
+    border: 2px solid blue;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.tester {
+    border: 1px solid pink;
+    height: 400px;
+}

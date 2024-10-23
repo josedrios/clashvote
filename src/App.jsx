@@ -1,9 +1,19 @@
 import { useState } from 'react'
+import './styles/main.scss'
+
+import NavBar from './Navbar'
+import MainBody from './MainBody'
+import SideBar from './SideBar'
+
 
 function App() {
   return (
     <>
-      Setting up Project Environment
+      <NavBar/>
+      <div id='main-container'>
+        <SideBar/>
+        <MainBody/>
+      </div>
     </>
   )
 }

@@ -17,14 +17,11 @@
 #root {
     width: 100%;
     height: 100vh;
-    min-height: 300px;
     display: flex;
     flex-direction: column;
 }
 
 body{
-    color: $text-color;
-    background-color: $secondary-background-color;
     width: 100%;
 }
 

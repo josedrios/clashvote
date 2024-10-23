@@ -29,7 +29,7 @@ body {
     font-weight: 100;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    color: white; // Default text color
+    color: black; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-family: $primary-font;
-    color: white;
+    color: black;
     font-size: 2.2rem;
 }
 
@@ -66,7 +66,7 @@ p {
 }
 
 a {
-    color: white;
+    color: black;
     font-size: $font-size-large;
     font-weight: $font-weight-light;
 }
