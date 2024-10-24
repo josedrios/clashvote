@@ -15,9 +15,20 @@
 }
 
 #mid-sidebar {
-
+    >:nth-child(1) {
+        margin-top: $spacing-small;
+        background-color: rgba(246, 96, 96, 0.449);
+    }
 }
 
 #bottom-sidebar {
     height: min-content;
+    >:nth-child(1) {
+        margin-top: $spacing-small;
+        background-color: rgba(246, 96, 96, 0.449);
+    }
+}
+
+.sidebar-link {
+    margin-bottom: $spacing-small;
 }

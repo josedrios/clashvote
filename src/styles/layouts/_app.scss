@@ -39,3 +39,12 @@
     border: 1px solid pink;
     height: 400px;
 }
+
+@media (max-width: #{$breakpoint-md}) {
+    #main-sidebar {
+        display: none;
+    }
+
+    // ADD BARS ICON TO THE LEFT 
+    // OF THE ICON/WEBSITE TITLE
+}
