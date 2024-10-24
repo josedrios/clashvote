@@ -6,19 +6,18 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
 }
 
 #top-sidebar {
-
+    height: min-content;
+    border-top: none;
 }
 
 #mid-sidebar {
-    
+
 }
 
 #bottom-sidebar {
-    justify-content: end;
-    justify-items: end;
-    justify-self: end;
+    height: min-content;
 }

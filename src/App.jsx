@@ -5,7 +5,6 @@ import NavBar from './Navbar'
 import MainBody from './MainBody'
 import SideBar from './SideBar'
 
-
 function App() {
   return (
     <>
