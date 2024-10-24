@@ -1,11 +1,12 @@
 // Abstracts
-@use './abstracts/variables';
+@import './abstracts/variables';
 
 // Base
-@use './base/reset';
-@use './base/typography';
+@import './base/reset';
+@import './base/typography';
 
 // Layouts
-@use './layouts/app';
+@import './layouts/app';
+@import './layouts/sidebar';
 
 // Components

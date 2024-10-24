@@ -1,0 +1,24 @@
+#main-sidebar {
+    padding: 20px 15px;
+}
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-bottom: 1px solid $border-color;
+}
+
+#top-sidebar {
+
+}
+
+#mid-sidebar {
+    
+}
+
+#bottom-sidebar {
+    justify-content: end;
+    justify-items: end;
+    justify-self: end;
+}
