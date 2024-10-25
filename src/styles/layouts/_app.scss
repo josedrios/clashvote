@@ -5,6 +5,7 @@
 
 #main-navbar {
     border: 2px solid greenyellow;
+    padding: $spacing-medium $spacing-small;
     width: 100%;
     min-height: 65px;
     position: sticky;
@@ -21,6 +22,7 @@
 }
 
 #main-sidebar {
+    padding: $spacing-medium $spacing-small;
     min-height: 100%;
     width: 250px;
     overflow: auto;
@@ -30,6 +32,7 @@
 
 #main-body {
     border: 2px solid cyan;
+    padding: $spacing-large;
     flex-grow: 1;
     overflow: auto;
 }
