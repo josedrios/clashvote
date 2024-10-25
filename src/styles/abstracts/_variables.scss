@@ -6,7 +6,7 @@
 $primary-color: rgb(235, 222, 36);
 
 $primary-background-color: #313030;
-$secondary-background-color: #2a2a2a;
+$secondary-background-color: rgba(64, 64, 64, 0.731);
 
 // Additional color options
 $border-color: #acacacb1;
@@ -15,7 +15,6 @@ $border-color: #acacacb1;
 $line-height-base: 1.6;
 
 // Spacing units
-$spacing-unit: 1rem;
 $spacing-xsmall: 0.25rem;
 $spacing-small: 0.5rem;
 $spacing-medium: 1rem;
@@ -35,10 +34,10 @@ $z-index-modal: 2000;
 $z-index-overlay: 3000;
 
 // Border radius
-$border-radius-base: 5px;
-$border-radius-small: 10px;
-$border-radius-medium: 20px;
-$border-radius-large: 25px;
+$border-radius-xs: 5px;
+$border-radius-sm: 10px;
+$border-radius-md: 20px;
+$border-radius-lg: 25px;
 $border-radius-xl: 35px;
 $border-circle: 10000px;
 

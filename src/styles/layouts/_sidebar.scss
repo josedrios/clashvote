@@ -2,11 +2,25 @@
     padding: 20px 15px;
 }
 
+
 .sidebar-section {
     display: flex;
     flex-direction: column;
     height: 100%;
     border-top: 1px solid $border-color;
+}
+
+.sidebar-link {
+    color: white;
+    text-wrap: nowrap;
+    margin-bottom: $spacing-small;
+    padding: $spacing-xsmall $spacing-medium;
+    border-radius: $border-radius-xs;
+    transition: $transition-ease $transition-duration;
+
+    &:hover {
+        background-color: $secondary-background-color;
+    }
 }
 
 #top-sidebar {
@@ -17,18 +31,13 @@
 #mid-sidebar {
     >:nth-child(1) {
         margin-top: $spacing-small;
-        background-color: rgba(246, 96, 96, 0.449);
     }
 }
 
 #bottom-sidebar {
     height: min-content;
+
     >:nth-child(1) {
         margin-top: $spacing-small;
-        background-color: rgba(246, 96, 96, 0.449);
     }
-}
-
-.sidebar-link {
-    margin-bottom: $spacing-small;
 }
