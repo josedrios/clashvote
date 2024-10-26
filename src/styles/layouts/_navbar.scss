@@ -1,0 +1,14 @@
+#website-name-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-background-color;
+    h1 {
+        font-family: "Poppins", sans-serif;
+        color: $secondary-color;
+        font-weight: 300;
+        
+        span {
+            color: $primary-color;
+        }
+    }
+}
