@@ -5,7 +5,7 @@
     background-color: transparent;
     margin-right: $spacing-small;
     rect {
-        transition: $transition-duration;
+        transition: $transition-duration-base;
         transform-origin: center;
         fill: $border-color-full-opacity;
     }

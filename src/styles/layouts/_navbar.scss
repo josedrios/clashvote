@@ -3,12 +3,23 @@
 }
 
 #website-name-container {
+    background-color: transparent;
     h1 {
+        background-color: transparent;
         font-family: "Poppins", sans-serif;
         color: white;
         font-weight: 400;
         span {
+            transition: $transition-duration-fast $transition-ease;
             color: $primary-color;
+        }
+    }
+
+    &:hover {
+        h1 {
+            span {
+                color: $secondary-color;
+            }
         }
     }
 }
@@ -25,7 +36,7 @@
     svg {
         fill: white;
         font-size: 23px;
-        transition: $transition-duration $transition-ease;
+        transition: $transition-duration-base $transition-ease;
     }
 
     &:hover {

@@ -11,10 +11,11 @@
     margin-bottom: $spacing-small;
     padding: $spacing-xsmall $spacing-medium;
     border-radius: $border-radius-xs;
-    transition: $transition-ease $transition-duration;
+    transition: $transition-ease $transition-duration-base;
 
-    &:hover {
+    &:hover{
         background-color: rgba(36, 36, 36, 0.653);
+            transform: translateX($spacing-small);
     }
 }
 

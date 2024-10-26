@@ -13,9 +13,9 @@ function Navbar() {
             <rect id='bottom-bar' className='bars' width={40} height={10} x={10} y={54} rx={5}></rect>
           </svg>
         </button>
-        <div id='website-name-container'>
+        <button id='website-name-container'>
           <h1 id='website-name'><span>cocvote</span>.</h1>
-        </div>
+        </button>
 
         <div id='nav-buttons-container'>
           <button id='nav-bars-icon-xs' className='nav-button'>

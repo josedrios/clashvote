@@ -7,7 +7,7 @@ $primary-color: rgb(235, 222, 36);
 $secondary-color: rgb(156, 146, 13);
 
 $primary-background-color: #272626;
-$secondary-background-color: rgba(48, 48, 48, 0.731);
+$secondary-background-color: rgba(48, 48, 48, 0.794);
 
 // Additional color options
 $border-color: #acacacb1;
@@ -45,5 +45,7 @@ $border-radius-xl: 35px;
 $border-circle: 10000px;
 
 // Transitions
-$transition-duration: 0.15s;
+$transition-duration-fast: 0.1s;
+$transition-duration-base: 0.15s;
+$transition-duration-slow: 0.25s;
 $transition-ease: ease-in-out;

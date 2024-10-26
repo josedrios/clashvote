@@ -4,7 +4,7 @@ function SideBar() {
   return (
     <aside id = 'main-sidebar'>
         <div className='sidebar-section' id='top-sidebar'>
-              <a className='sidebar-link'>Current Season</a>
+              <a className='sidebar-link'><span>Current Season</span></a>
               <a className='sidebar-link'>Search</a>
         </div>
 
