@@ -1,11 +1,10 @@
 import { useState } from 'react'
+import Season from './Season'
 
 function MainBody() {
   return (
     <main id = 'main-body'>
-        Main Body
-        <div className='tester'></div>
-        <div className='tester'></div>
+        <Season/>
     </main>
   )
 }

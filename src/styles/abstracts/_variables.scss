@@ -9,6 +9,9 @@ $secondary-color: rgb(156, 146, 13);
 $primary-background-color: #272626;
 $secondary-background-color: rgba(48, 48, 48, 0.794);
 
+$offwhite-one: rgb(200, 200, 200);  // Medium off-white
+$offwhite-two: rgb(170, 170, 170);
+
 // Additional color options
 $border-color: #acacacb1;
 $border-color-full-opacity: #acacac;
@@ -35,6 +38,9 @@ $breakpoint-xl: 1800px;
 $z-index-header: 1000;
 $z-index-modal: 2000;
 $z-index-overlay: 3000;
+
+// Border thickness
+$border-thickness-xs: 0.01rem;
 
 // Border radius
 $border-radius-xs: 5px;

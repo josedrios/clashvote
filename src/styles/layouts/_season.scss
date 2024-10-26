@@ -1,0 +1,99 @@
+#season-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#season-title {
+    padding-bottom: $spacing-medium;
+    border-bottom: $border-thickness-xs solid $border-color;
+    color: white;
+}
+
+.vote-section {
+    margin-top: $spacing-medium;
+}
+
+.vote-section-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: $spacing-medium
+}
+
+.vote-section-collapse {
+    background-color: transparent;
+    font-size: $font-size-large;
+    margin-right: $spacing-small;
+
+    svg {
+        transition: $transition-duration-fast $transition-ease;
+    }
+}
+
+.vote-section-collapse:hover svg{
+    transform-origin: center;
+    rotate: -90deg;
+}
+
+.vote-section-title {
+    text-wrap: nowrap;
+    color: $offwhite-one;
+}
+
+.vote-button {
+    margin-left: auto;
+    height: 30px;
+    background-color: $primary-color;
+    font-size: $font-size-sm;
+    color: black;
+    width: 60px;
+    border-radius: $border-radius-xs;
+}
+
+.horizontal-bar-graph-container {
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-sm;
+    width: 100%;
+    padding: $spacing-medium $spacing-medium;
+}
+
+.axis-section {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $spacing-medium;
+    position: relative;
+}
+
+.axis-section-header {
+    border-radius: $border-radius-sm;
+    border: 1px solid rgba(0, 255, 255, 0.386);
+    position: absolute;
+    margin-left: $spacing-small;
+    width: 100px;
+    height: 100%;
+}
+
+.test {
+    border-radius: $border-radius-sm;
+    border: 1px solid $primary-color;
+    height: 100%;
+    min-width: 120px;
+    margin-left: 0;
+}
+
+#queen-test {
+    width: calc(60% + 110px);
+}
+
+#king-test {
+    width: calc(20% + 110px);
+}
+
+#gw-test {
+    width: calc(12% + 110px);
+}
+
+#rc-test {
+    width: calc(8% + 110px);
+}

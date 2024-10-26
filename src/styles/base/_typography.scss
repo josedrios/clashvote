@@ -16,7 +16,7 @@ $font-size-xlarge: 25px;
 // Font Weights
 $font-weight-extra-light: 100;
 $font-weight-light: 300;
-$font-weight-normal: 450;
+$font-weight-normal: 400;
 $font-weight-bold: 600;
 
 // Line Heights
@@ -69,6 +69,10 @@ a {
     color: black;
     font-size: $font-size-large;
     font-weight: $font-weight-light;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
 }
 
 .small-text {

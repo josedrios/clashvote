@@ -27,11 +27,11 @@ function Navbar() {
           </button>
 
           <button className='nav-button'>
-            <GoPerson strokeWidth={0.15}/>
+            <GoHome strokeWidth={0.01}/>
           </button>
 
           <button className='nav-button'>
-            <GoHome strokeWidth={0.01}/>
+            <GoPerson strokeWidth={0.15}/>
           </button>
         </div>
     </nav>

@@ -4,12 +4,12 @@
 }
 
 #main-navbar {
-    border: 0.01rem solid $border-color;
+    border: $border-thickness-xs solid $border-color;
     border-radius: $border-radius-sm;
     padding: $spacing-medium $spacing-medium;
     background-color: $secondary-background-color;
     margin: $spacing-medium;
-    margin-bottom: $spacing-small;
+    margin-bottom: 0;
     min-height: 80px;
     position: sticky;
     top: 0;
@@ -19,7 +19,6 @@
 }
 
 #main-container {
-    //border: 4px solid purple;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -27,7 +26,7 @@
 }
 
 #main-sidebar {
-    border: 0.06rem solid $border-color;
+    border: $border-thickness-xs solid $border-color;
     border-radius: $border-radius-sm;
     margin: $spacing-medium;
     padding: $spacing-medium $spacing-small;
@@ -39,16 +38,11 @@
 }
 
 #main-body {
-    margin-top: $spacing-medium;
-    border: 2px solid cyan;
+    margin: 0 auto 0 auto;
+    max-width: 1600px;
     padding: $spacing-large;
     flex-grow: 1;
     overflow: auto;
-}
-
-.tester {
-    border: 1px solid pink;
-    height: 400px;
 }
 
 @media (max-width: #{$breakpoint-md}) {
