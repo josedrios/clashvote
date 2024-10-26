@@ -14,7 +14,7 @@
     transition: $transition-ease $transition-duration;
 
     &:hover {
-        background-color: $secondary-background-color;
+        background-color: rgba(36, 36, 36, 0.653);
     }
 }
 
@@ -35,4 +35,8 @@
     >:nth-child(1) {
         margin-top: $spacing-small;
     }
+}
+
+.nav-buttons {
+    background-color: transparent;
 }

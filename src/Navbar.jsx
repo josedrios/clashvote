@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFaceMeh } from '@fortawesome/free-regular-svg-icons';
+import { faHouse, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   return (
@@ -11,6 +14,17 @@ function Navbar() {
         </button>
         <div id='website-name-container'>
           <h1 id='website-name'><span>cocvote</span>.</h1>
+        </div>
+        <div id='nav-icons'>
+          <button className='nav-buttons'>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+          <button className='nav-buttons'>
+            <FontAwesomeIcon icon={faFaceMeh} />
+          </button>
+          <button className='nav-buttons'>
+            <FontAwesomeIcon icon={faHouse} />
+          </button>
         </div>
     </nav>
   )
