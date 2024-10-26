@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFaceMeh } from '@fortawesome/free-regular-svg-icons';
-import { faHouse, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { IoIosSearch } from "react-icons/io";
+import { GoHome } from "react-icons/go";
+import { GoPerson } from "react-icons/go";
+
+
+
+
+
 
 function Navbar() {
   return (
@@ -15,15 +20,19 @@ function Navbar() {
         <div id='website-name-container'>
           <h1 id='website-name'><span>cocvote</span>.</h1>
         </div>
-        <div id='nav-icons'>
-          <button className='nav-buttons'>
-            <FontAwesomeIcon icon={faSearch} />
+
+        <div id='nav-buttons-container'>
+          <button className='nav-button'>
+            <IoIosSearch />
           </button>
-          <button className='nav-buttons'>
-            <FontAwesomeIcon icon={faFaceMeh} />
+
+          <button className='nav-button'>
+            <GoPerson strokeWidth={0.15}/>
           </button>
-          <button className='nav-buttons'>
-            <FontAwesomeIcon icon={faHouse} />
+
+
+          <button className='nav-button'>
+            <GoHome strokeWidth={0.01}/>
           </button>
         </div>
     </nav>
