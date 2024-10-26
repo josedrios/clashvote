@@ -4,9 +4,12 @@
 }
 
 #main-navbar {
-    border: 2px solid greenyellow;
+    border: 0.01rem solid $border-color;
+    border-radius: $border-radius-sm;
     padding: $spacing-medium $spacing-medium;
-    width: 100%;
+    background-color: $secondary-background-color;
+    margin: $spacing-medium;
+    margin-bottom: $spacing-small;
     min-height: 80px;
     position: sticky;
     top: 0;
@@ -14,7 +17,7 @@
 }
 
 #main-container {
-    border: 4px solid purple;
+    //border: 4px solid purple;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -22,8 +25,11 @@
 }
 
 #main-sidebar {
+    border: 0.06rem solid $border-color;
+    border-radius: $border-radius-sm;
+    margin: $spacing-medium;
     padding: $spacing-medium $spacing-small;
-    min-height: 100%;
+    background-color: $secondary-background-color;
     width: 250px;
     overflow: auto;
     display: flex;
@@ -31,6 +37,7 @@
 }
 
 #main-body {
+    margin-top: $spacing-medium;
     border: 2px solid cyan;
     padding: $spacing-large;
     flex-grow: 1;
@@ -45,6 +52,10 @@
 @media (max-width: #{$breakpoint-md}) {
     #main-sidebar {
         display: none;
+    }
+
+    #bars-icon-button {
+        display: inline !important;
     }
 
     // ADD BARS ICON TO THE LEFT 

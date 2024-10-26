@@ -1,11 +1,16 @@
+#main-navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #website-name-container {
     display: flex;
     flex-direction: column;
-    background-color: $primary-background-color;
     h1 {
         font-family: "Poppins", sans-serif;
         color: white;
-        font-weight: 300;
+        font-weight: 400;
         
         span {
             color: $primary-color;

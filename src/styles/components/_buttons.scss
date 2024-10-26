@@ -1,0 +1,28 @@
+#bars-icon-button {
+    display: none;
+    position: relative;
+    top: $spacing-xsmall;
+    background-color: transparent;
+    margin-right: $spacing-xsmall;
+    rect {
+        transition: $transition-duration;
+        transform-origin: center;
+        fill: $border-color-full-opacity;
+    }
+}
+
+#bars-icon-button:hover{
+    rect {
+        width: 80px;
+        y: 45;
+    }
+
+    #top-bar {
+        rotate: 45deg;
+    }
+
+    #bottom-bar {
+        rotate: -45deg;
+        color: white;
+    }
+}
