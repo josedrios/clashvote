@@ -60,6 +60,28 @@ h5 {
     font-size: 1.4rem;
 }
 
+@media (max-width: #{$breakpoint-xs}) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+    }
+  
+    h3 {
+      font-size: 1.4rem;
+    }
+  
+    h4 {
+      font-size: 1.2rem;
+    }
+  
+    h5 {
+      font-size: 1rem;
+    }
+}
+
 p {
     font-size: $font-size-medium;
     line-height: $line-height-base;

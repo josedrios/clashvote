@@ -10,7 +10,7 @@
         color: white;
         font-weight: 400;
         span {
-            transition: $transition-duration-fast $transition-ease;
+            transition: color $transition-duration-fast $transition-ease;
             color: $primary-color;
         }
     }

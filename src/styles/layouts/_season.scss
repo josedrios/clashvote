@@ -17,7 +17,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: $spacing-medium
+    margin-bottom: $spacing-medium;
+    flex-wrap: wrap;
 }
 
 .vote-section-collapse {
@@ -28,11 +29,11 @@
     svg {
         transition: $transition-duration-fast $transition-ease;
     }
-}
 
-.vote-section-collapse:hover svg{
-    transform-origin: center;
-    rotate: -90deg;
+    &:hover svg {
+        transform-origin: center;
+        rotate: -90deg;
+    }
 }
 
 .vote-section-title {
@@ -48,6 +49,19 @@
     color: black;
     width: 60px;
     border-radius: $border-radius-xs;
+    transition: background-color $transition-duration-base;
+
+    &:hover {
+        background-color: $secondary-color;
+    }
+}
+
+@media (max-width: 400px) {
+    .vote-button {
+        margin-top: $spacing-small;
+        flex-basis: 100%;
+        width: 80px;
+    }
 }
 
 .horizontal-bar-graph-container {
