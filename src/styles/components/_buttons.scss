@@ -3,7 +3,7 @@
     position: relative;
     top: $spacing-xsmall;
     background-color: transparent;
-    margin-right: $spacing-xsmall;
+    margin-right: $spacing-small;
     rect {
         transition: $transition-duration;
         transform-origin: center;
@@ -23,7 +23,6 @@
 
     #bottom-bar {
         rotate: -45deg;
-        color: white;
     }
 }
 

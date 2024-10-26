@@ -1,12 +1,8 @@
 #main-navbar {
-    display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
 #website-name-container {
-    display: flex;
-    flex-direction: column;
     h1 {
         font-family: "Poppins", sans-serif;
         color: white;
@@ -27,9 +23,42 @@
 .nav-button {
     background-color: transparent;
     svg {
+        fill: white;
         font-size: 23px;
+        transition: $transition-duration $transition-ease;
     }
-    img {
-        color: white;
+
+    &:hover {
+        svg{
+            fill: $border-color;
+        }
+    }
+}
+
+#nav-bars-icon-xs {
+    display: none;
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #main-navbar {
+        padding: $spacing-xsmall;
+        flex-wrap: wrap;
+        height: 210px;
+    }
+
+    #bars-icon-button {
+        display: none !important;
+    }
+
+    #nav-bars-icon-xs {
+        display: inline;
+    }
+
+    #website-name-container {
+        margin: auto;
+    }
+
+    #nav-buttons-container {
+        flex-basis: 100%;
     }
 }
