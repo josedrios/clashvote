@@ -16,43 +16,47 @@ function Season() {
                     <IoMdArrowDropdown />
                 </button>
                 <h3 className='vote-section-title'>
-                    Best Heroes
+                    Best Hero
                 </h3>
                 <button className='vote-button'>
                     Vote
                 </button>
             </div>
             <div className='horizontal-bar-graph-container'>
+                <h1 className='axis-name axis-name-leading'>Archer Queen: 2.3k votes</h1>
                 <div className='axis-section'>
                     <div className='axis-section-header'>
+                        <h3 className='axis-percentage'>60%</h3>
                         <img className='axis-image' src={aq} alt="" />
                     </div>
-                    <div className='test' id='queen-test'>
-                        <h3 className='axis-percentage'>60%</h3>
+                    <div className='test test-won' id='queen-test'>
                     </div>
                 </div>
+                <h1 className='axis-name'>Barbarian King: 1.8k votes</h1>
                 <div className='axis-section'>
                     <div className='axis-section-header'>
+                        <h3 className='axis-percentage'>50%</h3>
                         <img className='axis-image' src={bk} alt="" />
                     </div>
                     <div className='test' id='king-test'>
-                        <h3 className='axis-percentage'>50%</h3>
                     </div>
                 </div>
+                <h1 className='axis-name'>Grand Warden: 1.2k votes</h1>
                 <div className='axis-section'>
                     <div className='axis-section-header'>
+                        <h3 className='axis-percentage'>10%</h3>
                         <img className='axis-image' src={gw} alt="" />
                     </div>
                     <div className='test' id='gw-test'>
-                        <h3 className='axis-percentage'>10%</h3>
                     </div>
                 </div>
+                <h1 className='axis-name'>Royal Champion: 103 votes</h1>
                 <div className='axis-section'>
                     <div className='axis-section-header'>
+                        <h3 className='axis-percentage'>0%</h3>
                         <img className='axis-image' src={rc} alt="" />
                     </div>
                     <div className='test' id='rc-test'>
-                        <h3 className='axis-percentage'>0%</h3>
                     </div>
                 </div>
             </div>

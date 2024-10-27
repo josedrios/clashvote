@@ -19,6 +19,7 @@
 }
 
 #main-container {
+    top: 80px;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -43,6 +44,7 @@
     padding: $spacing-large;
     flex-grow: 1;
     overflow: auto;
+    padding-bottom: 100px;
 }
 
 @media (max-width: #{$breakpoint-md}) {

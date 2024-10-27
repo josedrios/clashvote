@@ -66,17 +66,29 @@
 
 .horizontal-bar-graph-container {
     background-color: $secondary-background-color;
-    border-radius: $border-radius-sm;
+    border-radius: 0px $border-radius-sm $border-radius-sm 0px;
+    border-left: 4px solid $leading-vote-bg;
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: $spacing-medium $spacing-medium;
 }
 
+.axis-name-leading {
+    color: $primary-color !important;
+}
+
+.axis-name {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-small;
+    color: $offwhite-two;
+}
+
 .axis-section {
-    height: 150px;
+    height: 70px;
     display: flex;
     flex-direction: row;
+    margin-top: 70px;
     margin-bottom: $spacing-medium;
     position: relative;
 }
@@ -85,23 +97,28 @@
     border-radius: $border-radius-sm;
     position: absolute;
     left: 5px;
-    bottom: 5%;
+    bottom: $spacing-small;
     margin-left: $spacing-small;
     width: 100px;
-    height: 90%;
+    height: 135px;
     overflow: hidden;
 }
 
 .axis-image {
-    height: 100%;
+    position: relative;
     width: 100%;
     object-fit: cover;
 }
 
+.test-won {
+    background-color: $leading-vote-bg !important;
+    border: 1px solid $primary-color !important;
+}
+
 .test {
     border-radius: $border-radius-sm;
-    background-color: $leading-vote-bg;
-    border: 1px solid $primary-color;
+    background-color: $losing-vote-bg;
+    border: 1px solid $secondary-color;
     height: 100%;
     min-width: 130px;
     margin-left: 0;
@@ -111,12 +128,13 @@
 }
 
 .axis-percentage {
-    z-index: 1;
-    border: $border-thickness-base solid white;
-    background-color: rgba(255, 255, 255, 0.348);
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    background-color: rgba(111, 110, 110, 0.644);
     padding: 2px;
     border-radius: $border-radius-sm;
-    margin-right: $spacing-small;
+    font-size: $font-size-large;
 }
 
 #queen-test {

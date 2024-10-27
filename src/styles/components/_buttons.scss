@@ -7,6 +7,7 @@
     rect {
         transition: $transition-duration-base;
         transform-origin: center;
+        -webkit-transform-origin: center;
         fill: $border-color-full-opacity;
     }
 }
@@ -18,11 +19,17 @@
     }
 
     #top-bar {
-        rotate: 45deg;
-    }
-
+        y:45;
+        width: 80px;
+        transform: rotate(45deg); /* Use full transform */
+        -webkit-transform: rotate(45deg); /* Safari compatibility */
+      }
+    
     #bottom-bar {
-        rotate: -45deg;
+        y:45;
+        width: 80px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
     }
 }
 
