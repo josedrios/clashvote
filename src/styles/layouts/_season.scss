@@ -67,6 +67,8 @@
 .horizontal-bar-graph-container {
     background-color: $secondary-background-color;
     border-radius: $border-radius-sm;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: $spacing-medium $spacing-medium;
 }
@@ -81,33 +83,54 @@
 
 .axis-section-header {
     border-radius: $border-radius-sm;
-    border: 1px solid rgba(0, 255, 255, 0.386);
     position: absolute;
+    left: 5px;
+    bottom: 5%;
     margin-left: $spacing-small;
     width: 100px;
+    height: 90%;
+    overflow: hidden;
+}
+
+.axis-image {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .test {
     border-radius: $border-radius-sm;
+    background-color: $leading-vote-bg;
     border: 1px solid $primary-color;
     height: 100%;
-    min-width: 120px;
+    min-width: 130px;
     margin-left: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.axis-percentage {
+    z-index: 1;
+    border: $border-thickness-base solid white;
+    background-color: rgba(255, 255, 255, 0.348);
+    padding: 2px;
+    border-radius: $border-radius-sm;
+    margin-right: $spacing-small;
 }
 
 #queen-test {
-    width: calc(60% + 110px);
+    width: calc(100px + 60%);
 }
 
 #king-test {
-    width: calc(20% + 110px);
+    width: calc(100px + 30%);
 }
 
 #gw-test {
-    width: calc(12% + 110px);
+    width: calc(100px + 20%);
 }
 
 #rc-test {
-    width: calc(8% + 110px);
+    width: calc(100px + 0%);
 }

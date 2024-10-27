@@ -41,6 +41,8 @@ $z-index-overlay: 3000;
 
 // Border thickness
 $border-thickness-xs: 0.01rem;
+$border-thickness-small: 0.07rem;
+$border-thickness-base: 0.1rem;
 
 // Border radius
 $border-radius-xs: 5px;
@@ -55,3 +57,6 @@ $transition-duration-fast: 0.1s;
 $transition-duration-base: 0.15s;
 $transition-duration-slow: 0.25s;
 $transition-ease: ease-in-out;
+
+// Misc
+$leading-vote-bg: rgba(235, 222, 36, 0.253);
