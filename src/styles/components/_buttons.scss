@@ -4,32 +4,16 @@
     top: $spacing-xsmall;
     background-color: transparent;
     margin-right: $spacing-small;
-    rect {
-        transition: $transition-duration-base;
-        transform-origin: center;
-        -webkit-transform-origin: center;
-        fill: $border-color-full-opacity;
-    }
 }
 
-#bars-icon-button:hover{
-    rect {
-        width: 80px;
-        y: 45;
-    }
+rect.bars {
+    transition: width $transition-duration-base;
+    fill: $border-color-full-opacity;
+}
 
-    #top-bar {
-        y:45;
-        width: 80px;
-        transform: rotate(45deg); /* Use full transform */
-        -webkit-transform: rotate(45deg); /* Safari compatibility */
-      }
-    
+#bars-icon-button:hover {
     #bottom-bar {
-        y:45;
-        width: 80px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
+        width: 70px;
     }
 }
 
