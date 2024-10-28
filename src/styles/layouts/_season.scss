@@ -79,14 +79,19 @@
     display: flex;
     flex-direction: row;
     max-height: 100px;
+    margin-bottom: $spacing-large;
 }
 
 .vote-item-image {
     max-width: 100px;
     width: 100%;
     object-fit: cover;
-    border: 1px solid $primary-color;
+    border: $border-thickness-xs solid $secondary-color;
     border-radius: $border-radius-sm;
+}
+
+.win-img {
+    border: $border-thickness-base solid $primary-color !important;
 }
 
 .vote-item-body {
@@ -114,12 +119,45 @@
     background-color: white;
 }
 
+.fill-bar {
+    min-width: $spacing-small;
+}
+
 .background-bar {
     width: 100%;
+}
+
+.win-bar {
     background-color: $leading-vote-bg;
 }
 
-.fill-bar {
-    width: 60%;
+.lose-bar {
+    background-color: $losing-vote-bg;
+}
+
+.win-fill-bar {
     background-color: $primary-color;
 }
+
+.lose-fill-bar {
+    background-color: $leading-vote-bg;
+}
+
+.aq {
+    width: 60%;
+}
+
+.bk {
+    width: 30%;
+}
+
+.gw {
+    width: 8%;
+}
+
+.rc {
+    width: 2%;
+}
+
+// Once vote item gets to a certain shortened responsive length
+// move vote percentage to bottom right of vote item img icon

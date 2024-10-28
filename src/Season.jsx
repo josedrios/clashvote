@@ -26,17 +26,62 @@ function Season() {
             <div className='horizontal-bar-graph-container'>
                 {/* THIS IS HOW THE NEW VOTE CARD STRUCTURE SHOULD LOOK LIKE */}
                 <div className='vote-item'>
-                    <img className='vote-item-image' src={aq} alt="" />
+                    <img className='vote-item-image win-img' src={aq} alt="" />
                     <div className='vote-item-body'>
                         <div className='vote-item-header'>
                             <h3 className='vote-item-title'>Archer Queen</h3>
                             <h3 className='vote-item-percentage'>60%</h3>
                         </div>
                         <div className='vote-item-bar'>
-                            <div className='background-bar'></div>
-                            <div className='fill-bar'></div>
+                            <div className='background-bar win-bar'></div>
+                            <div className='fill-bar win-fill-bar aq'></div>
                         </div>
                         <h3 className='vote-item-vote-count'>2.3k votes</h3>
+                    </div>
+                </div>
+
+                <div className='vote-item'>
+                    <img className='vote-item-image' src={bk} alt="" />
+                    <div className='vote-item-body'>
+                        <div className='vote-item-header'>
+                            <h3 className='vote-item-title'>Barbarian King</h3>
+                            <h3 className='vote-item-percentage'>30%</h3>
+                        </div>
+                        <div className='vote-item-bar'>
+                            <div className='background-bar lose-bar'></div>
+                            <div className='fill-bar lose-fill-bar bk'></div>
+                        </div>
+                        <h3 className='vote-item-vote-count'>1.1k votes</h3>
+                    </div>
+                </div>
+
+                <div className='vote-item'>
+                    <img className='vote-item-image' src={gw} alt="" />
+                    <div className='vote-item-body'>
+                        <div className='vote-item-header'>
+                            <h3 className='vote-item-title'>Grand Warden</h3>
+                            <h3 className='vote-item-percentage'>8%</h3>
+                        </div>
+                        <div className='vote-item-bar'>
+                            <div className='background-bar lose-bar'></div>
+                            <div className='fill-bar lose-fill-bar gw'></div>
+                        </div>
+                        <h3 className='vote-item-vote-count'>302 votes</h3>
+                    </div>
+                </div>
+
+                <div className='vote-item'>
+                    <img className='vote-item-image' src={rc} alt="" />
+                    <div className='vote-item-body'>
+                        <div className='vote-item-header'>
+                            <h3 className='vote-item-title'>Royal Champion</h3>
+                            <h3 className='vote-item-percentage'>2%</h3>
+                        </div>
+                        <div className='vote-item-bar'>
+                            <div className='background-bar lose-bar'></div>
+                            <div className='fill-bar lose-fill-bar rc'></div>
+                        </div>
+                        <h3 className='vote-item-vote-count'>98 votes</h3>
                     </div>
                 </div>
 
