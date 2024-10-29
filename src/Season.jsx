@@ -23,9 +23,16 @@ function Season() {
                 </button>
             </div>
 
+            {/* 
+                Potentially in the future make each voting section 
+                (ex. Best Hero) its own jsx page and import them hear.
+                Another thought is making the above header section for
+                each voting section one jsx page as well, only having
+                to import the name.
+            */}
+
             <div className='horizontal-bar-graph-container'>
-                {/* THIS IS HOW THE NEW VOTE CARD STRUCTURE SHOULD LOOK LIKE */}
-                <div className='vote-item'>
+                <div className='vote-item winner'>
                     <img className='vote-item-image win-img' src={aq} alt="" />
                     <h3 className='vote-item-percentage-xs'>60%</h3>
                     <div className='vote-item-body'>
@@ -88,8 +95,6 @@ function Season() {
                         <h3 className='vote-item-vote-count'>98 votes</h3>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>
