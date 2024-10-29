@@ -27,6 +27,7 @@ function Season() {
                 {/* THIS IS HOW THE NEW VOTE CARD STRUCTURE SHOULD LOOK LIKE */}
                 <div className='vote-item'>
                     <img className='vote-item-image win-img' src={aq} alt="" />
+                    <h3 className='vote-item-percentage-xs'>60%</h3>
                     <div className='vote-item-body'>
                         <div className='vote-item-header'>
                             <h3 className='vote-item-title'>Archer Queen</h3>
@@ -42,6 +43,7 @@ function Season() {
 
                 <div className='vote-item'>
                     <img className='vote-item-image' src={bk} alt="" />
+                    <h3 className='vote-item-percentage-xs'>30%</h3>
                     <div className='vote-item-body'>
                         <div className='vote-item-header'>
                             <h3 className='vote-item-title'>Barbarian King</h3>
@@ -57,6 +59,7 @@ function Season() {
 
                 <div className='vote-item'>
                     <img className='vote-item-image' src={gw} alt="" />
+                    <h3 className='vote-item-percentage-xs'>8%</h3>
                     <div className='vote-item-body'>
                         <div className='vote-item-header'>
                             <h3 className='vote-item-title'>Grand Warden</h3>
@@ -72,6 +75,7 @@ function Season() {
 
                 <div className='vote-item'>
                     <img className='vote-item-image' src={rc} alt="" />
+                    <h3 className='vote-item-percentage-xs'>2%</h3>
                     <div className='vote-item-body'>
                         <div className='vote-item-header'>
                             <h3 className='vote-item-title'>Royal Champion</h3>
