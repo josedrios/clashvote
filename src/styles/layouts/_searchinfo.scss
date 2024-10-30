@@ -1,0 +1,67 @@
+#search-info-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+}
+
+#search-info-header {
+    margin: auto;
+    text-align: center;
+    padding-bottom: $spacing-large;
+}
+
+#search-info-tip-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #search-info-tip-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #clan-tip-info {
+        width: 152px;
+    }
+
+    .tip-info {
+        margin-bottom: $spacing-medium;
+    }
+}
+
+.tip-info {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-icon-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon-background {
+    position: absolute;
+    background-color: $leading-vote-bg;
+    width: 55px;
+    height: 55px;
+    border-radius: 1000px;
+}
+
+.info-icon {
+    font-size: $spacing-large;
+    fill: $primary-color;
+}
+
+.info-tip-header {
+    margin-left: $spacing-medium;
+}
+

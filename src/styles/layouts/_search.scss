@@ -1,13 +1,12 @@
 #search-page-container {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #searchbar {
-    margin: $spacing-medium 0;
-    max-width: 500px;
+    margin-bottom: $spacing-large;
+    max-width: 700px;
     height: 50px;
     border-radius: $border-radius-xs;
     background-color: $secondary-background-color;
@@ -21,10 +20,4 @@
 
 #searchbar:focus {
     border: 1px solid $primary-color;
-}
-
-#results-container {
-    border: 1px solid cyan;
-    width: 200px;
-    height: 200px;
 }
