@@ -1,0 +1,30 @@
+#search-page-container {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#searchbar {
+    margin: $spacing-medium 0;
+    max-width: 500px;
+    height: 50px;
+    border-radius: $border-radius-xs;
+    background-color: $secondary-background-color;
+    width: 100%;
+    border: 1px solid $border-color;
+    text-decoration: none;
+    outline: none;
+    padding: 0px $spacing-medium;
+    transition: border-color $transition-duration-fast;
+}
+
+#searchbar:focus {
+    border: 1px solid $primary-color;
+}
+
+#results-container {
+    border: 1px solid cyan;
+    width: 200px;
+    height: 200px;
+}

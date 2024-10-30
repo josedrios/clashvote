@@ -29,6 +29,17 @@
     border: $border-thickness-base solid $primary-color !important;
 }
 
+.vote-item-percentage-xs {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
+    padding: 0.15rem;
+    font-weight: 400;
+    background-color: rgba(175, 165, 23, 0.629);
+}
+
 .vote-item-body {
     width: 100%;
     padding-left: $spacing-medium;
@@ -40,15 +51,7 @@
     justify-content: space-between;
 }
 
-.vote-item-percentage-xs {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    border-bottom-left-radius: $border-radius-sm;
-    border-top-right-radius: $border-radius-sm;
-    padding: 0.15rem;
-    font-weight: 400;
-    background-color: rgba(175, 165, 23, 0.629);
+.vote-item-percentage {
 }
 
 .vote-item-bar {
