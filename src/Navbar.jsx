@@ -18,7 +18,7 @@ function Navbar({isSideBarOpen, toggleSideBar}) {
         </button>
 
         <div id='nav-buttons-container'>
-          <button id='nav-bars-icon-xs' className='nav-button'>
+          <button id='nav-bars-icon-xs' className='nav-button' onClick={toggleSideBar} aria-expanded={isSideBarOpen} aria-controls='#main-sidebar'>
             <HiBars2 strokeWidth={0.3}/>
           </button>
 

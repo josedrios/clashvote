@@ -10,34 +10,39 @@
     background-color: $secondary-background-color;
     margin: $spacing-medium;
     margin-bottom: 0;
-    min-height: 80px;
-    position: sticky;
+    height: 80px;
+    position: fixed;
     top: 0;
     z-index: 10;
     display: flex;
     flex-direction: row;
+    width: calc(100vw - 2*$spacing-medium);
 }
 
 #main-container {
     border: 1px solid red;
-    top: 80px;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    overflow: scroll;
+    position: relative;
+    top: calc(80px + 2*$spacing-medium);
 }
 
+// Make sidebar sticky?
 #main-sidebar {
     border: $border-thickness-xs solid $border-color;
     border-radius: $border-radius-sm;
-    margin: $spacing-medium;
+    margin: $spacing-medium $spacing-medium 0 $spacing-medium;
     padding: $spacing-medium $spacing-small;
     background-color: $secondary-background-color;
     width: 250px;
-    overflow: auto;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
-    height: 100%;  
+    //height: calc(100% - $spacing-medium);
+    height: 800px;
+    position: sticky;
+    top: 0;
 }
 
 #main-body {
@@ -57,5 +62,11 @@
 
     #bars-icon-button {
         display: inline !important;
+    }
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #main-container {
+        top: calc(90px + 2*$spacing-medium);
     }
 }
