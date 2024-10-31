@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
-function SideBar() {
+function SideBar({isSideBarOpen}) {
   return (
-    <aside id = 'main-sidebar'>
+    // className='sidebar-section'
+    <aside className={`main-sidebar ${isSideBarOpen ? 'open' : ''}`} aria-hidden={!isSideBarOpen} id = 'main-sidebar'>
         <div className='sidebar-section' id='top-sidebar'>
               <a className='sidebar-link'><span>Current Season</span></a>
               <a className='sidebar-link'>Search</a>

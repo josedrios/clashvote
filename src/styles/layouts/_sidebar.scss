@@ -37,3 +37,9 @@
         margin-top: $spacing-small;
     }
 }
+
+@media (max-width: #{$breakpoint-md}) {
+    #main-sidebar.open{
+        transform: translateX(0px);
+    }
+}

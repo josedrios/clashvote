@@ -19,11 +19,12 @@
 }
 
 #main-container {
+    border: 1px solid red;
     top: 80px;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    overflow: auto;
+    overflow: scroll;
 }
 
 #main-sidebar {
@@ -36,6 +37,7 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
+    height: 100%;  
 }
 
 #main-body {
@@ -49,7 +51,8 @@
 
 @media (max-width: #{$breakpoint-md}) {
     #main-sidebar {
-        display: none;
+        position: absolute;
+        transform: translateX(-300px);
     }
 
     #bars-icon-button {
