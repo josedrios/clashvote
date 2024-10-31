@@ -24,14 +24,15 @@
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    position: relative;
-    top: calc(80px + 2*$spacing-medium);
+    overflow: auto;
+    padding-top: calc(80px + $spacing-medium);
 }
 
 // Make sidebar sticky?
 #main-sidebar {
     border: $border-thickness-xs solid $border-color;
-    border-radius: $border-radius-sm;
+    border-top-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
     margin: $spacing-medium $spacing-medium 0 $spacing-medium;
     padding: $spacing-medium $spacing-small;
     background-color: $secondary-background-color;
@@ -39,8 +40,6 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    //height: calc(100% - $spacing-medium);
-    height: 800px;
     position: sticky;
     top: 0;
 }
@@ -56,6 +55,8 @@
 
 @media (max-width: #{$breakpoint-md}) {
     #main-sidebar {
+        top: calc(80px + $spacing-medium); 
+        height: calc(100% - 80px - $spacing-medium);
         position: absolute;
         transform: translateX(-300px);
     }
@@ -66,7 +67,11 @@
 }
 
 @media (max-width: #{$breakpoint-xs}) {
+    #main-sidebar {
+        top: calc(100px + $spacing-medium);
+    }
+
     #main-container {
-        top: calc(90px + 2*$spacing-medium);
+        padding-top: calc(100px + $spacing-medium);
     }
 }

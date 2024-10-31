@@ -13,6 +13,7 @@ function Navbar({isSideBarOpen, toggleSideBar}) {
             <rect id='bottom-bar' className='bars' width={40} height={10} x={10} y={54} rx={5}></rect>
           </svg>
         </button>
+        
         <button id='website-name-container'>
           <h1 id='website-name'><span>coovote</span>.</h1>
         </button>
