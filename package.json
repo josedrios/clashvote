@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "devserv": "concurrently \"npm run dev\" \"npm run server\""
+    "sd": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",

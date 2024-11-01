@@ -31,6 +31,7 @@ function App() {
       <NavBar isSideBarOpen={isSideBarOpen} toggleSideBar={toggleSideBar}/>
       <div id='main-container'>
         <SideBar isSideBarOpen={isSideBarOpen}/>
+        {isSideBarOpen && <div id='non-interactable-overlay' onClick={() => setIsSideBarOpen(false)}/>}
         <MainBody/>
       </div>
     </>

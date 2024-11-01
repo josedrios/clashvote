@@ -16,6 +16,9 @@ $offwhite-two: rgb(170, 170, 170);
 $border-color: #acacacb1;
 $border-color-full-opacity: #acacac;
 
+// Non interactable overlay color
+$non-interactable: rgba(0,0,0,0.5);
+
 // Line heights
 $line-height-base: 1.6;
 
@@ -32,11 +35,6 @@ $breakpoint-sm: 768px;
 $breakpoint-md: 1024px;
 $breakpoint-lg: 1200px;
 $breakpoint-xl: 1800px;
-
-// Z-index levels
-$z-index-header: 1000;
-$z-index-modal: 2000;
-$z-index-overlay: 3000;
 
 // Border thickness
 $border-thickness-xs: 0.01rem;
@@ -57,7 +55,13 @@ $transition-duration-base: 0.15s;
 $transition-duration-slow: 0.25s;
 $transition-ease: ease-in-out;
 
-// Misc
+// MISC:
+
+// Z-Index Reference Section
+$z-navbar: 1000;
+$z-sidebar: 750;
+$z-non-int-overlay: 500;
+
 
 // Vote Corresponding Placement Colors
 $leading-vote-color: $primary-color;

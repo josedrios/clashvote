@@ -13,7 +13,7 @@
     height: 80px;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: $z-navbar;
     display: flex;
     flex-direction: row;
     width: calc(100vw - 2*$spacing-medium);
@@ -40,6 +40,7 @@
     flex-direction: column;
     position: sticky;
     top: 0;
+    z-index: $z-sidebar;
 }
 
 #main-body {
@@ -49,6 +50,16 @@
     flex-grow: 1;
     overflow: auto;
     padding-bottom: 100px;
+}
+
+#non-interactable-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $non-interactable;
+    z-index: $z-non-int-overlay;
 }
 
 @media (max-width: #{$breakpoint-md}) {

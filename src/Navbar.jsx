@@ -15,7 +15,7 @@ function Navbar({isSideBarOpen, toggleSideBar}) {
         </button>
         
         <button id='website-name-container'>
-          <h1 id='website-name'><span>coovote</span>.</h1>
+          <h1 id='website-name'><span>cocvote</span>.</h1>
         </button>
 
         <div id='nav-buttons-container'>
