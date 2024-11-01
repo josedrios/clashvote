@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
-import './styles/main.scss'
-import SearchInfo from './SearchInfo'
-import SearchResult from './SearchResult'
 import { IoIosSearch } from "react-icons/io";
+import SearchInfo from '../feature/SearchInfo'
+import SearchResult from '../feature/SearchResult'
+
 
 function Search() {
   const [userEntry, setUserEntry] = useState('');
@@ -57,7 +57,7 @@ function Search() {
           USER ENTRY STATE: {userEntry}
         </h1>
         {/* <SearchInfo/> */}
-        <SearchResult/>
+        <SearchResult playerData={playerData}/>
     </div>
   )
 }

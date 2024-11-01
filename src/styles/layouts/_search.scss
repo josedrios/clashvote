@@ -15,7 +15,8 @@
 }
 
 #searchbar-toggle {
-    border: 1px solid red;
+    display: none;
+    border: 1px solid $primary-color;
     text-align: center;
     line-height: 50px; // TEMP: FOR SAKE OF STYLE
     margin: 0px $spacing-medium;

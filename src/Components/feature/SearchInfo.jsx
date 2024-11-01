@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './styles/main.scss'
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
 

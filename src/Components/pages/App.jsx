@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import './styles/main.scss'
+import '../../styles/main.scss'
 
-import NavBar from './Navbar'
-import MainBody from './MainBody'
-import SideBar from './SideBar'
+import NavBar from '../layout/Navbar'
+import MainBody from '../layout/MainBody'
+import SideBar from '../layout/SideBar'
 
 function App() {
   const[isSideBarOpen, setIsSideBarOpen] = useState(false);

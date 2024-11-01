@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import Season from './Season'
-import Search from './Search'
+
+import Season from '../pages/Season'
+import Search from '../pages/Search'
 
 function MainBody() {
   return (

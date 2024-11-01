@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { IoMdArrowDropdown } from "react-icons/io";
 
-import aq from './assets/images/archer_queen.png';
-import bk from './assets/images/barb_king.png';
-import gw from './assets/images/grand_warden.png';
-import rc from './assets/images/royal_champ.png';
+import aq from '../../assets/images/archer_queen.png';
+import bk from '../../assets/images/barb_king.png';
+import rc from '../../assets/images/royal_champ.png';
+import gw from '../../assets/images/grand_warden.png';
 
 function Season() {
   return (
