@@ -5,8 +5,6 @@ import SearchResult from './SearchResult'
 import { IoIosSearch } from "react-icons/io";
 
 function Search() {
-  // const API_ENDPOINT = 'https://api.clashofclans.com/v1/players/%23'
-  // const API_TOKEN = import.meta.env.VITE_API_TOKEN
   const [userEntry, setUserEntry] = useState('');
   const [playerData, setPlayerData] = useState(null);
   const inputRef = useRef(null);
