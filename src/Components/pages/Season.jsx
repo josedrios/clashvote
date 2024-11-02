@@ -25,7 +25,7 @@ function Season() {
 
             {/* 
                 Potentially in the future make each voting section 
-                (ex. Best Hero) its own jsx page and import them hear.
+                (ex. Best Hero) its own component and import them hear.
                 Another thought is making the above header section for
                 each voting section one jsx page as well, only having
                 to import the name.

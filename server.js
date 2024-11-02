@@ -30,6 +30,7 @@ app.get('/api/players/:tag', async (req, res) => {
     }
 
     const data = await response.json();
+    console.log(data)
     res.json(data);
   } catch (error) {
     console.error('Express Server Error:', error.message);

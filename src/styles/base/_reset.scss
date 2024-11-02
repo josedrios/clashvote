@@ -14,6 +14,10 @@
     margin: 0;
     padding: 0;
     color: white;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 #root {
@@ -35,3 +39,13 @@ a {
 button:hover {
     cursor: pointer;
 }
+
+// Possibly Remove touch screens on hover
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects */
+    .your-hover-class:hover {
+      background-color: initial;
+      color: initial;
+    }
+  }
+  
