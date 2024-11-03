@@ -17,7 +17,7 @@ function Search() {
       return;
     }
 
-    setUserEntry(inputRef.current.value);
+    setUserEntry(inputRef.current.value.toUpperCase());
     fetchPlayerData(inputRef.current.value);
     inputRef.current.value = '';
   }
