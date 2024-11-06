@@ -12,6 +12,10 @@ function App() {
     setIsSideBarOpen(!isSideBarOpen);
   }
 
+  const closeSideBar = () => {
+    setIsSideBarOpen(false);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024) {
@@ -26,13 +30,19 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const[mainView, setMainView] = useState('season');
+
+  const changeMainView = (view) => {
+    setMainView(view);
+  }
+
   return (
     <>
       <NavBar isSideBarOpen={isSideBarOpen} toggleSideBar={toggleSideBar}/>
       <div id='main-container'>
-        <SideBar isSideBarOpen={isSideBarOpen}/>
+        <SideBar isSideBarOpen={isSideBarOpen} closeSideBar={closeSideBar} changeMainView={changeMainView}/>
         {isSideBarOpen && <div id='non-interactable-overlay' onClick={() => setIsSideBarOpen(false)}/>}
-        <MainBody/>
+        <MainBody  mainView={mainView} changeView={changeMainView}/>
       </div>
     </>
   )

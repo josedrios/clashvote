@@ -3,11 +3,11 @@ import { useState } from 'react'
 import Season from '../pages/Season'
 import Search from '../pages/Search'
 
-function MainBody() {
+function MainBody({ mainView, changeView}) {
   return (
     <main id = 'main-body'>
-        {/* <Season/> */}
-        <Search/>
+        {mainView === 'season' && <Season/>}
+        {mainView === 'search' && <Search/>}
     </main>
   )
 }
