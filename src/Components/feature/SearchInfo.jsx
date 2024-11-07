@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
 
-
 function SearchInfo() {
   return (
     <div id='search-info-container'>
