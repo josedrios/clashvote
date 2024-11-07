@@ -1,21 +1,33 @@
 function usePlayerData(playerData){
-    const playerGeneral = {
+    const playerMain = {
         name: playerData.name,
-        thLevel: playerData.townHallLevel,
-        trophies: playerData.trophies
+        level: playerData.expLevel,
+        tagID: playerData.tag
     }
 
-    const playerClan = {
-        tag: playerData.clan.tag,
-        name: playerData.clan.name,
-        level: playerData.clan.clanLevel
+    const playerGeneral = {
+       thLevel: playerData.townHallLevel,
+       bhLevel: playerData.builderHallLevel,
+       clanName: playerData.clan.name,
+       clanRole: playerData.role,
+       troopsDonated: playerData.donations,
+       troopsReceived: playerData.donationsReceived,
+       accountLabel: {
+        1: playerData.labels[0].name,
+        3: playerData.labels[1].name,
+        2: playerData.labels[2].name,
+       }
     }
 
-    return {playerGeneral, playerClan}
+    const playerHome = {
+       
+    }
+
+    const playerBuilder = {
+       
+    }
+
+    return {playerMain, playerGeneral, playerHome, playerBuilder}
 }
 
 export default usePlayerData;
-
-// about the unwrapping of playerData in the above param
-// const { playerGeneral, playerClan } = usePlayerData(playerData);
-    // why curly brackets can i do parenthesis

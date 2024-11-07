@@ -10,15 +10,14 @@ function SearchResult({playerData}) {
     )
   }
 
-  const {playerGeneral, playerClan} = usePlayerData(playerData);
+  const {playerMain, playerGeneral, playerHome, playerBuilder} = usePlayerData(playerData);
   return (
     <div id='search-result-container'>
-      <h3>Player Name:{playerGeneral.name}</h3>
-      <h3>Player TH Level:{playerGeneral.thLevel}</h3>
-      <h3>Player Trophies:{playerGeneral.trophies}</h3>
-      <h3>Clan Name:{playerClan.name}</h3>
-      <h3>Clan Tag:{playerClan.tag}</h3>
-      <h3>Clan Level:{playerClan.level}</h3>
+      <div id='player-main-data'>
+        <h3>Player Name: {playerMain.name}</h3>
+        <h3>Level: {playerMain.name}</h3>
+        <h3>Tag ID: {playerMain.tagID}</h3>
+      </div>
     </div>
   )
 }
