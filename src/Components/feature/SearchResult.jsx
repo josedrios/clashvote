@@ -9,7 +9,7 @@ function SearchResult({playerData}) {
   if(!playerData) {
     return (
       <div id='search-result-container'>
-        --NULL--
+        NOTHING
       </div>
     )
   }

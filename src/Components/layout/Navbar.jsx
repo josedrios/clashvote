@@ -4,7 +4,7 @@ import { GoHome } from "react-icons/go";
 import { GoPerson } from "react-icons/go";
 import { HiBars2 } from "react-icons/hi2";
 
-function Navbar({isSideBarOpen, toggleSideBar}) {
+function Navbar({isSideBarOpen, toggleSideBar, changeMainView}) {
   return (
     <nav id = 'main-navbar'>
         <button onClick={toggleSideBar} id='bars-icon-button' aria-expanded={isSideBarOpen} aria-controls='#main-sidebar'>
@@ -14,20 +14,20 @@ function Navbar({isSideBarOpen, toggleSideBar}) {
           </svg>
         </button>
         
-        <button id='website-name-container'>
+        <button id='website-name-container' onClick={() => changeMainView('season')}>
           <h1 id='website-name'><span>cocvote</span>.</h1>
         </button>
 
         <div id='nav-buttons-container'>
-          <button id='nav-bars-icon-xs' className='nav-button' onClick={toggleSideBar} aria-expanded={isSideBarOpen} aria-controls='#main-sidebar'>
+          <button id='nav-bars-icon-xs' className='nav-button' onClick={toggleSideBar} aria-expanded={isSideBarOpen} aria-controls='#main-sidebar' >
             <HiBars2 strokeWidth={0.3}/>
           </button>
 
-          <button className='nav-button'>
+          <button className='nav-button' onClick={() => changeMainView('search')}>
             <IoIosSearch />
           </button>
 
-          <button className='nav-button'>
+          <button className='nav-button' onClick={() => changeMainView('season')}>
             <GoHome strokeWidth={0.01}/>
           </button>
 

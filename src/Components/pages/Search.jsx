@@ -54,7 +54,7 @@ function Search() {
           style={{
             color: "white"
           }}>
-          USER ENTRY STATE: {userEntry}
+          USER ENTRY: {userEntry}
         </h1>
         {/* <SearchInfo/> */}
         <SearchResult playerData={playerData}/>
