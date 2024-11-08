@@ -8,15 +8,15 @@ function usePlayerData(playerData){
     const playerGeneral = {
        thLevel: playerData.townHallLevel,
        bhLevel: playerData.builderHallLevel,
-       clanName: playerData.clan.name,
-       clanRole: playerData.role,
+       clanName: playerData.clan?.name || 'No Clan',
+       clanRole: playerData.clan? playerData.role : 'No Role',
        troopsDonated: playerData.donations,
        troopsReceived: playerData.donationsReceived,
-       accountLabel: {
-        1: playerData.labels[0].name,
-        3: playerData.labels[1].name,
-        2: playerData.labels[2].name,
-       }
+       accountLabel: [
+        playerData.labels[0]?.name || 'No Label',
+        playerData.labels[1]?.name || 'No Label',
+        playerData.labels[2]?.name || 'No Label',
+       ]
     }
 
     const playerHome = {

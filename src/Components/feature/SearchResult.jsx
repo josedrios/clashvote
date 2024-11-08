@@ -1,4 +1,8 @@
-import usePlayerData from '../../Hooks/usePlayerData'
+import usePlayerData from '../../Hooks/usePlayerData';
+import PlayerMain from './PlayerMain';
+import PlayerGeneral from './PlayerGeneral';
+import PlayerHome from './PlayerHome';
+import PlayerBuilder from './PlayerBuilder';
 
 function SearchResult({playerData}) {
 
@@ -11,13 +15,13 @@ function SearchResult({playerData}) {
   }
 
   const {playerMain, playerGeneral, playerHome, playerBuilder} = usePlayerData(playerData);
+  
   return (
     <div id='search-result-container'>
-      <div id='player-main-data'>
-        <h3>Player Name: {playerMain.name}</h3>
-        <h3>Level: {playerMain.name}</h3>
-        <h3>Tag ID: {playerMain.tagID}</h3>
-      </div>
+        <PlayerMain playerMain={playerMain}/>
+        <PlayerGeneral playerGeneral={playerGeneral}/>
+        {/* <PlayerHome playerHome={playerHome}/>
+        <PlayerBuilder playerBuilder={playerBuilder}/> */}
     </div>
   )
 }
