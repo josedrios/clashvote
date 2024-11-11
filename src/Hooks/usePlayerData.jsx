@@ -19,8 +19,13 @@ function usePlayerData(playerData){
        ]
     }
 
+    // TROOP CLASSIFICATION LOOP
+    const amountOfTroops = playerData.troops.length;
+    // HERO CLASSIFICATION LOOP
+
     const playerHome = {
-       
+       troopCount: amountOfTroops,
+       troops: playerData.troops,
     }
 
     const playerBuilder = {

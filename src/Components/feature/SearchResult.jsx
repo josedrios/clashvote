@@ -20,8 +20,8 @@ function SearchResult({playerData}) {
     <div id='search-result-container'>
         <PlayerMain playerMain={playerMain}/>
         <PlayerGeneral playerGeneral={playerGeneral}/>
-        {/* <PlayerHome playerHome={playerHome}/>
-        <PlayerBuilder playerBuilder={playerBuilder}/> */}
+        <PlayerHome playerHome={playerHome}/>
+        {/* <PlayerBuilder playerBuilder={playerBuilder}/> */}
     </div>
   )
 }
