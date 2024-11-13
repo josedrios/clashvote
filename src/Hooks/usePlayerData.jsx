@@ -19,17 +19,30 @@ function usePlayerData(playerData){
        ]
     }
 
-    // TROOP CLASSIFICATION LOOP
-    const amountOfTroops = playerData.troops.length;
-    // HERO CLASSIFICATION LOOP
+    // Pet names to isolate from playerData.troops
+    
+    const pets = [
+        "L.A.S.S.I",
+        "Electro Owl",
+        "Mighty Yak",
+        "Unicorn",
+        "Frosty",
+        "Diggy",
+        "Poison Lizard",
+        "Phoenix",
+        "Spirit Fox",
+        "Angry Jelly"
+    ];
 
     const playerHome = {
-       troopCount: amountOfTroops,
-       troops: playerData.troops,
+        heroes: playerData.heroes.filter(hero => hero.village === "home"),
+        troops: playerData.troops.filter(troop => troop.village === "home"  && !pets.includes(troop.name)),
+        pets: playerData.troops.filter(troop => troop.village === "home" && pets.includes(troop.name))
     }
 
     const playerBuilder = {
-       
+        heroes: playerData.heroes.filter(hero => hero.village === "builderBase"),
+        troops: playerData.troops.filter(troop => troop.village === "builderBase"),
     }
 
     return {playerMain, playerGeneral, playerHome, playerBuilder}

@@ -44,3 +44,9 @@
     left: 4px;
     border: 1px solid $offwhite-two;
 }
+
+#player-home-data, #player-builder-data {
+    h3 {
+        color: $primary-color;
+    }
+}

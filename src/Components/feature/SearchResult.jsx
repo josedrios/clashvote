@@ -21,7 +21,7 @@ function SearchResult({playerData}) {
         <PlayerMain playerMain={playerMain}/>
         <PlayerGeneral playerGeneral={playerGeneral}/>
         <PlayerHome playerHome={playerHome}/>
-        {/* <PlayerBuilder playerBuilder={playerBuilder}/> */}
+        <PlayerBuilder playerBuilder={playerBuilder}/>
     </div>
   )
 }
