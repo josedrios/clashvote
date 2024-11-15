@@ -29,6 +29,7 @@
 
 #main-sidebar {
     border: $border-thickness-xs solid $border-color;
+    border-bottom: none;
     border-top-left-radius: $border-radius-sm;
     border-top-right-radius: $border-radius-sm;
     margin: $spacing-medium $spacing-medium 0 $spacing-medium;
@@ -43,11 +44,10 @@
     z-index: $z-sidebar;
 }
 
-
-
 #main-body {
     margin: 0 auto 0 auto;
     max-width: 1600px;
+    border: 1px solid red;
     padding: $spacing-large;
     flex-grow: 1;
     overflow: auto;

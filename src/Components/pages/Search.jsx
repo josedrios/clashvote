@@ -50,12 +50,6 @@ function Search() {
             <IoIosSearch />
           </button>
         </form>
-        <h1 
-          style={{
-            color: "white"
-          }}>
-          USER ENTRY: {userEntry}
-        </h1>
         {/* <SearchInfo/> */}
         <SearchResult playerData={playerData}/>
     </div>

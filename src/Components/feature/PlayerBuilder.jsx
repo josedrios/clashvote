@@ -11,6 +11,7 @@ function PlayerBuilder({playerBuilder}) {
                     <div className='troop-container' key={index}>
                         <h4 className='troop-level'>{troop.level}</h4>
                         <img id='test-img' src={getImage(troop.name)} alt="" />
+
                     </div>
                 ))}
         </div>
