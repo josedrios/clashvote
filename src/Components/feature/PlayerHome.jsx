@@ -32,6 +32,15 @@ function PlayerHome({playerHome}) {
                     </div>
                 ))}
             </div>
+            <h3>HOME VILLAGE SIEGE MACHINES:</h3>
+            <div className='troops-container' id='player-home-troops'>
+                {playerHome.sieges.map((troop, index) => (
+                    <div className='troop-container' key={index}>
+                        <h4 className='troop-level'>{troop.level}</h4>
+                        <img id='test-img' src={getImage(troop.name)} alt="" />
+                    </div>
+                ))}
+            </div>
             <h3>HOME VILLAGE PETS:</h3>
             <div className='troops-container' id='player-home-pets'> 
                 {playerHome.pets.map((troop, index) => (
