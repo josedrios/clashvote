@@ -6,7 +6,7 @@ import { HiBars2 } from "react-icons/hi2";
 
 function Navbar({isSideBarOpen, toggleSideBar, changeMainView}) {
   return (
-    <nav id = 'main-navbar' onClick={toggleSideBar}>
+    <nav id = 'main-navbar'>
         <button onClick={toggleSideBar} id='bars-icon-button' aria-expanded={isSideBarOpen} aria-controls='#main-sidebar'>
           <svg id='bars-icon' viewBox='0 0 100 100' width={40} height={40}>
             <rect id='top-bar' className='bars' width={70} height={10} x={10} y={27} rx={5}></rect>
@@ -15,7 +15,7 @@ function Navbar({isSideBarOpen, toggleSideBar, changeMainView}) {
         </button>
         
         <button id='website-name-container' onClick={() => changeMainView('season')}>
-          <h1 id='website-name'><span>cocvote</span>.</h1>
+          <h1 id='website-name'><span>clashvote</span>.</h1>
         </button>
 
         <div id='nav-buttons-container'>

@@ -3,8 +3,14 @@ import { TbArrowLoopLeft2 } from "react-icons/tb";
 function usePlayerData(playerData){
     const playerMain = {
         name: playerData.name,
+        tag: playerData.tag,
+        league: playerData.league.name,
         level: playerData.expLevel,
-        tagID: playerData.tag
+        accountLabel: [
+            playerData.labels[0]?.name || 'No Label',
+            playerData.labels[1]?.name || 'No Label',
+            playerData.labels[2]?.name || 'No Label',
+        ]
     }
 
     const playerGeneral = {
@@ -14,11 +20,6 @@ function usePlayerData(playerData){
        clanRole: playerData.clan? playerData.role : 'No Role',
        troopsDonated: playerData.donations,
        troopsReceived: playerData.donationsReceived,
-       accountLabel: [
-        playerData.labels[0]?.name || 'No Label',
-        playerData.labels[1]?.name || 'No Label',
-        playerData.labels[2]?.name || 'No Label',
-       ]
     }
 
     // Pet names to isolate from playerData.troops
