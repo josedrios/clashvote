@@ -1,30 +1,28 @@
 import { useState, useRef, useEffect } from 'react'
 import { IoIosSearch } from "react-icons/io";
-import SearchInfo from '../feature/SearchInfo'
 import SearchResult from '../feature/SearchResult'
+import TestJSON from '../../clasher.json'
 
 
 function Search() {
   const [userEntry, setUserEntry] = useState('');
-  const [playerData, setPlayerData] = useState(null);
+  const [playerData, setPlayerData] = useState('null');
   const inputRef = useRef(null);
-
-  function handleFormSubmit(event) {
-    event.preventDefault();
-
-    if(inputRef.current.value == '') {
-      console.log("EMPTY USER ENTRY");
-      return;
-    }
-
-    setUserEntry(inputRef.current.value.toUpperCase());
-    fetchPlayerData(inputRef.current.value);
-    inputRef.current.value = '';
-  }
 
   useEffect(() => {
     console.log(playerData)
   }, [playerData])
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if(inputRef.current.value == '') {
+      console.log("Empty User Entry");
+      return;
+    }
+    setUserEntry(inputRef.current.value.toUpperCase());
+    fetchPlayerData(inputRef.current.value);
+    inputRef.current.value = '';
+  }
 
   async function fetchPlayerData(playerTag) {
     try {
@@ -34,13 +32,21 @@ function Search() {
       }
       const data = await response.json();
       setPlayerData(data);
+      console.log(data)
     } catch (error) {
       console.log(error);
     }
   }
 
+  function handleTestJson() {
+    setPlayerData(TestJSON)
+  }
+
   return (
     <div id='search-page-container'>
+        <button id="test-json" onClick={handleTestJson}>
+          TEST
+        </button>
         <form  id='searchbar-container' onSubmit={handleFormSubmit}>
           <div id='searchbar-toggle'>
             TOGGLE

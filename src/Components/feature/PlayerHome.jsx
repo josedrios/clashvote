@@ -3,7 +3,6 @@ import images from './Images'
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
 function PlayerHome({playerHome}) {
-        console.log(playerHome)
         return (
         <div id='player-home-data'>
             <h3>HOME VILLAGE HEROES:</h3>
@@ -18,6 +17,15 @@ function PlayerHome({playerHome}) {
             <h3>HOME VILLAGE TROOPS:</h3>
             <div className='troops-container' id='player-home-troops'>
                 {playerHome.troops.map((troop, index) => (
+                    <div className='troop-container' key={index}>
+                        <h4 className='troop-level'>{troop.level}</h4>
+                        <img id='test-img' src={getImage(troop.name)} alt="" />
+                    </div>
+                ))}
+            </div>
+            <h3>HOME VILLAGE SUPER TROOPS:</h3>
+            <div className='troops-container' id='player-home-troops'>
+                {playerHome.supers.map((troop, index) => (
                     <div className='troop-container' key={index}>
                         <h4 className='troop-level'>{troop.level}</h4>
                         <img id='test-img' src={getImage(troop.name)} alt="" />

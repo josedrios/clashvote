@@ -34,9 +34,18 @@ function usePlayerData(playerData){
         "Angry Jelly"
     ];
 
+    playerData.troops.map((troop) => {
+        if (troop.name.includes("Super ")){
+            const namer = troop.name.replace("Super ", "")
+            const test = playerData.troops.filter(curr => curr.name === namer)
+            troop.level = test[0].level
+        }
+    })
+
     const playerHome = {
         heroes: playerData.heroes.filter(hero => hero.village === "home"),
-        troops: playerData.troops.filter(troop => troop.village === "home"  && !pets.includes(troop.name)),
+        troops: playerData.troops.filter(troop => troop.village === "home"  && !pets.includes(troop.name) && !troop.name.includes("Super")),
+        supers: playerData.troops.filter(troop => troop.village === "home"  && !pets.includes(troop.name) && troop.name.includes("Super")),
         pets: playerData.troops.filter(troop => troop.village === "home" && pets.includes(troop.name))
     }
 
