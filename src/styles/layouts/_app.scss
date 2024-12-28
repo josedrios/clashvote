@@ -47,7 +47,7 @@
 #main-body {
     margin: 0 auto 0 auto;
     max-width: 1600px;
-    width: 100%;
+    width: calc(100% - 250px - 5rem);
     padding: $spacing-large;
     flex-grow: 1;
     overflow: auto;
