@@ -64,7 +64,7 @@
     z-index: $z-non-int-overlay;
 }
 
-@media (max-width: #{$breakpoint-md}) {
+@media (max-width: #{$breakpoint-lg}) {
     #main-sidebar {
         top: calc(80px + $spacing-medium); 
         height: calc(100% - 80px - $spacing-medium);

@@ -1,0 +1,68 @@
+// #player-main-data {
+//     // border: 1px solid $secondary-background-color;
+// }
+
+#player-main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: $spacing-medium;
+}
+
+#player-username {
+    color: $primary-color;
+    margin-bottom: $spacing-small;
+    font-size: 35px;
+}
+
+#player-tag {
+    color: $offwhite-two;
+}
+
+#header-clan {
+    display: flex;
+    align-items: center;
+    padding: $spacing-medium;
+    background-color: $secondary-background-color;
+    border-right: 4px solid $leading-vote-bg;
+}
+
+#header-clan-title {
+    font-size: 20px;
+    color: $primary-color;
+}
+
+#header-clan-badge {
+    height: 100px;
+    margin-left: $spacing-small;
+}
+
+#player-main-body {
+    display: flex;
+    justify-content: space-around;
+    background-color: $secondary-background-color;
+    padding: $spacing-medium;
+    border-radius: 0px $border-radius-sm $border-radius-sm 0px;
+    border-left: 4px solid $leading-vote-bg;
+}
+
+.player-main-body-section {
+    display: flex;
+    flex-direction: column;
+    h3 {
+        align-self: center;
+        color: $primary-color;
+    }
+    div {
+        align-self: center;
+    }
+}
+
+#player-labels {
+    display: flex;
+}
+
+.player-label {
+    aspect-ratio: 1/1;
+    width: 40px;
+}

@@ -7,9 +7,9 @@
     h1 {
         font-family: $primary-font;
         color: white;
-        font-weight: 400;
+        margin-bottom: 5px;
         span {
-            transition: color $transition-duration-fast $transition-ease;
+            transition: color $transition-duration-base $transition-ease;
             color: $primary-color;
         }
     }

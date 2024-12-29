@@ -1,9 +1,13 @@
 #search-result-container {
-    border: 1px solid white;
+    // border: 1px solid $secondary-background-color;
     display: flex;
     flex-direction: column;
     max-width: 1400px;
     width: 100%;
+
+    > * {
+        margin-bottom: $spacing-large;
+    }
 }
 
 #test-img {
@@ -43,16 +47,4 @@
     bottom: 4px;
     left: 4px;
     border: 1px solid $offwhite-two;
-}
-
-#player-home-data, #player-builder-data {
-    h3 {
-        color: $primary-color;
-    }
-}
-
-#player-main-data, #player-general-data {
-    h2 {
-        color: $primary-color;
-    }
 }

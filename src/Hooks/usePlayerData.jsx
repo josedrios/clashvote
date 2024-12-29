@@ -4,26 +4,23 @@ function usePlayerData(playerData){
     const playerMain = {
         name: playerData.name,
         tag: playerData.tag,
-        league: playerData.league.name,
-        level: playerData.expLevel,
         accountLabel: [
-            playerData.labels[0]?.name || 'No Label',
-            playerData.labels[1]?.name || 'No Label',
-            playerData.labels[2]?.name || 'No Label',
-        ]
-    }
-
-    const playerGeneral = {
-       thLevel: playerData.townHallLevel,
-       bhLevel: playerData.builderHallLevel,
-       clanName: playerData.clan?.name || 'No Clan',
-       clanRole: playerData.clan? playerData.role : 'No Role',
-       troopsDonated: playerData.donations,
-       troopsReceived: playerData.donationsReceived,
+            playerData.labels[0]?.iconUrls.small || 'No Label',
+            playerData.labels[1]?.iconUrls.small || 'No Label',
+            playerData.labels[2]?.iconUrls.small || 'No Label',
+        ],
+        troopsDonated: playerData.donations,
+        troopsReceived: playerData.donationsReceived,
+        clanName: playerData.clan?.name || 'No Clan',
+        clanRole: playerData.clan? playerData.role : 'No Role',
+        level: playerData.expLevel,
+        clanBadge: playerData.clan.badgeUrls.large,
+        warStars: playerData.warStars,
+        attackWins: playerData.attackWins,
+        defenseWins: playerData.defenseWins
     }
 
     // Pet names to isolate from playerData.troops
-    
     const pets = [
         "L.A.S.S.I",
         "Electro Owl",
@@ -101,7 +98,7 @@ function usePlayerData(playerData){
         troops: playerData.troops.filter(troop => troop.village === "builderBase"),
     }
 
-    return {playerMain, playerGeneral, playerHome, playerBuilder}
+    return {playerMain, playerHome, playerBuilder}
 }
 
 export default usePlayerData;

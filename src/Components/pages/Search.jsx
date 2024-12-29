@@ -44,14 +44,14 @@ function Search() {
 
   return (
     <div id='search-page-container'>
-        <button id="test-json" onClick={handleTestJson}>
-          TEST
-        </button>
         <form  id='searchbar-container' onSubmit={handleFormSubmit}>
           <div id='searchbar-toggle'>
             TOGGLE
           </div>
           <input id='searchbar' type="text" placeholder='Enter tag' ref={inputRef}/>
+          <button id="test-json" onClick={handleTestJson}>
+            Test
+          </button>
           <button type='submit' id='searchbar-submit-button'>
             <IoIosSearch />
           </button>
