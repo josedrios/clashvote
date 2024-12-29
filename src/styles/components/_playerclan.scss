@@ -1,0 +1,17 @@
+#player-clan {
+    display: flex;
+    align-items: center;
+    padding: $spacing-medium;
+    background-color: $secondary-background-color;
+    border-radius:  $border-radius-sm;
+}
+
+#player-clan-title {
+    font-size: 20px;
+    color: $primary-color;
+}
+
+#player-clan-badge {
+    height: 100px;
+    margin-left: $spacing-small;
+}

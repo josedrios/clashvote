@@ -48,3 +48,9 @@
     left: 4px;
     border: 1px solid $offwhite-two;
 }
+
+#player-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
