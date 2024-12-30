@@ -30,8 +30,10 @@ function SearchResult({ playerData }) {
                     <PlayerCards homeTrophies={homeTrophies} builderTrophies={builderTrophies} playerClan={playerClan}/>
                 </div>
             </div>
-            <PlayerHome playerHome={playerHome} />
-            <PlayerBuilder playerBuilder={playerBuilder} />
+            <div id='player-base-flex'>
+                <PlayerHome playerHome={playerHome} />
+                <PlayerBuilder playerBuilder={playerBuilder} />
+            </div>
         </div>
     );
 }

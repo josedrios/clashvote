@@ -32,3 +32,10 @@
 .trophy-card-label {
     display: inline;
 }
+
+// Change to a proper size after testing with different clan name lengths
+@media (max-width: 830px) {
+    .trophy-card {
+        display: none;
+    }
+}

@@ -14,3 +14,31 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+#player-base-flex {
+    flex-direction: row;
+    display: flex;
+    > * {
+        width: 49%;
+    }
+}
+
+#player-home-data {
+    margin-right: 1%;
+}
+
+#player-builder-data {
+    margin-left: 1%;
+}
+
+
+
+@media (max-width: #{$breakpoint-sm}) {
+    #player-base-flex {
+        flex-direction: column;
+
+        > * {
+            width: 100%;
+        }
+    }
+}
