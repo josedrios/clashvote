@@ -12,7 +12,8 @@
 .trophy-card {
     background-color: $secondary-background-color;
     padding: $spacing-medium;
-    border-radius:  $border-radius-sm;
+    border-radius:  $border-radius-sm 0 0 $border-radius-sm;
+    border-right: 3px solid $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

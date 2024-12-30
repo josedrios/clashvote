@@ -50,6 +50,7 @@ import Log_Launcher from '../../assets/images/Log_Launcher.png';
 import Mighty_Yak from '../../assets/images/Mighty_Yak.png';
 import Miner from '../../assets/images/Miner.png';
 import Minion from '../../assets/images/Minion.png';
+import Minion_Prince from '../../assets/images/Minion_Prince.png';
 import Night_Witch from '../../assets/images/Night_Witch.png';
 import P_E_K_K_A from '../../assets/images/P.E.K.K.A.png';
 import Phoenix from '../../assets/images/Phoenix.png';
@@ -141,6 +142,7 @@ const images = {
     Mighty_Yak,
     Miner,
     Minion,
+    Minion_Prince,
     Night_Witch,
     P_E_K_K_A,
     Phoenix,
