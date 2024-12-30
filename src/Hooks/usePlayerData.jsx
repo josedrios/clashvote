@@ -19,7 +19,18 @@ function usePlayerData(playerData) {
         clanBadge: playerData.clan?.badgeUrls.large || "No Clan",
     };
 
-    // Pet names to isolate from playerData.troops
+    const homeTrophies = {
+        thLevel: playerData.townHallLevel,
+        current: playerData.trophies,
+        best: playerData.bestTrophies
+    }
+
+    const builderTrophies = {
+        bhLevel: playerData.builderHallLevel,
+        current: playerData.builderBaseTrophies,
+        best: playerData.bestBuilderBaseTrophies
+    }
+
     const pets = [
         "L.A.S.S.I",
         "Electro Owl",
@@ -112,7 +123,7 @@ function usePlayerData(playerData) {
         ),
     };
 
-    return { playerMain, playerClan, playerHome, playerBuilder };
+    return { playerMain, playerClan, playerHome, playerBuilder, homeTrophies, builderTrophies };
 }
 
 export default usePlayerData;

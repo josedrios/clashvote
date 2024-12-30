@@ -1,7 +1,6 @@
 function PlayerMain({ playerMain }) {
     return (
         <div>
-            <h3 id="player-username">{playerMain.name}</h3>
             <div id="player-labels">
                 <img
                     className="player-label"

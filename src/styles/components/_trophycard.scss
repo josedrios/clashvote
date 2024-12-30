@@ -1,0 +1,33 @@
+#cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+
+    > * {
+        margin-left: $spacing-medium;
+    }
+}
+
+.trophy-card {
+    background-color: $secondary-background-color;
+    padding: $spacing-medium;
+    border-radius:  $border-radius-sm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > div,p {
+        font-size: 15px;
+    }
+}
+
+.trophy-card-header {
+    font-size: 20px;
+    color: $primary-color;
+    white-space: nowrap;
+}
+
+.trophy-card-label {
+    display: inline;
+}

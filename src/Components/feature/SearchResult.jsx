@@ -2,8 +2,8 @@ import usePlayerData from "../../Hooks/usePlayerData";
 import PlayerMain from "./PlayerMain";
 import PlayerHome from "./PlayerHome";
 import PlayerBuilder from "./PlayerBuilder";
-import PlayerClan from './PlayerClan';
 import SearchInfo from "../feature/SearchInfo";
+import PlayerCards from "./PlayerCards";
 
 function SearchResult({ playerData }) {
     if (playerData === "null") {
@@ -18,15 +18,16 @@ function SearchResult({ playerData }) {
         return <div id="search-result-container">Player Not Found</div>;
     }
 
-    const { playerMain, playerClan, playerHome, playerBuilder } =
+    const { playerMain, playerClan, playerHome, playerBuilder, homeTrophies, builderTrophies } =
         usePlayerData(playerData);
 
     return (
         <div id="search-result-container">
             <div id="player-data">
+                <h3 id="player-username">{playerMain.name}</h3>
                 <div id="player-header">
                     <PlayerMain playerMain={playerMain} />
-                    <PlayerClan playerClan={playerClan} />
+                    <PlayerCards homeTrophies={homeTrophies} builderTrophies={builderTrophies} playerClan={playerClan}/>
                 </div>
             </div>
             <PlayerHome playerHome={playerHome} />
