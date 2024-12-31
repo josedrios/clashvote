@@ -1,0 +1,48 @@
+#player-home-data {
+    margin-right: 1%;
+}
+
+#player-builder-data {
+    height: min-content;
+    margin-left: 1%;
+}
+
+.player-base-container {
+    border-radius: $border-radius-xs;
+    background-color: $secondary-background-color;
+}
+
+.player-base-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid $primary-color;
+    background-color: $primary-background-color;
+}
+
+.player-base-header {
+    padding: $spacing-small $spacing-medium;
+    color: $primary-color;
+}
+
+.player-base-header-trophies {
+    padding: 0 $spacing-medium $spacing-small $spacing-small;
+    display: flex;
+    color: $offwhite-two;
+    align-items: center;
+    p {
+        color: $offwhite-two;
+    }
+    .trophy-icon {
+        fill: $offwhite-two;
+        height: 24px;
+    }
+}
+
+.testing-img{
+    padding: 0 $spacing-medium;
+    height: 70px;
+    align-self: center;
+}
+
+

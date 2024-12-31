@@ -23,16 +23,6 @@
     }
 }
 
-#player-home-data {
-    margin-right: 1%;
-}
-
-#player-builder-data {
-    margin-left: 1%;
-}
-
-
-
 @media (max-width: #{$breakpoint-sm}) {
     #player-base-flex {
         flex-direction: column;
@@ -40,5 +30,9 @@
         > * {
             width: 100%;
         }
+    }
+
+    #player-builder-data {
+        margin-top: $spacing-medium;
     }
 }

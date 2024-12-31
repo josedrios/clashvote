@@ -89,7 +89,11 @@ import Witch from '../../assets/images/Witch.png';
 import Wizard from '../../assets/images/Wizard.png';
 import Yeti from '../../assets/images/Yeti.png';
 
+// REMOVE AFTER TESTING
+import th14 from '../../assets/images/th14.jpg'
+
 const images = {
+    th14,
     Angry_Jelly,
     Apprentice_Warden,
     Archer,

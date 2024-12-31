@@ -1,16 +1,40 @@
 import images from "./Images";
+import { GoTrophy } from "react-icons/go";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function PlayerHome({ base, trophies }) {
     return (
-        <div className="player-base-container">
-            <h3>{trophies.current}</h3>
-            <h3>{trophies.best}</h3>
-            <h3 className="player-base-container-header">Village</h3>
+        <div
+            className="player-base-container"
+            id={
+                base.base === "home"
+                    ? "player-home-data"
+                    : "player-builder-data"
+            }
+        >
+            <div className="player-base-header-container">
+                <div className="player-base-header-info">
+                    <h3 className="player-base-header">
+                        {base.base === "home" ? "Home Village" : "Builder Base"}
+                    </h3>
+                    <div className="player-base-header-trophies">
+                        <p>
+                            Current:{trophies.current}
+                        </p>
+                        <GoTrophy className="trophy-icon" />
+                        &nbsp;
+                        <p>
+                            Best:{trophies.best}
+                        </p>
+                        <GoTrophy className="trophy-icon" />
+                    </div>
+                </div>
+                <img className="testing-img" src={getImage("th14")} alt="" />
+            </div>
             <div className="troop-section">
                 <h3>HEROES</h3>
-                <div className="troops-container" id="player-home-heroes">
+                <div className="troops-container">
                     {base.heroes.map((troop, index) => (
                         <div className="troop-container" key={index}>
                             <h4 className="troop-level">{troop.level}</h4>
@@ -25,7 +49,7 @@ function PlayerHome({ base, trophies }) {
             </div>
             <div className="troop-section">
                 <h3>TROOPS</h3>
-                <div className="troops-container" id="player-home-troops">
+                <div className="troops-container">
                     {base.troops.map((troop, index) => (
                         <div className="troop-container" key={index}>
                             <h4 className="troop-level">{troop.level}</h4>
@@ -41,7 +65,7 @@ function PlayerHome({ base, trophies }) {
             {base.supers && (
                 <div className="troop-section">
                     <h3>SUPER TROOPS</h3>
-                    <div className="troops-container" id="player-home-troops">
+                    <div className="troops-container">
                         {base.supers.map((troop, index) => (
                             <div className="troop-container" key={index}>
                                 <h4 className="troop-level">{troop.level}</h4>
@@ -58,7 +82,7 @@ function PlayerHome({ base, trophies }) {
             {base.sieges && (
                 <div className="troop-section">
                     <h3>SIEGE MACHINES</h3>
-                    <div className="troops-container" id="player-home-troops">
+                    <div className="troops-container">
                         {base.sieges.map((troop, index) => (
                             <div className="troop-container" key={index}>
                                 <h4 className="troop-level">{troop.level}</h4>

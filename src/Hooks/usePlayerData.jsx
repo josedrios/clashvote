@@ -74,6 +74,7 @@ function usePlayerData(playerData) {
     ];
 
     const playerHome = {
+        base: "home",
         heroes: playerData.heroes.filter((hero) => hero.village === "home"),
         troops: playerData.troops.filter(
             (troop) =>
@@ -115,6 +116,7 @@ function usePlayerData(playerData) {
     });
 
     const playerBuilder = {
+        base: "builder",
         heroes: playerData.heroes.filter(
             (hero) => hero.village === "builderBase"
         ),

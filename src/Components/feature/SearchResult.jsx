@@ -1,7 +1,5 @@
 import usePlayerData from "../../Hooks/usePlayerData";
 import PlayerMain from "./PlayerMain";
-import PlayerHome from "./PlayerHome";
-import PlayerBuilder from "./PlayerBuilder";
 import SearchInfo from "../feature/SearchInfo";
 import PlayerCards from "./PlayerCards";
 import PlayerBase from "./PlayerBase";
