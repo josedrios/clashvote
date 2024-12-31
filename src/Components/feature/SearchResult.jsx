@@ -4,6 +4,7 @@ import PlayerHome from "./PlayerHome";
 import PlayerBuilder from "./PlayerBuilder";
 import SearchInfo from "../feature/SearchInfo";
 import PlayerCards from "./PlayerCards";
+import PlayerBase from "./PlayerBase";
 
 function SearchResult({ playerData }) {
     if (playerData === "null") {
@@ -31,8 +32,8 @@ function SearchResult({ playerData }) {
                 </div>
             </div>
             <div id='player-base-flex'>
-                <PlayerHome playerHome={playerHome} />
-                <PlayerBuilder playerBuilder={playerBuilder} />
+                <PlayerBase base={playerHome} trophies={homeTrophies}/>
+                <PlayerBase base={playerBuilder} trophies={builderTrophies}/>
             </div>
         </div>
     );
