@@ -22,8 +22,8 @@ function PlayerHome({ base, trophies }) {
                         <p>
                             Current:{trophies.current}
                         </p>
-                        <GoTrophy className="trophy-icon" />
-                        &nbsp;
+                        <GoTrophy className="trophy-icon"/>
+                        /
                         <p>
                             Best:{trophies.best}
                         </p>

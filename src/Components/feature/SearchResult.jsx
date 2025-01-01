@@ -23,10 +23,13 @@ function SearchResult({ playerData }) {
     return (
         <div id="search-result-container">
             <div id="player-data">
-                <h3 id="player-username">{playerMain.name}</h3>
+                <div id="player-data-bar">
+                    <h3 id="player-username">{playerMain.name}</h3>
+                    <img id="player-rank-icon" src={playerMain.homeLeagueIcon} alt="" />
+                </div>
                 <div id="player-header">
-                    <PlayerMain playerMain={playerMain} />
-                    <PlayerCards homeTrophies={homeTrophies} builderTrophies={builderTrophies} playerClan={playerClan}/>
+                    <PlayerMain playerMain={playerMain}/>
+                    <PlayerCards playerClan={playerClan}/>
                 </div>
             </div>
             <div id='player-base-flex'>

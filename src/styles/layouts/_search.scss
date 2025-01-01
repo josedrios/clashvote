@@ -62,5 +62,12 @@
 }
 
 #test-json {
+    background-color: $primary-color;
+    padding: $spacing-xsmall;
+    transition: 0.15s;
     color: black;
+}
+
+#test-json:hover {
+    background-color: $secondary-color;
 }

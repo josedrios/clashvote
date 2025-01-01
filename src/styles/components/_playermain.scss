@@ -1,7 +1,43 @@
+#player-general-info-section {
+    width: min-content;
+}
+
+#player-data-bar {
+    display: flex;
+    align-items: flex-start;
+}
+
+#player-rank-icon {
+    margin-left: $spacing-small;
+    height: 45px;
+}
+
+.player-league {
+    white-space: nowrap;
+    display: flex;
+    p {
+        color: $primary-color;
+    }
+}
+
 #player-username {
     color: $primary-color;
     margin-bottom: $spacing-xsmall;
     font-size: 35px;
+}
+
+#player-xp-container {
+    display: flex;
+    align-items: center;
+}
+
+#xp-icon {
+    height: 20px;
+    margin-right: $spacing-xsmall;
+}
+
+#player-level {
+    color: $offwhite-two;
 }
 
 #player-tag {

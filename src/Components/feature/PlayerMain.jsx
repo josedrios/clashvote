@@ -1,6 +1,16 @@
+import xpIcon from "../../assets/images/XP.jpg";
+
 function PlayerMain({ playerMain }) {
     return (
-        <div>
+        <div id="player-general-info-section">
+            <div className="player-league">
+                {" "}
+                <p>TH:&nbsp;</p> {playerMain.homeLeague.replace("League", "")}
+            </div>
+            <div className="player-league">
+                {" "}
+                <p>BH:&nbsp;</p> {playerMain.builderLeague.replace("League", "")}
+            </div>
             <div id="player-labels">
                 <img
                     className="player-label"
@@ -18,8 +28,11 @@ function PlayerMain({ playerMain }) {
                     alt=""
                 />
             </div>
-            <div>LVL. {playerMain.level}</div>
             <div id="player-tag">{playerMain.tag}</div>
+            <div id="player-xp-container">
+                <img id="xp-icon" src={xpIcon} alt="" />
+                <div id="player-level">{playerMain.level}</div>
+            </div>
         </div>
     );
 }

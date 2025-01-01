@@ -1,6 +1,9 @@
 function usePlayerData(playerData) {
     const playerMain = {
         name: playerData.name,
+        homeLeagueIcon: playerData.league?.iconUrls.small || "Unranked",
+        homeLeague: playerData.league?.name || "Unranked",
+        builderLeague: playerData.builderBaseLeague?.name || "Unranked",
         tag: playerData.tag,
         level: playerData.expLevel,
         accountLabel: [

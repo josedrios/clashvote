@@ -26,7 +26,7 @@
 }
 
 .player-base-header-trophies {
-    padding: 0 $spacing-medium $spacing-small $spacing-small;
+    padding: 0 0 $spacing-small $spacing-medium;
     display: flex;
     color: $offwhite-two;
     align-items: center;
@@ -36,11 +36,12 @@
     .trophy-icon {
         fill: $offwhite-two;
         height: 24px;
+        margin-left: $spacing-xsmall;
     }
 }
 
 .testing-img{
-    padding: 0 $spacing-medium;
+    padding: 0 $spacing-medium 0 $spacing-xsmall;
     height: 70px;
     align-self: center;
 }
