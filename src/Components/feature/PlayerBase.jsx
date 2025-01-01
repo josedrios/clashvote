@@ -96,6 +96,23 @@ function PlayerHome({ base, trophies }) {
                     </div>
                 </div>
             )}
+            {base.spells && (
+                <div className="troop-section">
+                    <h3>SPELLS</h3>
+                    <div className="troops-container">
+                        {base.spells.map((spell, index) => (
+                            <div className="troop-container" key={index}>
+                                <h4 className="troop-level">{spell.level}</h4>
+                                <img
+                                    className="unit-img"
+                                    src={getImage(spell.name)}
+                                    alt=""
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
             {base.pets && (
                 <div className="troop-section">
                     <h3>PETS</h3>

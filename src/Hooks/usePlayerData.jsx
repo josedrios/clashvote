@@ -93,6 +93,7 @@ function usePlayerData(playerData) {
             sieges.includes(siege.name)
         ),
         pets: playerData.troops.filter((troop) => pets.includes(troop.name)),
+        spells: playerData.spells
     };
 
     // Super Troop Level Fix Function

@@ -16,11 +16,13 @@ import Bomber from '../../assets/images/Bomber.png';
 import Bowler from '../../assets/images/Bowler.png';
 import Boxer_Giant from '../../assets/images/Boxer_Giant.png';
 import Cannon_Cart from '../../assets/images/Cannon_Cart.png';
+import Clone_Spell from '../../assets/images/Clone_Spell.png';
 import Diggy from '../../assets/images/Diggy.png';
 import Dragon from '../../assets/images/Dragon.png';
 import Dragon_Rider from '../../assets/images/Dragon_Rider.png';
 import Druid from '../../assets/images/Druid.png';
 import Drop_Ship from '../../assets/images/Drop_Ship.png';
+import Earthquake_Spell from '../../assets/images/Earthquake_Spell.png';
 import Electro_Dragon from '../../assets/images/Electro_Dragon.png';
 import Electro_Owl from '../../assets/images/Electro_Owl.png';
 import Electro_Titan from '../../assets/images/Electro_Titan.png';
@@ -52,6 +54,7 @@ import Miner from '../../assets/images/Miner.png';
 import Minion from '../../assets/images/Minion.png';
 import Minion_Prince from '../../assets/images/Minion_Prince.png';
 import Night_Witch from '../../assets/images/Night_Witch.png';
+import Overgrowth_Spell from '../../assets/images/Overgrowth_Spell.png';
 import P_E_K_K_A from '../../assets/images/P.E.K.K.A.png';
 import Phoenix from '../../assets/images/Phoenix.png';
 import Poison_Lizard from '../../assets/images/Poison_Lizard.png';
@@ -60,6 +63,7 @@ import Power_P_E_K_K_A from '../../assets/images/Power_P.E.K.K.A.png';
 import Rage_Spell from '../../assets/images/Rage_Spell.png';
 import Raged_Barbarian from '../../assets/images/Raged_Barbarian.png';
 import Recall_Spell from '../../assets/images/Recall_Spell.png';
+import Revive_Spell from '../../assets/images/Revive_Spell.png';
 import Rocket_Balloon from '../../assets/images/Rocket_Balloon.png';
 import Root_Rider from '../../assets/images/Root_Rider.png';
 import Royal_Champion from '../../assets/images/Royal_Champion.png';
@@ -81,6 +85,7 @@ import Super_Valkyrie from '../../assets/images/Super_Valkyrie.png';
 import Super_Wall_Breaker from '../../assets/images/Super_Wall_Breaker.png';
 import Super_Witch from '../../assets/images/Super_Witch.png';
 import Super_Wizard from '../../assets/images/Super_Wizard.png';
+import Thrower from '../../assets/images/Thrower.png';
 import Unicorn from '../../assets/images/Unicorn.png';
 import Valkyrie from '../../assets/images/Valkyrie.png';
 import Wall_Breaker from '../../assets/images/Wall_Breaker.png';
@@ -112,11 +117,13 @@ const images = {
     Bowler,
     Boxer_Giant,
     Cannon_Cart,
+    Clone_Spell,
     Diggy,
     Dragon,
     Dragon_Rider,
     Druid,
     Drop_Ship,
+    Earthquake_Spell,
     Electro_Dragon,
     Electro_Owl,
     Electro_Titan,
@@ -148,6 +155,7 @@ const images = {
     Minion,
     Minion_Prince,
     Night_Witch,
+    Overgrowth_Spell,
     P_E_K_K_A,
     Phoenix,
     Poison_Lizard,
@@ -156,6 +164,7 @@ const images = {
     Rage_Spell,
     Raged_Barbarian,
     Recall_Spell,
+    Revive_Spell,
     Rocket_Balloon,
     Root_Rider,
     Royal_Champion,
@@ -177,6 +186,7 @@ const images = {
     Super_Wall_Breaker,
     Super_Witch,
     Super_Wizard,
+    Thrower,
     Unicorn,
     Valkyrie,
     Wall_Breaker,
