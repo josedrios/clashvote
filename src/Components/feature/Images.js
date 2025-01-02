@@ -94,11 +94,36 @@ import Witch from '../../assets/images/Witch.png';
 import Wizard from '../../assets/images/Wizard.png';
 import Yeti from '../../assets/images/Yeti.png';
 
-// REMOVE AFTER TESTING
-import th14 from '../../assets/images/th14.jpg'
+// Hero Equipment
+import Archer_Puppet from '../../assets/images/heroequipment/Archer_Puppet.png';
+import Barbarian_Puppet from '../../assets/images/heroequipment/Barbarian_Puppet.png';
+import Dark_Orb from '../../assets/images/heroequipment/Dark_Orb.png';
+import Earthquake_Boots from '../../assets/images/heroequipment/Earthquake_Boots.png';
+import Electro_Boots from '../../assets/images/heroequipment/Electro_Boots.png';
+import Eternal_Tome from '../../assets/images/heroequipment/Eternal_Tome.png';
+import Fireball from '../../assets/images/heroequipment/Fireball.png';
+import Frozen_Arrow from '../../assets/images/heroequipment/Frozen_Arrow.png';
+import Giant_Arrow from '../../assets/images/heroequipment/Giant_Arrow.png';
+import Giant_Gauntlet from '../../assets/images/heroequipment/Giant_Gauntlet.png';
+import Haste_Vial from '../../assets/images/heroequipment/Haste_Vial.png';
+import Healer_Puppet from '../../assets/images/heroequipment/Healer_Puppet.png';
+import Healing_Tome from '../../assets/images/heroequipment/Healing_Tome.png';
+import Henchmen_Puppet from '../../assets/images/heroequipment/Henchmen_Puppet.png';
+import Hog_Rider_Puppet from '../../assets/images/heroequipment/Hog_Rider_Puppet.png';
+import Invisibility_Vial from '../../assets/images/heroequipment/Invisibility_Vial.png';
+import Lavaloon_Puppet from '../../assets/images/heroequipment/Lavaloon_Puppet.png';
+import Life_Gem from '../../assets/images/heroequipment/Life_Gem.png';
+import Magic_Mirror from '../../assets/images/heroequipment/Magic_Mirror.png';
+import Rage_Gem from '../../assets/images/heroequipment/Rage_Gem.png';
+import Rage_Vial from '../../assets/images/heroequipment/Rage_Vial.png';
+import Rocket_Spear from '../../assets/images/heroequipment/Rocket_Spear.png';
+import Royal_Gem from '../../assets/images/heroequipment/Royal_Gem.png';
+import Seeking_Shield from '../../assets/images/heroequipment/Seeking_Shield.png';
+import Spiky_Ball from '../../assets/images/heroequipment/Spiky_Ball.png';
+import Vampstache from '../../assets/images/heroequipment/Vampstache.png';
+
 
 const images = {
-    th14,
     Angry_Jelly,
     Apprentice_Warden,
     Archer,
@@ -193,7 +218,34 @@ const images = {
     Wall_Wrecker,
     Witch,
     Wizard,
-    Yeti
+    Yeti,
+    // Hero Equipment
+    Archer_Puppet,
+    Barbarian_Puppet,
+    Dark_Orb,
+    Earthquake_Boots,
+    Electro_Boots,
+    Eternal_Tome,
+    Fireball,
+    Frozen_Arrow,
+    Giant_Arrow,
+    Giant_Gauntlet,
+    Haste_Vial,
+    Healer_Puppet,
+    Healing_Tome,
+    Henchmen_Puppet,
+    Hog_Rider_Puppet,
+    Invisibility_Vial,
+    Lavaloon_Puppet,
+    Life_Gem,
+    Magic_Mirror,
+    Rage_Gem,
+    Rage_Vial,
+    Rocket_Spear,
+    Royal_Gem,
+    Seeking_Shield,
+    Spiky_Ball,
+    Vampstache
 };
 
 export default images;

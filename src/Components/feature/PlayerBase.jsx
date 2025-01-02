@@ -130,6 +130,23 @@ function PlayerHome({ base, trophies }) {
                     </div>
                 </div>
             )}
+            {base.heroEquipment && (
+                <div className="troop-section">
+                    <h3>HERO EQUIPMENT</h3>
+                    <div className="troops-container" id="player-home-pets">
+                        {base.heroEquipment.map((troop, index) => (
+                            <div className="troop-container" key={index}>
+                                <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
+                                <img
+                                    className="unit-img"
+                                    src={getImage(troop.name)}
+                                    alt=""
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

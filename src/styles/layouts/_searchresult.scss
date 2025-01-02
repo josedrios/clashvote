@@ -5,7 +5,7 @@
     width: 100%;
 
     > * {
-        margin-bottom: $spacing-large;
+        margin-bottom: $spacing-medium;
     }
 }
 
@@ -35,5 +35,10 @@
 
     #player-builder-data {
         margin-top: $spacing-medium;
+        margin-left: 0%;
+    }
+
+    #player-home-data {
+        margin-right: 0%;
     }
 }
