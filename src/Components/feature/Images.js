@@ -153,7 +153,10 @@ import bh8 from '../../assets/images/builderhalls/bh8.png';
 import bh9 from '../../assets/images/builderhalls/bh9.png';
 import bh10 from '../../assets/images/builderhalls/bh10.png';
 
+import star from '../../assets/images/star.png'
+
 const images = {
+    star,
     th1,
     th2,
     th3,

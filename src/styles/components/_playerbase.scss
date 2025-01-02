@@ -61,10 +61,25 @@
     left: 0px;
 }
 
+.weapon-level {
+    position: absolute;
+    border-radius: $border-radius-xs;
+    display: flex;
+    padding: $spacing-xsmall;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    right: 0px;
+}
+
+.weapon-level-star {
+    width: 14px;
+    height: 14px;
+}
+
 .hall-img{
     padding: 0 $spacing-medium 0 $spacing-xsmall;
     height: 70px;
     align-self: center;
 }
-
-

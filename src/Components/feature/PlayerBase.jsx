@@ -38,6 +38,11 @@ function PlayerHome({ base, trophies }) {
                     >
                         {trophies.hallLevel}
                     </h4>
+                    <div className="weapon-level">
+                        {Array.from({ length: trophies.weaponLevel }, (_, index) => (
+                            <img className="weapon-level-star" key={index} src={getImage("star")} alt="" />
+                        ))}
+                    </div>
                     <img
                         className="hall-img"
                         src={getImage(

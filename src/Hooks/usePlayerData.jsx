@@ -52,6 +52,7 @@ function usePlayerData(playerData) {
 
     const homeTrophies = {
         hallLevel: playerData.townHallLevel,
+        weaponLevel: playerData.townHallWeaponLevel || "",
         current: playerData.trophies,
         best: playerData.bestTrophies,
     };
