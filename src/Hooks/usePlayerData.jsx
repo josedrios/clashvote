@@ -51,13 +51,13 @@ function usePlayerData(playerData) {
     }
 
     const homeTrophies = {
-        thLevel: playerData.townHallLevel,
+        hallLevel: playerData.townHallLevel,
         current: playerData.trophies,
         best: playerData.bestTrophies,
     };
 
     const builderTrophies = {
-        bhLevel: playerData.builderHallLevel,
+        hallLevel: playerData.builderHallLevel,
         current: playerData.builderBaseTrophies,
         best: playerData.bestBuilderBaseTrophies,
     };
@@ -122,7 +122,7 @@ function usePlayerData(playerData) {
         ),
         pets: playerData.troops.filter((troop) => pets.includes(troop.name)),
         spells: playerData.spells,
-        heroEquipment: playerData.heroEquipment.filter((heroEq) => heroEq.village === "home")
+        heroEquipment: playerData.heroEquipment.filter((heroEq) => heroEq.village === "home"),
     };
 
     // Super Troop Level Fix Function

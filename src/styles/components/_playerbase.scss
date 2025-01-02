@@ -42,7 +42,26 @@
     }
 }
 
-.testing-img{
+.hall-container {
+    position: relative;
+    padding: 0 0 0 $spacing-xsmall;
+}
+
+.hall-level{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: $border-radius-xs;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-background-color;
+    bottom: 10px;
+    left: 0px;
+}
+
+.hall-img{
     padding: 0 $spacing-medium 0 $spacing-xsmall;
     height: 70px;
     align-self: center;

@@ -25,55 +25,76 @@ function PlayerHome({ base, trophies }) {
                         <GoTrophy className="trophy-icon" />
                     </div>
                 </div>
-                <img className="testing-img" src={getImage("th14")} alt="" />
+                <div className="hall-container">
+                    <h4
+                        className={`hall-level ${
+                            trophies.hallLevel === 17 && base.base === "home"
+                                ? "max-level"
+                                : trophies.hallLevel === 10 &&
+                                  base.base === "builder"
+                                ? "max-level"
+                                : ""
+                        }`}
+                    >
+                        {trophies.hallLevel}
+                    </h4>
+                    <img
+                        className="hall-img"
+                        src={getImage(
+                            (base.base === "home" ? "th" : "bh") +
+                                trophies.hallLevel
+                        )}
+                        alt=""
+                    />
+                </div>
             </div>
             {base.heroes && (
                 <div className="troop-section">
-                <h3>HEROES</h3>
-                <div className="troops-container">
-                    {base.heroes.map((troop, index) => (
-                        <div>
-                            <div
-                                className="troop-container hero-troop-container"
-                                key={index}
-                            >
-                                <h4
-                                    className={`troop-level ${
-                                        troop.level === troop.maxLevel
-                                            ? "max-level"
-                                            : ""
-                                    }`}
+                    <h3>HEROES</h3>
+                    <div className="troops-container">
+                        {base.heroes.map((troop, index) => (
+                            <div>
+                                <div
+                                    className="troop-container hero-troop-container"
+                                    key={index}
                                 >
-                                    {troop.level}
-                                </h4>
-                                <img
-                                    className="unit-img"
-                                    src={getImage(troop.name)}
-                                    alt=""
-                                />
+                                    <h4
+                                        className={`troop-level ${
+                                            troop.level === troop.maxLevel
+                                                ? "max-level"
+                                                : ""
+                                        }`}
+                                    >
+                                        {troop.level}
+                                    </h4>
+                                    <img
+                                        className="unit-img"
+                                        src={getImage(troop.name)}
+                                        alt=""
+                                    />
+                                </div>
+                                {troop.equipment?.[0] && (
+                                    <div className="hero-equipment">
+                                        <img
+                                            src={getImage(
+                                                troop.equipment?.[0].name || ""
+                                            )}
+                                            className="hero-item"
+                                            alt=""
+                                        />
+                                        <img
+                                            src={getImage(
+                                                troop.equipment?.[1].name || ""
+                                            )}
+                                            className="hero-item"
+                                            alt=""
+                                        />
+                                    </div>
+                                )}
                             </div>
-                            {troop.equipment?.[0] && (
-                                <div className="hero-equipment">
-                                <img
-                                    src={getImage(
-                                        troop.equipment?.[0].name || ""
-                                    )}
-                                    className="hero-item"
-                                    alt=""
-                                />
-                                <img
-                                    src={getImage(
-                                        troop.equipment?.[1].name || ""
-                                    )}
-                                    className="hero-item"
-                                    alt=""
-                                />
-                            </div>
-                            )}
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
             )}
             <div className="troop-section">
                 <h3>TROOPS</h3>

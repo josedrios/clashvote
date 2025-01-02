@@ -122,8 +122,65 @@ import Seeking_Shield from '../../assets/images/heroequipment/Seeking_Shield.png
 import Spiky_Ball from '../../assets/images/heroequipment/Spiky_Ball.png';
 import Vampstache from '../../assets/images/heroequipment/Vampstache.png';
 
+// Town Halls
+import th1 from '../../assets/images/townhalls/th1.png';
+import th2 from '../../assets/images/townhalls/th2.png';
+import th3 from '../../assets/images/townhalls/th3.png';
+import th4 from '../../assets/images/townhalls/th4.png';
+import th5 from '../../assets/images/townhalls/th5.png';
+import th6 from '../../assets/images/townhalls/th6.png';
+import th7 from '../../assets/images/townhalls/th7.png';
+import th8 from '../../assets/images/townhalls/th8.png';
+import th9 from '../../assets/images/townhalls/th9.png';
+import th10 from '../../assets/images/townhalls/th10.png';
+import th11 from '../../assets/images/townhalls/th11.png';
+import th12 from '../../assets/images/townhalls/th12.png';
+import th13 from '../../assets/images/townhalls/th13.png';
+import th14 from '../../assets/images/townhalls/th14.png';
+import th15 from '../../assets/images/townhalls/th15.png';
+import th16 from '../../assets/images/townhalls/th16.png';
+import th17 from '../../assets/images/townhalls/th17.png';
+
+// Builder Halls
+import bh1 from '../../assets/images/builderhalls/bh1.png';
+import bh2 from '../../assets/images/builderhalls/bh2.png';
+import bh3 from '../../assets/images/builderhalls/bh3.png';
+import bh4 from '../../assets/images/builderhalls/bh4.png';
+import bh5 from '../../assets/images/builderhalls/bh5.png';
+import bh6 from '../../assets/images/builderhalls/bh6.png';
+import bh7 from '../../assets/images/builderhalls/bh7.png';
+import bh8 from '../../assets/images/builderhalls/bh8.png';
+import bh9 from '../../assets/images/builderhalls/bh9.png';
+import bh10 from '../../assets/images/builderhalls/bh10.png';
 
 const images = {
+    th1,
+    th2,
+    th3,
+    th4,
+    th5,
+    th6,
+    th7,
+    th8,
+    th9,
+    th10,
+    th11,
+    th12,
+    th13,
+    th14,
+    th15,
+    th16,
+    th17,
+    bh1,
+    bh2,
+    bh3,
+    bh4,
+    bh5,
+    bh6,
+    bh7,
+    bh8,
+    bh9,
+    bh10,
     Angry_Jelly,
     Apprentice_Warden,
     Archer,
