@@ -37,7 +37,7 @@ function PlayerHome({ base, trophies }) {
                 <div className="troops-container">
                     {base.heroes.map((troop, index) => (
                         <div className="troop-container" key={index}>
-                            <h4 className="troop-level">{troop.level}</h4>
+                            <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                             <img
                                 className="unit-img"
                                 src={getImage(troop.name)}
@@ -52,7 +52,7 @@ function PlayerHome({ base, trophies }) {
                 <div className="troops-container">
                     {base.troops.map((troop, index) => (
                         <div className="troop-container" key={index}>
-                            <h4 className="troop-level">{troop.level}</h4>
+                            <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                             <img
                                 className="unit-img"
                                 src={getImage(troop.name)}
@@ -68,7 +68,7 @@ function PlayerHome({ base, trophies }) {
                     <div className="troops-container">
                         {base.supers.map((troop, index) => (
                             <div className="troop-container" key={index}>
-                                <h4 className="troop-level">{troop.level}</h4>
+                                <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                                 <img
                                     className="unit-img"
                                     src={getImage(troop.name)}
@@ -85,7 +85,7 @@ function PlayerHome({ base, trophies }) {
                     <div className="troops-container">
                         {base.sieges.map((troop, index) => (
                             <div className="troop-container" key={index}>
-                                <h4 className="troop-level">{troop.level}</h4>
+                                <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                                 <img
                                     className="unit-img"
                                     src={getImage(troop.name)}
@@ -100,12 +100,12 @@ function PlayerHome({ base, trophies }) {
                 <div className="troop-section">
                     <h3>SPELLS</h3>
                     <div className="troops-container">
-                        {base.spells.map((spell, index) => (
+                        {base.spells.map((troop, index) => (
                             <div className="troop-container" key={index}>
-                                <h4 className="troop-level">{spell.level}</h4>
+                                <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                                 <img
                                     className="unit-img"
-                                    src={getImage(spell.name)}
+                                    src={getImage(troop.name)}
                                     alt=""
                                 />
                             </div>
@@ -119,7 +119,7 @@ function PlayerHome({ base, trophies }) {
                     <div className="troops-container" id="player-home-pets">
                         {base.pets.map((troop, index) => (
                             <div className="troop-container" key={index}>
-                                <h4 className="troop-level">{troop.level}</h4>
+                                <h4 className={`troop-level ${troop.level === troop.maxLevel ? 'max-level' : ''}`}>{troop.level}</h4>
                                 <img
                                     className="unit-img"
                                     src={getImage(troop.name)}

@@ -10,6 +10,7 @@
 .player-base-container {
     border-radius: $border-radius-xs;
     background-color: $secondary-background-color;
+    padding-bottom: $spacing-small;
 }
 
 .player-base-header-container {
@@ -31,6 +32,7 @@
     color: $offwhite-two;
     align-items: center;
     p {
+        font-size: 15px;
         color: $offwhite-two;
     }
     .trophy-icon {

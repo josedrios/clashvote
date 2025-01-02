@@ -46,7 +46,6 @@ function SearchResult({ playerData }) {
                 <PlayerBase base={playerHome} trophies={homeTrophies} />
                 <PlayerBase base={playerBuilder} trophies={builderTrophies} />
             </div>
-            <img src={`../../assets/images/townhalls/th${homeTrophies.thLevel}.png`} alt="" />
         </div>
     );
 }

@@ -45,10 +45,10 @@
 }
 
 #player-labels {
+    margin: $spacing-xsmall 0;
     display: flex;
 }
 
 .player-label {
-    aspect-ratio: 1/1;
     width: 40px;
 }

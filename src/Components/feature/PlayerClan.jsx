@@ -6,6 +6,8 @@ function PlayerClan({playerClan}) {
                 <div>Role: {playerClan.clanRole}</div>
                 <div>Donated: {playerClan.troopsDonated}</div>
                 <div>Received: {playerClan.troopsReceived}</div>
+                <div>War Stars: {playerClan.warStars}</div>
+                <div>War Opt: {playerClan.warPreference}</div>
             </div>
             <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
         </div>

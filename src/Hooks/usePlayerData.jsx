@@ -7,32 +7,60 @@ function usePlayerData(playerData) {
         tag: playerData.tag,
         level: playerData.expLevel,
         accountLabel: [
-            playerData.labels[0]?.iconUrls.small || "No Label",
-            playerData.labels[1]?.iconUrls.small || "No Label",
-            playerData.labels[2]?.iconUrls.small || "No Label",
+            playerData.labels[0]?.iconUrls.small || "",
+            playerData.labels[1]?.iconUrls.small || "",
+            playerData.labels[2]?.iconUrls.small || "",
         ],
     };
 
     const playerClan = {
         troopsDonated: playerData.donations,
         troopsReceived: playerData.donationsReceived,
+        warPreference: playerData.warPreference?.toUpperCase() || "None",
+        warStars: playerData.warStars,
         clanName: playerData.clan?.name || "No Clan",
-        clanRole: playerData.clan ? playerData.role : "None",
+        clanRole: playerData.clan ? fixClanRole(playerData.role) : "None",
         level: playerData.expLevel,
-        clanBadge: playerData.clan?.badgeUrls.large || "No Clan",
+        clanBadge: playerData.clan?.badgeUrls.large || "",
     };
+
+    // Change Clan Role to appropriate name
+    function fixClanRole(role) {
+        var newRole = "";
+        switch (role) {
+            case "member":
+                newRole = "Member";
+                break;
+            case "admin":
+                newRole = "Elder";
+                break;
+            case "coLeader":
+                newRole = "Co-Leader";
+                break;
+            case "leader":
+                newRole = "Leader";
+                break;
+            case "None":
+                newRole = "None"
+                break;
+            default:
+                newRole = "UNKNOWN";
+                break;
+        }
+        return newRole
+    }
 
     const homeTrophies = {
         thLevel: playerData.townHallLevel,
         current: playerData.trophies,
-        best: playerData.bestTrophies
-    }
+        best: playerData.bestTrophies,
+    };
 
     const builderTrophies = {
         bhLevel: playerData.builderHallLevel,
         current: playerData.builderBaseTrophies,
-        best: playerData.bestBuilderBaseTrophies
-    }
+        best: playerData.bestBuilderBaseTrophies,
+    };
 
     const pets = [
         "L.A.S.S.I",
@@ -93,7 +121,7 @@ function usePlayerData(playerData) {
             sieges.includes(siege.name)
         ),
         pets: playerData.troops.filter((troop) => pets.includes(troop.name)),
-        spells: playerData.spells
+        spells: playerData.spells,
     };
 
     // Super Troop Level Fix Function
@@ -129,7 +157,14 @@ function usePlayerData(playerData) {
         ),
     };
 
-    return { playerMain, playerClan, playerHome, playerBuilder, homeTrophies, builderTrophies };
+    return {
+        playerMain,
+        playerClan,
+        playerHome,
+        playerBuilder,
+        homeTrophies,
+        builderTrophies,
+    };
 }
 
 export default usePlayerData;
