@@ -25,6 +25,10 @@
     margin: 0 $spacing-small $spacing-small 0;
 }
 
+.hero-troop-container {
+    margin-bottom: 0;
+}
+
 .troop-level {
     width: 20px;
     height: 20px;
@@ -44,9 +48,21 @@
     color: $primary-color;
 }
 
-
 .unit-img {
     aspect-ratio: 1/1;
     width: inherit;
     height: inherit;
+}
+
+.hero-equipment {
+    display: flex;
+    flex-direction: row;
+    width: 60px;
+    background-color: $primary-background-color;
+    border-radius: $border-radius-xs;
+    margin-bottom: $spacing-small;
+}
+
+.hero-item {
+    width: 30px;
 }
