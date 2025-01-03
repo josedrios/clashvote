@@ -4,6 +4,9 @@ import SearchInfo from "../feature/SearchInfo";
 import PlayerCards from "./PlayerCards";
 import PlayerBase from "./PlayerBase";
 
+import images from "./Images";
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+
 function SearchResult({ playerData }) {
     if (playerData === "null") {
         return (
@@ -33,8 +36,12 @@ function SearchResult({ playerData }) {
                     <h3 id="player-username">{playerMain.name}</h3>
                     <img
                         id="player-rank-icon"
-                        src={playerMain.homeLeagueIcon}
                         alt=""
+                        src={`${
+                            playerMain.homeLeagueIcon === "Unranked"
+                                ? getImage("unranked")
+                                : playerMain.homeLeagueIcon
+                        }`}
                     />
                 </div>
                 <div id="player-header">

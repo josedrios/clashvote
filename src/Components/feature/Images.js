@@ -154,8 +154,10 @@ import bh9 from '../../assets/images/builderhalls/bh9.png';
 import bh10 from '../../assets/images/builderhalls/bh10.png';
 
 import star from '../../assets/images/star.png'
+import unranked from '../../assets/images/unranked.png'
 
 const images = {
+    unranked,
     star,
     th1,
     th2,

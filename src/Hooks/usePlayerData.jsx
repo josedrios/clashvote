@@ -126,6 +126,27 @@ function usePlayerData(playerData) {
         heroEquipment: playerData.heroEquipment.filter((heroEq) => heroEq.village === "home"),
     };
 
+    // ADD SUPER TROOP REQUIREMENT CHECKER CODE/FUNCTION HERE
+
+    // SUPER TROOP REQUIREMENTS
+    // -------------------------------------
+    // SUPER BARBARIAN = BARBARIAN LEVEL 8
+    // SUPER ARCHER = ARCHER LEVEL 8
+    // SUPER GIANT = GIANT LEVEL 9
+    // SNEAKY GOBLIN = GOBLIN LEVEL 7
+    // SUPER WALL BREAKER = WALL BREAKER LEVEL 7
+    // ROCKET BALLOON = BALLOON LEVEL 8
+    // SUPER WIZARD = WIZARD LEVEL 9
+    // SUPER DRAGON = DRAGON LEVEL 7
+    // INFERNO DRAGON = BABY DRAGON LEVEL 6
+    // SUPER MINER = MINER LEVEL 7
+    // SUPER MINION = MINION LEVEL 8
+    // SUPER HOG RIDER = HOG RIDER LEVEL 10
+    // SUPER VALKYRIE = VALKYRIE LEVEL 7
+    // SUPER WITCH = WITCH LEVEL 5
+    // ICE HOUND = LAVA HOUND LEVEL 5
+    // SUPER BOWLER = BOWLER LEVEL 4
+
     // Super Troop Level Fix Function
     function replaceLevel(troopName, original, replacer) {
         const newName = troopName.replace(original, replacer);
