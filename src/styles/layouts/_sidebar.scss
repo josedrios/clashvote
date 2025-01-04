@@ -39,7 +39,7 @@
     }
 }
 
-@media (max-width: #{$breakpoint-md}) {
+@media (max-width: #{$breakpoint-lg}) {
     #main-sidebar.open{
         transform: translateX(0px);
     }

@@ -39,9 +39,17 @@ function PlayerHome({ base, trophies }) {
                         {trophies.hallLevel}
                     </h4>
                     <div className="weapon-level">
-                        {Array.from({ length: trophies.weaponLevel }, (_, index) => (
-                            <img className="weapon-level-star" key={index} src={getImage("star")} alt="" />
-                        ))}
+                        {Array.from(
+                            { length: trophies.weaponLevel },
+                            (_, index) => (
+                                <img
+                                    className="weapon-level-star"
+                                    key={index}
+                                    src={getImage("star")}
+                                    alt=""
+                                />
+                            )
+                        )}
                     </div>
                     <img
                         className="hall-img"
@@ -62,6 +70,7 @@ function PlayerHome({ base, trophies }) {
                                 <div
                                     className="troop-container hero-troop-container"
                                     key={index}
+                                    title={troop.name}
                                 >
                                     <h4
                                         className={`troop-level ${
@@ -81,6 +90,7 @@ function PlayerHome({ base, trophies }) {
                                 {troop.equipment?.[0] && (
                                     <div className="hero-equipment">
                                         <img
+                                            title={troop.equipment?.[0].name || ""}
                                             src={getImage(
                                                 troop.equipment?.[0].name || ""
                                             )}
@@ -88,6 +98,7 @@ function PlayerHome({ base, trophies }) {
                                             alt=""
                                         />
                                         <img
+                                            title={troop.equipment?.[1].name || ""}
                                             src={getImage(
                                                 troop.equipment?.[1].name || ""
                                             )}
@@ -105,7 +116,7 @@ function PlayerHome({ base, trophies }) {
                 <h3>TROOPS</h3>
                 <div className="troops-container">
                     {base.troops.map((troop, index) => (
-                        <div className="troop-container" key={index}>
+                        <div className="troop-container" key={index} title={troop.name}>
                             <h4
                                 className={`troop-level ${
                                     troop.level === troop.maxLevel
@@ -129,7 +140,7 @@ function PlayerHome({ base, trophies }) {
                     <h3>SUPER TROOPS</h3>
                     <div className="troops-container">
                         {base.supers.map((troop, index) => (
-                            <div className="troop-container" key={index}>
+                            <div className="troop-container" key={index} title={troop.name}>
                                 <h4
                                     className={`troop-level ${
                                         troop.level === troop.maxLevel
@@ -154,7 +165,7 @@ function PlayerHome({ base, trophies }) {
                     <h3>SIEGE MACHINES</h3>
                     <div className="troops-container">
                         {base.sieges.map((troop, index) => (
-                            <div className="troop-container" key={index}>
+                            <div className="troop-container" key={index} title={troop.name}>
                                 <h4
                                     className={`troop-level ${
                                         troop.level === troop.maxLevel
@@ -179,7 +190,7 @@ function PlayerHome({ base, trophies }) {
                     <h3>SPELLS</h3>
                     <div className="troops-container">
                         {base.spells.map((troop, index) => (
-                            <div className="troop-container" key={index}>
+                            <div className="troop-container" key={index} title={troop.name}>
                                 <h4
                                     className={`troop-level ${
                                         troop.level === troop.maxLevel
@@ -202,9 +213,9 @@ function PlayerHome({ base, trophies }) {
             {base.pets && (
                 <div className="troop-section">
                     <h3>PETS</h3>
-                    <div className="troops-container" id="player-home-pets">
+                    <div className="troops-container" id="player-home-pets" >
                         {base.pets.map((troop, index) => (
-                            <div className="troop-container" key={index}>
+                            <div className="troop-container" key={index} title={troop.name}>
                                 <h4
                                     className={`troop-level ${
                                         troop.level === troop.maxLevel
@@ -229,7 +240,7 @@ function PlayerHome({ base, trophies }) {
                     <h3>HERO EQUIPMENT</h3>
                     <div className="troops-container" id="player-home-pets">
                         {base.heroEquipment.map((troop, index) => (
-                            <div className="troop-container" key={index}>
+                            <div className="troop-container" key={index} title={troop.name}>
                                 <h4
                                     className={`troop-level ${
                                         troop.level === troop.maxLevel
