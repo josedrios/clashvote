@@ -16,7 +16,6 @@ function usePlayerData(playerData) {
     const playerClan = {
         troopsDonated: playerData.donations,
         troopsReceived: playerData.donationsReceived,
-        warPreference: playerData.warPreference?.toUpperCase() || "None",
         warStars: playerData.warStars,
         clanName: playerData.clan?.name || "No Clan",
         clanRole: playerData.clan ? fixClanRole(playerData.role) : "None",

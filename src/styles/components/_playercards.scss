@@ -12,7 +12,7 @@
 #player-clan {
     display: flex;
     align-items: center;
-    padding: $spacing-medium;
+    padding: $spacing-medium $spacing-small $spacing-medium $spacing-medium;
     background-color: $secondary-background-color;
     border-radius:  $border-radius-sm 0 0 $border-radius-sm;
     border-right: 3px solid $primary-color;
@@ -25,7 +25,13 @@
     justify-content: space-between;
 
     > div {
+        display: flex;
+        justify-content: space-between;
         font-size: 15px;
+        > p {
+            display: inline-block;
+            text-align: right;
+        }
     }
 }
 
@@ -35,7 +41,7 @@
 }
 
 #player-clan-badge {
-    height: 70px;
+    height: 80px;
     margin-left: $spacing-small;
 }
 
