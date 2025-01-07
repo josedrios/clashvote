@@ -3,6 +3,7 @@ import PlayerMain from "./PlayerMain";
 import SearchInfo from "../feature/SearchInfo";
 import PlayerCards from "./PlayerCards";
 import PlayerBase from "./PlayerBase";
+import Achievements from './PlayerAchievmenets';
 
 import images from "./Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
@@ -27,6 +28,7 @@ function SearchResult({ playerData }) {
         playerBuilder,
         homeTrophies,
         builderTrophies,
+        achievements
     } = usePlayerData(playerData);
 
     return (
@@ -53,6 +55,7 @@ function SearchResult({ playerData }) {
                 <PlayerBase base={playerHome} trophies={homeTrophies} />
                 <PlayerBase base={playerBuilder} trophies={builderTrophies} />
             </div>
+            <Achievements achievements={achievements}/>
         </div>
     );
 }

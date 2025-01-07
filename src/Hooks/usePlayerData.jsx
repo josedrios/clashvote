@@ -179,6 +179,11 @@ function usePlayerData(playerData) {
         ),
     };
 
+    const achievements = {
+        home: playerData.achievements.filter((achievement) => achievement.village === "home"),
+        builder: playerData.achievements.filter((achievement) => achievement.village === "builderBase")
+    }
+
     return {
         playerMain,
         playerClan,
@@ -186,6 +191,7 @@ function usePlayerData(playerData) {
         playerBuilder,
         homeTrophies,
         builderTrophies,
+        achievements
     };
 }
 
