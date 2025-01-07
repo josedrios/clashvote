@@ -127,25 +127,6 @@ function usePlayerData(playerData) {
 
     // ADD SUPER TROOP REQUIREMENT CHECKER CODE/FUNCTION HERE
 
-    // SUPER TROOP REQUIREMENTS
-    // -------------------------------------
-    // SUPER BARBARIAN = BARBARIAN LEVEL 8
-    // SUPER ARCHER = ARCHER LEVEL 8
-    // SUPER GIANT = GIANT LEVEL 9
-    // SNEAKY GOBLIN = GOBLIN LEVEL 7
-    // SUPER WALL BREAKER = WALL BREAKER LEVEL 7
-    // ROCKET BALLOON = BALLOON LEVEL 8
-    // SUPER WIZARD = WIZARD LEVEL 9
-    // SUPER DRAGON = DRAGON LEVEL 7
-    // INFERNO DRAGON = BABY DRAGON LEVEL 6
-    // SUPER MINER = MINER LEVEL 7
-    // SUPER MINION = MINION LEVEL 8
-    // SUPER HOG RIDER = HOG RIDER LEVEL 10
-    // SUPER VALKYRIE = VALKYRIE LEVEL 7
-    // SUPER WITCH = WITCH LEVEL 5
-    // ICE HOUND = LAVA HOUND LEVEL 5
-    // SUPER BOWLER = BOWLER LEVEL 4
-
     // Super Troop Level Fix Function
     function replaceLevel(troopName, original, replacer) {
         const newName = troopName.replace(original, replacer);
@@ -166,6 +147,33 @@ function usePlayerData(playerData) {
             troop.level = replaceLevel(troop.name, "Inferno ", "Baby ");
         } else if (troop.name.includes("Ice ")) {
             troop.level = replaceLevel(troop.name, "Ice ", "Lava ");
+        }
+    });
+
+    const superReqs = [
+        ["Super Archer", 8, "Archer"],
+        ["Super Barbarian", 8, "Barbarian"],
+        ["Super Giant", 9, "Giant"],
+        ["Sneaky Goblin", 7, "Goblin"],
+        ["Super Wall Breaker", 7, "Wall Breaker"],
+        ["Rocket Balloon", 8, "Balloon"],
+        ["Super Wizard", 9, "Wizard"],
+        ["Super Dragon", 7, "Dragon"],
+        ["Inferno Dragon", 6, "Baby Dragon"],
+        ["Super Miner", 7, "Miner"],
+        ["Super Minion", 8, "Minion"],
+        ["Super Hog Rider", 10, "Hog Rider"],
+        ["Super Valkyrie", 7, "Valkyrie"],
+        ["Super Witch", 5, "Witch"],
+        ["Ice Hound", 5, "Lava Hound"],
+        ["Super Bowler", 4, "Bowler"],
+    ]
+
+    playerHome.troops.map((troop) => {
+        for(let i = 0; i < superReqs.length; i++){
+            if(troop.name === superReqs[i][0] && troop.level < superReqs[i][1]){
+                playerHome.supers = playerHome.supers.filter((troop) => troop.name != superReqs[i][2])
+            }
         }
     });
 
