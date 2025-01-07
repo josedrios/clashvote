@@ -42,7 +42,7 @@ function PlayerAchievements({ achievements }) {
                             {ach.stars === 3 ? (
                                 <div className="ach-progress ach-completion">
                                     {ach.completionInfo}
-                                    <FaCheck />
+                                    <FaCheck className="ach-check"/>
                                 </div>
                             ) : (
                                 <div className="ach-progress">

@@ -117,15 +117,19 @@
 
 .ach-completion {
     font-size: 13px;
-    color: $offwhite-two
+    color: $offwhite-two;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
 }
 
 .ach-progress-bar {
+    opacity: 0.8;
     border-radius: $border-radius-lg;
     width: 200px;
     height: 10px;
     background-color: gray;
-    opacity: 0.5;
     position: relative;
 }
 
@@ -142,4 +146,13 @@
 .ach-progress-text {
     text-align: center;
     margin-bottom: $spacing-small;
+}
+
+.ach-check {
+    max-width: 20px;
+    min-width: 20px;
+    width: 20px;
+    margin-left: $spacing-small;
+    fill: lime;
+    font-size: 15px;
 }
