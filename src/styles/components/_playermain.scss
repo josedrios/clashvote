@@ -54,9 +54,92 @@
 }
 
 #achievements-container {
-    // border: 1px solid lime;
+    padding-bottom: $spacing-small;
+}
+
+.base-ach-container {
+    background-color: $secondary-background-color;
+    border-radius: 0 0 $border-radius-xs $border-radius-xs;
+}
+
+.base-ach-container > div:last-child{
+    border-bottom: none;
+}
+
+.base-ach-header {
+    padding: $spacing-small $spacing-medium;
+    color: $primary-color;
+    border-bottom: 2px solid $primary-color;
 }
 
 .ach-container {
-    border: 1px solid magenta;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: $spacing-medium;
+    border-bottom: 0.5px solid white;
+}
+
+.ach-stars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: min-content;
+    margin-right: $spacing-medium;
+}
+
+.ach-star {
+    width: 25px;
+}
+
+.ach-star-empty {
+    width: 25px;
+    opacity: 50%;
+    filter: grayscale(40%)
+}
+
+.ach-body {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    max-width: 60%;
+    margin-right: $spacing-medium;
+}
+
+.ach-name {
+    color: $primary-color;
+}
+
+.ach-progress {
+    text-align: right;
+    margin-left: auto;
+}
+
+.ach-completion {
+    font-size: 13px;
+    color: $offwhite-two
+}
+
+.ach-progress-bar {
+    border-radius: $border-radius-lg;
+    width: 200px;
+    height: 10px;
+    background-color: gray;
+    opacity: 0.5;
+    position: relative;
+}
+
+.ach-fill-bar {
+    border-radius: $border-radius-lg;
+    width: 10px;
+    height: inherit;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: $primary-color;
+}
+
+.ach-progress-text {
+    text-align: center;
+    margin-bottom: $spacing-small;
 }

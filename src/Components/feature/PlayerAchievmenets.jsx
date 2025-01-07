@@ -1,35 +1,79 @@
+import images from "./Images";
+import { FaCheck } from "react-icons/fa";
+
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+
 function PlayerAchievements({ achievements }) {
     return (
         <div id="achievements-container">
-            <div id="home-achievements">
-                <h3>Home Achievements</h3>
-                {achievements.home.map((ach, index) => (
-                    <div className="ach-container" key={index}>
-                        <div className="ach-name" title={ach.name}>
-                            {ach.name}
+            <div className="ach-section">
+                <h3 className="base-ach-header">Home Achievements</h3>
+                <div className="base-ach-container">
+                    {achievements.home.map((ach, index) => (
+                        <div className="ach-container" key={index}>
+                            <div className="ach-stars">
+                                {Array.from(
+                                    { length: ach.stars },
+                                    (_, index) => (
+                                        <img
+                                            className="ach-star"
+                                            key={index}
+                                            src={getImage("star")}
+                                            alt=""
+                                        />
+                                    )
+                                )}
+                                {Array.from(
+                                    { length: 3 - ach.stars },
+                                    (_, index) => (
+                                        <img
+                                            className="ach-star-empty"
+                                            key={index}
+                                            src={getImage("star")}
+                                            alt=""
+                                        />
+                                    )
+                                )}
+                            </div>
+                            <div className="ach-body">
+                                <div className="ach-name">{ach.name}</div>
+                                <div className="ach-info">{ach.info}</div>
+                            </div>
+                            {ach.stars === 3 ? (
+                                <div className="ach-progress ach-completion">
+                                    {ach.completionInfo}
+                                    <FaCheck />
+                                </div>
+                            ) : (
+                                <div className="ach-progress">
+                                    <div className="ach-progress-text">
+                                        {ach.value}/{ach.target}
+                                    </div>
+                                    <div className="ach-progress-bar">
+                                        <div
+                                            className="ach-fill-bar"
+                                            style={{
+                                                width: `${
+                                                    (ach.value / ach.target) *
+                                                    100
+                                                }%`,
+                                            }}
+                                        />{" "}
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                        <div className="ach-stars">Stars:{ach.stars}</div>
-                        <div className="ach-progress">
-                            Progress: {ach.value}/{ach.target}
-                        </div>
-                        <div className="ach-info">{ach.info}</div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-            <div id="builder-achievements">
-                <h3>Builder Achievements</h3>
-                {achievements.home.map((ach, index) => (
-                    <div className="ach-container" key={index}>
-                        <div className="ach-name" title={ach.name}>
-                            {ach.name}
-                        </div>
-                        <div className="ach-stars">Stars:{ach.stars}</div>
-                        <div className="ach-progress">
-                            Progress: {ach.value}/{ach.target}
-                        </div>
-                        <div className="ach-info">{ach.info}</div>
-                    </div>
-                ))}
+
+            <div className="ach-section">
+                <h3 className="base-ach-header">Builder Achievements</h3>
+                <div className="base-ach-container">
+                    {achievements.home.map((ach, index) => (
+                        <div></div>
+                    ))}
+                </div>
             </div>
         </div>
     );
