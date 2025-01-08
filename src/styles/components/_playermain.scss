@@ -66,12 +66,6 @@
     border-bottom: none;
 }
 
-.base-ach-header {
-    padding: $spacing-small $spacing-medium;
-    color: $primary-color;
-    border-bottom: 2px solid $primary-color;
-}
-
 .ach-container {
     display: flex;
     flex-direction: row;
@@ -164,6 +158,31 @@
     color: $offwhite-two;
 }
 
+#ach-toggle-header {
+    margin-top: $spacing-medium;
+    margin-bottom: 0;
+}
+
+#general-ach-header {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: $spacing-small;
+}
+
+.ach-button {
+    height: 50px;
+    width: 50%;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(235, 222, 36, 0.448);;
+    font-size: 20px;
+    color: gray;
+}
+
+.ach-button-selected {
+    border-bottom: 2px solid $primary-color;
+    color: rgb(255, 255, 255);
+}
+
 @media (max-width: 700px) {
     .ach-completion-note, .ach-progress-bar, .ach-progress-text{
         display: none;
@@ -172,9 +191,4 @@
     .ach-percentage {
         display: inline;
     }
-}
-
-.tester1 {
-    border: 1px solid gray;
-    color: black;
 }

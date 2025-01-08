@@ -7,7 +7,6 @@ function PlayerAchievements({ achievements, base, achCurrent }) {
     return (
         <div className={`achievements-container ${base}-ach ${achCurrent !== base ? "hide" : ''}`}>
             <div className="ach-section">
-                <h3 className="base-ach-header">{base === "home" ? "Home Achievements" : "Builder Achievements"}</h3>
                 <div className="base-ach-container">
                     {achievements.map((ach, index) => (
                         <div className="ach-container" key={index}>

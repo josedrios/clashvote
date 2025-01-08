@@ -63,20 +63,22 @@ function SearchResult({ playerData }) {
                 <PlayerBase base={playerBuilder} trophies={builderTrophies} />
             </div>
 
-            <div>
-                <button
-                    className="tester1"
-                    onClick={() => setAchCurrent("home")}
-                >
-                    Home
-                </button>
-                <button
-                    className="tester1"
-                    onClick={() => setAchCurrent("builder")}
-                >
-                    Builder
-                </button>
-                {achCurrent}
+            <div id="ach-toggle-header">
+                <h3 id="general-ach-header">Achievements</h3>
+                <div id="ach-toggle-buttons">
+                    <button
+                        className={`ach-button ${achCurrent === 'home' ? "ach-button-selected" : ''}`}
+                        onClick={() => setAchCurrent("home")}
+                    >
+                        Home
+                    </button>
+                    <button
+                        className={`ach-button ${achCurrent === 'builder' ? "ach-button-selected" : ''}`}
+                        onClick={() => setAchCurrent("builder")}
+                    >
+                        Builder
+                    </button>
+                </div>
             </div>
             <Achievements
                 achievements={achievements.home}
