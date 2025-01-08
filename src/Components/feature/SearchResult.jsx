@@ -55,7 +55,8 @@ function SearchResult({ playerData }) {
                 <PlayerBase base={playerHome} trophies={homeTrophies} />
                 <PlayerBase base={playerBuilder} trophies={builderTrophies} />
             </div>
-            <Achievements achievements={achievements}/>
+            <Achievements achievements={achievements.home} base={"home"}/>
+            <Achievements achievements={achievements.builder} base={"builder"}/>
         </div>
     );
 }
