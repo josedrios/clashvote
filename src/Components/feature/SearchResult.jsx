@@ -3,12 +3,19 @@ import PlayerMain from "./PlayerMain";
 import SearchInfo from "../feature/SearchInfo";
 import PlayerCards from "./PlayerCards";
 import PlayerBase from "./PlayerBase";
-import Achievements from './PlayerAchievmenets';
+import Achievements from "./PlayerAchievmenets";
+import { useState } from "react";
 
 import images from "./Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function SearchResult({ playerData }) {
+    const [achCurrent, setAchCurrent] = useState("home");
+
+    const changeAchCurrent = (base) => {
+        setAchCurrent(base);
+    };
+
     if (playerData === "null") {
         return (
             <div id="search-result-container">
@@ -28,7 +35,7 @@ function SearchResult({ playerData }) {
         playerBuilder,
         homeTrophies,
         builderTrophies,
-        achievements
+        achievements,
     } = usePlayerData(playerData);
 
     return (
@@ -55,8 +62,32 @@ function SearchResult({ playerData }) {
                 <PlayerBase base={playerHome} trophies={homeTrophies} />
                 <PlayerBase base={playerBuilder} trophies={builderTrophies} />
             </div>
-            <Achievements achievements={achievements.home} base={"home"}/>
-            <Achievements achievements={achievements.builder} base={"builder"}/>
+
+            <div>
+                <button
+                    className="tester1"
+                    onClick={() => setAchCurrent("home")}
+                >
+                    Home
+                </button>
+                <button
+                    className="tester1"
+                    onClick={() => setAchCurrent("builder")}
+                >
+                    Builder
+                </button>
+                {achCurrent}
+            </div>
+            <Achievements
+                achievements={achievements.home}
+                base={"home"}
+                achCurrent={achCurrent}
+            />
+            <Achievements
+                achievements={achievements.builder}
+                base={"builder"}
+                achCurrent={achCurrent}
+            />
         </div>
     );
 }

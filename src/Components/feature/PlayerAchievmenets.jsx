@@ -3,9 +3,9 @@ import { FaCheck } from "react-icons/fa";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-function PlayerAchievements({ achievements, base }) {
+function PlayerAchievements({ achievements, base, achCurrent }) {
     return (
-        <div id="achievements-container">
+        <div className={`achievements-container ${base}-ach ${achCurrent !== base ? "hide" : ''}`}>
             <div className="ach-section">
                 <h3 className="base-ach-header">{base === "home" ? "Home Achievements" : "Builder Achievements"}</h3>
                 <div className="base-ach-container">

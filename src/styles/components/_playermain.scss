@@ -53,7 +53,7 @@
     width: 40px;
 }
 
-#achievements-container {
+.achievements-container {
     padding-bottom: $spacing-small;
 }
 
@@ -172,4 +172,9 @@
     .ach-percentage {
         display: inline;
     }
+}
+
+.tester1 {
+    border: 1px solid gray;
+    color: black;
 }

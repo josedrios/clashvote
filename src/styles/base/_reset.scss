@@ -40,6 +40,10 @@ button:hover {
     cursor: pointer;
 }
 
+.hide {
+    display: none;
+}
+
 // Possibly Remove touch screens on hover
 @media (hover: none) and (pointer: coarse) {
     /* Remove hover effects */
