@@ -114,3 +114,55 @@
         display: block;
     }
 }
+
+.unit-progress-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-xsmall;
+}
+
+.unit-progress-percentage {
+    color: $primary-color;
+    margin-right: $spacing-small;
+}
+
+.unit-progress-bar {
+    height: 5px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+}
+
+.unit-bar {
+    height: inherit;
+    width: 100%;
+    background-color: rgba(235, 222, 36, 0.333);
+    border-radius: $border-radius-sm;
+}
+
+.unit-fill-bar {
+    border-radius: $border-radius-sm;
+    position: absolute;
+    height: inherit;
+    background-color: $primary-color;
+    left: 0;
+    bottom: 0;
+}
+
+.unit-progress-fraction {
+    margin: 0 $spacing-small;
+
+    p {
+        display: inline;
+    }
+    
+    .fraction-numerator {
+        color: $primary-color;
+    }
+
+    .fraction-denominator {
+        color: gray;
+        font-size: 13px;
+    }
+}

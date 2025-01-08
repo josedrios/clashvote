@@ -3,7 +3,12 @@
 
     h3 {
         font-size: 25px;
-        margin: $spacing-small 0;
+        margin: $spacing-small 0 0 0;
+        p {
+            display: inline;
+            font-size: 20px;
+            color: $primary-color;
+        }
     }
 }
 
