@@ -16,6 +16,7 @@
     background-color: $secondary-background-color;
     border-radius:  $border-radius-sm 0 0 $border-radius-sm;
     border-right: 3px solid $primary-color;
+    height: 140px;
 }
 
 #player-clan-info {
@@ -40,9 +41,28 @@
     color: $primary-color;
 }
 
+#player-clan-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: $spacing-medium;
+    margin-right: $spacing-xsmall;
+    position: relative;
+}
+
+#player-clan-role {
+    text-wrap: nowrap;
+    position: absolute;
+    bottom: -15px;
+    padding: 1px 5px;
+    color: $offwhite-two;
+}
+
 #player-clan-badge {
+    margin: auto;
     height: 80px;
-    margin-left: $spacing-small;
+    position: relative;
+    bottom: 7px;
 }
 
 #progress-base-cards {
