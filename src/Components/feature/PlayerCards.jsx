@@ -5,7 +5,7 @@ import PlayerBaseProgress from "./PlayerBaseProgress";
 function PlayerCards({ playerClan}) {
     return (
         <div id="cards-container">
-            <PlayerBaseProgress/>
+            {/* <PlayerBaseProgress/> */}
             <PlayerClan playerClan={playerClan}/>
         </div>
     );
