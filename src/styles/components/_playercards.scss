@@ -16,7 +16,23 @@
     background-color: $secondary-background-color;
     border-radius:  $border-radius-sm 0 0 $border-radius-sm;
     border-right: 3px solid $primary-color;
-    height: 140px;
+    height: 110px;
+}
+
+@media (max-width: 460px) {
+    #cards-container {
+        justify-content: left;
+    }
+
+    #player-clan {
+        border-radius:  0 $border-radius-sm $border-radius-sm 0;
+        border-right: none;
+        border-left: 3px solid $primary-color;
+        margin-left: 0;
+        margin-top: $spacing-small;
+    }
+
+
 }
 
 #player-clan-info {
@@ -53,16 +69,16 @@
 #player-clan-role {
     text-wrap: nowrap;
     position: absolute;
-    bottom: -15px;
+    bottom: -13px;
     padding: 1px 5px;
     color: $offwhite-two;
 }
 
 #player-clan-badge {
     margin: auto;
-    height: 80px;
+    height: 55px;
     position: relative;
-    bottom: 7px;
+    bottom: 10px;
 }
 
 #progress-base-cards {

@@ -12,14 +12,6 @@
     height: 45px;
 }
 
-.player-league {
-    white-space: nowrap;
-    display: flex;
-    p {
-        color: $primary-color;
-    }
-}
-
 #player-username {
     color: $primary-color;
     margin-bottom: $spacing-xsmall;

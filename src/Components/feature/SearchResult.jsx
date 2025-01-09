@@ -52,11 +52,13 @@ function SearchResult({ playerData }) {
                                 ? getImage("unranked")
                                 : playerMain.homeLeagueIcon
                         }`}
+                        title={playerMain.homeLeague}
                     />
                     <img
                         className="player-rank-icon"
                         id="player-bh-icon"
                         src={getBuilderLeague(playerMain.builderLeague)}
+                        title={playerMain.builderLeague}
                         alt=""
                     />
                 </div>

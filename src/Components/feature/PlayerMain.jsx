@@ -3,14 +3,6 @@ import xpIcon from "../../assets/images/XP.jpg";
 function PlayerMain({ playerMain }) {
     return (
         <div id="player-general-info-section">
-            <div className="player-league">
-                {" "}
-                <p>TH:&nbsp;</p> {playerMain.homeLeague.replace("League", "")}
-            </div>
-            <div className="player-league">
-                {" "}
-                <p>BH:&nbsp;</p> {playerMain.builderLeague.replace("League", "")}
-            </div>
             <div id="player-labels">
                 <img
                     className="player-label"

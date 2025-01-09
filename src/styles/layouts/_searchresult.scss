@@ -16,6 +16,12 @@
     margin-top: $spacing-small;
 }
 
+@media (max-width: 460px) {
+    #player-header {
+        flex-direction: column;
+    }
+}
+
 #player-base-flex {
     flex-direction: row;
     display: flex;

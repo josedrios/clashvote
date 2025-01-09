@@ -9,9 +9,6 @@ function PlayerClan({ playerClan }) {
                 <div>
                     Received: <p>{playerClan.troopsReceived}</p>
                 </div>
-                <div>
-                    War Stars: <p>{playerClan.warStars}</p>
-                </div>
             </div>
             <div id="player-clan-image">
                 <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
