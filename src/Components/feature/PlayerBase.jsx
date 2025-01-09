@@ -64,53 +64,7 @@ function PlayerHome({ base, trophies }) {
             {base.heroes && (
                 <div className="troop-section">
                     <h3>HEROES</h3>
-                    <div className="unit-progress-flex">
-                        <div className="unit-progress-percentage">
-                            {(
-                                (base.heroes.reduce(
-                                    (sum, hero) => sum + hero.level,
-                                    0
-                                ) /
-                                    base.heroes.reduce(
-                                        (sum, hero) => sum + hero.maxLevel,
-                                        0
-                                    )) *
-                                100
-                            ).toFixed(1)}
-                            %
-                        </div>
-                        <div className="unit-progress-bar">
-                            <div className="unit-bar" />
-                            <div
-                                className="unit-fill-bar"
-                                style={{
-                                    width: `${
-                                        (base.heroes.reduce(
-                                            (sum, hero) => sum + hero.level,
-                                            0
-                                        ) /
-                                            base.heroes.reduce(
-                                                (sum, hero) =>
-                                                    sum + hero.maxLevel,
-                                                0
-                                            )) *
-                                        100
-                                    }%`,
-                                }}
-                            />
-                        </div>
-                        <div className="unit-progress-fraction">
-                            <p className="fraction-numerator">{base.heroes.reduce(
-                                (sum, hero) => sum + hero.level,
-                                0
-                            )}</p>
-                            <p className="fraction-denominator">/
-                            {base.heroes.reduce(
-                                (sum, hero) => sum + hero.maxLevel,
-                                0
-                            )}</p>
-                        </div>
-                    </div>
+                    <ProgressBar type={base.heroes}/>
                     <div className="troops-container">
                         {base.heroes.map((troop, index) => (
                             <div>
@@ -165,6 +119,7 @@ function PlayerHome({ base, trophies }) {
             )}
             <div className="troop-section">
                 <h3>TROOPS</h3>
+                <ProgressBar type={base.troops}/>
                 <div className="troops-container">
                     {base.troops.map((troop, index) => (
                         <div
@@ -190,69 +145,12 @@ function PlayerHome({ base, trophies }) {
                     ))}
                 </div>
             </div>
-            {base.supers && (
-                <div className="troop-section">
-                    <h3>SUPER TROOPS</h3>
-                    <div className="troops-container">
-                        {base.supers.map((troop, index) => (
-                            <div
-                                className="troop-container"
-                                key={index}
-                                title={troop.name}
-                            >
-                                <h4
-                                    className={`troop-level ${
-                                        troop.level === troop.maxLevel
-                                            ? "max-level"
-                                            : ""
-                                    }`}
-                                >
-                                    {troop.level}
-                                </h4>
-                                <img
-                                    className="unit-img"
-                                    src={getImage(troop.name)}
-                                    alt=""
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
             {base.sieges && (
                 <div className="troop-section">
                     <h3>SIEGE MACHINES</h3>
+                    <ProgressBar type={base.sieges}/>
                     <div className="troops-container">
                         {base.sieges.map((troop, index) => (
-                            <div
-                                className="troop-container"
-                                key={index}
-                                title={troop.name}
-                            >
-                                <h4
-                                    className={`troop-level ${
-                                        troop.level === troop.maxLevel
-                                            ? "max-level"
-                                            : ""
-                                    }`}
-                                >
-                                    {troop.level}
-                                </h4>
-                                <img
-                                    className="unit-img"
-                                    src={getImage(troop.name)}
-                                    alt=""
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-            {base.spells && (
-                <div className="troop-section">
-                    <h3>SPELLS</h3>
-                    <div className="troops-container">
-                        {base.spells.map((troop, index) => (
                             <div
                                 className="troop-container"
                                 key={index}
@@ -280,8 +178,39 @@ function PlayerHome({ base, trophies }) {
             {base.pets && (
                 <div className="troop-section">
                     <h3>PETS</h3>
+                    <ProgressBar type={base.pets}/>
                     <div className="troops-container" id="player-home-pets">
                         {base.pets.map((troop, index) => (
+                            <div
+                                className="troop-container"
+                                key={index}
+                                title={troop.name}
+                            >
+                                <h4
+                                    className={`troop-level ${
+                                        troop.level === troop.maxLevel
+                                            ? "max-level"
+                                            : ""
+                                    }`}
+                                >
+                                    {troop.level}
+                                </h4>
+                                <img
+                                    className="unit-img"
+                                    src={getImage(troop.name)}
+                                    alt=""
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {base.spells && (
+                <div className="troop-section">
+                    <h3>SPELLS</h3>
+                    <ProgressBar type={base.spells}/>
+                    <div className="troops-container">
+                        {base.spells.map((troop, index) => (
                             <div
                                 className="troop-container"
                                 key={index}
@@ -309,6 +238,7 @@ function PlayerHome({ base, trophies }) {
             {base.heroEquipment && (
                 <div className="troop-section">
                     <h3>HERO EQUIPMENT</h3>
+                    <ProgressBar type={base.heroEquipment}/>
                     <div className="troops-container" id="player-home-pets">
                         {base.heroEquipment.map((troop, index) => (
                             <div
@@ -335,6 +265,84 @@ function PlayerHome({ base, trophies }) {
                     </div>
                 </div>
             )}
+            {base.supers && (
+                <div className="troop-section">
+                    <h3 id="super-troop-header">SUPER TROOPS</h3>
+                    <div className="troops-container">
+                        {base.supers.map((troop, index) => (
+                            <div
+                                className="troop-container"
+                                key={index}
+                                title={troop.name}
+                            >
+                                <h4
+                                    className={`troop-level ${
+                                        troop.level === troop.maxLevel
+                                            ? "max-level"
+                                            : ""
+                                    }`}
+                                >
+                                    {troop.level}
+                                </h4>
+                                <img
+                                    className="unit-img"
+                                    src={getImage(troop.name)}
+                                    alt=""
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
+function ProgressBar({type}) {
+    return (
+        <div className="unit-progress-flex">
+            <div className="unit-progress-percentage">
+                {(
+                    (type.reduce((sum, unit) => sum + unit.level, 0) /
+                        type.reduce(
+                            (sum, unit) => sum + unit.maxLevel,
+                            0
+                        )) *
+                    100
+                ).toFixed(1)}
+                %
+            </div>
+            <div className="unit-progress-bar">
+                <div className="unit-bar" />
+                <div
+                    className="unit-fill-bar"
+                    style={{
+                        width: `${
+                            (type.reduce(
+                                (sum, unit) => sum + unit.level,
+                                0
+                            ) /
+                                type.reduce(
+                                    (sum, unit) => sum + unit.maxLevel,
+                                    0
+                                )) *
+                            100
+                        }%`,
+                    }}
+                />
+            </div>
+            <div className="unit-progress-fraction">
+                <p className="fraction-numerator">
+                    {type.reduce((sum, unit) => sum + unit.level, 0)}
+                </p>
+                <p className="fraction-denominator">
+                    /
+                    {type.reduce(
+                        (sum, unit) => sum + unit.maxLevel,
+                        0
+                    )}
+                </p>
+            </div>
         </div>
     );
 }

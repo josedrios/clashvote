@@ -118,12 +118,13 @@
 .unit-progress-flex {
     display: flex;
     align-items: center;
-    margin-bottom: $spacing-xsmall;
+    margin-bottom: $spacing-small;
 }
 
 .unit-progress-percentage {
     color: $primary-color;
     margin-right: $spacing-small;
+    width: 50px;
 }
 
 .unit-progress-bar {
