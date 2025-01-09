@@ -298,6 +298,14 @@ function PlayerHome({ base, trophies }) {
     );
 }
 
+function UnitSection({type}) {
+    return (
+        <div>
+            UNIT SECTION REFACTORING
+        </div>
+    )
+}
+
 function ProgressBar({type}) {
     return (
         <div className="unit-progress-flex">

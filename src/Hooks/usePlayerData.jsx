@@ -19,7 +19,6 @@ function usePlayerData(playerData) {
         warStars: playerData.warStars,
         clanName: playerData.clan?.name || "No Clan",
         clanRole: playerData.clan ? fixClanRole(playerData.role) : "None",
-        level: playerData.expLevel,
         clanBadge: playerData.clan?.badgeUrls.large || "",
     };
 
@@ -124,8 +123,6 @@ function usePlayerData(playerData) {
         spells: playerData.spells,
         heroEquipment: playerData.heroEquipment.filter((heroEq) => heroEq.village === "home"),
     };
-
-    // ADD SUPER TROOP REQUIREMENT CHECKER CODE/FUNCTION HERE
 
     // Super Troop Level Fix Function
     function replaceLevel(troopName, original, replacer) {

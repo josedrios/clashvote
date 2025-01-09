@@ -8,13 +8,12 @@ import { useState } from "react";
 
 import images from "./Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+const getBuilderLeague = (league) => {
+    return getImage(league.split(" ")[0])
+}
 
 function SearchResult({ playerData }) {
     const [achCurrent, setAchCurrent] = useState("home");
-
-    const changeAchCurrent = (base) => {
-        setAchCurrent(base);
-    };
 
     if (playerData === "null") {
         return (
@@ -54,7 +53,8 @@ function SearchResult({ playerData }) {
                     />
                     <img
                         className="player-rank-icon"
-                        src={getImage("Iron")}
+                        id="player-bh-icon"
+                        src={getBuilderLeague(playerMain.builderLeague)}
                         alt=""
                     />
                 </div>
