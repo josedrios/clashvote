@@ -5,17 +5,39 @@
 #player-data-bar {
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#player-rank-flex {
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .player-rank-icon {
-    margin-left: $spacing-small;
     height: 45px;
 }
 
+#player-bh-icon {
+    margin-left: $spacing-small;
+    position: relative;
+    top: 5px;
+    height: 37px;
+}
+
 #player-username {
+    margin-right: $spacing-small;
     color: $primary-color;
     margin-bottom: $spacing-xsmall;
-    font-size: 35px;
+    font-size: 32px;
+}
+
+@media (max-width: 400px){
+    #player-username {
+        font-size: 30px;
+        margin-bottom: 0 !important;
+        align-self: center;
+    }
 }
 
 #player-xp-container {
@@ -183,10 +205,4 @@
     .ach-percentage {
         display: inline;
     }
-}
-
-#player-bh-icon {
-    position: relative;
-    top: 5px;
-    height: 37px;
 }

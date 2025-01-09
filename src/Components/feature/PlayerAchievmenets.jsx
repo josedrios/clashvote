@@ -62,7 +62,7 @@ function PlayerAchievements({ achievements, base, achCurrent }) {
                                         />
                                     </div>
                                     <div className="ach-percentage">
-                                        {((ach.value / ach.target) * 100).toFixed(2)}%
+                                        {((ach.value / ach.target) * 100).toFixed(1)}%
                                     </div>
                                 </div>
                             )}

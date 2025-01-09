@@ -44,23 +44,25 @@ function SearchResult({ playerData }) {
             <div id="player-data">
                 <div id="player-data-bar">
                     <h3 id="player-username">{playerMain.name}</h3>
-                    <img
-                        className="player-rank-icon"
-                        alt=""
-                        src={`${
-                            playerMain.homeLeagueIcon === "Unranked"
-                                ? getImage("unranked")
-                                : playerMain.homeLeagueIcon
-                        }`}
-                        title={playerMain.homeLeague}
-                    />
-                    <img
-                        className="player-rank-icon"
-                        id="player-bh-icon"
-                        src={getBuilderLeague(playerMain.builderLeague)}
-                        title={playerMain.builderLeague}
-                        alt=""
-                    />
+                    <div id="player-rank-flex">
+                        <img
+                            className="player-rank-icon"
+                            alt=""
+                            src={`${
+                                playerMain.homeLeagueIcon === "Unranked"
+                                    ? getImage("unranked")
+                                    : playerMain.homeLeagueIcon
+                            }`}
+                            title={playerMain.homeLeague}
+                        />
+                        <img
+                            className="player-rank-icon"
+                            id="player-bh-icon"
+                            src={getBuilderLeague(playerMain.builderLeague)}
+                            title={playerMain.builderLeague}
+                            alt=""
+                        />
+                    </div>
                 </div>
                 <div id="player-header">
                     <PlayerMain playerMain={playerMain} />

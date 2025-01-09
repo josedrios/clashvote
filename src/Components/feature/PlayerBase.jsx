@@ -136,10 +136,15 @@ function PlayerHomeHeader({ base, trophies, getImage }) {
                     {base.base === "home" ? "Home Village" : "Builder Base"}
                 </h3>
                 <div className="player-base-header-trophies">
-                    <p>Current:{trophies.current}</p>
-                    <GoTrophy className="trophy-icon" />/
-                    <p>Best:{trophies.best}</p>
-                    <GoTrophy className="trophy-icon" />
+                    <div className="header-trophy-div">
+                        <p>Current:{trophies.current}</p>
+                        <GoTrophy className="trophy-icon" />
+                    </div>
+                    <div className="header-trophy-div" id="trophy-slash">/</div>
+                    <div className="header-trophy-div">
+                        <p>Best:{trophies.best}</p>
+                        <GoTrophy className="trophy-icon" />
+                    </div>
                 </div>
             </div>
             <div className="hall-container">
