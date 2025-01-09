@@ -44,13 +44,18 @@ function SearchResult({ playerData }) {
                 <div id="player-data-bar">
                     <h3 id="player-username">{playerMain.name}</h3>
                     <img
-                        id="player-rank-icon"
+                        className="player-rank-icon"
                         alt=""
                         src={`${
                             playerMain.homeLeagueIcon === "Unranked"
                                 ? getImage("unranked")
                                 : playerMain.homeLeagueIcon
                         }`}
+                    />
+                    <img
+                        className="player-rank-icon"
+                        src={getImage("Iron")}
+                        alt=""
                     />
                 </div>
                 <div id="player-header">
@@ -67,13 +72,19 @@ function SearchResult({ playerData }) {
                 <h3 id="general-ach-header">Achievements</h3>
                 <div id="ach-toggle-buttons">
                     <button
-                        className={`ach-button ${achCurrent === 'home' ? "ach-button-selected" : ''}`}
+                        className={`ach-button ${
+                            achCurrent === "home" ? "ach-button-selected" : ""
+                        }`}
                         onClick={() => setAchCurrent("home")}
                     >
                         Home
                     </button>
                     <button
-                        className={`ach-button ${achCurrent === 'builder' ? "ach-button-selected" : ''}`}
+                        className={`ach-button ${
+                            achCurrent === "builder"
+                                ? "ach-button-selected"
+                                : ""
+                        }`}
                         onClick={() => setAchCurrent("builder")}
                     >
                         Builder

@@ -155,8 +155,32 @@ import bh10 from '../../assets/images/builderhalls/bh10.png';
 
 import star from '../../assets/images/star.png'
 import unranked from '../../assets/images/unranked.png'
+import Brass from '../../assets/images/builderleagues/Brass.png';
+import Clay from '../../assets/images/builderleagues/Clay.png';
+import Copper from '../../assets/images/builderleagues/Copper.png';
+import Diamond from '../../assets/images/builderleagues/Diamond.png';
+import Emerald from '../../assets/images/builderleagues/Emerald.png';
+import Iron from '../../assets/images/builderleagues/Iron.png';
+import Platinum from '../../assets/images/builderleagues/Platinum.png';
+import Ruby from '../../assets/images/builderleagues/Ruby.png';
+import Steel from '../../assets/images/builderleagues/Steel.png';
+import Stone from '../../assets/images/builderleagues/Stone.png';
+import Titanium from '../../assets/images/builderleagues/Titanium.png';
+import Wood from '../../assets/images/builderleagues/Wood.png';
 
 const images = {
+    Iron,
+    Brass,
+    Clay,
+    Copper,
+    Diamond,
+    Emerald,
+    Platinum,
+    Ruby,
+    Steel,
+    Stone,
+    Titanium,
+    Wood,
     unranked,
     star,
     th1,
