@@ -62,7 +62,6 @@ function Search() {
                     <IoIosSearch />
                 </button>
             </form>
-            {/* <SearchInfo/> */}
             <SearchResult playerData={playerData} />
         </div>
     );
