@@ -3,12 +3,14 @@ import { IoIosSearch } from "react-icons/io";
 import SearchResult from "../feature/SearchResult";
 import TestJSON from "../../clasher.json";
 
-import { IoIosBulb } from "react-icons/io";
+import { BsPersonFill } from "react-icons/bs";
+import { FaShieldAlt } from "react-icons/fa";
 
 function Search() {
     const [userEntry, setUserEntry] = useState("");
     const [playerData, setPlayerData] = useState("null");
     const inputRef = useRef(null);
+    const [searchToggle, setSearchToggle] = useState("Player");
 
     useEffect(() => {
         console.log(playerData);
@@ -48,7 +50,23 @@ function Search() {
     return (
         <div id="search-page-container">
             <form id="searchbar-container" onSubmit={handleFormSubmit}>
-                <div id="searchbar-toggle">TOGGLE</div>
+                <div
+                    id="searchbar-toggle"
+                >
+                    <button id="player-search-toggle" className="toggle-button" onClick={()=>setSearchToggle("Player")}>
+                        <BsPersonFill
+                            id="player-toggle-icon"
+                            className="toggle-icon"
+                        />
+                    </button>
+                    <button id="clan-search-toggle" className="toggle-button" onClick={()=>setSearchToggle("Clan")}>
+                        <FaShieldAlt
+                            id="clan-toggle-icon"
+                            className="toggle-icon"
+                        />
+                    </button>
+                    <div id="toggle-bg-slider" className={searchToggle === "Player" ? "" : "shift-right"}/>
+                </div>
                 <input
                     id="searchbar"
                     type="text"

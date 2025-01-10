@@ -12,7 +12,7 @@ function PlayerClan({ playerClan }) {
             </div>
             <div id="player-clan-image">
                 <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
-                <div id="player-clan-role">{playerClan.clanRole}</div>
+                <div id="player-clan-role">{playerClan.clanRole === "None" ? "" : playerClan.clanRole}</div>
             </div>
         </div>
     );

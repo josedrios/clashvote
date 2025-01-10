@@ -14,19 +14,10 @@
     }
 }
 
-#searchbar-toggle {
-    display: none;
-    border: 1px solid $primary-color;
-    text-align: center;
-    line-height: 50px;
-    margin: 0px $spacing-medium;
-}
-
 #searchbar {
     margin-bottom: $spacing-large;
+    font-family: $primary-font;
     max-width: 700px;
-    border-top-left-radius: $border-radius-xs;
-    border-bottom-left-radius: $border-radius-xs;
     background-color: $secondary-background-color;
     width: 100%;
     border: 1px solid $border-color;
@@ -41,7 +32,6 @@
 }
 
 #searchbar-submit-button {
-    border: 1px solid $border-color;
     border-left: none;
     background-color: $primary-color;
     border-top-right-radius: $border-radius-xs;
@@ -59,6 +49,54 @@
     &:hover {
         background-color: rgba(228, 215, 39, 0.871);
     }
+}
+
+#searchbar-toggle {
+    display: flex;
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-sm;
+    flex-direction: row;
+    width: 80px;
+    height: 50px;
+    flex: 0 0 auto;
+    position: relative;
+    margin-right: $spacing-small;
+}
+
+.toggle-button {
+    z-index: $z-toggle-icon;
+    position: absolute;
+    background-color: transparent;
+    height: 50px;
+    width: 40px;
+    top: 2px;
+}
+
+.toggle-icon {
+    fill: $primary-color;
+    font-size: 20px;
+}
+
+#player-search-toggle {
+    left: 0;
+}
+
+#clan-search-toggle {
+    right: 0;
+}
+
+.shift-right {
+    transform: translateX(39px);
+}
+
+#toggle-bg-slider {
+    z-index: $z-toggle-slider;
+    border-radius: $border-radius-sm;
+    height: inherit;
+    width: 50%;
+    height: 50px;
+    background-color: $leading-vote-bg;
+    transition: transform $transition-duration-base ease-out;
 }
 
 #test-json {

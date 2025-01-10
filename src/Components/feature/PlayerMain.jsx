@@ -1,9 +1,13 @@
 import xpIcon from "../../assets/images/XP.jpg";
+import images from "./Images";
+
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+
 
 function PlayerMain({ playerMain }) {
     return (
         <div id="player-general-info-section">
-            <div id="player-labels">
+            {playerMain.accountLabel[0] !== "" && (<div id="player-labels">
                 <img
                     className="player-label"
                     src={playerMain.accountLabel[0]}
@@ -19,7 +23,7 @@ function PlayerMain({ playerMain }) {
                     src={playerMain.accountLabel[2]}
                     alt=""
                 />
-            </div>
+            </div>)}
             <div id="player-tag">{playerMain.tag}</div>
             <div id="player-xp-container">
                 <img id="xp-icon" src={xpIcon} alt="" />
