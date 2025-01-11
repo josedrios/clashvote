@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
-import SearchResult from "../feature/SearchResult";
+import SearchResult from "../feature/Search/SearchResult";
 import TestJSON from "../../clasher.json";
 
 import { BsPersonFill } from "react-icons/bs";
@@ -70,7 +70,7 @@ function Search() {
                 <input
                     id="searchbar"
                     type="text"
-                    placeholder="Enter tag"
+                    placeholder={`Enter ${searchToggle === "Player" ? "Tag" : "Clan Name"}`}
                     ref={inputRef}
                 />
                 <button id="test-json" onClick={handleTestJson}>

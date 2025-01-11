@@ -1,4 +1,4 @@
-import images from "./Images";
+import images from "../Images";
 import { GoTrophy } from "react-icons/go";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;

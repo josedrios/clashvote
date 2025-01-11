@@ -1,8 +1,4 @@
-import xpIcon from "../../assets/images/XP.jpg";
-import images from "./Images";
-
-const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
-
+import xpIcon from "../../../assets/images/XP.jpg"
 
 function PlayerMain({ playerMain }) {
     return (
