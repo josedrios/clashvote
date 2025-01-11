@@ -1,7 +1,9 @@
 function SeasonGraph({}) {
     return (
-        <div>
-            
+        <div className="voting-component">
+
         </div>
     )
 }
+
+export default SeasonGraph

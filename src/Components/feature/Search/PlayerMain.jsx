@@ -1,4 +1,5 @@
-import xpIcon from "../../../assets/images/XP.jpg"
+import images from "../Images";
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function PlayerMain({ playerMain }) {
     return (
@@ -22,7 +23,7 @@ function PlayerMain({ playerMain }) {
             </div>)}
             <div id="player-tag">{playerMain.tag}</div>
             <div id="player-xp-container">
-                <img id="xp-icon" src={xpIcon} alt="" />
+                <img id="xp-icon" src={getImage("xp")} alt="" />
                 <div id="player-level">{playerMain.level}</div>
             </div>
         </div>
