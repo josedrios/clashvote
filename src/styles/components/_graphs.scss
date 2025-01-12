@@ -1,9 +1,84 @@
 // Season Vote Results Graph
 .voting-component {
     width: 100%;
-    border: 1px solid red;
+    padding: $spacing-small 0;
 }
 
+.voting-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $spacing-small;
+    border-bottom: 2px solid $primary-color;
+
+    h3 {
+        padding-left: $spacing-medium;
+        color: white;
+    }
+
+    button {
+        background-color: $primary-color;
+        color: black;
+        width: 50px;
+        border-radius: $border-radius-sm;
+    }
+}
+
+.multiple-candidate-container {
+    padding: $spacing-medium $spacing-small;
+    background-color: $secondary-background-color;
+    border-radius: 0 0 $border-radius-sm $border-radius-sm;
+
+    > *:last-child{
+        margin-bottom: $spacing-xsmall;
+    }
+}
+
+.candidate-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $spacing-medium;
+}
+
+.candidate-image {
+    aspect-ratio: 1/1;
+    height: 80px;
+    border-radius: $border-radius-xs;
+}
+
+.candidate-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: $spacing-medium;
+    margin-left: $spacing-medium;
+}
+
+.candidate-vote-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: $bar-background;
+    margin: $spacing-small 0;
+    border-radius: $border-radius-lg;
+
+    .fill-bar {
+        position: absolute;
+        background-color: $primary-color;
+        height: 10px;
+        border-radius: $border-radius-lg;
+        min-width: 10px;
+    }
+}
+
+.candidate-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h5 {
+        font-size: 17px;
+    }
+}
 // Search Result Unit Section Level Completion Graph
 @media (max-width: #{$breakpoint-xs}) {
     .vote-item-percentage {
@@ -57,7 +132,7 @@
     p {
         display: inline;
     }
-    
+
     .fraction-numerator {
         color: $primary-color;
     }

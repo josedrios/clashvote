@@ -14,7 +14,7 @@ function Navbar({isSideBarOpen, toggleSideBar, changeMainView, closeSideBar}) {
         </button>
         
         <button id='website-name-container' onClick={() => {changeMainView('season'); closeSideBar();}}>
-          <h1 id='website-name'><span>ClashVote</span>.</h1>
+          <h1 id='website-name'><span>Clashvote</span>.</h1>
         </button>
 
         <div id='nav-buttons-container'>

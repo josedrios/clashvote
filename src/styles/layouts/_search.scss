@@ -85,18 +85,18 @@
     right: 0;
 }
 
-.shift-right {
-    transform: translateX(39px);
-}
-
 #toggle-bg-slider {
     z-index: $z-toggle-slider;
     border-radius: $border-radius-sm;
     height: inherit;
     width: 50%;
     height: 50px;
-    background-color: $leading-vote-bg;
+    background-color: $bar-background;
     transition: transform $transition-duration-base ease-out;
+}
+
+.shift-right {
+    transform: translateX(39px);
 }
 
 #test-json {

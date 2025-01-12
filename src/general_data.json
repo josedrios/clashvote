@@ -1,0 +1,41 @@
+{
+    "heroes": [
+        {
+            "name": "Barbarian King",
+            "maxLevel": 100,
+            "village": "home"
+        },
+        {
+            "name": "Archer Queen",
+            "maxLevel": 100,
+            "village": "home"
+        },
+        {
+            "name": "Grand Warden",
+            "maxLevel": 75,
+            "village": "home"
+        },
+        {
+            "name": "Battle Machine",
+            "level": 28,
+            "maxLevel": 35,
+            "village": "builderBase"
+        },
+        {
+            "name": "Royal Champion",
+            "maxLevel": 50,
+            "village": "home"
+        },
+        {
+            "name": "Battle Copter",
+            "level": 20,
+            "maxLevel": 35,
+            "village": "builderBase"
+        },
+        {
+            "name": "Minion Prince",
+            "maxLevel": 90,
+            "village": "home"
+        }
+    ]
+}
