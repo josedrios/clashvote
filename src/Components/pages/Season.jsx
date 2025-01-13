@@ -1,6 +1,9 @@
 import images from "../feature/Images";
 import Data from "../../general_data.json";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+import { FaEllipsisVertical } from "react-icons/fa6";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { MdOutlineChat } from "react-icons/md";
 
 function Season() {
     return (
@@ -57,11 +60,11 @@ function Graph({ object, title }) {
 function CommentSection() {
     return (
         <div className="comment-section">
-            <div className="create-comment"></div>
             <div className="comments-container">
                 <h3>
-                    Comments <p>(39)</p>
+                    Comments<p>(39)</p>
                 </h3>
+                <Comment />
             </div>
         </div>
     );
@@ -69,18 +72,40 @@ function CommentSection() {
 
 function Comment() {
     return (
-        <div>
-            <div></div>
+        <div className="comment">
+            <div className="comment-pfp-container">
+                <img className="comment-pfp" src={getImage("Minion")} alt="" />
+            </div>
             <div className="comment-info">
-                <div>
-                    <h4 className="comment-writer"></h4>
-                    <button className="comment-misc-button"></button>
+                <div className="comment-top-bar">
+                    <h4 className="comment-writer">UsernameGoesHere</h4>
+                    <button className="comment-misc-button">
+                        <FaEllipsisVertical className="ellipsis-icon" />
+                    </button>
                 </div>
-                <div className="comment"></div>
+                <div className="comment-content">
+                    This comment is a fake comment to test the UI of my comment
+                    section!?
+                </div>
                 <div className="comment-actions">
-                    <button className="comment-reaction-button like-button"></button>
-                    <button className="comment-reaction-button dislike-button"></button>
-                    <button className="comment-reply-button">Reply</button>
+                    <div className="react-button-count">
+                        <button className="comment-reaction-button like-button">
+                            <FaArrowUp />
+                            <p>617</p>
+                        </button>
+                  
+                    </div>
+                    <div className="react-button-count">
+                        <button className="comment-reaction-button dislike-button">
+                            <FaArrowDown />
+                            <p>13</p>
+                        </button>
+                        
+                    </div>
+                    <button className="comment-reply-button">
+                        <MdOutlineChat className="reply-icon"/>
+                        <p>Reply</p>
+                    </button>
                 </div>
             </div>
         </div>

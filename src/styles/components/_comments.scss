@@ -1,0 +1,121 @@
+.comment-section {
+    width: 100%;
+}
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    h3 {
+        font-size: 23px;
+        color: $primary-color;
+
+        p {
+            display: inline;
+            margin-left: $spacing-xsmall;
+            color: $offwhite-two;
+        }
+    }
+}
+
+.comment {
+    margin-top: $spacing-small;
+    background-color: $secondary-background-color;
+    padding: calc($spacing-small + 2px) $spacing-small;
+    border-radius: $border-radius-sm;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-pfp-container {
+    width: 50px;
+    display: flex;
+    align-items:flex-start;
+}
+
+.comment-pfp {
+    margin-top: $spacing-xsmall;
+    margin-left: $spacing-xsmall;
+    aspect-ratio: 1/1;
+    width: 45px;
+    border-radius: $border-circle;
+    border: 1px solid $offwhite-two;
+}
+
+.comment-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: $spacing-medium;
+}
+
+.comment-top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc($spacing-xsmall - 2px);
+
+    .comment-writer {
+        font-size: 18px;
+    }
+
+    .comment-misc-button {
+        background-color: transparent;
+        margin-right: $spacing-xsmall;
+        margin-top: auto;
+    }
+}
+
+.comment-content {
+    color: $offwhite-one;
+    font-size: 14px;
+    margin-right: $spacing-small;
+}
+
+.comment-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    margin-top: $spacing-xsmall;
+
+    p {
+        font-size: 14px;
+    }
+
+    .react-button-count {
+        display: flex;
+        align-items: center;
+        margin-right: $spacing-small;
+
+        p {
+            margin-left: calc($spacing-xsmall - 1px);
+            display: inline;
+        }
+    }
+
+    .comment-reaction-button {
+        margin-right: $spacing-xsmall;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.comment-reply-button {
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: $spacing-small;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    .reply-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    p {
+        margin-left: $spacing-xsmall;
+    }
+}
