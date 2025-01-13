@@ -1,10 +1,10 @@
 // Season Vote Results Graph
-.voting-component {
+.vote-concept-container {
     width: 100%;
     padding: $spacing-small 0;
 }
 
-.voting-header {
+.vote-concept-header {
     display: flex;
     justify-content: space-between;
     padding-bottom: $spacing-small;
@@ -41,7 +41,7 @@
 
 .candidate-image {
     aspect-ratio: 1/1;
-    height: 80px;
+    height: 70px;
     border-radius: $border-radius-xs;
 }
 
@@ -51,6 +51,10 @@
     width: 100%;
     padding-right: $spacing-medium;
     margin-left: $spacing-medium;
+
+    h4 {
+        font-size: 20px;
+    }
 }
 
 .candidate-vote-bar {
@@ -76,7 +80,7 @@
     justify-content: space-between;
 
     h5 {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 // Search Result Unit Section Level Completion Graph
