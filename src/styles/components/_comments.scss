@@ -1,5 +1,41 @@
 .comment-section {
+    margin: $spacing-medium 0;
     width: 100%;
+}
+
+.create-comment {
+    margin-top: $spacing-medium;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-input-field {
+    background-color: $secondary-background-color;
+    color: white;
+    padding: $spacing-medium;
+    border-radius: $border-radius-sm;
+}
+
+.create-comment-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $spacing-small 0;
+
+    button {
+        padding: $spacing-xsmall $spacing-small;
+        border-radius: 8px;
+    }
+
+    .cancel-comment-button {
+        background-color: $offwhite-two;
+    }
+
+    .create-comment-button {
+        background-color: $primary-color;
+        color: black;
+    }
 }
 
 .comments-container {
