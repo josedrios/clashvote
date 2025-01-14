@@ -67,6 +67,27 @@
     width: 40px;
 }
 
+#player-action-buttons {
+    height: 45px;
+    padding: $spacing-small;
+    border-radius: $border-radius-xs;
+    width: min-content;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    button {
+        background-color: transparent;
+        padding: 0 $spacing-xsmall;
+        svg {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            fill: $primary-color;
+        }
+    }
+}
+
 .achievements-container {
     padding-bottom: $spacing-small;
 }

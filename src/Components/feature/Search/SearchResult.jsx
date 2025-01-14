@@ -7,6 +7,9 @@ import { useState } from "react";
 
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
+import { IoMdShare } from "react-icons/io";
+import { FaUserCheck } from "react-icons/fa";
+import { IoBookmark } from "react-icons/io5";
 
 import images from "../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
@@ -45,6 +48,17 @@ function SearchResult({ playerData }) {
                 <div id="player-data-bar">
                     <h3 id="player-username">{playerMain.name}</h3>
                     <LeagueIcons playerMain={playerMain} getImage={getImage} getBuilderLeague={getBuilderLeague}/>
+                    <div id="player-action-buttons">
+                                    <button>
+                                        <IoBookmark />
+                                    </button>
+                                    <button>
+                                        <IoMdShare />
+                                    </button>
+                                    <button>
+                                        <FaUserCheck />
+                                    </button>
+                                </div>
                 </div>
                 <div id="player-header">
                     <PlayerMain playerMain={playerMain} />
