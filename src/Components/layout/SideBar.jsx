@@ -24,8 +24,8 @@ function SideBar({isSideBarOpen, closeSideBar, changeMainView}) {
         </div>
         
         <div className='sidebar-section'>
-            <a className='sidebar-link'>About</a>
-            <a className='sidebar-link'>Contact</a>
+            <a className='sidebar-link' onClick={() => clickedLink('about')}>About Us</a>
+            <a className='sidebar-link' onClick={() => clickedLink('contact')}>Contact</a>
         </div>
     </aside>
   )

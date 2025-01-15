@@ -1,0 +1,113 @@
+#about-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#about-us-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#about-us-description {
+    margin-bottom: $spacing-medium;
+    font-size: 16px;
+}
+
+#about-us-title {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: $spacing-medium;
+
+    p {
+        color: $primary-color;
+        display: inline;
+        font-size: 30px;
+    }
+}
+
+#team-member-container {
+    display: flex;
+    width: 100%;
+}
+
+.team-member-card {
+    width: 100%;
+    border-top: 2px solid $primary-color;
+    margin-right: $spacing-small;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: $spacing-small $spacing-medium;
+    border-radius: 0 0 $border-radius-xs $border-radius-xs;
+    background-color: $secondary-background-color;
+
+    .team-member-pfp {
+        margin-right: $spacing-medium;
+        aspect-ratio: 1/1;
+        border-radius: $border-circle;
+        width: 70px;
+    }
+
+    .team-member-info {
+        div {
+            text-align: center;
+        }
+
+        .team-member-role {
+            max-width: 100px;
+            color: $offwhite-two;
+        }
+    }
+}
+
+@media (max-width: #{$breakpoint-md}) {
+
+    #about-us-body {
+        flex-direction: row;
+    }
+
+    #about-us-description {
+        width: 50%;
+        margin-right: $spacing-small;
+    }
+
+    #team-member-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 50%;
+
+        .team-member-card {
+            flex-direction: row;
+            margin-bottom: $spacing-medium;
+        }
+    }
+
+    .team-member-info {
+        div {
+            text-align: left !important;
+        }
+    }
+
+    .team-member-role {
+        max-width: none !important;
+    }
+}
+
+@media (max-width: 700px) {
+    #about-us-body {
+        flex-direction: column;
+    }
+
+    #about-us-description {
+        width: 100%;
+    }
+
+    #team-member-container {
+        width: 100%;
+        .team-member-card {
+            width: 100%;
+        }
+    }
+}
