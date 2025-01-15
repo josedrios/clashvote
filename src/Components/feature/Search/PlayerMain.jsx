@@ -1,3 +1,7 @@
+import { IoMdShare } from "react-icons/io";
+import { FaUserCheck } from "react-icons/fa";
+import { IoBookmark } from "react-icons/io5";
+
 import images from "../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
@@ -27,6 +31,17 @@ function PlayerMain({ playerMain }) {
             <div id="player-xp-container">
                 <img id="xp-icon" src={getImage("xp")} alt="" />
                 <div id="player-level">{playerMain.level}</div>
+            </div>
+            <div id="player-action-buttons">
+                <button>
+                    <IoMdShare />
+                </button>
+                <button>
+                    <IoBookmark />
+                </button>
+                <button>
+                    <FaUserCheck />
+                </button>
             </div>
         </div>
     );

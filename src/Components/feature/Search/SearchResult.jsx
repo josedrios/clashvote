@@ -7,15 +7,12 @@ import { useState } from "react";
 
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
-import { IoMdShare } from "react-icons/io";
-import { FaUserCheck } from "react-icons/fa";
-import { IoBookmark } from "react-icons/io5";
 
 import images from "../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
-    return getImage(league.split(" ")[0])
-}
+    return getImage(league.split(" ")[0]);
+};
 
 function SearchResult({ playerData }) {
     const [achCurrent, setAchCurrent] = useState("home");
@@ -47,18 +44,12 @@ function SearchResult({ playerData }) {
             <div id="player-data">
                 <div id="player-data-bar">
                     <h3 id="player-username">{playerMain.name}</h3>
-                    <LeagueIcons playerMain={playerMain} getImage={getImage} getBuilderLeague={getBuilderLeague}/>
-                    <div id="player-action-buttons">
-                                    <button>
-                                        <IoBookmark />
-                                    </button>
-                                    <button>
-                                        <IoMdShare />
-                                    </button>
-                                    <button>
-                                        <FaUserCheck />
-                                    </button>
-                                </div>
+                    <LeagueIcons
+                        playerMain={playerMain}
+                        getImage={getImage}
+                        getBuilderLeague={getBuilderLeague}
+                    />
+                    
                 </div>
                 <div id="player-header">
                     <PlayerMain playerMain={playerMain} />
@@ -107,7 +98,7 @@ function SearchResult({ playerData }) {
     );
 }
 
-function LeagueIcons({playerMain, getImage, getBuilderLeague}) {
+function LeagueIcons({ playerMain, getImage, getBuilderLeague }) {
     return (
         <div id="player-rank-flex">
             <img
@@ -133,27 +124,33 @@ function LeagueIcons({playerMain, getImage, getBuilderLeague}) {
 
 function SearchInfo() {
     return (
-      <div id='search-info-container'>
-          <h3 id='search-info-header'>Toggle to search for:</h3>
-          <div id='search-info-tip-body'>
-              <div id='player-tip-info' className='tip-info'>
-                  <div className='info-icon-container'>
-                      <div className='info-icon-background'/>
-                      <BsPersonFill id='player-info-icon' className='info-icon'/>
-                  </div>
-                  
-                  <h2 className='info-tip-header'>Players</h2>
-              </div>
-              <div id='clan-tip-info' className='tip-info'>
-                  <div className='info-icon-container'>
-                      <div className='info-icon-background'/>
-                      <FaShieldAlt id='player-info-icon' className='info-icon'/>
-                  </div>
-                  <h2 className='info-tip-header'>Clans</h2>
-              </div>
-          </div>
-      </div>
-    )
-  }
+        <div id="search-info-container">
+            <h3 id="search-info-header">Toggle to search for:</h3>
+            <div id="search-info-tip-body">
+                <div id="player-tip-info" className="tip-info">
+                    <div className="info-icon-container">
+                        <div className="info-icon-background" />
+                        <BsPersonFill
+                            id="player-info-icon"
+                            className="info-icon"
+                        />
+                    </div>
+
+                    <h2 className="info-tip-header">Players</h2>
+                </div>
+                <div id="clan-tip-info" className="tip-info">
+                    <div className="info-icon-container">
+                        <div className="info-icon-background" />
+                        <FaShieldAlt
+                            id="player-info-icon"
+                            className="info-icon"
+                        />
+                    </div>
+                    <h2 className="info-tip-header">Clans</h2>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 export default SearchResult;

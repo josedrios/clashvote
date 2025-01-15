@@ -30,7 +30,7 @@ function App() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const [mainView, setMainView] = useState("season");
+    const [mainView, setMainView] = useState("search");
 
     const changeMainView = (view) => {
         setMainView(view);

@@ -5,7 +5,8 @@
 #player-data-bar {
     display: flex;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #player-rank-flex {
@@ -28,7 +29,7 @@
 #player-username {
     margin-right: $spacing-small;
     color: $primary-color;
-    margin-bottom: $spacing-xsmall;
+    margin-bottom: $spacing-medium;
     font-size: 32px;
 }
 
@@ -68,21 +69,17 @@
 }
 
 #player-action-buttons {
-    height: 45px;
-    padding: $spacing-small;
-    border-radius: $border-radius-xs;
-    width: min-content;
+    height: 30px;
     display: flex;
     align-items: center;
-    margin-left: auto;
 
     button {
         background-color: transparent;
-        padding: 0 $spacing-xsmall;
+        padding: 0 $spacing-small 0 0;
         svg {
             display: flex;
             align-items: center;
-            font-size: 22px;
+            font-size: 20px;
             fill: $primary-color;
         }
     }

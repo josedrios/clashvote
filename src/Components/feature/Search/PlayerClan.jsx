@@ -3,6 +3,7 @@ function PlayerClan({ playerClan }) {
         <div id="player-clan">
             <div id="player-clan-info">
                 <h3 id="player-clan-title">{playerClan.clanName}</h3>
+                <div>Role: <p>{playerClan.clanRole === "None" ? "" : playerClan.clanRole}</p></div>
                 <div>
                     Donated: <p>{playerClan.troopsDonated}</p>
                 </div>
@@ -12,7 +13,6 @@ function PlayerClan({ playerClan }) {
             </div>
             <div id="player-clan-image">
                 <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
-                <div id="player-clan-role">{playerClan.clanRole === "None" ? "" : playerClan.clanRole}</div>
             </div>
         </div>
     );
