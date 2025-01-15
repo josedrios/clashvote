@@ -17,7 +17,6 @@
         },
         {
             "name": "Battle Machine",
-            "level": 28,
             "maxLevel": 35,
             "village": "builderBase"
         },
@@ -28,13 +27,518 @@
         },
         {
             "name": "Battle Copter",
-            "level": 20,
             "maxLevel": 35,
             "village": "builderBase"
         },
         {
             "name": "Minion Prince",
             "maxLevel": 90,
+            "village": "home"
+        }
+    ],
+    "troops": [
+        {
+            "name": "Barbarian",
+            "maxLevel": 12,
+            "village": "home"
+        },
+        {
+            "name": "Archer",
+            "maxLevel": 12,
+            "village": "home"
+        },
+        {
+            "name": "Goblin",
+            "maxLevel": 9,
+            "village": "home"
+        },
+        {
+            "name": "Giant",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Wall Breaker",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Balloon",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Wizard",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Healer",
+            "maxLevel": 9,
+            "village": "home"
+        },
+        {
+            "name": "Dragon",
+            "maxLevel": 12,
+            "village": "home"
+        },
+        {
+            "name": "P.E.K.K.A",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Minion",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Hog Rider",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Valkyrie",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Golem",
+            "maxLevel": 13,
+            "village": "home"
+        },
+        {
+            "name": "Witch",
+            "maxLevel": 7,
+            "village": "home"
+        },
+        {
+            "name": "Lava Hound",
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Bowler",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Baby Dragon",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Miner",
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "Super Barbarian",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Super Archer",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Super Wall Breaker",
+            "maxLevel": 9,
+            "village": "home"
+        },
+        {
+            "name": "Super Giant",
+            "maxLevel": 9,
+            "village": "home"
+        },
+        {
+            "name": "Raged Barbarian",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Sneaky Archer",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Beta Minion",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Boxer Giant",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Bomber",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Power P.E.K.K.A",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Cannon Cart",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Drop Ship",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Baby Dragon",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Night Witch",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Wall Wrecker",
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Battle Blimp",
+            "maxLevel": 4,
+            "village": "home"
+        },
+        {
+            "name": "Yeti",
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Sneaky Goblin",
+            "maxLevel": 5,
+            "superTroopIsActive": true,
+            "village": "home"
+        },
+        {
+            "name": "Super Miner",
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "Rocket Balloon",
+            "maxLevel": 7,
+            "village": "home"
+        },
+        {
+            "name": "Ice Golem",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Electro Dragon",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Stone Slammer",
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Inferno Dragon",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Super Valkyrie",
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Dragon Rider",
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Super Witch",
+            "maxLevel": 7,
+            "village": "home"
+        },
+        {
+            "name": "Hog Glider",
+            "maxLevel": 20,
+            "village": "builderBase"
+        },
+        {
+            "name": "Siege Barracks",
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Ice Hound",
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Super Bowler",
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Super Dragon",
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "Headhunter",
+            "maxLevel": 3,
+            "village": "home"
+        },
+        {
+            "name": "Super Wizard",
+            "maxLevel": 9,
+            "village": "home"
+        },
+        {
+            "name": "Super Minion",
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "Log Launcher",
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Apprentice Warden",
+            "maxLevel": 4,
+            "village": "home"
+        },
+        {
+            "name": "Super Hog Rider",
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "L.A.S.S.I",
+            "maxLevel": 15,
+            "village": "home"
+        },
+        {
+            "name": "Electro Owl",
+            "maxLevel": 15,
+            "village": "home"
+        }
+    ],
+    "heroEquipment": [
+        {
+            "name": "Giant Gauntlet",
+            "level": 18,
+            "maxLevel": 27,
+            "village": "home"
+        },
+        {
+            "name": "Rocket Spear",
+            "level": 13,
+            "maxLevel": 27,
+            "village": "home"
+        },
+        {
+            "name": "Lavaloon Puppet",
+            "level": 1,
+            "maxLevel": 27,
+            "village": "home"
+        },
+        {
+            "name": "Barbarian Puppet",
+            "level": 9,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Rage Vial",
+            "level": 8,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Archer Puppet",
+            "level": 11,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Invisibility Vial",
+            "level": 8,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Eternal Tome",
+            "level": 15,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Life Gem",
+            "level": 8,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Seeking Shield",
+            "level": 10,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Earthquake Boots",
+            "level": 2,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Hog Rider Puppet",
+            "level": 8,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Vampstache",
+            "level": 12,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Healer Puppet",
+            "level": 15,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Healing Tome",
+            "level": 15,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Royal Gem",
+            "level": 1,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Giant Arrow",
+            "level": 1,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Rage Gem",
+            "level": 1,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Henchmen Puppet",
+            "level": 1,
+            "maxLevel": 18,
+            "village": "home"
+        },
+        {
+            "name": "Dark Orb",
+            "level": 1,
+            "maxLevel": 18,
+            "village": "home"
+        }
+    ],
+    "spells": [
+        {
+            "name": "Lightning Spell",
+            "level": 9,
+            "maxLevel": 12,
+            "village": "home"
+        },
+        {
+            "name": "Healing Spell",
+            "level": 8,
+            "maxLevel": 11,
+            "village": "home"
+        },
+        {
+            "name": "Rage Spell",
+            "level": 6,
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Jump Spell",
+            "level": 4,
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Freeze Spell",
+            "level": 7,
+            "maxLevel": 7,
+            "village": "home"
+        },
+        {
+            "name": "Poison Spell",
+            "level": 7,
+            "maxLevel": 10,
+            "village": "home"
+        },
+        {
+            "name": "Earthquake Spell",
+            "level": 5,
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Haste Spell",
+            "level": 5,
+            "maxLevel": 5,
+            "village": "home"
+        },
+        {
+            "name": "Clone Spell",
+            "level": 6,
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Skeleton Spell",
+            "level": 3,
+            "maxLevel": 8,
+            "village": "home"
+        },
+        {
+            "name": "Bat Spell",
+            "level": 3,
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Invisibility Spell",
+            "level": 4,
+            "maxLevel": 4,
+            "village": "home"
+        },
+        {
+            "name": "Recall Spell",
+            "level": 2,
+            "maxLevel": 6,
+            "village": "home"
+        },
+        {
+            "name": "Overgrowth Spell",
+            "level": 2,
+            "maxLevel": 4,
             "village": "home"
         }
     ]

@@ -1,9 +1,8 @@
 // Season Vote Results Graph
-.vote-component {
-    background-color: $secondary-background-color;
-}
-
 .vote-concept-container {
+    margin-top: $spacing-medium;
+    background-color: $secondary-background-color;
+    border-radius: 0 0 $border-radius-sm $border-radius-sm;
     width: 100%;
 }
 

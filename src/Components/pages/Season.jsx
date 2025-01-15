@@ -9,35 +9,32 @@ function Season() {
     return (
         <div id="season-container">
             <h3 id="season-header">Season #??:</h3>
-            <VoteComponent object={Data.heroes} title={"Heroes"} />
+            <div id="voting-component-container">
+                <VoteComponent object={Data.heroes} title={"Hero"} />
+                <VoteComponent object={Data.troops} title={"Troop"} />
+                <VoteComponent object={Data.spells} title={"Spell"} />
+                <VoteComponent object={Data.heroEquipment} title={"Hero Equipment"} />
+            </div>
         </div>
     );
 }
 
 export default Season;
 
-function VoteComponent() {
-    return (
-        <div className="vote-component">
-            <Graph object={Data.heroes} title={"Heroes"} />
-        </div>
-    );
-}
-
-function Graph({ object, title }) {
+function VoteComponent({ object, title }) {
     const comments = [
         ["Jose", "This is a testing comment"],
         ["Eric", "I am testing the UI of my comment section"],
-        ["Anna", "Loving this new feature!"]
+        ["Anna", "Loving this new feature!"],
     ];
     return (
         <div className="vote-concept-container">
             <div className="vote-concept-header">
-                <h3>{title}</h3>
+                <h3>Best {title}</h3>
                 <button>Vote</button>
             </div>
             <div className="multiple-candidate-container">
-                {object.map((candidate, key) => (
+                {object.slice(0, 3).map((candidate, key) => (
                     <div className="candidate-container" key={key}>
                         <img
                             className="candidate-image"
@@ -69,6 +66,21 @@ function CommentSection({ comments }) {
                 <h3>
                     Comments<p>(39)</p>
                 </h3>
+                <div className="create-comment">
+                    <input
+                        className="comment-input-field"
+                        type="text"
+                        placeholder="Type your comment here..."
+                    />
+                    <div className="create-comment-actions">
+                        <button className="cancel-comment-button">
+                            Cancel
+                        </button>
+                        <button className="create-comment-button">
+                            Comment
+                        </button>
+                    </div>
+                </div>
                 {comments.map(([username, comment], index) => (
                     <Comment
                         username={username}
@@ -76,13 +88,6 @@ function CommentSection({ comments }) {
                         key={index}
                     />
                 ))}
-            </div>
-            <div className="create-comment">
-                <input className="comment-input-field" type="text" placeholder="Type your comment here..." />
-                <div className="create-comment-actions">
-                  <button className="cancel-comment-button">Cancel</button>
-                  <button className="create-comment-button">Comment</button>
-                </div>
             </div>
         </div>
     );
@@ -92,7 +97,11 @@ function Comment({ username, comment }) {
     return (
         <div className="comment">
             <div className="comment-pfp-container">
-                <img className="comment-pfp" src={getImage("Sneaky Goblin")} alt="" />
+                <img
+                    className="comment-pfp"
+                    src={getImage("Sneaky Goblin")}
+                    alt=""
+                />
             </div>
             <div className="comment-info">
                 <div className="comment-top-bar">
