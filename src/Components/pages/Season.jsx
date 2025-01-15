@@ -17,20 +17,19 @@ function Season() {
 export default Season;
 
 function VoteComponent() {
-    const comments = [
-        ["Jose", "This is a testing comment"],
-        ["Eric", "I am testing the UI of my comment section"],
-        ["Anna", "Loving this new feature!"]
-    ];
     return (
-        <div>
+        <div className="vote-component">
             <Graph object={Data.heroes} title={"Heroes"} />
-            <CommentSection comments={comments} />
         </div>
     );
 }
 
 function Graph({ object, title }) {
+    const comments = [
+        ["Jose", "This is a testing comment"],
+        ["Eric", "I am testing the UI of my comment section"],
+        ["Anna", "Loving this new feature!"]
+    ];
     return (
         <div className="vote-concept-container">
             <div className="vote-concept-header">
@@ -58,6 +57,7 @@ function Graph({ object, title }) {
                     </div>
                 ))}
             </div>
+            <CommentSection comments={comments} />
         </div>
     );
 }
@@ -92,7 +92,7 @@ function Comment({ username, comment }) {
     return (
         <div className="comment">
             <div className="comment-pfp-container">
-                <img className="comment-pfp" src={getImage("Minion")} alt="" />
+                <img className="comment-pfp" src={getImage("Sneaky Goblin")} alt="" />
             </div>
             <div className="comment-info">
                 <div className="comment-top-bar">

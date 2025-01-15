@@ -1,7 +1,10 @@
 // Season Vote Results Graph
+.vote-component {
+    background-color: $secondary-background-color;
+}
+
 .vote-concept-container {
     width: 100%;
-    padding: $spacing-small 0;
 }
 
 .vote-concept-header {
@@ -9,6 +12,7 @@
     justify-content: space-between;
     padding-bottom: $spacing-small;
     border-bottom: 2px solid $primary-color;
+    background-color: $primary-background-color;
 
     h3 {
         padding-left: $spacing-medium;

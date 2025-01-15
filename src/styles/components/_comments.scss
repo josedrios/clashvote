@@ -1,45 +1,6 @@
 .comment-section {
-    margin: $spacing-medium 0;
+    margin: $spacing-small 0;
     width: 100%;
-}
-
-.create-comment {
-    margin-top: $spacing-medium;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: $secondary-background-color;
-    border-radius: $border-radius-sm;
-}
-
-.comment-input-field {
-    background-color: transparent;
-    color: white;
-    padding: $spacing-medium;
-    border-radius: $border-radius-sm;
-}
-
-.create-comment-actions {
-    border-top: 1px solid $offwhite-two;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 $spacing-medium;
-    padding: 10px 0 11px 0;
-
-    button {
-        padding: $spacing-xsmall $spacing-small;
-        border-radius: 8px;
-    }
-
-    .cancel-comment-button {
-        background-color: $offwhite-two;
-    }
-
-    .create-comment-button {
-        background-color: $primary-color;
-        color: black;
-    }
 }
 
 .comments-container {
@@ -48,6 +9,7 @@
     h3 {
         font-size: 23px;
         color: $primary-color;
+        padding: 0 $spacing-medium;
 
         p {
             display: inline;
@@ -59,8 +21,7 @@
 
 .comment {
     margin-top: $spacing-small;
-    background-color: $secondary-background-color;
-    padding: calc($spacing-small + 2px) $spacing-small;
+    padding: calc($spacing-small + 2px) $spacing-medium;
     border-radius: $border-radius-sm;
     width: 100%;
     display: flex;
@@ -157,5 +118,46 @@
 
     p {
         margin-left: $spacing-xsmall;
+    }
+}
+
+// Creating a comment section
+
+.create-comment {
+    margin-top: $spacing-small;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius-sm;
+}
+
+.comment-input-field {
+    background-color: transparent;
+    color: white;
+    padding: $spacing-medium;
+    border-radius: $border-radius-sm;
+    outline: none;
+}
+
+.create-comment-actions {
+    border-top: 1px solid $offwhite-two;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 $spacing-medium;
+    padding: 10px 0 11px 0;
+
+    button {
+        padding: $spacing-xsmall $spacing-small;
+        border-radius: 8px;
+    }
+
+    .cancel-comment-button {
+        background-color: $offwhite-two;
+    }
+
+    .create-comment-button {
+        background-color: $primary-color;
+        color: black;
     }
 }
