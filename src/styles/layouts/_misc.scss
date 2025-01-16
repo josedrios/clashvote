@@ -76,7 +76,7 @@
     }
 }
 
-@media(max-width: 780px){
+@media (max-width: 780px) {
     .team-member-card {
         width: 180px;
         flex-direction: column;
@@ -92,32 +92,101 @@
 // Contact Page
 #contact-container {
     width: 100%;
-    display: flex;
-    border: 1px solid $offwhite-two;
-    height: 300px; 
+    height: 300px;
+}
 
-    #contact-info, #contact-create-message {
+#contact-title {
+    text-align: center;
+    padding-bottom: $spacing-small;
+    border-bottom: 1px solid white;
+}
+
+#contact-body-container {
+    display: flex;
+    #contact-info,
+    #contact-create-message {
         padding: $spacing-medium;
     }
 }
 
 #contact-info {
     width: 50%;
+    background-color: $primary-color;
+    border-radius: $border-radius-sm;
+    max-width: 300px;
+    height: min-content;
+    margin-top: $spacing-medium;
+
+    > * {
+        margin-bottom: $spacing-small;
+    }
+
+    h3 {
+        color: black;
+        font-size: 22px;
+    }
+
+    div {
+        color: black;
+        font-size: 17px;
+    }
+}
+
+#contact-link-buttons {
+    margin-bottom: 0;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+
+    button {
+        background-color: transparent;
+        svg {
+            fill: black;
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: #{$breakpoint-sm}){
+    #contact-info {
+        max-width: 100%;
+        width: calc(100% - 2*$spacing-medium);
+        margin: 0 $spacing-medium;
+    }
+
+    #contact-title {
+        margin-bottom: $spacing-medium;
+        border-bottom: none;
+    }
+
+    #contact-body-container {
+        flex-direction: column;
+    }
+
+    #contact-create-message {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
 
 #contact-create-message {
+    padding: $spacing-medium;
     display: flex;
     flex-direction: column;
-    border: 1px solid $offwhite-two;
-    width: 50%;
+    margin-left: $spacing-medium;
+    width: calc(100% - $spacing-medium);
+    min-width: 50%;
 
     h4 {
         font-size: 17px;
         margin: 0 0 $spacing-small 0;
-
+        text-wrap: nowrap;
     }
 
-    input, textarea {
+    input,
+    textarea {
         background-color: $secondary-background-color;
         padding: $spacing-small;
         transition: 0.4s;
@@ -130,7 +199,8 @@
         margin-bottom: $spacing-small;
     }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
         border-bottom: 2px solid $primary-color;
     }
 
@@ -152,12 +222,13 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    div, input {
+    div,
+    input {
         width: 100%;
     }
 }
 
-#first-name-section{
+#first-name-section {
     margin-right: $spacing-small;
 }
 
