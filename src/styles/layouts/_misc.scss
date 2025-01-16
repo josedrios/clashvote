@@ -4,21 +4,15 @@
     flex-direction: column;
 }
 
-#about-us-body {
-    display: flex;
-    flex-direction: column;
-}
-
-#about-us-description {
-    margin-bottom: $spacing-medium;
-    font-size: 16px;
-}
-
 #about-us-title {
-    width: 100%;
-    text-align: center;
+    width: min-content;
+    white-space: nowrap;
+    margin: 0 auto;
+    padding: 0 $spacing-small;
     font-size: 30px;
     margin-bottom: $spacing-medium;
+    padding-bottom: $spacing-small;
+    border-bottom: 2px solid white;
 
     p {
         color: $primary-color;
@@ -27,87 +21,69 @@
     }
 }
 
+#about-us-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#about-us-description {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-bottom: $spacing-medium;
+    .desc-paragraph {
+        margin-bottom: $spacing-small;
+    }
+}
+
 #team-member-container {
     display: flex;
-    width: 100%;
+    margin-left: $spacing-large;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: min-content;
 }
 
 .team-member-card {
-    width: 100%;
-    border-top: 2px solid $primary-color;
-    margin-right: $spacing-small;
+    border-left: 2px solid $primary-color;
+    margin-bottom: $spacing-medium;
+    margin-right: $spacing-medium;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     padding: $spacing-small $spacing-medium;
-    border-radius: 0 0 $border-radius-xs $border-radius-xs;
+    border-radius: 0 $border-radius-xs $border-radius-xs 0;
     background-color: $secondary-background-color;
+    width: 320px;
 
     .team-member-pfp {
         margin-right: $spacing-medium;
         aspect-ratio: 1/1;
         border-radius: $border-circle;
-        width: 70px;
+        width: 50px;
     }
 
     .team-member-info {
         div {
-            text-align: center;
+            text-align: left;
         }
 
         .team-member-role {
-            max-width: 100px;
             color: $offwhite-two;
         }
     }
 }
 
-@media (max-width: #{$breakpoint-md}) {
-
-    #about-us-body {
-        flex-direction: row;
-    }
-
-    #about-us-description {
-        width: 50%;
-        margin-right: $spacing-small;
-    }
-
-    #team-member-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 50%;
-
-        .team-member-card {
-            flex-direction: row;
-            margin-bottom: $spacing-medium;
-        }
-    }
-
-    .team-member-info {
-        div {
-            text-align: left !important;
-        }
-    }
-
-    .team-member-role {
-        max-width: none !important;
-    }
-}
-
-@media (max-width: 700px) {
-    #about-us-body {
+@media(max-width: 780px){
+    .team-member-card {
+        width: 180px;
         flex-direction: column;
-    }
 
-    #about-us-description {
-        width: 100%;
-    }
-
-    #team-member-container {
-        width: 100%;
-        .team-member-card {
-            width: 100%;
+        .team-member-info {
+            div {
+                text-align: center !important;
+            }
         }
     }
 }
