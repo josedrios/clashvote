@@ -1,3 +1,4 @@
+// About Page
 #about-container {
     width: 100%;
     display: flex;
@@ -86,4 +87,80 @@
             }
         }
     }
+}
+
+// Contact Page
+#contact-container {
+    width: 100%;
+    display: flex;
+    border: 1px solid $offwhite-two;
+    height: 300px; 
+
+    #contact-info, #contact-create-message {
+        padding: $spacing-medium;
+    }
+}
+
+#contact-info {
+    width: 50%;
+}
+
+#contact-create-message {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $offwhite-two;
+    width: 50%;
+
+    h4 {
+        font-size: 17px;
+        margin: 0 0 $spacing-small 0;
+
+    }
+
+    input, textarea {
+        background-color: $secondary-background-color;
+        padding: $spacing-small;
+        transition: 0.4s;
+        outline: none;
+        border-bottom: 2px solid $bar-background;
+        font-family: $primary-font;
+    }
+
+    input {
+        margin-bottom: $spacing-small;
+    }
+
+    input:focus, textarea:focus {
+        border-bottom: 2px solid $primary-color;
+    }
+
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 80px;
+    }
+}
+
+#contact-naming-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-name-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    div, input {
+        width: 100%;
+    }
+}
+
+#first-name-section{
+    margin-right: $spacing-small;
+}
+
+#contact-email-input {
+    width: 100%;
 }

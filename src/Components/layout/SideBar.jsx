@@ -19,7 +19,7 @@ function SideBar({isSideBarOpen, closeSideBar, changeMainView}) {
 
         <div className='sidebar-section'>
             <a className='sidebar-link' onClick={() => clickedLink('season')}>
-              Season 82
+              Season ??
             </a>
         </div>
         
