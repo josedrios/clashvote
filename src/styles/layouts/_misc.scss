@@ -98,7 +98,6 @@
 #contact-title {
     text-align: center;
     padding-bottom: $spacing-small;
-    border-bottom: 1px solid white;
 }
 
 #contact-body-container {
@@ -152,13 +151,12 @@
 @media (max-width: #{$breakpoint-sm}){
     #contact-info {
         max-width: 100%;
-        width: calc(100% - 2*$spacing-medium);
-        margin: 0 $spacing-medium;
+        width: 100%;
+        margin: 0;
     }
 
     #contact-title {
         margin-bottom: $spacing-medium;
-        border-bottom: none;
     }
 
     #contact-body-container {
@@ -171,67 +169,51 @@
     }
 }
 
-#contact-create-message {
-    padding: $spacing-medium;
-    display: flex;
-    flex-direction: column;
-    margin-left: $spacing-medium;
-    width: calc(100% - $spacing-medium);
-    min-width: 50%;
-
-    h4 {
-        font-size: 17px;
-        margin: 0 0 $spacing-small 0;
-        text-wrap: nowrap;
-    }
-
-    input,
-    textarea {
-        background-color: $secondary-background-color;
-        padding: $spacing-small;
-        transition: 0.4s;
-        outline: none;
-        border-bottom: 2px solid $bar-background;
-        font-family: $primary-font;
-    }
-
-    input {
-        margin-bottom: $spacing-small;
-    }
-
-    input:focus,
-    textarea:focus {
-        border-bottom: 2px solid $primary-color;
-    }
-
-    textarea {
-        resize: none;
-        width: 100%;
-        height: 80px;
-    }
-}
-
-#contact-naming-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.contact-name-section {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    div,
-    input {
-        width: 100%;
-    }
-}
-
 #first-name-section {
     margin-right: $spacing-small;
 }
 
 #contact-email-input {
     width: 100%;
+}
+
+// Auth Page
+#auth-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+#sign-log-container {
+    margin: auto 0;
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-sm;
+    width: 100%;
+    height: 500px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: $spacing-medium;
+
+    #login-container, #signup-container {
+        width: 50%;
+    }
+}
+
+#login-container {
+    background-color: blue;
+}
+
+#signup-container {
+    background-color: red;
+}
+
+#art-slider {
+    position: absolute;
+    height: calc(100% - 2*$spacing-medium);
+    width: calc(50% - $spacing-medium);
+    background-color: $secondary-background-color;
 }

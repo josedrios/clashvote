@@ -1,0 +1,62 @@
+// Contact form
+#contact-create-message {
+    border: 2px solid $primary-color;
+    border-radius: $border-radius-sm;
+    padding: $spacing-medium;
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacing-medium;
+    margin-left: $spacing-medium;
+    width: calc(100% - $spacing-medium);
+    min-width: 50%;
+
+    h4 {
+        font-size: 17px;
+        margin: 0 0 $spacing-small 0;
+        text-wrap: nowrap;
+    }
+
+    input,
+    textarea {
+        background-color: $secondary-background-color;
+        padding: $spacing-small;
+        transition: border-bottom 0.4s;
+        outline: none;
+        border-bottom: 2px solid $bar-background;
+        font-family: $primary-font;
+    }
+
+    input {
+        margin-bottom: $spacing-small;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-bottom: 2px solid $primary-color;
+    }
+
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 80px;
+    }
+}
+
+#contact-naming-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-name-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    div,
+    input {
+        width: 100%;
+    }
+}
+
+// Auth form

@@ -30,7 +30,7 @@ function App() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const [mainView, setMainView] = useState("contact");
+    const [mainView, setMainView] = useState("auth");
 
     const changeMainView = (view) => {
         setMainView(view);

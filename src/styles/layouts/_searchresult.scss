@@ -60,6 +60,7 @@
     margin: auto;
     text-align: center;
     padding-bottom: $spacing-large;
+    font-size: 23px;
 }
 
 #search-info-tip-body {
@@ -74,17 +75,13 @@
         align-items: center;
     }
 
-    #clan-tip-info {
-        width: 152px;
-    }
-
     .tip-info {
-        margin-bottom: $spacing-medium;
+        margin-bottom: 50px;
     }
 }
 
 .tip-info {
-    height: 50px;
+    height: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -92,8 +89,8 @@
 
 .info-icon-container {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,16 +99,17 @@
 .info-icon-background {
     position: absolute;
     background-color: rgba(235, 222, 36, 0.271);
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     border-radius: 1000px;
 }
 
 .info-icon {
-    font-size: $spacing-large;
+    font-size: 24px;
     fill: $primary-color;
 }
 
 .info-tip-header {
+    font-size: 20px;
     margin-left: $spacing-medium;
 }

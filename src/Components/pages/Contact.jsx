@@ -47,7 +47,7 @@ function Contact({}) {
                             placeholder="Enter your email here..."
                         />
                         <h4>Message:</h4>
-                        <textarea name="" id="contact-message-text"></textarea>
+                        <textarea name="" id="contact-message-text" placeholder="Type message here..."></textarea>
                     </form>
                 </div>
             </div>

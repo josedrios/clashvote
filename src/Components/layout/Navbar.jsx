@@ -30,7 +30,7 @@ function Navbar({isSideBarOpen, toggleSideBar, changeMainView, closeSideBar}) {
             <GoHome strokeWidth={0.01}/>
           </button>
 
-          <button className='nav-button' onClick={() => {closeSideBar()}}>
+          <button className='nav-button' onClick={() => {changeMainView('auth'); closeSideBar()}}>
             <GoPerson strokeWidth={0.15}/>
           </button>
         </div>
