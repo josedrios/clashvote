@@ -106,6 +106,7 @@ import Super_Witch from "../../assets/images/supers/Super_Witch.png";
 import Super_Wizard from "../../assets/images/supers/Super_Wizard.png";
 
 // Misc
+import slider from '../../assets/images/misc/slider.png'
 import unranked from "../../assets/images/misc/unranked.png";
 import star from "../../assets/images/misc/star.png";
 import xp from "../../assets/images/misc/xp.png"
@@ -184,6 +185,7 @@ import Titanium from "../../assets/images/builderleagues/Titanium.png";
 import Wood from "../../assets/images/builderleagues/Wood.png";
 
 const images = {
+    slider,
     xp,
     Iron,
     Brass,

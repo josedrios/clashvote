@@ -189,7 +189,7 @@
 #sign-log-container {
     margin: auto 0;
     background-color: $secondary-background-color;
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-lg;
     width: 100%;
     height: 500px;
     max-width: 800px;
@@ -200,20 +200,28 @@
 
     #login-container, #signup-container {
         width: 50%;
+        border-radius: $border-radius-lg;
     }
 }
 
 #login-container {
-    background-color: blue;
+    border: 1px solid $offwhite-two
 }
 
 #signup-container {
-    background-color: red;
+    border: 1px solid $offwhite-one;
 }
 
 #art-slider {
     position: absolute;
     height: calc(100% - 2*$spacing-medium);
     width: calc(50% - $spacing-medium);
-    background-color: $secondary-background-color;
+    background-color: white;
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 100%;
+    }
 }

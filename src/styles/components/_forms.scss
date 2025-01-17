@@ -60,3 +60,42 @@
 }
 
 // Auth form
+.sign-log-header {
+    text-align: center;
+    margin-top: $spacing-medium;
+    color: $primary-color;
+}
+
+#auth-form {
+    margin: $spacing-medium;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        background-color: $primary-background-color;
+        padding: $spacing-small $spacing-small $spacing-small 30px;
+        transition: border-bottom 0.4s;
+        outline: none;
+        border-bottom: 2px solid $bar-background;
+        font-family: $primary-font;
+        width: 100%;
+    }
+
+    input:focus {
+        border-bottom: 2px solid $primary-color;
+    }
+}
+
+.auth-input-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: $spacing-medium;
+
+    .auth-input-icon {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        left: $spacing-small;
+    }
+}
