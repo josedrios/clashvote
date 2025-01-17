@@ -99,3 +99,42 @@
         left: $spacing-small;
     }
 }
+
+#auth-tos-container {
+    margin-bottom: $spacing-medium;
+    text-align: center;
+
+    input {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        top: 1px;
+    }
+
+    p,
+    a {
+        font-size: 11px;
+        color: $offwhite-two;
+    }
+
+    a {
+        color: $primary-color;
+    }
+}
+
+#auth-form-confirm {
+    margin: auto;
+    background-color: $primary-color;
+    padding: $spacing-small;
+    border-radius: $border-radius-lg;
+    color: black;
+    width: 100%;
+    max-width: 200px;
+}
+
+.forgot-already-link {
+    margin-top: $spacing-small;
+    text-align: center;
+    color: $offwhite-two;
+    font-size: 11px;
+}

@@ -205,11 +205,11 @@
 }
 
 #login-container {
-    border: 1px solid $offwhite-two
+    padding-left: $spacing-medium;
 }
 
 #signup-container {
-    border: 1px solid $offwhite-one;
+    padding-right: $spacing-medium;
 }
 
 #art-slider {
