@@ -205,11 +205,11 @@
 }
 
 #login-container {
-    padding-left: $spacing-medium;
+    padding-left: $spacing-small;
 }
 
 #signup-container {
-    padding-right: $spacing-medium;
+    padding-right: $spacing-small;
 }
 
 #art-slider {
@@ -224,4 +224,8 @@
     img {
         width: 100%;
     }
+}
+
+.art-slide-right {
+    right: $spacing-medium;
 }

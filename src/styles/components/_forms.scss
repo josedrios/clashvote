@@ -66,7 +66,7 @@
     color: $primary-color;
 }
 
-#auth-form {
+.auth-form {
     margin: $spacing-medium;
     display: flex;
     flex-direction: column;
@@ -130,10 +130,11 @@
     color: black;
     width: 100%;
     max-width: 200px;
+    margin-bottom: $spacing-small;
 }
 
 .forgot-already-link {
-    margin-top: $spacing-small;
+    margin-bottom: $spacing-xsmall;
     text-align: center;
     color: $offwhite-two;
     font-size: 11px;
