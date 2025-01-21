@@ -191,7 +191,7 @@
     background-color: $secondary-background-color;
     border-radius: $border-radius-lg;
     width: 100%;
-    height: 500px;
+    height: min-content;
     max-width: 800px;
     display: flex;
     flex-direction: row;
@@ -213,6 +213,7 @@
 }
 
 #art-slider {
+    transition: transform $transition-duration-base ease-out;
     position: absolute;
     height: calc(100% - 2*$spacing-medium);
     width: calc(50% - $spacing-medium);
@@ -227,5 +228,5 @@
 }
 
 .art-slide-right {
-    right: $spacing-medium;
+    transform: translateX(100%);
 }

@@ -64,6 +64,8 @@
     text-align: center;
     margin-top: $spacing-medium;
     color: $primary-color;
+    opacity: 0;
+    transition: opacity 0.7s;
 }
 
 .auth-form {
@@ -83,6 +85,18 @@
 
     input:focus {
         border-bottom: 2px solid $primary-color;
+    }
+
+    & * {
+        opacity: 0;
+        transition: opacity 0.7s;
+    }
+}
+
+.slider-fade {
+    opacity: 1;
+    & * {
+        opacity: 1;
     }
 }
 
@@ -134,8 +148,16 @@
 }
 
 .forgot-already-link {
-    margin-bottom: $spacing-xsmall;
+    margin-bottom: $spacing-small;
+    margin: auto;
     text-align: center;
     color: $offwhite-two;
     font-size: 11px;
+    display: inline;
 }
+
+// @media (max-width: 500px ){
+//     #art-slider {
+//         display: none;
+//     }
+// }
