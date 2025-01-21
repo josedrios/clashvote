@@ -221,10 +221,25 @@
     border-radius: $border-radius-lg;
     display: flex;
     align-items: center;
+    background-color: transparent;
 
     img {
+        object-fit:cover;
         width: 100%;
+        height: 100%;
+        border-radius: $border-radius-lg;
     }
+}
+
+#art-slider-header {
+    position: absolute;
+    bottom: $spacing-medium;
+    left: $spacing-medium;
+    background-color: $secondary-background-color;
+    padding: $spacing-small;
+    border-radius: $border-radius-sm;
+    color: $primary-color;
+    width: min-content;
 }
 
 .art-slide-right {

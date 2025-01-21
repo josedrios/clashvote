@@ -12,11 +12,11 @@ function Auth({}) {
     return (
         <div id="auth-container">
             <div id="sign-log-container">
-                <div id="signup-container">
+                <div id="signup-container" className={`${"signup" === authTab ? "selected" : "not-selected"}`}>
                     <h3 className={`sign-log-header ${"signup" === authTab ? "slider-fade" : ""}`}>Sign Up</h3>
                     <AuthForm authType={"signup"} authTab={authTab} setAuthTab={setAuthTab} />
                 </div>
-                <div id="login-container">
+                <div id="login-container" className={`${"login" === authTab ? "selected" : "not-selected"}`}>
                     <h3 className={`sign-log-header ${"login" === authTab ? "slider-fade" : ""}`}>Log In</h3>
                     <AuthForm authType={"login"} authTab={authTab} setAuthTab={setAuthTab} />
                 </div>
@@ -24,6 +24,7 @@ function Auth({}) {
                     id="art-slider"
                     className={authTab === "login" ? "" : "art-slide-right"}
                 >
+                    <h3 id="art-slider-header">Welcome!</h3>
                     <img src={getImage("slider")} alt="" />
                 </div>
             </div>

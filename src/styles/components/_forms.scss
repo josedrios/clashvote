@@ -156,8 +156,16 @@
     display: inline;
 }
 
-// @media (max-width: 500px ){
-//     #art-slider {
-//         display: none;
-//     }
-// }
+@media (max-width: 500px ){
+    #art-slider {
+        display: none;
+    }
+
+    .not-selected {
+        display: none !important;
+    }
+
+    .selected {
+        width: 100% !important;
+    }
+}
