@@ -156,16 +156,47 @@
     display: inline;
 }
 
-@media (max-width: 500px ){
+@media (max-width: 600px) {
+    #sign-log-container {
+        height: 350px;
+    }
+
     #art-slider {
         display: none;
     }
 
     .not-selected {
-        display: none !important;
+        animation: from-selected;
+        animation-duration: 0.5s;
+        position: absolute;
     }
 
     .selected {
+        animation: to-selected;
+        animation-duration: 0.5s;
         width: 100% !important;
+    }
+}
+
+@keyframes from-selected {
+    0% {
+        transform: translateX(0px);
+    }
+    99% {
+        transform: translateX(-400px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(400px)
+    }
+}
+
+@keyframes to-selected {
+    from {
+        transform: translateX(400px);
+    }
+
+    to {
+        transform: translateX(0px);
     }
 }

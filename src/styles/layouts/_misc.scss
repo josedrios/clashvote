@@ -187,6 +187,7 @@
 }
 
 #sign-log-container {
+    overflow: hidden;
     margin: auto 0;
     background-color: $secondary-background-color;
     border-radius: $border-radius-lg;
@@ -213,7 +214,7 @@
 }
 
 #art-slider {
-    transition: transform $transition-duration-base ease-out;
+    transition: transform 0.4s ease-in-out;
     position: absolute;
     height: calc(100% - 2*$spacing-medium);
     width: calc(50% - $spacing-medium);
