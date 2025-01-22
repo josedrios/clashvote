@@ -2,7 +2,7 @@ import { IoMdShare } from "react-icons/io";
 import { FaUserCheck } from "react-icons/fa";
 import { IoBookmark } from "react-icons/io5";
 
-import images from "../Images";
+import images from "../../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function PlayerMain({ playerMain }) {

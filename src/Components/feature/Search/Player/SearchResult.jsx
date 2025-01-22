@@ -1,14 +1,14 @@
-import usePlayerData from "../../../Hooks/usePlayerData";
+import usePlayerData from "../../../../Hooks/usePlayerData";
 import PlayerMain from "./PlayerMain";
 import PlayerCards from "./PlayerCards";
 import PlayerBase from "./PlayerBase";
-import Achievements from "./PlayerAchievmenets";
+import Achievements from "./PlayerAchievements";
+import images from "../../Images";
 import { useState } from "react";
 
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
 
-import images from "../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
     return getImage(league.split(" ")[0]);

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
-import SearchResult from "../feature/Search/SearchResult";
+import SearchResult from "../feature/Search/Player/SearchResult";
 import TestJSON from "../../clasher.json";
 
 import { BsPersonFill } from "react-icons/bs";
@@ -19,11 +19,12 @@ function Search() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (inputRef.current.value == "") {
-            console.log("Empty User Entry");
+            console.log("Empty Entry");
             return;
         }
         setUserEntry(inputRef.current.value.toUpperCase());
-        fetchPlayerData(inputRef.current.value);
+        //ADD CLAN OR PLAYER FETCH IF STATEMENT HERE ()
+            fetchPlayerData(inputRef.current.value);
         inputRef.current.value = "";
     }
 
