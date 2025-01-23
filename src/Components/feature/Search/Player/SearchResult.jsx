@@ -5,10 +5,6 @@ import Achievements from "./PlayerAchievements";
 import images from "../../Images";
 import { useState } from "react";
 
-// Icons
-import { BsPersonFill } from "react-icons/bs";
-import { FaShieldAlt } from "react-icons/fa";
-
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
     return getImage(league.split(" ")[0]);
@@ -20,7 +16,7 @@ function SearchResult({ playerData }) {
     if (playerData === "null") {
         return (
             <div id="search-result-container">
-                <SearchInfo />
+                NULL
             </div>
         );
     }
@@ -109,37 +105,6 @@ function PlayerClan({ playerClan }) {
             </div>
             <div id="player-clan-image">
                 <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
-            </div>
-        </div>
-    );
-}
-
-function SearchInfo() {
-    return (
-        <div id="search-info-container">
-            <h3 id="search-info-header">Toggle to search for:</h3>
-            <div id="search-info-tip-body">
-                <div id="player-tip-info" className="tip-info">
-                    <div className="info-icon-container">
-                        <div className="info-icon-background" />
-                        <BsPersonFill
-                            id="player-info-icon"
-                            className="info-icon"
-                        />
-                    </div>
-
-                    <h2 className="info-tip-header">Players</h2>
-                </div>
-                <div id="clan-tip-info" className="tip-info">
-                    <div className="info-icon-container">
-                        <div className="info-icon-background" />
-                        <FaShieldAlt
-                            id="player-info-icon"
-                            className="info-icon"
-                        />
-                    </div>
-                    <h2 className="info-tip-header">Clans</h2>
-                </div>
             </div>
         </div>
     );

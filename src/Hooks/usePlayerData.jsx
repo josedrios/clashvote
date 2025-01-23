@@ -1,4 +1,4 @@
-function usePlayerData(playerData) {
+export default function usePlayerData(playerData) {
     const playerMain = {
         name: playerData.name,
         homeLeagueIcon: playerData.league?.iconUrls.small || "Unranked",
@@ -199,5 +199,3 @@ function usePlayerData(playerData) {
         achievements
     };
 }
-
-export default usePlayerData;
