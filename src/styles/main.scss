@@ -15,11 +15,12 @@
 @import './layouts/misc';
 
 // Components
+@import './components/Search/playermain';
+@import './components/Search/playercards';
+@import './components/Search/units';
+@import './components/Search/playerbase';
+
 @import './components/buttons';
 @import './components/graphs';
-@import './components/playermain';
-@import './components/playercards';
-@import './components/units';
-@import './components/playerbase';
 @import './components/comments';
 @import './components//forms';

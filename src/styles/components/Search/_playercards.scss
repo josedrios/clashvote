@@ -68,18 +68,3 @@
     margin: auto;
     height: 55px;
 }
-
-#progress-base-cards {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid $primary-color;
-    > * {
-        border: 1px solid $secondary-background-color;
-    }
-}
-
-@media (max-width: #{$breakpoint-sm}) {
-    #progress-base-cards {
-        display: none;
-    }
-}
