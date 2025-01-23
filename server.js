@@ -1,7 +1,7 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import cors from 'cors'; // Import CORS middleware
+import cors from 'cors';
 
 dotenv.config();
 
@@ -23,7 +23,12 @@ app.get('/api/players/:tag', async (req, res) => {
       }
     });
 
-    if (!response.ok) {
+    if(response.status === 404) {
+      const errorText = await response.text();
+      console.error('Clash of Clans API Error:', errorText);
+      res.status(404).json({ error: 'No player found' });
+      return;
+    } else if (!response.ok) {
       const errorText = await response.text();
       console.error('Clash of Clans API Error:', errorText);
       throw new Error('Failed to fetch player data');

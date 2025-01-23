@@ -80,10 +80,9 @@ function HeroUnitSection({ type, getImage }) {
             <ProgressBar type={type} />
             <div className="units-container">
                 {type.map((unit, index) => (
-                    <div>
+                    <div key={index}>
                         <div
                             className="unit-container hero-troop-container"
-                            key={index}
                             title={unit.name}
                         >
                             <h4

@@ -33,8 +33,12 @@ function Search() {
             const response = await fetch(
                 `http://localhost:3001/api/players/${playerTag}`
             );
-            if (!response.ok) {
-                throw new Error("Failed to get player data");
+            if (response.status === 404) {
+                setPlayerData("Player not found")
+                throw new Error(`Failed to get player info for '${playerTag}'`)
+            } else if (!response.ok) {
+                setPlayerData("null")
+                throw new Error("Clash of Clans API error");
             }
             const data = await response.json();
             setPlayerData(data);

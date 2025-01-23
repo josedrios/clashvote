@@ -25,7 +25,7 @@ function SearchResult({ playerData }) {
         );
     }
 
-    if (!playerData) {
+    if (playerData === "Player not found") {
         return <div id="search-result-container">Player Not Found</div>;
     }
 
