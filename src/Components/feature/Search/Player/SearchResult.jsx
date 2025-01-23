@@ -12,18 +12,19 @@ const getBuilderLeague = (league) => {
 
 function SearchResult({ playerData }) {
     const [achCurrent, setAchCurrent] = useState("home");
+    console.log(playerData)
 
-    if (playerData === "null") {
-        return (
-            <div id="search-result-container">
-                NULL
-            </div>
-        );
-    }
+    if (playerData === "") {
+        return <div id="search-result-container">Empty player data</div>;
+    } 
 
     if (playerData === "Player not found") {
-        return <div id="search-result-container">Player Not Found</div>;
-    }
+        return <div id="search-result-container">Player not found</div>;
+    } 
+
+    if (playerData === "Not ok") {
+        return <div id="search-result-container">Not ok</div>;
+    } 
 
     const {
         playerMain,
@@ -95,7 +96,14 @@ function PlayerClan({ playerClan }) {
         <div id="player-clan">
             <div id="player-clan-info">
                 <h3 id="player-clan-title">{playerClan.clanName}</h3>
-                <div>Role: <p>{playerClan.clanRole === "None" ? "" : playerClan.clanRole}</p></div>
+                <div>
+                    Role:{" "}
+                    <p>
+                        {playerClan.clanRole === "None"
+                            ? ""
+                            : playerClan.clanRole}
+                    </p>
+                </div>
                 <div>
                     Donated: <p>{playerClan.troopsDonated}</p>
                 </div>

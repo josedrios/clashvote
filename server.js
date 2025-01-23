@@ -35,7 +35,8 @@ app.get('/api/players/:tag', async (req, res) => {
     }
 
     const data = await response.json();
-    console.log(data)
+
+    console.log('Player Fetched Data', data)
     res.json(data);
   } catch (error) {
     console.error('Express Server Error:', error.message);
@@ -43,6 +44,34 @@ app.get('/api/players/:tag', async (req, res) => {
   }
 });
 
+app.get('/api/clans/:name', async (req, res) => {
+  const { name } = req.params;
+  try {
+    const response = await fetch(`https://api.clashofclans.com/v1/clans?name=${name}`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`
+      }
+    });
+
+    if(response.status === 404) {
+      console.error('Clash of Clans API Error:', errorText);
+      res.status(404).json({ error: 'No clan found' });
+      return;
+    } else if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Clash of Clans API Error:', errorText);
+      res.status(response.status).json({ error: 'Failed to fetch clan data' })
+      return;
+    }
+
+    const data = await response.json();
+
+    console.log('Clan Fetched Data:', data)
+    res.json(data);
+  } catch (error) {
+    console.error('Express Server Error:', error.message);
+    res.status(500).json({ error: 'Failed to fetch clan data' });
+  }
+});
+
 app.listen(PORT, () => console.log(`Proxy server running on http://localhost:${PORT}`));
-
-

@@ -8,13 +8,12 @@ import { FaShieldAlt } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 
 export default function Search() {
-    const [searchTab, setSearchTab] = useState({
-        input: "",
-        type: "",
-        data: "",
-    });
-    const [searchToggle, setSearchToggle] = useState("Player");
     const inputRef = useRef(null);
+    const [searchToggle, setSearchToggle] = useState("player");
+    const [searchResult, setSearchResult] = useState({
+        data: "",
+        tab: ""
+    })
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -22,47 +21,44 @@ export default function Search() {
         if (inputRef.current.value == "") {
             console.warn("User gave an empty string");
             return;
-        } else {
-            setSearchTab((prevState) => ({
-                ...prevState,
-                input: inputRef.current.value,
-                type: searchToggle,
-            }));
-        }
+        } 
 
-        if (searchTab.type === "Player") {
+        if (searchToggle === "player") {
             fetchPlayerData(inputRef.current.value);
-        } else if (searchTab.type === "Clan") {
-
+        } else if (searchToggle === "clan") {
+            console.log("clan stuff")
+            setSearchResult({
+                data: "",
+                tab: "clan"
+            })
         }
-        fetchPlayerData(inputRef.current.value);
+
         inputRef.current.value = "";
     }
 
-    // add type parameter (player or clan) and incorporate it properly throughout function
     async function fetchPlayerData(playerTag) {
         try {
             const response = await fetch(
                 `http://localhost:3001/api/players/${playerTag}`
             );
             if (response.status === 404) {
-                setSearchTab((prevState) => ({
-                    ...prevState,
+                setSearchResult({
                     data: "Player not found",
-                }));
+                    tab: "player"
+                })
                 throw new Error(`Failed to get player info for '${playerTag}'`);
             } else if (!response.ok) {
-                setSearchTab((prevState) => ({
-                    ...prevState,
-                    data: "",
-                }));
+                setSearchResult({
+                    data: "Not ok",
+                    tab: "player"
+                })
                 throw new Error("Clash of Clans API error");
             }
             const data = await response.json();
-            setSearchTab((prevState) => ({
-                ...prevState,
+            setSearchResult({
                 data: data,
-            }));
+                tab: "player"
+            })
             console.log(data);
         } catch (error) {
             console.log(error);
@@ -70,10 +66,7 @@ export default function Search() {
     }
 
     function handleTestJson() {
-        setSearchTab((prevState) => ({
-            ...prevState,
-            data: TestJSON,
-        }));
+        setSearchResult(TestJSON)
     }
 
     return (
@@ -83,7 +76,10 @@ export default function Search() {
                     <button
                         id="player-search-toggle"
                         className="toggle-button"
-                        onClick={() => setSearchToggle("Player")}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setSearchToggle("player");
+                        }}
                     >
                         <BsPersonFill
                             id="player-toggle-icon"
@@ -93,7 +89,10 @@ export default function Search() {
                     <button
                         id="clan-search-toggle"
                         className="toggle-button"
-                        onClick={() => setSearchToggle("Clan")}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setSearchToggle("clan");
+                        }}
                     >
                         <FaShieldAlt
                             id="clan-toggle-icon"
@@ -103,7 +102,7 @@ export default function Search() {
                     <div
                         id="toggle-bg-slider"
                         className={
-                            searchToggle === "Player" ? "" : "shift-right"
+                            searchToggle === "player" ? "" : "shift-right"
                         }
                     />
                 </div>
@@ -111,7 +110,7 @@ export default function Search() {
                     id="searchbar"
                     type="text"
                     placeholder={`Enter ${
-                        searchToggle === "Player" ? "Tag" : "Clan Name"
+                        searchToggle === "player" ? "Tag" : "Clan Name"
                     }`}
                     ref={inputRef}
                 />
@@ -122,17 +121,17 @@ export default function Search() {
                     <IoIosSearch />
                 </button>
             </form>
-            <RenderContent searchTab={searchTab} />
+            <RenderContent searchToggle={searchToggle} searchResult={searchResult}/>
         </div>
     );
 }
 
-function RenderContent({ searchTab }) {
+function RenderContent({ searchResult }) {
     return (
         <>
-            {searchTab.type === "Player" ? (
-                <SearchResult playerData={searchTab.data} />
-            ) : searchTab.type === "Clan" ? (
+            {searchResult.tab === "player" ? (
+                <SearchResult playerData={searchResult.data} />
+            ) : searchResult.tab === "clan" ? (
                 <div>Clan stuff</div>
             ) : (
                 <SearchTip />
