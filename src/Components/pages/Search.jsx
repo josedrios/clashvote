@@ -13,8 +13,8 @@ export default function Search() {
     const [searchToggle, setSearchToggle] = useState("player");
     const [searchResult, setSearchResult] = useState({
         data: "",
-        tab: ""
-    })
+        tab: "",
+    });
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -22,9 +22,9 @@ export default function Search() {
         if (inputRef.current.value == "") {
             console.warn("User gave an empty string");
             return;
-        } 
+        }
 
-        fetchData(inputRef.current.value, searchToggle)
+        fetchData(inputRef.current.value, searchToggle);
 
         inputRef.current.value = "";
     }
@@ -37,21 +37,21 @@ export default function Search() {
             if (response.status === 404) {
                 setSearchResult({
                     data: "404",
-                    tab: "player"
-                })
+                    tab: "player",
+                });
                 throw new Error(`Failed to get player info for '${playerTag}'`);
             } else if (!response.ok) {
                 setSearchResult({
                     data: "!200",
-                    tab: "player"
-                })
+                    tab: "player",
+                });
                 throw new Error("Clash of Clans API error");
             }
             const data = await response.json();
             setSearchResult({
                 data: data,
-                tab: "player"
-            })
+                tab: "player",
+            });
             console.log(data);
         } catch (error) {
             console.log(error);
@@ -60,8 +60,8 @@ export default function Search() {
 
     async function fetchData(prompt, type) {
         try {
-            var response = ''
-            if (type === "player"){
+            var response = "";
+            if (type === "player") {
                 response = await fetch(
                     `http://localhost:3001/api/players/${prompt}`
                 );
@@ -74,32 +74,32 @@ export default function Search() {
             if (response.status === 404) {
                 setSearchResult({
                     data: "404",
-                    tab: type
-                })
-                throw new Error(`Failed to get ${type} info for '${prompt}'`)
+                    tab: type,
+                });
+                throw new Error(`Failed to get ${type} info for '${prompt}'`);
             } else if (!response.ok) {
                 setSearchResult({
                     data: "!200",
-                    tab: type
-                })
-                throw new Error("Clash of Clans API error")
+                    tab: type,
+                });
+                throw new Error("Clash of Clans API error");
             }
             const data = await response.json();
             setSearchResult({
                 data: data,
-                tab: type
-            })
-            console.log(data)
-        } catch(error){
-            console.log(error)
+                tab: type,
+            });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
         }
     }
 
     function handleTestJson() {
         setSearchResult({
             data: TestJSON,
-            tab: "player"
-        })
+            tab: "player",
+        });
     }
 
     return (
@@ -109,6 +109,7 @@ export default function Search() {
                     <button
                         id="player-search-toggle"
                         className="toggle-button"
+                        type="button"
                         onClick={(event) => {
                             event.preventDefault();
                             setSearchToggle("player");
@@ -120,6 +121,7 @@ export default function Search() {
                         />
                     </button>
                     <button
+                        type="button"
                         id="clan-search-toggle"
                         className="toggle-button"
                         onClick={(event) => {
@@ -147,14 +149,17 @@ export default function Search() {
                     }`}
                     ref={inputRef}
                 />
-                <button id="test-json" onClick={handleTestJson}>
+                <button id="test-json" onClick={handleTestJson} type="button">
                     Test
                 </button>
                 <button type="submit" id="searchbar-submit-button">
                     <IoIosSearch />
                 </button>
             </form>
-            <RenderContent searchToggle={searchToggle} searchResult={searchResult}/>
+            <RenderContent
+                searchToggle={searchToggle}
+                searchResult={searchResult}
+            />
         </div>
     );
 }
@@ -165,7 +170,7 @@ function RenderContent({ searchResult }) {
             {searchResult.tab === "player" ? (
                 <PlayerResult playerData={searchResult.data} />
             ) : searchResult.tab === "clan" ? (
-                <ClanResults clanData={searchResult.data}/>
+                <ClanResults clanData={searchResult.data} />
             ) : (
                 <SearchTip />
             )}
