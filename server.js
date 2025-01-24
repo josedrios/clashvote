@@ -47,13 +47,14 @@ app.get('/api/players/:tag', async (req, res) => {
 app.get('/api/clans/:name', async (req, res) => {
   const { name } = req.params;
   try {
-    const response = await fetch(`https://api.clashofclans.com/v1/clans?name=${name}`, {
+    const response = await fetch(`https://api.clashofclans.com/v1/clans?name=${encodeURIComponent(name)}`, {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`
       }
     });
 
     if(response.status === 404) {
+      const errorText = await response.text();
       console.error('Clash of Clans API Error:', errorText);
       res.status(404).json({ error: 'No clan found' });
       return;

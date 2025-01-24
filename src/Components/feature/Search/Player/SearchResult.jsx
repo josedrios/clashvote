@@ -18,11 +18,11 @@ function SearchResult({ playerData }) {
         return <div id="search-result-container">Empty player data</div>;
     } 
 
-    if (playerData === "Player not found") {
+    if (playerData === "404") {
         return <div id="search-result-container">Player not found</div>;
     } 
 
-    if (playerData === "Not ok") {
+    if (playerData === "!200") {
         return <div id="search-result-container">Not ok</div>;
     } 
 

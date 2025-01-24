@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import SearchResult from "../feature/Search/Player/SearchResult";
+import PlayerResult from "../feature/Search/Player/SearchResult";
+import ClanResults from "../feature/Search/Clan/SearchResults";
 import SearchTip from "../feature/Search/SearchTip";
 import TestJSON from "../../clasher.json";
 
@@ -23,15 +24,7 @@ export default function Search() {
             return;
         } 
 
-        if (searchToggle === "player") {
-            fetchPlayerData(inputRef.current.value);
-        } else if (searchToggle === "clan") {
-            console.log("clan stuff")
-            setSearchResult({
-                data: "",
-                tab: "clan"
-            })
-        }
+        fetchData(inputRef.current.value, searchToggle)
 
         inputRef.current.value = "";
     }
@@ -43,13 +36,13 @@ export default function Search() {
             );
             if (response.status === 404) {
                 setSearchResult({
-                    data: "Player not found",
+                    data: "404",
                     tab: "player"
                 })
                 throw new Error(`Failed to get player info for '${playerTag}'`);
             } else if (!response.ok) {
                 setSearchResult({
-                    data: "Not ok",
+                    data: "!200",
                     tab: "player"
                 })
                 throw new Error("Clash of Clans API error");
@@ -65,8 +58,48 @@ export default function Search() {
         }
     }
 
+    async function fetchData(prompt, type) {
+        try {
+            var response = ''
+            if (type === "player"){
+                response = await fetch(
+                    `http://localhost:3001/api/players/${prompt}`
+                );
+            } else {
+                response = await fetch(
+                    `http://localhost:3001/api/clans/${prompt}`
+                );
+            }
+
+            if (response.status === 404) {
+                setSearchResult({
+                    data: "404",
+                    tab: type
+                })
+                throw new Error(`Failed to get ${type} info for '${prompt}'`)
+            } else if (!response.ok) {
+                setSearchResult({
+                    data: "!200",
+                    tab: type
+                })
+                throw new Error("Clash of Clans API error")
+            }
+            const data = await response.json();
+            setSearchResult({
+                data: data,
+                tab: type
+            })
+            console.log(data)
+        } catch(error){
+            console.log(error)
+        }
+    }
+
     function handleTestJson() {
-        setSearchResult(TestJSON)
+        setSearchResult({
+            data: TestJSON,
+            tab: "player"
+        })
     }
 
     return (
@@ -130,9 +163,9 @@ function RenderContent({ searchResult }) {
     return (
         <>
             {searchResult.tab === "player" ? (
-                <SearchResult playerData={searchResult.data} />
+                <PlayerResult playerData={searchResult.data} />
             ) : searchResult.tab === "clan" ? (
-                <div>Clan stuff</div>
+                <ClanResults clanData={searchResult.data}/>
             ) : (
                 <SearchTip />
             )}
