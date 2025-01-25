@@ -1,4 +1,4 @@
-import usePlayerData from "../../../../Hooks/usePlayerData";
+import processPlayerData from "../../../../util/processPlayerData";
 import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
@@ -34,7 +34,7 @@ function SearchResult({ playerData }) {
         homeTrophies,
         builderTrophies,
         achievements,
-    } = usePlayerData(playerData);
+    } = processPlayerData(playerData);
 
     return (
         <div id="search-result-container">

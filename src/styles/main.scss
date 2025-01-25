@@ -1,26 +1,41 @@
 // Abstracts
-@import './abstracts/variables';
+@import './Abstracts/variables';
+// functions 
+// mixins
+// helpers
 
 // Base
 @import './base/reset';
 @import './base/typography';
 
-// Layouts
-@import './layouts/app';
-@import './layouts/sidebar';
-@import './layouts/navbar';
-@import './layouts/season';
-@import './layouts/search';
-@import './layouts/searchresult';
-@import './layouts/misc';
-
 // Components
+@import './components/buttons';
+@import './components/forms';
+@import './components/cards';
+@import './components/tables';
+@import './components/alerts';
+
+// Layout
+@import './layout/app';
+@import './layout/navbar';
+@import './layout/sidebar';
+@import './layout/forms';
+@import './layout/footer';
+@import './layout/forms';
+@import './layout/grid';
+
+// Pages
+@import './pages/search';
+@import './pages/season';
+@import './pages/auth';
+@import './pages/about';
+@import './pages/contact';
+
+// **Consolidate**
 @import './components/Search/playermain';
 @import './components/Search/playercards';
 @import './components/Search/units';
 @import './components/Search/playerbase';
-
-@import './components/buttons';
-@import './components/graphs';
+@import './layout/searchresult';
+@import './layout/misc';
 @import './components/comments';
-@import './components//forms';

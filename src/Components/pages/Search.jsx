@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import PlayerResult from "../feature/Search/Player/SearchResult";
-import ClanResults from "../feature/Search/Clan/SearchResults";
-import SearchTip from "../feature/Search/SearchTip";
+import PlayerResult from "../features/Search/Player/SearchResult";
+import ClanResults from "../features/Search/Clan/SearchResults";
+import SearchTip from "../features/Search/SearchTip";
 import TestJSON from "../../clasher.json";
 
 import { BsPersonFill } from "react-icons/bs";

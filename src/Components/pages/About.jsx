@@ -1,4 +1,4 @@
-import images from "../feature/Images";
+import images from "../features/Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function About({}) {

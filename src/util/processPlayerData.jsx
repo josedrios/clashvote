@@ -1,4 +1,4 @@
-export default function usePlayerData(playerData) {
+export default function processPlayerData(playerData) {
     const playerMain = {
         name: playerData.name,
         homeLeagueIcon: playerData.league?.iconUrls.small || "Unranked",
@@ -16,7 +16,6 @@ export default function usePlayerData(playerData) {
     const playerClan = {
         troopsDonated: playerData.donations,
         troopsReceived: playerData.donationsReceived,
-        warStars: playerData.warStars,
         clanName: playerData.clan?.name || "No Clan",
         clanRole: playerData.clan ? fixClanRole(playerData.role) : "None",
         clanBadge: playerData.clan?.badgeUrls.large || "",

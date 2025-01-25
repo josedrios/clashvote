@@ -1,4 +1,4 @@
-import images from "../feature/Images";
+import images from "../features/Images";
 import Data from "../../general_data.json";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 import { FaEllipsisVertical } from "react-icons/fa6";

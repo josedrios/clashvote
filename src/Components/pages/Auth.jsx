@@ -1,4 +1,4 @@
-import images from "../../Components/feature/Images";
+import images from "../../Components/features/Images";
 import { FiUser } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdLockOutline } from "react-icons/md";
@@ -86,7 +86,7 @@ function AuthForm({ authType, authTab, setAuthTab }) {
                     >
                         Don't have an account?
                     </a>
-                    <a className="forgot-already-link" id="forgot-link" href="">
+                    <a className="forgot-already-link" href="">
                         Forgot password?
                     </a>
                 </>
