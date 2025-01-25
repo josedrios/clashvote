@@ -10,7 +10,7 @@
 #voting-component-container {
     display: grid;
     grid-template-columns: 50% 50%;
-    gap: $spacing-medium;
+    gap: $spacing-md;
     width: calc(100% - 1rem);
 }
 
@@ -24,7 +24,7 @@
 // COMMENT SECTION CODE
 
 .comment-section {
-    margin: $spacing-small 0;
+    margin: $spacing-sm 0;
     width: 100%;
 }
 
@@ -34,19 +34,20 @@
     h3 {
         font-size: 23px;
         color: $primary-color;
-        padding: 0 $spacing-medium;
+        padding: 0 $spacing-md;
 
         p {
             display: inline;
-            margin-left: $spacing-xsmall;
-            color: $offwhite-two;
+            margin-left: $spacing-xs;
+            color: $gray-lighter;
+            color: $gray-lighter;
         }
     }
 }
 
 .comment {
-    margin-top: $spacing-small;
-    padding: calc($spacing-small + 2px) $spacing-medium;
+    margin-top: $spacing-sm;
+    padding: calc($spacing-sm + 2px) $spacing-md;
     border-radius: $border-radius-sm;
     width: 100%;
     display: flex;
@@ -60,12 +61,12 @@
 }
 
 .comment-pfp {
-    margin-top: $spacing-xsmall;
-    margin-left: $spacing-xsmall;
+    margin-top: $spacing-xs;
+    margin-left: $spacing-xs;
     aspect-ratio: 1/1;
     width: 45px;
-    border-radius: $border-circle;
-    border: 1px solid $offwhite-two;
+    border-radius: $border-radius-c;
+    border: 1px solid $gray-lighter;
 }
 
 .comment-info {
@@ -79,7 +80,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: calc($spacing-xsmall - 2px);
+    margin-bottom: calc($spacing-xs - 2px);
 
     .comment-writer {
         font-size: 18px;
@@ -87,15 +88,15 @@
 
     .comment-misc-button {
         background-color: transparent;
-        margin-right: $spacing-xsmall;
+        margin-right: $spacing-xs;
         margin-top: auto;
     }
 }
 
 .comment-content {
-    color: $offwhite-one;
+    color: $gray-lighter;
     font-size: 14px;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
 }
 
 .comment-actions {
@@ -103,7 +104,7 @@
     flex-direction: row;
     justify-content: left;
     width: 100%;
-    margin-top: $spacing-xsmall;
+    margin-top: $spacing-xs;
 
     p {
         font-size: 14px;
@@ -112,16 +113,16 @@
     .react-button-count {
         display: flex;
         align-items: center;
-        margin-right: $spacing-small;
+        margin-right: $spacing-sm;
 
         p {
-            margin-left: calc($spacing-xsmall - 1px);
+            margin-left: calc($spacing-xs - 1px);
             display: inline;
         }
     }
 
     .comment-reaction-button {
-        margin-right: $spacing-xsmall;
+        margin-right: $spacing-xs;
         background-color: transparent;
         display: flex;
         align-items: center;
@@ -131,7 +132,7 @@
 .comment-reply-button {
     background-color: transparent;
     margin-left: auto;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -142,7 +143,7 @@
     }
 
     p {
-        margin-left: $spacing-xsmall;
+        margin-left: $spacing-xs;
     }
 }
 
@@ -159,9 +160,9 @@
     font-family: $primary-font;
     background-color: transparent;
     color: white;
-    padding: $spacing-small 0;
+    padding: $spacing-sm 0;
     border-bottom: 1px solid white;
-    margin: 0 $spacing-medium;
+    margin: 0 $spacing-md;
     outline: none;
     transition: $transition-duration-base;
 }
@@ -174,17 +175,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 $spacing-medium;
+    margin: 0 $spacing-md;
     padding-top: 10px;
 
     button {
-        padding: $spacing-xsmall $spacing-small;
+        padding: $spacing-xs $spacing-sm;
         border-radius: 8px;
     }
 
     .cancel-comment-button {
         background-color: transparent;
-        border: 1px solid $offwhite-two;
+        border: 1px solid $gray-lighter;
     }
 
     .create-comment-button {

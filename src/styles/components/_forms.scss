@@ -2,32 +2,32 @@
 #contact-create-message {
     border: 2px solid $primary-color;
     border-radius: $border-radius-sm;
-    padding: $spacing-medium;
+    padding: $spacing-md;
     display: flex;
     flex-direction: column;
-    margin-top: $spacing-medium;
-    margin-left: $spacing-medium;
-    width: calc(100% - $spacing-medium);
+    margin-top: $spacing-md;
+    margin-left: $spacing-md;
+    width: calc(100% - $spacing-md);
     min-width: 50%;
 
     h4 {
         font-size: 17px;
-        margin: 0 0 $spacing-small 0;
+        margin: 0 0 $spacing-sm 0;
         text-wrap: nowrap;
     }
 
     input,
     textarea {
         background-color: $secondary-background-color;
-        padding: $spacing-small;
+        padding: $spacing-sm;
         transition: border-bottom 0.4s;
         outline: none;
-        border-bottom: 2px solid $bar-background;
+        border-bottom: 2px solid color-fade($primary-color, 0.25);
         font-family: $primary-font;
     }
 
     input {
-        margin-bottom: $spacing-small;
+        margin-bottom: $spacing-sm;
     }
 
     input:focus,
@@ -62,23 +62,23 @@
 // Auth form
 .sign-log-header {
     text-align: center;
-    margin-top: $spacing-medium;
+    margin-top: $spacing-md;
     color: $primary-color;
     opacity: 0;
     transition: opacity 0.7s;
 }
 
 .auth-form {
-    margin: $spacing-medium;
+    margin: $spacing-md;
     display: flex;
     flex-direction: column;
 
     input {
         background-color: $primary-background-color;
-        padding: $spacing-small $spacing-small $spacing-small 30px;
+        padding: $spacing-sm $spacing-sm $spacing-sm 30px;
         transition: border-bottom 0.4s;
         outline: none;
-        border-bottom: 2px solid $bar-background;
+        border-bottom: 2px solid color-fade($primary-color, 0.25);
         font-family: $primary-font;
         width: 100%;
     }
@@ -104,18 +104,18 @@
     display: flex;
     flex-direction: row;
     position: relative;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
 
     .auth-input-icon {
         position: absolute;
         height: 100%;
         display: flex;
-        left: $spacing-small;
+        left: $spacing-sm;
     }
 }
 
 #auth-tos-container {
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
     text-align: center;
 
     input {
@@ -128,7 +128,7 @@
     p,
     a {
         font-size: 11px;
-        color: $offwhite-two;
+        color: $gray-lighter;
     }
 
     a {
@@ -139,19 +139,19 @@
 #auth-form-confirm {
     margin: auto;
     background-color: $primary-color;
-    padding: $spacing-small;
+    padding: $spacing-sm;
     border-radius: $border-radius-lg;
     color: black;
     width: 100%;
     max-width: 200px;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
 }
 
 .forgot-already-link {
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
     margin: auto;
     text-align: center;
-    color: $offwhite-two;
+    color: $gray-lighter;
     font-size: 11px;
     display: inline;
 }

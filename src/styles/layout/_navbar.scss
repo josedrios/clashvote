@@ -40,7 +40,7 @@
 
     &:hover {
         svg{
-            fill: $border-color;
+            fill: $gray-light
         }
     }
 }
@@ -51,7 +51,7 @@
 
 @media (max-width: #{$breakpoint-xs}) {
     #main-navbar {
-        padding: $spacing-xsmall;
+        padding: $spacing-xs;
         flex-wrap: wrap;
         height: 100px;
     }

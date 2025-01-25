@@ -1,6 +1,6 @@
 // Season Vote Results Graph
 .vote-concept-container {
-    margin-top: $spacing-medium;
+    margin-top: $spacing-md;
     background-color: $secondary-background-color;
     border-radius: 0 0 $border-radius-sm $border-radius-sm;
     width: 100%;
@@ -9,12 +9,12 @@
 .vote-concept-header {
     display: flex;
     justify-content: space-between;
-    padding-bottom: $spacing-small;
+    padding-bottom: $spacing-sm;
     border-bottom: 2px solid $primary-color;
     background-color: $primary-background-color;
 
     h3 {
-        padding-left: $spacing-medium;
+        padding-left: $spacing-md;
         color: white;
     }
 
@@ -27,19 +27,19 @@
 }
 
 .multiple-candidate-container {
-    padding: $spacing-medium $spacing-small;
+    padding: $spacing-md $spacing-sm;
     background-color: $secondary-background-color;
     border-radius: 0 0 $border-radius-sm $border-radius-sm;
 
     > *:last-child{
-        margin-bottom: $spacing-xsmall;
+        margin-bottom: $spacing-xs;
     }
 }
 
 .candidate-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
 }
 
 .candidate-image {
@@ -52,8 +52,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-right: $spacing-medium;
-    margin-left: $spacing-medium;
+    padding-right: $spacing-md;
+    margin-left: $spacing-md;
 
     h4 {
         font-size: 20px;
@@ -64,8 +64,9 @@
     position: relative;
     width: 100%;
     height: 10px;
-    background: $bar-background;
-    margin: $spacing-small 0;
+    background: color-fade($primary-color, 0.25);
+    background-color: color-fade($primary-color, 0.25);
+    margin: $spacing-sm 0;
     border-radius: $border-radius-lg;
 
     .fill-bar {
@@ -100,12 +101,12 @@
 .unit-progress-flex {
     display: flex;
     align-items: center;
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-sm;
 }
 
 .unit-progress-percentage {
     color: $primary-color;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
     width: 50px;
 }
 
@@ -134,7 +135,7 @@
 }
 
 .unit-progress-fraction {
-    margin: 0 $spacing-small;
+    margin: 0 $spacing-sm;
 
     p {
         display: inline;

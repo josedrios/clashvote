@@ -9,10 +9,10 @@
     width: min-content;
     white-space: nowrap;
     margin: 0 auto;
-    padding: 0 $spacing-small;
+    padding: 0 $spacing-sm;
     font-size: 30px;
-    margin-bottom: $spacing-medium;
-    padding-bottom: $spacing-small;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
     border-bottom: 2px solid white;
 
     p {
@@ -32,15 +32,15 @@
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
     .desc-paragraph {
-        margin-bottom: $spacing-small;
+        margin-bottom: $spacing-sm;
     }
 }
 
 #team-member-container {
     display: flex;
-    margin-left: $spacing-large;
+    margin-left: $spacing-lg;
     justify-content: center;
     flex-wrap: wrap;
     height: min-content;
@@ -48,20 +48,20 @@
 
 .team-member-card {
     border-left: 2px solid $primary-color;
-    margin-bottom: $spacing-medium;
-    margin-right: $spacing-medium;
+    margin-bottom: $spacing-md;
+    margin-right: $spacing-md;
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding: $spacing-small $spacing-medium;
+    padding: $spacing-sm $spacing-md;
     border-radius: 0 $border-radius-xs $border-radius-xs 0;
     background-color: $secondary-background-color;
     width: 320px;
 
     .team-member-pfp {
-        margin-right: $spacing-medium;
+        margin-right: $spacing-md;
         aspect-ratio: 1/1;
-        border-radius: $border-circle;
+        border-radius: $border-radius-c;
         width: 50px;
     }
 
@@ -71,7 +71,7 @@
         }
 
         .team-member-role {
-            color: $offwhite-two;
+            color: $gray-lighter;
         }
     }
 }

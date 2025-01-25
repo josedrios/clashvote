@@ -15,15 +15,15 @@
 }
 
 #searchbar {
-    margin-bottom: $spacing-large;
+    margin-bottom: $spacing-lg;
     font-family: $primary-font;
     max-width: 700px;
     background-color: $secondary-background-color;
     width: 100%;
-    border: 1px solid $border-color;
+    border: 1px solid $gray;
     text-decoration: none;
     outline: none;
-    padding: 0px $spacing-medium;
+    padding: 0px $spacing-md;
     transition: border-color $transition-duration-slow;
 }
 
@@ -60,7 +60,7 @@
     height: 50px;
     flex: 0 0 auto;
     position: relative;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
 }
 
 .toggle-button {
@@ -91,7 +91,7 @@
     height: inherit;
     width: 50%;
     height: 50px;
-    background-color: $bar-background;
+    background-color: color-fade($primary-color, 0.25);
     transition: transform $transition-duration-base ease-out;
 }
 
@@ -101,7 +101,7 @@
 
 #test-json {
     background-color: $primary-color;
-    padding: $spacing-xsmall;
+    padding: $spacing-xs;
     transition: 0.15s;
     color: black;
 }
@@ -118,7 +118,7 @@
     width: 100%;
 
     > * {
-        margin-bottom: $spacing-medium;
+        margin-bottom: $spacing-md;
     }
 }
 
@@ -126,7 +126,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: $spacing-small;
+    margin-top: $spacing-sm;
 }
 
 @media (max-width: 460px) {
@@ -153,7 +153,7 @@
     }
 
     #player-builder-data {
-        margin-top: $spacing-medium;
+        margin-top: $spacing-md;
         margin-left: 0% !important;
     }
 
@@ -172,7 +172,7 @@
 #search-info-header {
     margin: auto;
     text-align: center;
-    padding-bottom: $spacing-large;
+    padding-bottom: $spacing-lg;
     font-size: 23px;
 }
 
@@ -224,7 +224,7 @@
 
 .info-tip-header {
     font-size: 20px;
-    margin-left: $spacing-medium;
+    margin-left: $spacing-md;
 }
 
 // player main stuff
@@ -250,16 +250,16 @@
 }
 
 #player-bh-icon {
-    margin-left: $spacing-small;
+    margin-left: $spacing-sm;
     position: relative;
     top: 5px;
     height: 37px;
 }
 
 #player-username {
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
     color: $primary-color;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-md;
     font-size: 32px;
 }
 
@@ -278,19 +278,19 @@
 
 #xp-icon {
     height: 20px;
-    margin-right: $spacing-xsmall;
+    margin-right: $spacing-xs;
 }
 
 #player-level {
-    color: $offwhite-two;
+    color: $gray-lighter;
 }
 
 #player-tag {
-    color: $offwhite-two;
+    color: $gray-lighter;
 }
 
 #player-labels {
-    margin: $spacing-xsmall 0;
+    margin: $spacing-xs 0;
     display: flex;
 }
 
@@ -305,7 +305,7 @@
 
     button {
         background-color: transparent;
-        padding: 0 $spacing-small 0 0;
+        padding: 0 $spacing-sm 0 0;
         svg {
             display: flex;
             align-items: center;
@@ -316,7 +316,7 @@
 }
 
 .achievements-container {
-    padding-bottom: $spacing-small;
+    padding-bottom: $spacing-sm;
 }
 
 .base-ach-container {
@@ -332,7 +332,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: $spacing-medium;
+    padding: $spacing-md;
     border-bottom: 0.5px solid white;
 }
 
@@ -341,7 +341,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: min-content;
-    margin-right: $spacing-medium;
+    margin-right: $spacing-md;
 }
 
 .ach-star {
@@ -359,7 +359,7 @@
     flex-direction: column;
     align-items: left;
     max-width: 60%;
-    margin-right: $spacing-medium;
+    margin-right: $spacing-md;
 }
 
 .ach-name {
@@ -378,7 +378,7 @@
     align-items: center;
     p {
         font-size: 13px;
-        color: $offwhite-two;
+        color: $gray-lighter;
     }
 }
 
@@ -403,32 +403,32 @@
 
 .ach-progress-text {
     text-align: center;
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-sm;
 }
 
 .ach-check {
     max-width: 20px;
     min-width: 20px;
     width: 20px;
-    margin-left: $spacing-small;
+    margin-left: $spacing-sm;
     fill: lime;
     font-size: 15px;
 }
 
 .ach-percentage {
     display: none;
-    color: $offwhite-two;
+    color: $gray-lighter;
 }
 
 #ach-toggle-header {
-    margin-top: $spacing-medium;
+    margin-top: $spacing-md;
     margin-bottom: 0;
 }
 
 #general-ach-header {
     text-align: center;
     color: $primary-color;
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-sm;
 }
 
 .ach-button {
@@ -468,7 +468,7 @@
 .player-base-container {
     border-radius: $border-radius-xs;
     background-color: $secondary-background-color;
-    padding-bottom: $spacing-small;
+    padding-bottom: $spacing-sm;
 }
 
 .player-base-header-container {
@@ -480,14 +480,14 @@
 }
 
 .player-base-header {
-    padding: $spacing-small $spacing-medium;
+    padding: $spacing-sm $spacing-md;
     color: $primary-color;
 }
 
 .player-base-header-trophies {
-    padding: 0 0 $spacing-small $spacing-medium;
+    padding: 0 0 $spacing-sm $spacing-md;
     display: flex;
-    color: $offwhite-two;
+    color: $gray-lighter;
     align-items: center;
 }
 
@@ -495,15 +495,15 @@
     text-wrap: nowrap;
     display: flex;
     flex-direction: row;
-    color: $offwhite-two;
+    color: $gray-lighter;
     p {
         font-size: 15px;
-        color: $offwhite-two;
+        color: $gray-lighter;
     }
     .trophy-icon {
-        fill: $offwhite-two;
+        fill: $gray-lighter;
         height: 24px;
-        margin-left: $spacing-xsmall;
+        margin-left: $spacing-xs;
     }
 }
 
@@ -514,7 +514,7 @@
     }
 
     .player-base-header {
-        padding-bottom: $spacing-xsmall;
+        padding-bottom: $spacing-xs;
     }
 
     .hall-img {
@@ -529,7 +529,7 @@
 .hall-container {
     display: flex;
     position: relative;
-    padding: 0 0 0 $spacing-xsmall;
+    padding: 0 0 0 $spacing-xs;
 }
 
 .hall-level{
@@ -550,7 +550,7 @@
     position: absolute;
     border-radius: $border-radius-xs;
     display: flex;
-    padding: $spacing-xsmall;
+    padding: $spacing-xs;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -564,6 +564,6 @@
 }
 
 .hall-img{
-    padding: 0 $spacing-medium 0 $spacing-xsmall;
+    padding: 0 $spacing-md 0 $spacing-xs;
     height: 70px;
 }

@@ -1,14 +1,14 @@
 #bars-icon-button {
     display: none;
     position: relative;
-    top: $spacing-xsmall;
+    top: $spacing-xs;
     background-color: transparent;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
 }
 
 rect.bars {
     transition: width $transition-duration-base;
-    fill: $border-color-full-opacity;
+    fill: $gray-light;
 }
 
 #bars-icon-button:hover {

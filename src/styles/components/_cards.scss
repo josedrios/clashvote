@@ -6,14 +6,14 @@
     width: 100%;
 
     > * {
-        margin-left: $spacing-medium;
+        margin-left: $spacing-md;
     }
 }
 
 #player-clan {
     display: flex;
     align-items: center;
-    padding: $spacing-medium $spacing-small $spacing-medium $spacing-medium;
+    padding: $spacing-md $spacing-sm $spacing-md $spacing-md;
     background-color: $secondary-background-color;
     border-radius:  $border-radius-sm 0 0 $border-radius-sm;
     border-right: 3px solid $primary-color;
@@ -30,7 +30,7 @@
         border-right: none;
         border-left: 3px solid $primary-color;
         margin-left: 0;
-        margin-top: $spacing-small;
+        margin-top: $spacing-sm;
     }
 }
 
@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 $spacing-xsmall 0 $spacing-small;
+    margin: 0 $spacing-xs 0 $spacing-sm;
     width: 50px;
     position: relative;
 }
@@ -72,11 +72,11 @@
 
 // units
 .unit-section {
-    padding: 0 $spacing-medium;
+    padding: 0 $spacing-md;
 
     h3 {
         font-size: 18px;
-        margin: $spacing-small 0 0 0;
+        margin: $spacing-sm 0 0 0;
         p {
             display: inline;
             font-size: 20px;
@@ -100,17 +100,17 @@
     background-color: $primary-background-color;
     overflow: hidden;
     display: inline-block;
-    margin: 0 $spacing-xsmall $spacing-xsmall 0;
+    margin: 0 $spacing-xs $spacing-xs 0;
 }
 
 .hero-troop-container {
     margin-bottom: 0;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
 }
 
 .hero-unit-container {
     margin-bottom: 0;
-    margin-right: $spacing-small;
+    margin-right: $spacing-sm;
 }
 
 .unit-level {
@@ -144,7 +144,7 @@
     width: 40px;
     background-color: $primary-background-color;
     border-radius: $border-radius-xs;
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-sm;
 }
 
 .hero-item {
@@ -152,5 +152,5 @@
 }
 
 #super-troop-header {
-    margin-bottom: $spacing-small;
+    margin-bottom: $spacing-sm;
 }
