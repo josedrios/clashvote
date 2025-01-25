@@ -1,0 +1,156 @@
+// player cards
+#cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+
+    > * {
+        margin-left: $spacing-medium;
+    }
+}
+
+#player-clan {
+    display: flex;
+    align-items: center;
+    padding: $spacing-medium $spacing-small $spacing-medium $spacing-medium;
+    background-color: $secondary-background-color;
+    border-radius:  $border-radius-sm 0 0 $border-radius-sm;
+    border-right: 3px solid $primary-color;
+    height: 125px;
+}
+
+@media (max-width: 460px) {
+    #cards-container {
+        justify-content: left;
+    }
+
+    #player-clan {
+        border-radius:  0 $border-radius-sm $border-radius-sm 0;
+        border-right: none;
+        border-left: 3px solid $primary-color;
+        margin-left: 0;
+        margin-top: $spacing-small;
+    }
+}
+
+#player-clan-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        > p {
+            display: inline-block;
+            text-align: right;
+        }
+    }
+}
+
+#player-clan-title {
+    font-size: 18px;
+    color: $primary-color;
+}
+
+#player-clan-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 $spacing-xsmall 0 $spacing-small;
+    width: 50px;
+    position: relative;
+}
+
+#player-clan-badge {
+    margin: auto;
+    height: 55px;
+}
+
+// units
+.unit-section {
+    padding: 0 $spacing-medium;
+
+    h3 {
+        font-size: 18px;
+        margin: $spacing-small 0 0 0;
+        p {
+            display: inline;
+            font-size: 20px;
+            color: $primary-color;
+        }
+    }
+}
+
+.units-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.unit-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: $border-radius-xs;
+    background-color: $primary-background-color;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 $spacing-xsmall $spacing-xsmall 0;
+}
+
+.hero-troop-container {
+    margin-bottom: 0;
+    margin-right: $spacing-small;
+}
+
+.hero-unit-container {
+    margin-bottom: 0;
+    margin-right: $spacing-small;
+}
+
+.unit-level {
+    width: 18px;
+    height: 18px;
+    border-radius: $border-radius-xs;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-background-color;
+    position: absolute;
+    padding-top: 1px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.max-level {
+    color: $primary-color;
+}
+
+.unit-img {
+    aspect-ratio: 1/1;
+    width: inherit;
+    height: inherit;
+}
+
+.hero-equipment {
+    display: flex;
+    flex-direction: row;
+    width: 40px;
+    background-color: $primary-background-color;
+    border-radius: $border-radius-xs;
+    margin-bottom: $spacing-small;
+}
+
+.hero-item {
+    width: 20px;
+}
+
+#super-troop-header {
+    margin-bottom: $spacing-small;
+}

@@ -1,8 +1,7 @@
 // Abstracts
-@import './Abstracts/variables';
-// functions 
-// mixins
-// helpers
+@import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/mixins';
 
 // Base
 @import './base/reset';
@@ -30,12 +29,3 @@
 @import './pages/auth';
 @import './pages/about';
 @import './pages/contact';
-
-// **Consolidate**
-@import './components/Search/playermain';
-@import './components/Search/playercards';
-@import './components/Search/units';
-@import './components/Search/playerbase';
-@import './layout/searchresult';
-@import './layout/misc';
-@import './components/comments';
