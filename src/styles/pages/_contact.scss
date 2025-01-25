@@ -123,7 +123,7 @@
 }
 
 #art-slider {
-    transition: transform 0.4s ease-in-out;
+    transition: transform $transition-base ease-in-out;
     position: absolute;
     height: calc(100% - 2*$spacing-md);
     width: calc(50% - $spacing-md);

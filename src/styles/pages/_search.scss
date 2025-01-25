@@ -24,7 +24,7 @@
     text-decoration: none;
     outline: none;
     padding: 0px $spacing-md;
-    transition: border-color $transition-duration-slow;
+    transition: border-color $transition-fast;
 }
 
 #searchbar:focus {
@@ -37,7 +37,7 @@
     border-top-right-radius: $border-radius-xs;
     border-bottom-right-radius: $border-radius-xs;
     aspect-ratio: 1/1;
-    transition: background-color $transition-duration-slow;
+    transition: background-color $transition-fast;
 
     svg {
         position: relative;
@@ -92,7 +92,7 @@
     width: 50%;
     height: 50px;
     background-color: color-fade($primary-color, 0.25);
-    transition: transform $transition-duration-base ease-out;
+    transition: transform $transition-instant ease-out;
 }
 
 .shift-right {

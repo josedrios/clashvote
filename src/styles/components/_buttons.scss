@@ -7,7 +7,7 @@
 }
 
 rect.bars {
-    transition: width $transition-duration-base;
+    transition: width $transition-instant;
     fill: $gray-light;
 }
 

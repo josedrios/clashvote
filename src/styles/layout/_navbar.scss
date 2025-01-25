@@ -9,7 +9,7 @@
         color: white;
         margin-bottom: 5px;
         span {
-            transition: color $transition-duration-base $transition-ease;
+            transition: color $transition-instant $transition-ease;
             color: $primary-color;
         }
     }
@@ -35,7 +35,7 @@
     svg {
         fill: white;
         font-size: 23px;
-        transition: $transition-duration-base $transition-ease;
+        transition: $transition-instant $transition-ease;
     }
 
     &:hover {

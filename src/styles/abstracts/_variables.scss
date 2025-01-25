@@ -50,9 +50,11 @@ $border-radius-c:               10000px;
 // ==========================
 // Transition Speeds
 // ==========================
-$transition-duration-fast:      0.1s;
-$transition-duration-base:      0.15s;
-$transition-duration-slow:      0.25s;
+$transition-instant:      0.15s;
+$transition-fast:      0.25s;
+$transition-base:     0.5s;
+$transition-slow:     0.7s;
+
 $transition-ease:               ease-in-out;
 
 // ==========================

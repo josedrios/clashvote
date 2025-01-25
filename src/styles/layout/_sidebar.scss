@@ -16,11 +16,11 @@
 }
 
 .open {
-    transition: transform $transition-duration-base;
+    transition: transform $transition-instant;
 }
 
 .close {
-    transition: transform $transition-duration-base;
+    transition: transform $transition-instant;
 }
 
 .sidebar-link {
@@ -29,7 +29,7 @@
     margin-bottom: $spacing-sm;
     padding: $spacing-xs $spacing-md;
     border-radius: $border-radius-xs;
-    transition: $transition-ease $transition-duration-base;
+    transition: $transition-ease $transition-instant;
     width: 100%;
 
     &:hover{

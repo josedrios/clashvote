@@ -164,7 +164,7 @@
     border-bottom: 1px solid white;
     margin: 0 $spacing-md;
     outline: none;
-    transition: $transition-duration-base;
+    transition: $transition-instant;
 }
 
 .comment-input-field:focus {
