@@ -1,4 +1,6 @@
+// ==========================
 // General
+// ==========================
 form {
     margin: $spacing-md;
     display: flex;
@@ -7,7 +9,8 @@ form {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+textarea {
     background-color: $primary-background-color;
     padding: $spacing-sm;
     transition: border-bottom $transition-base;
@@ -38,7 +41,26 @@ input[type="checkbox"] {
     }
 }
 
-// Auth
+input[type="search"] {
+    margin-bottom: $spacing-lg;
+    font-family: $primary-font;
+    max-width: 700px;
+    background-color: $secondary-background-color;
+    width: 100%;
+    border: 1px solid $gray;
+    text-decoration: none;
+    outline: none;
+    padding: 0px $spacing-md;
+    transition: border-color $transition-fast;
+
+    &:focus {
+        border: 1px solid $primary-color;
+    }
+}
+
+// ==========================
+// Auth Page
+// ==========================
 .auth-input-container {
     display: flex;
     flex-direction: row;
@@ -103,54 +125,11 @@ input[type="checkbox"] {
     }
 }
 
-// Contact
-#contact-create-message {
-    border: 2px solid $primary-color;
-    border-radius: $border-radius-sm;
-    padding: $spacing-md;
-    display: flex;
-    flex-direction: column;
-    margin-top: $spacing-md;
-    margin-left: $spacing-md;
-    width: calc(100% - $spacing-md);
-    min-width: 50%;
-
-    h4 {
-        font-size: 17px;
-        margin: 0 0 $spacing-sm 0;
-        text-wrap: nowrap;
-    }
-
-    input,
-    textarea {
-        background-color: $secondary-background-color;
-        padding: $spacing-sm;
-        transition: border-bottom $transition-base;
-        outline: none;
-        border-bottom: 2px solid color-fade($primary-color, 0.25);
-        font-family: $primary-font;
-    }
-
-    input {
-        margin-bottom: $spacing-sm;
-    }
-
-    input:focus,
-    textarea:focus {
-        border-bottom: 2px solid $primary-color;
-    }
-
-    textarea {
-        resize: none;
-        width: 100%;
-        height: 80px;
-    }
-}
-
+// ==========================
+// Contact Page
+// ==========================
 #contact-naming-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex(row, space-between);
     width: 100%;
 }
 
@@ -158,8 +137,55 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     width: 50%;
-    div,
+    
     input {
         width: 100%;
+    }
+}
+
+#first-name-section {
+    margin-right: $spacing-sm;
+}
+
+#contact-create-message {
+    @include flex(column);
+    border: 2px solid $primary-color;
+    border-radius: $border-radius-sm;
+    padding: $spacing-md;
+    margin-top: $spacing-md;
+    margin-left: $spacing-md;
+    width: calc(100% - $spacing-md);
+    min-width: 50%;
+
+    h4 {
+        font-size: $font-size-md;
+        margin: 0 0 $spacing-sm 0;
+        text-wrap: nowrap;
+    }
+
+    input,
+    textarea {
+        background-color: $secondary-background-color;
+    }
+
+    input {
+        margin-bottom: $spacing-sm;
+    }
+
+    textarea {
+        @include box(100%, 80px);
+        resize: none;
+    }
+}
+
+// ==========================
+// Contact Page
+// ==========================
+#player-clan-search {
+    @include flex(row, center);
+    width: 100%;
+
+    > * {
+        height: 50px;
     }
 }

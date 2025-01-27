@@ -1,3 +1,24 @@
+// Auth
+.auth-form-confirm {
+    margin: auto;
+    background-color: $primary-color;
+    padding: $spacing-sm;
+    border-radius: $border-radius-lg;
+    color: black;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: $spacing-md;
+}
+
+// Contact
+#contact-buttons-container button {
+    background-color: transparent;
+    svg {
+        fill: black;
+        font-size: $font-size-lg;
+    }
+}
+
 // Navbar
 #bars-icon-button {
     display: none;
@@ -18,14 +39,56 @@ rect.bars {
     }
 }
 
-// Auth
-.auth-form-confirm {
-    margin: auto;
+// Search
+.toggle-button {
+    @include box(40px, 50px);
+    z-index: $z-toggle-icon;
+    position: absolute;
+    background-color: transparent;
+    top: 2px;
+
+    .toggle-icon {
+        fill: $primary-color;
+        font-size: 20px;
+    }
+}
+
+#player-search-toggle {
+    left: 0;
+}
+
+#clan-search-toggle {
+    right: 0;
+}
+
+#searchbar-submit-button {
+    border-left: none;
     background-color: $primary-color;
-    padding: $spacing-sm;
-    border-radius: $border-radius-lg;
+    border-top-right-radius: $border-radius-xs;
+    border-bottom-right-radius: $border-radius-xs;
+    aspect-ratio: 1/1;
+    transition: background-color $transition-fast;
+
+    svg {
+        position: relative;
+        top: 2px;
+        font-size: 23px;
+        fill: black;
+    }
+
+    &:hover {
+        background-color: rgba(228, 215, 39, 0.871);
+    }
+}
+
+// TESTING PURPOSES (REMOVE WHEN DONE)
+#test-json {
+    background-color: $primary-color;
+    padding: $spacing-xs;
+    transition: 0.15s;
     color: black;
-    width: 100%;
-    max-width: 200px;
-    margin-bottom: $spacing-md;
+}
+
+#test-json:hover {
+    background-color: $secondary-color;
 }

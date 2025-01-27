@@ -10,7 +10,7 @@ function Contact({}) {
                 <div id="contact-info">
                     <h3>Have questions or suggestions?</h3>
                     <div>clashvote@gmail.com</div>
-                    <div id="contact-link-buttons">
+                    <div id="contact-buttons-container">
                         <button>
                             <MdOutlineEmail />
                         </button>

@@ -18,13 +18,14 @@
 @import './layout/app';
 @import './layout/navbar';
 @import './layout/sidebar';
-@import './layout/forms';
 @import './layout/footer';
-@import './layout/forms';
 @import './layout/grid';
 
 // Pages
 @import './pages/search';
+    @import './pages/search/achievements';
+    @import './pages/search/clan';
+    @import './pages/search/player';
 @import './pages/season';
 @import './pages/auth';
 @import './pages/about';

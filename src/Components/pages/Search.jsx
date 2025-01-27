@@ -18,14 +18,11 @@ export default function Search() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-
         if (inputRef.current.value == "") {
             console.warn("User gave an empty string");
             return;
         }
-
         fetchData(inputRef.current.value, searchToggle);
-
         inputRef.current.value = "";
     }
 
@@ -60,7 +57,7 @@ export default function Search() {
 
     async function fetchData(prompt, type) {
         try {
-            var response = "";
+            var response;
             if (type === "player") {
                 response = await fetch(
                     `http://localhost:3001/api/players/${prompt}`
@@ -70,7 +67,6 @@ export default function Search() {
                     `http://localhost:3001/api/clans/${prompt}`
                 );
             }
-
             if (response.status === 404) {
                 setSearchResult({
                     data: "404",
@@ -104,7 +100,7 @@ export default function Search() {
 
     return (
         <div id="search-page-container">
-            <form id="searchbar-container" onSubmit={handleFormSubmit}>
+            <form id="player-clan-search" onSubmit={handleFormSubmit}>
                 <div id="searchbar-toggle">
                     <button
                         id="player-search-toggle"
@@ -143,7 +139,7 @@ export default function Search() {
                 </div>
                 <input
                     id="searchbar"
-                    type="text"
+                    type="search"
                     placeholder={`Enter ${
                         searchToggle === "player" ? "Tag" : "Clan Name"
                     }`}

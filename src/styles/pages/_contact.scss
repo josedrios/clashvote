@@ -1,7 +1,6 @@
 // Contact Page
 #contact-container {
-    width: 100%;
-    height: 300px;
+    @include box(100%, 300px);
 }
 
 #contact-title {
@@ -18,11 +17,10 @@
 }
 
 #contact-info {
-    width: 50%;
+    @include box(50%, min-content);
     background-color: $primary-color;
     border-radius: $border-radius-sm;
     max-width: 300px;
-    height: min-content;
     margin-top: $spacing-md;
 
     > * {
@@ -31,33 +29,22 @@
 
     h3 {
         color: black;
-        font-size: 22px;
     }
 
     div {
         color: black;
-        font-size: 17px;
+        font-size: $font-size-md;
     }
 }
 
-#contact-link-buttons {
+#contact-buttons-container {
+    @include flex(row, space-between);
     margin-bottom: 0;
     width: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin-left: auto;
-
-    button {
-        background-color: transparent;
-        svg {
-            fill: black;
-            font-size: 20px;
-        }
-    }
 }
 
-@media (max-width: #{$breakpoint-sm}){
+@media (max-width: #{$breakpoint-sm}) {
     #contact-info {
         max-width: 100%;
         width: 100%;
@@ -76,12 +63,4 @@
         width: 100% !important;
         margin-left: 0 !important;
     }
-}
-
-#first-name-section {
-    margin-right: $spacing-sm;
-}
-
-#contact-email-input {
-    width: 100%;
 }
