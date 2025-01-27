@@ -1,0 +1,171 @@
+#player-general-info-section {
+    width: min-content;
+}
+
+#player-data-bar {
+    @include flex(row, center, flex-start);
+}
+
+#player-rank-flex {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.player-rank-icon {
+    height: 45px;
+}
+
+#player-bh-icon {
+    margin-left: $spacing-sm;
+    position: relative;
+    top: 5px;
+    height: 37px;
+}
+
+#player-username {
+    margin-right: $spacing-sm;
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    font-size: 32px;
+}
+
+@media (max-width: 400px){
+    #player-username {
+        font-size: 30px;
+        margin-bottom: 0 !important;
+        align-self: center;
+    }
+}
+
+#player-xp-container {
+    display: flex;
+    align-items: center;
+}
+
+#xp-icon {
+    height: 20px;
+    margin-right: $spacing-xs;
+}
+
+#player-level {
+    color: $gray-lighter;
+}
+
+#player-tag {
+    color: $gray-lighter;
+}
+
+#player-labels {
+    margin: $spacing-xs 0;
+    display: flex;
+}
+
+.player-label {
+    width: 40px;
+}
+
+#player-action-buttons {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#player-home-data {
+    margin-right: 1%;
+}
+
+#player-builder-data {
+    height: min-content;
+    margin-left: 1%;
+}
+
+.player-base-container {
+    border-radius: $border-radius-xs;
+    background-color: $secondary-background-color;
+    padding-bottom: $spacing-sm;
+}
+
+.player-base-header-container {
+    @include flex(row, space-between);
+    border-bottom: 2px solid $primary-color;
+    background-color: $primary-background-color;
+}
+
+.player-base-header {
+    padding: $spacing-sm $spacing-md $spacing-sm $spacing-md;
+    color: $primary-color;
+}
+
+.player-base-header-trophies {
+    padding: 0 0 $spacing-sm $spacing-md;
+    display: flex;
+    color: $gray-lighter;
+    align-items: center;
+}
+
+.header-trophy-div {
+    text-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    color: $gray-lighter;
+
+    p {
+        font-size: $font-size-md;
+        color: $gray-lighter;
+    }
+    
+    .trophy-icon {
+        fill: $gray-lighter;
+        height: 24px;
+        margin-left: $spacing-xs;
+    }
+}
+
+.hall-level{
+    @include flex(row, center, center);
+    @include box(25px);
+    position: absolute;
+    border-radius: $border-radius-xs;
+    font-size: $font-size-sm;
+    background-color: $secondary-background-color;
+    bottom: 10px;
+    left: 0;
+}
+
+.weapon-level {
+    @include flex(column, center, center);
+    position: absolute;
+    border-radius: $border-radius-xs;
+    padding: $spacing-xs;
+    bottom: 10px;
+    right: 4px;
+}
+
+.weapon-level-star {
+    @include box(14px);
+}
+
+.hall-img{
+    padding: 0 $spacing-md 0 $spacing-xs;
+    height: 70px;
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    .player-base-header-trophies {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .player-base-header {
+        padding-bottom: $spacing-xs;
+    }
+
+    .hall-img {
+        align-self: center;
+    }
+
+    #trophy-slash {
+        display: none;
+    }
+}

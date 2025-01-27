@@ -81,6 +81,39 @@ rect.bars {
     }
 }
 
+// Search (Player)
+#player-action-buttons button {
+    background-color: transparent;
+    padding: 0 $spacing-sm 0 0;
+    svg {
+        display: flex;
+        align-items: center;
+        font-size: $font-size-lg;
+        fill: $primary-color;
+    }
+}
+
+// Search (Achievements)
+.ach-button {
+    @include box(50%, 50px);
+    background-color: transparent;
+    border-bottom: 2px solid color-fade($primary-color, 0.25);
+    font-size: 20px;
+    color: $gray;
+    transition: border-bottom $transition-fast $transition-ease, 
+            color $transition-fast $transition-ease, 
+            background-color $transition-instant $transition-ease;
+
+    &:hover {
+        background-color: $gray-darker;
+    }
+}
+
+.ach-button-selected {
+    border-bottom: 2px solid $primary-color;
+    color: white;
+}
+
 // TESTING PURPOSES (REMOVE WHEN DONE)
 #test-json {
     background-color: $primary-color;
