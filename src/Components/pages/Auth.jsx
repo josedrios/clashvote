@@ -13,11 +13,11 @@ function Auth({}) {
         <div id="auth-container">
             <div id="sign-log-container">
                 <div id="signup-container" className={`auth-tab ${"signup" === authTab ? "selected" : "not-selected"}`}>
-                    <h3 className={`sign-log-header ${"signup" === authTab ? "slider-fade" : ""}`}>Sign Up</h3>
+                    <h3 className={`sign-log-header ${"signup" === authTab ? "" : ""}`}>Sign Up</h3>
                     <AuthForm authType={"signup"} authTab={authTab} setAuthTab={setAuthTab} />
                 </div>
                 <div id="login-container" className={`auth-tab ${"login" === authTab ? "selected" : "not-selected"}`}>
-                    <h3 className={`sign-log-header ${"login" === authTab ? "slider-fade" : ""}`}>Log In</h3>
+                    <h3 className={`sign-log-header ${"login" === authTab ? "" : ""}`}>Log In</h3>
                     <AuthForm authType={"login"} authTab={authTab} setAuthTab={setAuthTab} />
                 </div>
                 <div
@@ -36,30 +36,30 @@ export default Auth;
 
 function AuthForm({ authType, authTab, setAuthTab }) {
     return (
-        <form className={`auth-form ${authType === authTab ? "slider-fade" : ""}`} action="" id={`${authType}-form`}>
+        <form className={`auth-form ${authType === authTab ? "" : ""}`} action="" id={`${authType}-form`}>
             {authType === "signup" && (
                 <div className="auth-input-container">
                     <FiUser className="auth-input-icon" />
-                    <input type="text" name="username" placeholder="Username" />
+                    <input type="text" name="username" placeholder="Username" className="auth-input"/>
                 </div>
             )}
             <div className="auth-input-container">
                 <HiOutlineMail className="auth-input-icon" />
-                <input type="text" name="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" className="auth-input"/>
             </div>
             <div className="auth-input-container">
                 <MdLockOutline className="auth-input-icon" />
-                <input type="password" name="username" placeholder="Password" />
+                <input type="password" name="username" placeholder="Password" className="auth-input"/>
             </div>
             {authType === "signup" && (
                 <div id="auth-tos-container">
                     <p>
-                        <input type="checkbox" name="tos" id="auth-form-tos" />{" "}
+                        <input type="checkbox" name="tos" id="auth-form-tos"/>{" "}
                         I agree to the <a href="">terms of services</a>
                     </p>
                 </div>
             )}
-            <button id="auth-form-confirm">{authType.toUpperCase()}</button>
+            <button className="auth-form-confirm">{authType.toUpperCase()}</button>
             {authType === "signup" && (
                 <a
                     className="forgot-already-link"

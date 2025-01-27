@@ -1,4 +1,109 @@
-// Contact form
+// General
+form {
+    margin: $spacing-md;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: $primary-background-color;
+    padding: $spacing-sm;
+    transition: border-bottom $transition-base;
+    outline: none;
+    border-bottom: 2px solid color-fade($primary-color, 0.25);
+    font-family: $primary-font;
+    width: 100%;
+
+    &:focus {
+        border-bottom: 2px solid $primary-color;
+    }
+}
+
+input[type="checkbox"] {
+    @include box(11px);
+    appearance: none;
+    background-color: $gray-lighter;
+    position: relative;
+    border-radius: 5px;
+    transition: $transition-ease 0.1s;
+
+    &:hover {
+        background-color: $gray-light;
+    }
+
+    &:checked {
+        background-color: $primary-color;
+    }
+}
+
+// Auth
+.auth-input-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: $spacing-md;
+
+    .auth-input-icon {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        left: $spacing-sm;
+    }
+}
+
+.auth-input {
+    padding-left: 30px !important;
+}
+
+#auth-tos-container {
+    margin-bottom: $spacing-md;
+    text-align: center;
+    p,
+    a {
+        font-size: $font-size-sm;
+        color: $gray-lighter;
+    }
+
+    a {
+        color: $primary-color;
+    }
+}
+
+.forgot-already-link {
+    margin-bottom: $spacing-md;
+    margin: auto;
+    text-align: center;
+    color: $gray-lighter;
+    font-size: 11px;
+    display: inline;
+}
+
+@keyframes from-selected {
+    0% {
+        transform: translateX(0px);
+    }
+    99% {
+        transform: translateX(-400px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+@keyframes to-selected {
+    from {
+        transform: translateX(400px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+// Contact
 #contact-create-message {
     border: 2px solid $primary-color;
     border-radius: $border-radius-sm;
@@ -56,147 +161,5 @@
     div,
     input {
         width: 100%;
-    }
-}
-
-// Auth form
-.sign-log-header {
-    text-align: center;
-    margin-top: $spacing-md;
-    color: $primary-color;
-    opacity: 0;
-    transition: opacity $transition-base;
-}
-
-.auth-form {
-    margin: $spacing-md;
-    display: flex;
-    flex-direction: column;
-
-    input {
-        background-color: $primary-background-color;
-        padding: $spacing-sm $spacing-sm $spacing-sm 30px;
-        transition: border-bottom $transition-base;
-        outline: none;
-        border-bottom: 2px solid color-fade($primary-color, 0.25);
-        font-family: $primary-font;
-        width: 100%;
-    }
-
-    input:focus {
-        border-bottom: 2px solid $primary-color;
-    }
-
-    & * {
-        opacity: 0;
-        transition: opacity $transition-slow;
-    }
-}
-
-.slider-fade {
-    opacity: 1;
-    & * {
-        opacity: 1;
-    }
-}
-
-.auth-input-container {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    margin-bottom: $spacing-md;
-
-    .auth-input-icon {
-        position: absolute;
-        height: 100%;
-        display: flex;
-        left: $spacing-sm;
-    }
-}
-
-#auth-tos-container {
-    margin-bottom: $spacing-md;
-    text-align: center;
-
-    input {
-        position: relative;
-        width: 10px;
-        height: 10px;
-        top: 1px;
-    }
-
-    p,
-    a {
-        font-size: 11px;
-        color: $gray-lighter;
-    }
-
-    a {
-        color: $primary-color;
-    }
-}
-
-#auth-form-confirm {
-    margin: auto;
-    background-color: $primary-color;
-    padding: $spacing-sm;
-    border-radius: $border-radius-lg;
-    color: black;
-    width: 100%;
-    max-width: 200px;
-    margin-bottom: $spacing-md;
-}
-
-.forgot-already-link {
-    margin-bottom: $spacing-md;
-    margin: auto;
-    text-align: center;
-    color: $gray-lighter;
-    font-size: 11px;
-    display: inline;
-}
-
-@media (max-width: 600px) {
-    #sign-log-container {
-        height: 350px;
-    }
-
-    #art-slider {
-        display: none;
-    }
-
-    .not-selected {
-        animation: from-selected;
-        animation-duration: 0.5s;
-        position: absolute;
-    }
-
-    .selected {
-        animation: to-selected;
-        animation-duration: 0.5s;
-        width: 100% !important;
-    }
-}
-
-@keyframes from-selected {
-    0% {
-        transform: translateX(0px);
-    }
-    99% {
-        transform: translateX(-400px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(400px)
-    }
-}
-
-@keyframes to-selected {
-    from {
-        transform: translateX(400px);
-    }
-
-    to {
-        transform: translateX(0px);
     }
 }

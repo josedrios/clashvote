@@ -1,3 +1,4 @@
+// Navbar
 #bars-icon-button {
     display: none;
     position: relative;
@@ -15,4 +16,16 @@ rect.bars {
     #bottom-bar {
         width: 70px;
     }
+}
+
+// Auth
+.auth-form-confirm {
+    margin: auto;
+    background-color: $primary-color;
+    padding: $spacing-sm;
+    border-radius: $border-radius-lg;
+    color: black;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: $spacing-md;
 }
