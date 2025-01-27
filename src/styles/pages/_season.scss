@@ -1,6 +1,5 @@
 #season-container {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
 }
 
 #season-header {
@@ -32,14 +31,13 @@
     display: flex;
     flex-direction: column;
     h3 {
-        font-size: 23px;
+        font-size: $font-size-lg;
         color: $primary-color;
         padding: 0 $spacing-md;
 
         p {
             display: inline;
             margin-left: $spacing-xs;
-            color: $gray-lighter;
             color: $gray-lighter;
         }
     }
@@ -73,123 +71,44 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 10px;
+    margin-left: calc($spacing-sm + 2px);
 }
 
 .comment-top-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex(row, space-between);
     margin-bottom: calc($spacing-xs - 2px);
 
     .comment-writer {
-        font-size: 18px;
-    }
-
-    .comment-misc-button {
-        background-color: transparent;
-        margin-right: $spacing-xs;
-        margin-top: auto;
+        font-size: $font-size-md;
     }
 }
 
 .comment-content {
     color: $gray-lighter;
-    font-size: 14px;
+    font-size: $font-size-sm;
     margin-right: $spacing-sm;
 }
 
 .comment-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+    @include flex(row, left);
     width: 100%;
     margin-top: $spacing-xs;
 
     p {
-        font-size: 14px;
-    }
-
-    .react-button-count {
-        display: flex;
-        align-items: center;
-        margin-right: $spacing-sm;
-
-        p {
-            margin-left: calc($spacing-xs - 1px);
-            display: inline;
-        }
-    }
-
-    .comment-reaction-button {
-        margin-right: $spacing-xs;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
+        font-size: $font-size-sm;
     }
 }
 
-.comment-reply-button {
-    background-color: transparent;
-    margin-left: auto;
-    margin-right: $spacing-sm;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    .reply-icon {
-        display: flex;
-        align-items: center;
-    }
-
-    p {
-        margin-left: $spacing-xs;
-    }
-}
-
-// Creating a comment section
+// Comment section
 
 .create-comment {
-    width: 100%;
     display: flex;
     flex-direction: column;
     border-radius: $border-radius-sm;
 }
 
-.comment-input-field {
-    font-family: $primary-font;
-    background-color: transparent;
-    color: white;
-    padding: $spacing-sm 0;
-    border-bottom: 1px solid white;
-    margin: 0 $spacing-md;
-    outline: none;
-    transition: $transition-instant;
-}
-
-.comment-input-field:focus {
-    border-bottom: 1px solid $primary-color;
-}
-
 .create-comment-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex(row, space-between);
     margin: 0 $spacing-md;
-    padding-top: 10px;
-
-    button {
-        padding: $spacing-xs $spacing-sm;
-        border-radius: 8px;
-    }
-
-    .cancel-comment-button {
-        background-color: transparent;
-        border: 1px solid $gray-lighter;
-    }
-
-    .create-comment-button {
-        background-color: $primary-color;
-        color: black;
-    }
+    padding-top: $spacing-sm;
 }

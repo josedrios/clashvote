@@ -114,6 +114,67 @@ rect.bars {
     color: white;
 }
 
+// Season
+
+.comment-misc-button {
+    background-color: transparent;
+    margin-right: $spacing-xs;
+    margin-top: auto;
+}
+
+.create-comment-actions {
+    button {
+        padding: $spacing-xs $spacing-sm;
+        border-radius: 8px;
+    }
+
+    .cancel-comment-button {
+        background-color: transparent;
+        border: 1px solid $gray-lighter;
+    }
+
+    .create-comment-button {
+        background-color: $primary-color;
+        color: black;
+    }
+}
+
+.comment-actions{
+    .comment-reaction-button {
+        margin-right: $spacing-xs;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+
+    .react-button-count {
+        display: flex;
+        align-items: center;
+        margin-right: $spacing-sm;
+
+        p {
+            margin-left: calc($spacing-xs - 1px);
+            display: inline;
+        }
+    }
+}
+
+.comment-reply-button {
+    @include flex(row, initial, center);
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: $spacing-sm;
+    
+    .reply-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    p {
+        margin-left: $spacing-xs;
+    }
+}
+
 // TESTING PURPOSES (REMOVE WHEN DONE)
 #test-json {
     background-color: $primary-color;

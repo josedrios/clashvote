@@ -189,3 +189,11 @@ input[type="search"] {
         height: 50px;
     }
 }
+
+// ==========================
+// Season Page
+// ==========================
+.comment-input-field {
+    width: calc(100% - 2*$spacing-sm) !important;
+    margin: $spacing-sm;
+}
