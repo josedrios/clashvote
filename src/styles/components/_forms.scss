@@ -102,29 +102,6 @@ input[type="search"] {
     display: inline;
 }
 
-@keyframes from-selected {
-    0% {
-        transform: translateX(0px);
-    }
-    99% {
-        transform: translateX(-400px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(400px);
-    }
-}
-
-@keyframes to-selected {
-    from {
-        transform: translateX(400px);
-    }
-
-    to {
-        transform: translateX(0px);
-    }
-}
-
 // ==========================
 // Contact Page
 // ==========================

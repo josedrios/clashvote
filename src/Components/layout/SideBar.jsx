@@ -1,9 +1,7 @@
-import { useState } from 'react'
-
-function SideBar({isSideBarOpen, closeSideBar, changeMainView}) {
+export default function SideBar({isSideBarOpen, setIsSideBarOpen, setMainView}) {
   const clickedLink = (page) => {
-      closeSideBar();
-      changeMainView(page)
+      setIsSideBarOpen(false);
+      setMainView(page)
   }
 
   return (
@@ -30,5 +28,3 @@ function SideBar({isSideBarOpen, closeSideBar, changeMainView}) {
     </aside>
   )
 }
-
-export default SideBar

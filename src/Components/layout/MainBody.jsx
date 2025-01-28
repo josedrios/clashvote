@@ -4,7 +4,7 @@ import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Auth from '../pages/Auth'
 
-function MainBody({ mainView, changeView}) {
+function MainBody({ mainView }) {
   return (
     <main id = 'main-body'>
         {mainView === 'season' && <Season/>}
