@@ -32,8 +32,22 @@
 }
 
 #team-member-container {
-    @include flex(row, center);
-    margin-left: $spacing-lg;
-    flex-wrap: wrap;
-    height: min-content;
+    margin: auto;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: $spacing-md;
+    justify-items: center;
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+    #team-member-container {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+@media (max-width: 550px) {
+    #team-member-container {
+        grid-template-columns: 1fr !important;
+    }
 }

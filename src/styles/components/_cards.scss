@@ -160,11 +160,11 @@
     @include flex(row, initial, center);
     border-left: 2px solid $primary-color;
     margin-bottom: $spacing-md;
-    margin-right: $spacing-md;
     padding: $spacing-sm $spacing-md;
     border-radius: 0 $border-radius-xs $border-radius-xs 0;
     background-color: $secondary-background-color;
-    width: 320px;
+    width: 100%;
+    max-width: 400px;
 
     .team-member-pfp {
         margin-right: $spacing-md;
@@ -180,19 +180,6 @@
 
         .team-member-role {
             color: $gray-lighter;
-        }
-    }
-}
-
-@media (max-width: #{$breakpoint-sm}) {
-    .team-member-card {
-        width: 180px;
-        flex-direction: column;
-
-        .team-member-info {
-            div {
-                text-align: center !important;
-            }
         }
     }
 }

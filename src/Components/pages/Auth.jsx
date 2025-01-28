@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-function Auth({}) {
+export default function Auth({}) {
     const [authTab, setAuthTab] = useState("login");
 
     return (
@@ -32,11 +32,9 @@ function Auth({}) {
     );
 }
 
-export default Auth;
-
 function AuthForm({ authType, authTab, setAuthTab }) {
     return (
-        <form className={`auth-form ${authType === authTab ? "" : ""}`} action="" id={`${authType}-form`}>
+        <form className="auth-form" action="" id={`${authType}-form`}>
             {authType === "signup" && (
                 <div className="auth-input-container">
                     <FiUser className="auth-input-icon" />

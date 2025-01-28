@@ -1,7 +1,7 @@
 import images from "../features/Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-function About({}) {
+export default function About({}) {
     const pfp = [
         "Archer",
         "Golem",
@@ -11,7 +11,7 @@ function About({}) {
         "Valkyrie",
     ];
     const aboutP1 =
-        "I started playing Clash of Clans (COC) as a kid, over a decade ago, and watched it evolve while building my base. I played with my brothers and friends but always felt a lack of community. The removal of global chat was a major blow, and though I kept playing, the sense of connection was never the same.";
+        "I started playing Clash of Clans (COC) as a kid, over a decade ago, and watched it evolve while building my base. I played with my brothers and friends and my favorite aspect of the game was the sense of community. The removal of global chat was a major devastation to us all, and though I kept playing, the sense of connection was never the same.";
     const aboutP2 =
         "Now, as a young adult with programming skills, I want to give back to the same community that shaped me into the man I am today by making a helpful website. This platform will allow players to vote on various topics, share guidance, and discuss gameplay concepts, fostering collaboration and helping everyone navigate the game better.";
     const roles = [
@@ -54,5 +54,3 @@ function About({}) {
         </div>
     );
 }
-
-export default About;
