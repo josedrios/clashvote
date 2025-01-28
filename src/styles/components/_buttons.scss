@@ -1,3 +1,19 @@
+// Navbar
+.nav-button {
+    background-color: transparent;
+    svg {
+        fill: white;
+        font-size: calc($font-size-xl - 2px);
+        transition: $transition-instant $transition-ease;
+    }
+
+    &:hover {
+        svg{
+            fill: $gray-light
+        }
+    }
+}
+
 // Auth
 .auth-form-confirm {
     margin: auto;

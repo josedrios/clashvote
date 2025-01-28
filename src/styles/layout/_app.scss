@@ -1,6 +1,5 @@
 #root {
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
 }
 
 #main-navbar {
@@ -46,7 +45,7 @@
 
 #main-body {
     margin: 0 auto 0 auto;
-    max-width: 1600px;
+    max-width: $breakpoint-xl;
     width: calc(100% - 250px - 5rem);
     padding: $spacing-lg;
     flex-grow: 1;

@@ -5,9 +5,7 @@
 }
 
 .sidebar-section {
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
+    @include flex(column, initial, flex-start);
     border-bottom: 1px solid $gray-light;
 
     :first-child {
@@ -34,7 +32,7 @@
 
     &:hover{
         width: calc(100% - $spacing-xs);
-        background-color: rgba(36, 36, 36, 0.653);
+        background-color: $gray-base;
         transform: translateX($spacing-xs);
     }
 }
