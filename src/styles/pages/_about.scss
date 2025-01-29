@@ -9,7 +9,7 @@
     white-space: nowrap;
     margin: 0 auto;
     padding: 0 $spacing-sm;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
     padding-bottom: $spacing-sm;
 
     h3 {
@@ -26,8 +26,10 @@
     @include flex(column);
     font-size: $font-size-md;
     margin-bottom: $spacing-md;
+
     .desc-paragraph {
         margin-bottom: $spacing-sm;
+        color: $gray-lighter;
     }
 }
 
@@ -47,7 +49,14 @@
 }
 
 @media (max-width: 550px) {
+    #about-us-description {
+        margin: auto;
+        max-width: 400px;
+        margin-bottom: $spacing-md;
+    }
+
     #team-member-container {
         grid-template-columns: 1fr !important;
+        margin-bottom: $spacing-lg;
     }
 }

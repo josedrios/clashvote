@@ -158,7 +158,7 @@
 // About Page - Team Member Cards
 .team-member-card {
     @include flex(row, initial, center);
-    border-left: 2px solid $primary-color;
+    border-left: 3px solid $primary-color;
     margin-bottom: $spacing-md;
     padding: $spacing-sm $spacing-md;
     border-radius: 0 $border-radius-xs $border-radius-xs 0;
@@ -186,6 +186,14 @@
 
 @media (max-width: 550px) {
     .team-member-card {
-        max-width: 320px;
+        margin: auto;
+
+        .team-member-pfp {
+            margin-left: $spacing-sm;
+        }
+
+        .team-member-info {
+            margin-left: 4%;
+        }
     }
 }

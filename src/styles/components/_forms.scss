@@ -129,6 +129,11 @@ input[type="search"] {
     color: $gray-lighter;
     font-size: 11px;
     display: inline;
+    transition: color $transition-instant;
+
+    &:hover {
+        color: $primary-color;
+    }
 }
 
 @media(max-width: 700px)  {
