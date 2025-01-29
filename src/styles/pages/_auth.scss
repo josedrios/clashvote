@@ -11,28 +11,15 @@
     background-color: $secondary-background-color;
     border-radius: $border-radius-lg;
     width: 100%;
-    height: min-content;
     max-width: 800px;
+    min-height: 300px;
     position: relative;
     padding: $spacing-md;
-
-    #login-container,
-    #signup-container {
-        width: 50%;
-        border-radius: $border-radius-lg;
-    }
-}
-
-#login-container {
-    padding-left: $spacing-sm;
-}
-
-#signup-container {
-    padding-right: $spacing-sm;
+    transition: height $transition-base;
 }
 
 #art-slider {
-    transition: transform $transition-base ease-in-out;
+    transition: transform $transition-base;
     position: absolute;
     height: calc(100% - 2 * $spacing-md);
     width: calc(50% - $spacing-md);
@@ -46,26 +33,33 @@
         @include box(100%);
         border-radius: $border-radius-lg;
     }
-}
 
-#art-slider-header {
-    position: absolute;
-    bottom: $spacing-md;
-    left: $spacing-md;
-    background-color: $secondary-background-color;
-    padding: $spacing-sm;
-    border-radius: $border-radius-sm;
-    color: $primary-color;
-    width: min-content;
+    h3 {
+        font-size: $font-size-lg;
+        position: absolute;
+        bottom: $spacing-lg;
+        right: -1px;
+        background-color: $secondary-background-color;
+        padding: $spacing-sm;
+        border-radius: $border-radius-sm 0 0 $border-radius-sm;
+        color: $primary-color;
+        width: min-content;
+    }
 }
 
 .art-slide-right {
     transform: translateX(100%);
 }
 
-.sign-log-header {
-    text-align: center;
-    margin-top: $spacing-md;
-    color: $primary-color;
-    transition: opacity $transition-base;
+@media(max-width: 700px) {
+    #sign-log-container {
+        padding: $spacing-md 0;
+        position: relative;
+        flex-direction: row;
+        max-width: 500px;
+    }
+
+    #art-slider {
+        display: none;
+    }
 }

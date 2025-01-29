@@ -32,7 +32,7 @@
 
     &:hover{
         width: calc(100% - $spacing-xs);
-        background-color: $gray-base;
+        background-color: $gray-darker;
         transform: translateX($spacing-xs);
     }
 }

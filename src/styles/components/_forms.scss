@@ -19,13 +19,21 @@ textarea {
     font-family: $primary-font;
     width: 100%;
 
+    &::placeholder {
+        transition: color $transition-fast;
+    }
+
     &:focus {
         border-bottom: 2px solid $primary-color;
+    }
+
+    &:focus::placeholder {
+        color: $gray-lighter;
     }
 }
 
 input[type="checkbox"] {
-    @include box(11px);
+    @include box(10px);
     appearance: none;
     background-color: $gray-lighter;
     position: relative;
@@ -61,11 +69,34 @@ input[type="search"] {
 // ==========================
 // Auth Page
 // ==========================
+.auth-form {
+    @include flex(column, center, center);
+    width: 50%;
+
+    > * {
+        margin-bottom: $spacing-md;
+    }
+}
+
+#login-form {
+    padding-left: $spacing-md;
+}
+
+#signup-form {
+    padding-right: $spacing-md;
+}
+
+.sign-log-header {
+    text-align: center;
+    color: $primary-color;
+    transition: opacity $transition-base;
+}
+
 .auth-input-container {
     display: flex;
     flex-direction: row;
     position: relative;
-    margin-bottom: $spacing-md;
+    width: 100%;
 
     .auth-input-icon {
         position: absolute;
@@ -80,7 +111,6 @@ input[type="search"] {
 }
 
 #auth-tos-container {
-    margin-bottom: $spacing-md;
     text-align: center;
     p,
     a {
@@ -94,12 +124,25 @@ input[type="search"] {
 }
 
 .forgot-already-link {
-    margin-bottom: $spacing-md;
-    margin: auto;
+    margin-bottom: $spacing-sm !important;
     text-align: center;
     color: $gray-lighter;
     font-size: 11px;
     display: inline;
+}
+
+@media(max-width: 700px)  {
+    .auth-form {
+        position: absolute;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        width: calc(100% - 2*$spacing-md);
+        padding: 0 $spacing-md !important;
+    }
+
+    .auth-input-container {
+        max-width: 430px;
+    }
 }
 
 // ==========================
@@ -114,7 +157,7 @@ input[type="search"] {
     display: flex;
     flex-direction: column;
     width: 50%;
-    
+
     input {
         width: 100%;
     }
@@ -156,7 +199,7 @@ input[type="search"] {
 }
 
 // ==========================
-// Contact Page
+// Search Page
 // ==========================
 #player-clan-search {
     @include flex(row, center);
@@ -171,6 +214,6 @@ input[type="search"] {
 // Season Page
 // ==========================
 .comment-input-field {
-    width: calc(100% - 2*$spacing-sm) !important;
+    width: calc(100% - 2 * $spacing-sm) !important;
     margin: $spacing-sm;
 }

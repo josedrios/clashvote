@@ -1,23 +1,20 @@
 // Auth
-@keyframes from-selected {
-    0% {
-        transform: translateX(0px);
+@keyframes swipe-out {
+    from {
+        opacity: 1;
     }
-    99% {
-        transform: translateX(-400px);
-    }
-    100% {
+    to {
         opacity: 0;
-        transform: translateX(400px);
+        pointer-events: none;
     }
 }
 
-@keyframes to-selected {
+@keyframes swipe-in {
     from {
-        transform: translateX(400px);
+        opacity: 0;
     }
 
     to {
-        transform: translateX(0px);
+        opacity: 1;
     }
 }

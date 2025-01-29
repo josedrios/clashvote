@@ -16,14 +16,18 @@
 
 // Auth
 .auth-form-confirm {
-    margin: auto;
     background-color: $primary-color;
     padding: $spacing-sm;
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius-xs;
     color: black;
     width: 100%;
     max-width: 200px;
     margin-bottom: $spacing-md;
+    transition: background-color $transition-instant;
+
+    &:hover {
+        background-color: darken($primary-color, 12%);
+    }
 }
 
 // Contact

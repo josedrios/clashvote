@@ -6,7 +6,7 @@ import "../../styles/main.scss";
 
 export default function App() {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-    const [mainView, setMainView] = useState("about");
+    const [mainView, setMainView] = useState("auth");
 
     const toggleSideBar = () => {
         setIsSideBarOpen(!isSideBarOpen);
@@ -14,7 +14,7 @@ export default function App() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth > 1024) {
+            if (window.innerWidth > 1200) {
                 setIsSideBarOpen(false);
             }
         };

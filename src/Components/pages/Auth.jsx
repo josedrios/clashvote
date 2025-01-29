@@ -2,29 +2,36 @@ import images from "../../Components/features/Images";
 import { FiUser } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdLockOutline } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 export default function Auth({}) {
-    const [authTab, setAuthTab] = useState("login");
+    const [authTab, setAuthTab] = useState("signup");
 
     return (
         <div id="auth-container">
-            <div id="sign-log-container">
-                <div id="signup-container" className={`auth-tab ${"signup" === authTab ? "selected" : "not-selected"}`}>
-                    <h3 className={`sign-log-header ${"signup" === authTab ? "" : ""}`}>Sign Up</h3>
-                    <AuthForm authType={"signup"} authTab={authTab} setAuthTab={setAuthTab} />
-                </div>
-                <div id="login-container" className={`auth-tab ${"login" === authTab ? "selected" : "not-selected"}`}>
-                    <h3 className={`sign-log-header ${"login" === authTab ? "" : ""}`}>Log In</h3>
-                    <AuthForm authType={"login"} authTab={authTab} setAuthTab={setAuthTab} />
-                </div>
+            <div id="sign-log-container" 
+            style={"login" === authTab ? {
+                height: "310px"
+            } : {
+                height: "385px"
+            }}>
+                <AuthForm
+                    authType={"signup"}
+                    authTab={authTab}
+                    setAuthTab={setAuthTab}
+                />
+                <AuthForm
+                    authType={"login"}
+                    authTab={authTab}
+                    setAuthTab={setAuthTab}
+                />
                 <div
                     id="art-slider"
                     className={authTab === "login" ? "" : "art-slide-right"}
                 >
-                    <h3 id="art-slider-header">Welcome!</h3>
+                    <h3>CV</h3>
                     <img src={getImage("slider")} alt="" />
                 </div>
             </div>
@@ -34,30 +41,59 @@ export default function Auth({}) {
 
 function AuthForm({ authType, authTab, setAuthTab }) {
     return (
-        <form className="auth-form" action="" id={`${authType}-form`}>
+        <form
+            id={`${authType}-form`}
+            className="auth-form"
+            style={{
+                animation: 
+                authType === authTab
+                ? "swipe-in 0.5s forwards" 
+                : "swipe-out 0.2s forwards"
+            }}
+        >
+            <h3 className="sign-log-header">
+                {authType === "login" ? "Login" : "Sign Up"}
+            </h3>
             {authType === "signup" && (
                 <div className="auth-input-container">
                     <FiUser className="auth-input-icon" />
-                    <input type="text" name="username" placeholder="Username" className="auth-input"/>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        className="auth-input"
+                    />
                 </div>
             )}
             <div className="auth-input-container">
                 <HiOutlineMail className="auth-input-icon" />
-                <input type="email" name="email" placeholder="Email" className="auth-input"/>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="auth-input"
+                />
             </div>
             <div className="auth-input-container">
                 <MdLockOutline className="auth-input-icon" />
-                <input type="password" name="username" placeholder="Password" className="auth-input"/>
+                <input
+                    type="password"
+                    name="username"
+                    placeholder="Password"
+                    className="auth-input"
+                />
             </div>
             {authType === "signup" && (
                 <div id="auth-tos-container">
                     <p>
-                        <input type="checkbox" name="tos" id="auth-form-tos"/>{" "}
+                        <input type="checkbox" name="tos" id="auth-form-tos" />{" "}
                         I agree to the <a href="">terms of services</a>
                     </p>
                 </div>
             )}
-            <button className="auth-form-confirm">{authType.toUpperCase()}</button>
+            <button className="auth-form-confirm">
+                {authType.toUpperCase()}
+            </button>
             {authType === "signup" && (
                 <a
                     className="forgot-already-link"
@@ -84,7 +120,13 @@ function AuthForm({ authType, authTab, setAuthTab }) {
                     >
                         Don't have an account?
                     </a>
-                    <a className="forgot-already-link" href="">
+                    <a
+                        className="forgot-already-link"
+                        href=""
+                        onClick={(event) => {
+                            event.preventDefault();
+                        }}
+                    >
                         Forgot password?
                     </a>
                 </>

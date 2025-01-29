@@ -183,3 +183,9 @@
         }
     }
 }
+
+@media (max-width: 550px) {
+    .team-member-card {
+        max-width: 320px;
+    }
+}
