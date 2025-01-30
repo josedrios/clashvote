@@ -153,25 +153,6 @@ input[type="search"] {
 // ==========================
 // Contact Page
 // ==========================
-#contact-naming-container {
-    @include flex(row, space-between);
-    width: 100%;
-}
-
-.contact-name-section {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-
-    input {
-        width: 100%;
-    }
-}
-
-#first-name-section {
-    margin-right: $spacing-sm;
-}
-
 #contact-create-message {
     @include flex(column);
     border: 2px solid $primary-color;
@@ -181,6 +162,7 @@ input[type="search"] {
     margin-left: $spacing-md;
     width: calc(100% - $spacing-md);
     min-width: 50%;
+    max-width: 300px;
 
     h4 {
         font-size: $font-size-md;
@@ -201,6 +183,44 @@ input[type="search"] {
         @include box(100%, 80px);
         resize: none;
     }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+    #contact-create-message {
+        width: 100% !important;
+        margin-left: 0 !important;
+        max-width: none;
+    }
+}
+
+
+#contact-naming-container {
+    @include flex(row, space-between);
+    width: 100%;
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #contact-naming-container {
+        flex-direction: column;
+    }
+
+    .contact-name-section {
+        width: 100% !important;
+    };    
+}
+
+.contact-name-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    input {
+        width: 100%;
+    }
+}
+
+#first-name-section {
+    margin-right: $spacing-sm;
 }
 
 // ==========================

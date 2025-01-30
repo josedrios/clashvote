@@ -1,3 +1,17 @@
+// General
+.standard-btn {
+    background-color: $primary-color;
+    border-radius: $border-radius-xs;
+    width: min-content;
+    padding: $spacing-sm;
+    color: black;
+    transition: $transition-instant;
+
+    &:hover {
+        background-color: darken($primary-color, 12%);
+    }
+}
+
 // Navbar
 .nav-button {
     background-color: transparent;
@@ -37,6 +51,11 @@
         fill: black;
         font-size: $font-size-lg;
     }
+}
+
+#contact-submit-btn {
+    margin-left: auto;
+    margin-top: $spacing-md;
 }
 
 // Navbar

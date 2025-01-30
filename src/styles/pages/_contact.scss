@@ -9,7 +9,7 @@
 }
 
 #contact-body-container {
-    display: flex;
+    @include flex(row, center);
     #contact-info,
     #contact-create-message {
         padding: $spacing-md;
@@ -57,10 +57,5 @@
 
     #contact-body-container {
         flex-direction: column;
-    }
-
-    #contact-create-message {
-        width: 100% !important;
-        margin-left: 0 !important;
     }
 }

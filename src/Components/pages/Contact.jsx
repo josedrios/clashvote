@@ -8,7 +8,7 @@ function Contact({}) {
             <h2 id="contact-title">Contact Us</h2>
             <div id="contact-body-container">
                 <div id="contact-info">
-                    <h3>Have questions or suggestions?</h3>
+                    <h3>Have questions, issues or suggestions?</h3>
                     <div>clashvote@gmail.com</div>
                     <div id="contact-buttons-container">
                         <button>
@@ -23,7 +23,7 @@ function Contact({}) {
                     </div>
                 </div>
                 <div id="contact-create-message">
-                    <form action="">
+                    <form action="" id="contact-form">
                         <div id="contact-naming-container">
                             <div
                                 id="first-name-section"
@@ -48,6 +48,7 @@ function Contact({}) {
                         />
                         <h4>Message:</h4>
                         <textarea name="" id="contact-message-text" placeholder="Type message here..."></textarea>
+                        <button id="contact-submit-btn" className="standard-btn">Submit</button>
                     </form>
                 </div>
             </div>
