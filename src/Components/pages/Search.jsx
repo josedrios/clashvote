@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
 import PlayerResult from "../features/Search/Player/SearchResult";
 import ClanResults from "../features/Search/Clan/SearchResults";
 import SearchTip from "../features/Search/SearchTip";
 import TestJSON from "../../clasher.json";
+import { useState, useRef, useEffect } from "react";
 
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
@@ -18,41 +18,13 @@ export default function Search() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (inputRef.current.value == "") {
-            console.warn("User gave an empty string");
+        if (inputRef.current.value.trim() == "") {
+            console.warn("ALERT: Empty string was given");
+            // Activate Alert Banner Here
             return;
         }
-        fetchData(inputRef.current.value, searchToggle);
+        fetchData(inputRef.current.value.trim(), searchToggle);
         inputRef.current.value = "";
-    }
-
-    async function fetchPlayerData(playerTag) {
-        try {
-            const response = await fetch(
-                `http://localhost:3001/api/players/${playerTag}`
-            );
-            if (response.status === 404) {
-                setSearchResult({
-                    data: "404",
-                    tab: "player",
-                });
-                throw new Error(`Failed to get player info for '${playerTag}'`);
-            } else if (!response.ok) {
-                setSearchResult({
-                    data: "!200",
-                    tab: "player",
-                });
-                throw new Error("Clash of Clans API error");
-            }
-            const data = await response.json();
-            setSearchResult({
-                data: data,
-                tab: "player",
-            });
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
     }
 
     async function fetchData(prompt, type) {
@@ -78,14 +50,13 @@ export default function Search() {
                     data: "!200",
                     tab: type,
                 });
-                throw new Error("Clash of Clans API error");
+                throw new Error("Clash of Clans API failed");
             }
             const data = await response.json();
             setSearchResult({
                 data: data,
                 tab: type,
             });
-            console.log(data);
         } catch (error) {
             console.log(error);
         }
@@ -104,7 +75,7 @@ export default function Search() {
                 <div id="searchbar-toggle">
                     <button
                         id="player-search-toggle"
-                        className="toggle-button"
+                        className="toggle-btn"
                         type="button"
                         onClick={(event) => {
                             event.preventDefault();
@@ -119,7 +90,7 @@ export default function Search() {
                     <button
                         type="button"
                         id="clan-search-toggle"
-                        className="toggle-button"
+                        className="toggle-btn"
                         onClick={(event) => {
                             event.preventDefault();
                             setSearchToggle("clan");
@@ -148,7 +119,7 @@ export default function Search() {
                 <button id="test-json" onClick={handleTestJson} type="button">
                     Test
                 </button>
-                <button type="submit" id="searchbar-submit-button">
+                <button type="submit" id="searchbar-submit-btn">
                     <IoIosSearch />
                 </button>
             </form>

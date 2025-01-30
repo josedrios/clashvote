@@ -37,7 +37,7 @@
     }
 }
 
-#contact-buttons-container {
+#contact-btns-container {
     @include flex(row, space-between);
     margin-bottom: 0;
     width: 100px;

@@ -3,7 +3,6 @@
 }
 
 #main-navbar {
-    border: $border-thickness-xs solid $gray-light;
     border-radius: $border-radius-sm;
     padding: $spacing-md $spacing-md;
     background-color: $secondary-background-color;
@@ -27,7 +26,6 @@
 }
 
 #main-sidebar {
-    border: $border-thickness-xs solid $gray-light;
     border-bottom: none;
     border-top-left-radius: $border-radius-sm;
     border-top-right-radius: $border-radius-sm;
@@ -71,7 +69,7 @@
         transform: translateX(-300px);
     }
 
-    #bars-icon-button {
+    #bars-icon-btn {
         display: inline !important;
     }
 }

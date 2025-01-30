@@ -32,7 +32,7 @@ function PlayerMain({ playerMain }) {
                 <img id="xp-icon" src={getImage("xp")} alt="" />
                 <div id="player-level">{playerMain.level}</div>
             </div>
-            <div id="player-action-buttons">
+            <div id="player-action-btns">
                 <button>
                     <IoMdShare />
                 </button>

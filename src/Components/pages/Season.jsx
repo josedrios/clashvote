@@ -5,15 +5,20 @@ import { FaEllipsisVertical } from "react-icons/fa6";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { MdOutlineChat } from "react-icons/md";
 
+// TEMPORARY (FOR COMMENT VOTE VALUES)
+function randomValue(bot, top) {
+    return Math.floor(Math.random() * (top - bot + 1)) + bot;
+}
+
 function Season() {
     return (
         <div id="season-container">
-            <h3 id="season-header">Season #??:</h3>
-            <div id="voting-component-container">
+            <h3 id="season-header">Season {randomValue(1,20)}</h3>
+            <div id="voting-dashboard">
                 <VoteComponent object={Data.heroes} title={"Hero"} />
                 <VoteComponent object={Data.troops} title={"Troop"} />
                 <VoteComponent object={Data.spells} title={"Spell"} />
-                <VoteComponent object={Data.heroEquipment} title={"Hero Equipment"} />
+                <VoteComponent object={Data.heroEquipment} title={"Hero Eq."} />
             </div>
         </div>
     );
@@ -28,10 +33,10 @@ function VoteComponent({ object, title }) {
         ["Anna", "Loving this new feature!"],
     ];
     return (
-        <div className="vote-concept-container">
-            <div className="vote-concept-header">
+        <div className="vote-component-container">
+            <div className="vote-component-header">
                 <h3>Best {title}</h3>
-                <button>Vote</button>
+                <button className="vote-btn standard-btn">Vote</button>
             </div>
             <div className="multiple-candidate-container">
                 {object.slice(0, 3).map((candidate, key) => (
@@ -47,8 +52,8 @@ function VoteComponent({ object, title }) {
                                 <div className="fill-bar" />
                             </div>
                             <div className="candidate-stats">
-                                <h5>??%</h5>
-                                <h5>??k votes</h5>
+                                <h5>{randomValue(1,100)}%</h5>
+                                <h5>{randomValue(1,11)}k votes</h5>
                             </div>
                         </div>
                     </div>
@@ -64,7 +69,7 @@ function CommentSection({ comments }) {
         <div className="comment-section">
             <div className="comments-container">
                 <h3>
-                    Comments<p>(39)</p>
+                    Comments<p>({randomValue(1,800)})</p>
                 </h3>
                 <div className="create-comment">
                     <input
@@ -73,10 +78,10 @@ function CommentSection({ comments }) {
                         placeholder="Type your comment here..."
                     />
                     <div className="create-comment-actions">
-                        <button className="cancel-comment-button">
+                        <button className="cancel-comment-btn standard-btn">
                             Cancel
                         </button>
-                        <button className="create-comment-button">
+                        <button className="create-comment-btn standard-btn">
                             Comment
                         </button>
                     </div>
@@ -106,25 +111,25 @@ function Comment({ username, comment }) {
             <div className="comment-info">
                 <div className="comment-top-bar">
                     <h4 className="comment-writer">{username}</h4>
-                    <button className="comment-misc-button">
+                    <button className="comment-misc-btn">
                         <FaEllipsisVertical className="ellipsis-icon" />
                     </button>
                 </div>
                 <div className="comment-content">{comment}</div>
                 <div className="comment-actions">
-                    <div className="react-button-count">
-                        <button className="comment-reaction-button like-button">
+                    <div className="react-btn-count">
+                        <button className="comment-reaction-btn like-btn">
                             <FaArrowUp />
-                            <p>617</p>
+                            <p>{randomValue(1,1000)}</p>
                         </button>
                     </div>
-                    <div className="react-button-count">
-                        <button className="comment-reaction-button dislike-button">
+                    <div className="react-btn-count">
+                        <button className="comment-reaction-btn dislike-btn">
                             <FaArrowDown />
-                            <p>13</p>
+                            <p>{randomValue(1,300)}</p>
                         </button>
                     </div>
-                    <button className="comment-reply-button">
+                    <button className="comment-reply-btn">
                         <MdOutlineChat className="reply-icon" />
                         <p>Reply</p>
                     </button>

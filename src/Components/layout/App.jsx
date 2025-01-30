@@ -6,7 +6,7 @@ import "../../styles/main.scss";
 
 export default function App() {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-    const [mainView, setMainView] = useState("contact");
+    const [mainView, setMainView] = useState("season");
 
     const toggleSideBar = () => {
         setIsSideBarOpen(!isSideBarOpen);

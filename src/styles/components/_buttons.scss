@@ -5,7 +5,7 @@
     width: min-content;
     padding: $spacing-sm;
     color: black;
-    transition: $transition-instant;
+    transition: background-color $transition-instant;
 
     &:hover {
         background-color: darken($primary-color, 12%);
@@ -13,7 +13,7 @@
 }
 
 // Navbar
-.nav-button {
+.nav-btn {
     background-color: transparent;
     svg {
         fill: white;
@@ -45,7 +45,7 @@
 }
 
 // Contact
-#contact-buttons-container button {
+#contact-btns-container button {
     background-color: transparent;
     svg {
         fill: black;
@@ -59,7 +59,7 @@
 }
 
 // Navbar
-#bars-icon-button {
+#bars-icon-btn {
     display: none;
     position: relative;
     top: $spacing-xs;
@@ -72,14 +72,14 @@ rect.bars {
     fill: $gray-light;
 }
 
-#bars-icon-button:hover {
+#bars-icon-btn:hover {
     #bottom-bar {
         width: 70px;
     }
 }
 
 // Search
-.toggle-button {
+.toggle-btn {
     @include box(40px, 50px);
     z-index: $z-toggle-icon;
     position: absolute;
@@ -100,11 +100,11 @@ rect.bars {
     right: 0;
 }
 
-#searchbar-submit-button {
+#searchbar-submit-btn {
     border-left: none;
     background-color: $primary-color;
-    border-top-right-radius: $border-radius-xs;
-    border-bottom-right-radius: $border-radius-xs;
+    border-top-right-radius: $border-radius-sm;
+    border-bottom-right-radius: $border-radius-sm;
     aspect-ratio: 1/1;
     transition: background-color $transition-fast;
 
@@ -121,19 +121,26 @@ rect.bars {
 }
 
 // Search (Player)
-#player-action-buttons button {
+#player-action-btns button {
     background-color: transparent;
     padding: 0 $spacing-sm 0 0;
     svg {
         display: flex;
         align-items: center;
         font-size: $font-size-lg;
-        fill: $primary-color;
+        fill: $gray-light;
+        transition: fill $transition-fast, transform $transition-fast;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-2px);
+            fill: $primary-color;
+        }
     }
 }
 
 // Search (Achievements)
-.ach-button {
+.ach-btn {
     @include box(50%, 50px);
     background-color: transparent;
     border-bottom: 2px solid color-fade($primary-color, 0.25);
@@ -148,45 +155,43 @@ rect.bars {
     }
 }
 
-.ach-button-selected {
+.ach-btn-selected {
     border-bottom: 2px solid $primary-color;
     color: white;
 }
 
 // Season
+.vote-btn {
+    height: 38px;
+    margin-top: auto;
+}
 
-.comment-misc-button {
+.comment-misc-btn {
     background-color: transparent;
     margin-right: $spacing-xs;
     margin-top: auto;
 }
 
 .create-comment-actions {
-    button {
-        padding: $spacing-xs $spacing-sm;
-        border-radius: 8px;
-    }
+    .cancel-comment-btn {
+        background-color: color-fade($gray-light, 0.4);
+        color: white;
 
-    .cancel-comment-button {
-        background-color: transparent;
-        border: 1px solid $gray-lighter;
-    }
-
-    .create-comment-button {
-        background-color: $primary-color;
-        color: black;
+        &:hover {
+            background-color: color-fade($gray-light, 0.25);
+        }
     }
 }
 
 .comment-actions{
-    .comment-reaction-button {
+    .comment-reaction-btn {
         margin-right: $spacing-xs;
         background-color: transparent;
         display: flex;
         align-items: center;
     }
 
-    .react-button-count {
+    .react-btn-count {
         display: flex;
         align-items: center;
         margin-right: $spacing-sm;
@@ -198,7 +203,7 @@ rect.bars {
     }
 }
 
-.comment-reply-button {
+.comment-reply-btn {
     @include flex(row, initial, center);
     background-color: transparent;
     margin-left: auto;
@@ -220,6 +225,7 @@ rect.bars {
     padding: $spacing-xs;
     transition: 0.15s;
     color: black;
+    display: none;
 }
 
 #test-json:hover {

@@ -139,7 +139,7 @@ function PlayerHomeHeader({ base, trophies, getImage }) {
                         <p>Current:{trophies.current}</p>
                         <GoTrophy className="trophy-icon" />
                     </div>
-                    <div className="header-trophy-div" id="trophy-slash">/</div>
+                    &nbsp;
                     <div className="header-trophy-div">
                         <p>Best:{trophies.best}</p>
                         <GoTrophy className="trophy-icon" />

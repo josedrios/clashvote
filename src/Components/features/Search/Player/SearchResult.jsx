@@ -123,19 +123,19 @@ function AchievementSection({ achievements, achCurrent, setAchCurrent }) {
         <>
             <div id="ach-toggle-header">
                 <h3 id="general-ach-header">Achievements</h3>
-                <div id="ach-toggle-buttons">
+                <div id="ach-toggle-btns">
                     <button
-                        className={`ach-button ${
-                            achCurrent === "home" ? "ach-button-selected" : ""
+                        className={`ach-btn ${
+                            achCurrent === "home" ? "ach-btn-selected" : ""
                         }`}
                         onClick={() => setAchCurrent("home")}
                     >
                         Home
                     </button>
                     <button
-                        className={`ach-button ${
+                        className={`ach-btn ${
                             achCurrent === "builder"
-                                ? "ach-button-selected"
+                                ? "ach-btn-selected"
                                 : ""
                         }`}
                         onClick={() => setAchCurrent("builder")}
