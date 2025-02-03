@@ -165,6 +165,7 @@ export default function processPlayerData(playerData) {
         ["Super Bowler", 4, "Bowler"],
     ]
 
+    // Checks if base troop level has unlocked super troop unit
     playerHome.troops.map((troop) => {
         for(let i = 0; i < superReqs.length; i++){
             if(troop.name === superReqs[i][0] && troop.level < superReqs[i][1]){
