@@ -1,4 +1,6 @@
 import processPlayerData from "../../../../util/processPlayerData";
+import PlayerData from "../../../../util/playerData"
+
 import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
@@ -36,11 +38,13 @@ function SearchResult({ playerData }) {
         achievements,
     } = processPlayerData(playerData);
 
+    const data = PlayerData(playerData)
+
     return (
         <div id="search-result-container">
             <div id="player-data">
                 <div id="player-data-bar">
-                    <h3 id="player-username">{playerMain.name}</h3>
+                    <h3 id="player-username">{data.username}</h3>
                     <LeagueIcons
                         playerMain={playerMain}
                         getImage={getImage}
