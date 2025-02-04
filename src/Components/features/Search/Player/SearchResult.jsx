@@ -1,5 +1,4 @@
-import processPlayerData from "../../../../util/processPlayerData";
-import PlayerData from "../../../../util/playerData"
+import PlayerData from "../../../../util/processPlayerData";
 
 import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
@@ -14,56 +13,42 @@ const getBuilderLeague = (league) => {
 
 function SearchResult({ playerData }) {
     const [achCurrent, setAchCurrent] = useState("home");
-    console.log(playerData)
+    // console.log(playerData)
 
     if (playerData === "") {
         return <div id="search-result-container">Empty player data</div>;
-    } 
+    }
 
     if (playerData === "404") {
         return <div id="search-result-container">Player not found</div>;
-    } 
+    }
 
     if (playerData === "!200") {
         return <div id="search-result-container">Not ok</div>;
-    } 
+    }
 
-    const {
-        playerMain,
-        playerClan,
-        playerHome,
-        playerBuilder,
-        homeTrophies,
-        builderTrophies,
-        achievements,
-    } = processPlayerData(playerData);
-
-    const data = PlayerData(playerData)
+    const data = PlayerData(playerData);
 
     return (
         <div id="search-result-container">
             <div id="player-data">
                 <div id="player-data-bar">
                     <h3 id="player-username">{data.username}</h3>
-                    <LeagueIcons
-                        playerMain={playerMain}
-                        getImage={getImage}
-                        getBuilderLeague={getBuilderLeague}
-                    />
+                    <LeagueIcons data={data} />
                 </div>
                 <div id="player-header">
-                    <PlayerMain playerMain={playerMain} />
+                    <PlayerMain data={data} />
                     <div id="cards-container">
-                        <PlayerClan playerClan={playerClan} />
+                        <PlayerClan data={data} />
                     </div>
                 </div>
             </div>
             <div id="player-base-flex">
-                <PlayerBase base={playerHome} trophies={homeTrophies} />
-                <PlayerBase base={playerBuilder} trophies={builderTrophies} />
+                <PlayerBase data={data.home} />
+                <PlayerBase data={data.builder} />
             </div>
             <AchievementSection
-                achievements={achievements}
+                data={data}
                 achCurrent={achCurrent}
                 setAchCurrent={setAchCurrent}
             />
@@ -71,58 +56,54 @@ function SearchResult({ playerData }) {
     );
 }
 
-function LeagueIcons({ playerMain, getImage, getBuilderLeague }) {
+function LeagueIcons({ data }) {
     return (
         <div id="player-rank-flex">
             <img
                 className="player-rank-icon"
                 alt=""
                 src={`${
-                    playerMain.homeLeagueIcon === "Unranked"
+                    data.home.league === "Unranked"
                         ? getImage("unranked")
-                        : playerMain.homeLeagueIcon
+                        : data.home.LeagueIcon
                 }`}
-                title={playerMain.homeLeague}
+                title={data.home.league}
             />
             <img
                 className="player-rank-icon"
                 id="player-bh-icon"
-                src={getBuilderLeague(playerMain.builderLeague)}
-                title={playerMain.builderLeague}
+                src={getBuilderLeague(data.builder.league)}
+                title={data.builder.league}
                 alt=""
             />
         </div>
     );
 }
 
-function PlayerClan({ playerClan }) {
+function PlayerClan({ data }) {
     return (
         <div id="player-clan">
             <div id="player-clan-info">
-                <h3 id="player-clan-title">{playerClan.clanName}</h3>
+                <h3 id="player-clan-title">{data.clan.name}</h3>
                 <div>
                     Role:{" "}
-                    <p>
-                        {playerClan.clanRole === "None"
-                            ? ""
-                            : playerClan.clanRole}
-                    </p>
+                    <p>{data.clan.role === "None" ? "" : data.clan.role}</p>
                 </div>
                 <div>
-                    Donated: <p>{playerClan.troopsDonated}</p>
+                    Donated: <p>{data.clan.donated}</p>
                 </div>
                 <div>
-                    Received: <p>{playerClan.troopsReceived}</p>
+                    Received: <p>{data.clan.received}</p>
                 </div>
             </div>
             <div id="player-clan-image">
-                <img id="player-clan-badge" src={playerClan.clanBadge} alt="" />
+                <img id="player-clan-badge" src={data.clan.badge} alt="" />
             </div>
         </div>
     );
 }
 
-function AchievementSection({ achievements, achCurrent, setAchCurrent }) {
+function AchievementSection({ data, achCurrent, setAchCurrent }) {
     return (
         <>
             <div id="ach-toggle-header">
@@ -138,9 +119,7 @@ function AchievementSection({ achievements, achCurrent, setAchCurrent }) {
                     </button>
                     <button
                         className={`ach-btn ${
-                            achCurrent === "builder"
-                                ? "ach-btn-selected"
-                                : ""
+                            achCurrent === "builder" ? "ach-btn-selected" : ""
                         }`}
                         onClick={() => setAchCurrent("builder")}
                     >
@@ -148,16 +127,20 @@ function AchievementSection({ achievements, achCurrent, setAchCurrent }) {
                     </button>
                 </div>
             </div>
-            <Achievements
-                achievements={achievements.home}
-                base={"home"}
-                achCurrent={achCurrent}
-            />
-            <Achievements
-                achievements={achievements.builder}
-                base={"builder"}
-                achCurrent={achCurrent}
-            />
+            {data && (
+                <>
+                    <Achievements
+                        achievements={data.home?.achievements || []}
+                        base={"home"}
+                        achCurrent={achCurrent}
+                    />
+                    <Achievements
+                        achievements={data.builder?.achievements || []}
+                        base={"builder"}
+                        achCurrent={achCurrent}
+                    />
+                </>
+            )}
         </>
     );
 }

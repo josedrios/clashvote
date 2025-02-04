@@ -5,32 +5,32 @@ import { IoBookmark } from "react-icons/io5";
 import images from "../../Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-function PlayerMain({ playerMain }) {
+function PlayerMain({ data }) {
     return (
         <div id="player-general-info-section">
-            {playerMain.accountLabel[0] !== "" && (
+            {data.labels[0] !== "" && (
                 <div id="player-labels">
                     <img
                         className="player-label"
-                        src={playerMain.accountLabel[0]}
+                        src={data.labels[0]}
                         alt=""
                     />
                     <img
                         className="player-label"
-                        src={playerMain.accountLabel[1]}
+                        src={data.labels[1]}
                         alt=""
                     />
                     <img
                         className="player-label"
-                        src={playerMain.accountLabel[2]}
+                        src={data.labels[2]}
                         alt=""
                     />
                 </div>
             )}
-            <div id="player-tag">{playerMain.tag}</div>
+            <div id="player-tag">{data.tag}</div>
             <div id="player-xp-container">
                 <img id="xp-icon" src={getImage("xp")} alt="" />
-                <div id="player-level">{playerMain.level}</div>
+                <div id="player-level">{data.level}</div>
             </div>
             <div id="player-action-btns">
                 <button>

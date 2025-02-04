@@ -1,65 +1,5 @@
-export default function processPlayerData(playerData) {
-    const playerMain = {
-        name: playerData.name,
-        homeLeagueIcon: playerData.league?.iconUrls.small || "Unranked",
-        homeLeague: playerData.league?.name || "Unranked",
-        builderLeague: playerData.builderBaseLeague?.name || "Unranked",
-        tag: playerData.tag,
-        level: playerData.expLevel,
-        accountLabel: [
-            playerData.labels[0]?.iconUrls.small || "",
-            playerData.labels[1]?.iconUrls.small || "",
-            playerData.labels[2]?.iconUrls.small || "",
-        ],
-    };
-
-    const playerClan = {
-        troopsDonated: playerData.donations,
-        troopsReceived: playerData.donationsReceived,
-        clanName: playerData.clan?.name || "No Clan",
-        clanRole: playerData.clan ? fixClanRole(playerData.role) : "None",
-        clanBadge: playerData.clan?.badgeUrls.large || "",
-    };
-
-    // Change Clan Role to appropriate name
-    function fixClanRole(role) {
-        var newRole = "";
-        switch (role) {
-            case "member":
-                newRole = "Member";
-                break;
-            case "admin":
-                newRole = "Elder";
-                break;
-            case "coLeader":
-                newRole = "Co-Leader";
-                break;
-            case "leader":
-                newRole = "Leader";
-                break;
-            case "None":
-                newRole = "None"
-                break;
-            default:
-                newRole = "UNKNOWN";
-                break;
-        }
-        return newRole
-    }
-
-    const homeTrophies = {
-        hallLevel: playerData.townHallLevel,
-        weaponLevel: playerData.townHallWeaponLevel || "",
-        current: playerData.trophies,
-        best: playerData.bestTrophies,
-    };
-
-    const builderTrophies = {
-        hallLevel: playerData.builderHallLevel,
-        current: playerData.builderBaseTrophies,
-        best: playerData.bestBuilderBaseTrophies,
-    };
-
+export default function processPlayerData(data) {
+    // LISTS:
     const pets = [
         "L.A.S.S.I",
         "Electro Owl",
@@ -71,6 +11,16 @@ export default function processPlayerData(playerData) {
         "Phoenix",
         "Spirit Fox",
         "Angry Jelly",
+    ];
+
+    const sieges = [
+        "Wall Wrecker",
+        "Battle Blimp",
+        "Stone Slammer",
+        "Siege Barracks",
+        "Log Launcher",
+        "Flame Flinger",
+        "Battle Drill",
     ];
 
     const supers = [
@@ -92,60 +42,6 @@ export default function processPlayerData(playerData) {
         "Super Hog Rider",
     ];
 
-    const sieges = [
-        "Wall Wrecker",
-        "Battle Blimp",
-        "Stone Slammer",
-        "Siege Barracks",
-        "Log Launcher",
-        "Flame Flinger",
-        "Battle Drill",
-    ];
-
-    const playerHome = {
-        base: "home",
-        heroes: playerData.heroes.filter((hero) => hero.village === "home"),
-        troops: playerData.troops.filter(
-            (troop) =>
-                troop.village === "home" &&
-                !pets.includes(troop.name) &&
-                !supers.includes(troop.name) &&
-                !sieges.includes(troop.name)
-        ),
-        supers: playerData.troops.filter((superTroop) =>
-            supers.includes(superTroop.name)
-        ),
-        sieges: playerData.troops.filter((siege) =>
-            sieges.includes(siege.name)
-        ),
-        pets: playerData.troops.filter((troop) => pets.includes(troop.name)),
-        spells: playerData.spells,
-        heroEquipment: playerData.heroEquipment.filter((heroEq) => heroEq.village === "home"),
-    };
-
-    // Super Troop Level Fix Function
-    function replaceLevel(troopName, original, replacer) {
-        const newName = troopName.replace(original, replacer);
-        const result = playerHome.troops.filter(
-            (curr) => curr.name === newName
-        );
-        return result[0].level;
-    }
-
-    playerHome.supers.map((troop) => {
-        if (troop.name.includes("Super ")) {
-            troop.level = replaceLevel(troop.name, "Super ", "");
-        } else if (troop.name.includes("Sneaky ")) {
-            troop.level = replaceLevel(troop.name, "Sneaky ", "");
-        } else if (troop.name.includes("Rocket ")) {
-            troop.level = replaceLevel(troop.name, "Rocket ", "");
-        } else if (troop.name.includes("Inferno ")) {
-            troop.level = replaceLevel(troop.name, "Inferno ", "Baby ");
-        } else if (troop.name.includes("Ice ")) {
-            troop.level = replaceLevel(troop.name, "Ice ", "Lava ");
-        }
-    });
-
     const superReqs = [
         ["Super Archer", 8, "Archer"],
         ["Super Barbarian", 8, "Barbarian"],
@@ -163,39 +59,146 @@ export default function processPlayerData(playerData) {
         ["Super Witch", 5, "Witch"],
         ["Ice Hound", 5, "Lava Hound"],
         ["Super Bowler", 4, "Bowler"],
-    ]
+    ];
 
+    const playerData = {
+        username: data.name,
+        tag: data.tag,
+        level: data.expLevel,
+        home: {
+            type: "home",
+            hallLevel: data.townHallLevel,
+            weaponLevel: data.townHallWeaponLevel || "",
+            current: data.trophies,
+            best: data.bestTrophies,
+            league: data.league?.name || "Unranked",
+            leagueIcon: data.league?.iconUrls.small || "Unranked",
+            units: {
+                heroes: data.heroes.filter((hero) => hero.village === "home"),
+                troops: data.troops.filter(
+                    (troop) =>
+                        troop.village === "home" &&
+                        !pets.includes(troop.name) &&
+                        !supers.includes(troop.name) &&
+                        !sieges.includes(troop.name)
+                ),
+                supers: data.troops
+                    .filter(
+                        (troop) =>
+                            troop.village === "home" &&
+                            supers.includes(troop.name)
+                    ),
+                sieges: data.troops.filter(
+                    (siege) =>
+                        siege.village === "home" && sieges.includes(siege.name)
+                ),
+                pets: data.troops.filter(
+                    (troop) =>
+                        troop.village === "home" && pets.includes(troop.name)
+                ),
+                spells: data.spells,
+                heroEquipment: data.heroEquipment.filter(
+                    (heroEq) => heroEq.village === "home"
+                ),
+            },
+            achievements: data.achievements.filter(
+                (achievement) => achievement.village === "home"
+            ),
+        },
+        builder: {
+            type: "builder",
+            hallLevel: data.builderHallLevel,
+            current: data.builderBaseTrophies,
+            best: data.bestBuilderBaseTrophies,
+            league: data.builderBaseLeague?.name || "Unranked",
+            base: "builder",
+            units: {
+                heroes: data.heroes.filter(
+                    (hero) => hero.village === "builderBase"
+                ),
+                troops: data.troops.filter(
+                    (troop) => troop.village === "builderBase"
+                ),
+            },
+            achievements: data.achievements.filter(
+                (achievement) => achievement.village === "builderBase"
+            ),
+        },
+        labels: [
+            data.labels[0]?.iconUrls.small || "",
+            data.labels[1]?.iconUrls.small || "",
+            data.labels[2]?.iconUrls.small || "",
+        ],
+        clan: {
+            name: data.clan?.name || "No Clan",
+            role: data.clan ? fixClanRole(data.role) : "None",
+            donated: data.donations,
+            received: data.donationsReceived,
+            badge: data.clan?.badgeUrls.large || "",
+        },
+    };
+
+    // FIXER FUNCTIONS:
     // Checks if base troop level has unlocked super troop unit
-    playerHome.troops.map((troop) => {
-        for(let i = 0; i < superReqs.length; i++){
-            if(troop.name === superReqs[i][0] && troop.level < superReqs[i][1]){
-                playerHome.supers = playerHome.supers.filter((troop) => troop.name != superReqs[i][2])
+    playerData.home.units.troops.map((troop) => {
+        for (let i = 0; i < superReqs.length; i++) {
+            if (
+                troop.name === superReqs[i][0] &&
+                troop.level < superReqs[i][1]
+            ) {
+                playerData.home.units.supers = playerData.home.units.supers.filter(
+                    (troop) => troop.name != superReqs[i][2]
+                );
             }
         }
     });
 
-    const playerBuilder = {
-        base: "builder",
-        heroes: playerData.heroes.filter(
-            (hero) => hero.village === "builderBase"
-        ),
-        troops: playerData.troops.filter(
-            (troop) => troop.village === "builderBase"
-        ),
-    };
-
-    const achievements = {
-        home: playerData.achievements.filter((achievement) => achievement.village === "home"),
-        builder: playerData.achievements.filter((achievement) => achievement.village === "builderBase")
+    function fixClanRole(role) {
+        var newRole = "";
+        switch (role) {
+            case "member":
+                newRole = "Member";
+                break;
+            case "admin":
+                newRole = "Elder";
+                break;
+            case "coLeader":
+                newRole = "Co-Leader";
+                break;
+            case "leader":
+                newRole = "Leader";
+                break;
+            case "None":
+                newRole = "None";
+                break;
+            default:
+                newRole = "UNKNOWN";
+                break;
+        }
+        return newRole;
     }
 
-    return {
-        playerMain,
-        playerClan,
-        playerHome,
-        playerBuilder,
-        homeTrophies,
-        builderTrophies,
-        achievements
-    };
+    playerData.home.units.supers.map((troop) => {
+        if (troop.name.includes("Super ")) {
+            troop.level = fixSuperTroop(troop.name, "Super ", "");
+        } else if (troop.name.includes("Sneaky ")) {
+            troop.level = fixSuperTroop(troop.name, "Sneaky ", "");
+        } else if (troop.name.includes("Rocket ")) {
+            troop.level = fixSuperTroop(troop.name, "Rocket ", "");
+        } else if (troop.name.includes("Inferno ")) {
+            troop.level = fixSuperTroop(troop.name, "Inferno ", "Baby ");
+        } else if (troop.name.includes("Ice ")) {
+            troop.level = fixSuperTroop(troop.name, "Ice ", "Lava ");
+        }
+    });
+
+    function fixSuperTroop(troopName, original, replacer) {
+        const newName = troopName.replace(original, replacer);
+        const result = playerData.home.units.troops.filter(
+            (curr) => curr.name === newName
+        );
+        return result[0].level;
+    }
+
+    return playerData;
 }

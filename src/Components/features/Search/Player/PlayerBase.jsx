@@ -3,38 +3,43 @@ import { GoTrophy } from "react-icons/go";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-function PlayerHome({ base, trophies }) {
+export default function PlayerHome({ data }) {
     return (
         <div
             className="player-base-container"
             id={
-                base.base === "home"
+                data.type === "home"
                     ? "player-home-data"
                     : "player-builder-data"
             }
         >
             <PlayerHomeHeader
-                base={base}
-                trophies={trophies}
+                data={data}
                 getImage={getImage}
             />
-            {base.heroes && (
-                <HeroUnitSection type={base.heroes} getImage={getImage} />
+            {data.units && data.units.heroes && (
+                <HeroUnitSection type={data.units.heroes} getImage={getImage} />
             )}
-            <UnitSection type={base.troops} header="TROOPS" />
-            {base.sieges && (
-                <UnitSection type={base.sieges} header="SIEGE MACHINES" />
+            {data.units && data.units.troops && (
+                <UnitSection type={data.units.troops} header="TROOPS" />
             )}
-            {base.pets && <UnitSection type={base.pets} header="PETS" />}
-            {base.spells && <UnitSection type={base.spells} header="SPELLS" />}
-            {base.heroEquipment && (
+            {data.units && data.units.sieges && (
+                <UnitSection type={data.units.sieges} header="SIEGE MACHINES" />
+            )}
+            {data.units && data.units.pets && (
+                <UnitSection type={data.units.pets} header="PETS" />
+            )}
+            {data.units && data.units.spells && (
+                <UnitSection type={data.units.spells} header="SPELLS" />
+            )}
+            {data.units && data.units.heroEquipment && (
                 <UnitSection
-                    type={base.heroEquipment}
+                    type={data.units.heroEquipment}
                     header="HERO EQUIPMENT"
                 />
             )}
-            {base.supers && (
-                <UnitSection type={base.supers} header="SUPER TROOPS" />
+            {data.units && data.units.supers && (
+                <UnitSection type={data.units.supers} header="SUPER TROOPS" />
             )}
         </div>
     );
@@ -127,21 +132,21 @@ function HeroUnitSection({ type, getImage }) {
     );
 }
 
-function PlayerHomeHeader({ base, trophies, getImage }) {
+function PlayerHomeHeader({ data, getImage }) {
     return (
         <div className="player-base-header-container">
             <div className="player-base-header-info">
                 <h3 className="player-base-header">
-                    {base.base === "home" ? "Home Village" : "Builder Base"}
+                    {data.type === "home" ? "Home Village" : "Builder Base"}
                 </h3>
                 <div className="player-base-header-trophies">
                     <div className="header-trophy-div">
-                        <p>Current:{trophies.current}</p>
+                        <p>Current:{data.current}</p>
                         <GoTrophy className="trophy-icon" />
                     </div>
                     &nbsp;
                     <div className="header-trophy-div">
-                        <p>Best:{trophies.best}</p>
+                        <p>Best:{data.best}</p>
                         <GoTrophy className="trophy-icon" />
                     </div>
                 </div>
@@ -149,34 +154,29 @@ function PlayerHomeHeader({ base, trophies, getImage }) {
             <div className="hall-container">
                 <h4
                     className={`hall-level ${
-                        trophies.hallLevel === 17 && base.base === "home"
+                        data.hallLevel === 17 && data.type === "home"
                             ? "max-level"
-                            : trophies.hallLevel === 10 &&
-                              base.base === "builder"
+                            : data.hallLevel === 10 && data.type === "builder"
                             ? "max-level"
                             : ""
                     }`}
                 >
-                    {trophies.hallLevel}
+                    {data.hallLevel}
                 </h4>
                 <div className="weapon-level">
-                    {Array.from(
-                        { length: trophies.weaponLevel },
-                        (_, index) => (
-                            <img
-                                className="weapon-level-star"
-                                key={index}
-                                src={getImage("star")}
-                                alt=""
-                            />
-                        )
-                    )}
+                    {Array.from({ length: data.weaponLevel }, (_, index) => (
+                        <img
+                            className="weapon-level-star"
+                            key={index}
+                            src={getImage("star")}
+                            alt=""
+                        />
+                    ))}
                 </div>
                 <img
                     className="hall-img"
                     src={getImage(
-                        (base.base === "home" ? "th" : "bh") +
-                            trophies.hallLevel
+                        (data.type === "home" ? "th" : "bh") + data.hallLevel
                     )}
                     alt=""
                 />
@@ -223,5 +223,3 @@ function ProgressBar({ type }) {
         </div>
     );
 }
-
-export default PlayerHome;
