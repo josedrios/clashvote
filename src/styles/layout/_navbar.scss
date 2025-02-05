@@ -5,9 +5,8 @@
 #website-name-container {
     background-color: transparent;
     h1 {
-        font-family: $primary-font;
+        font-family: $navbar-font;
         color: white;
-        margin-bottom: $spacing-sm;
         span {
             transition: color $transition-instant $transition-ease;
             color: $primary-color;

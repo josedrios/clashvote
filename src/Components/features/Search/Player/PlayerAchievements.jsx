@@ -4,6 +4,11 @@ import { FaCheck } from "react-icons/fa";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 function PlayerAchievements({ achievements, base, achCurrent }) {
+    achievements.map((ach) => {
+        if(ach.value >= ach.target){
+            ach.stars = 3;
+        }
+    })
     return (
         <div className={`achievements-container ${base}-ach ${achCurrent !== base ? "hide" : ''}`}>
             <div className="ach-section">

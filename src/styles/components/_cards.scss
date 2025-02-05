@@ -20,7 +20,7 @@
     height: 125px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: #{$breakpoint-xs}) {
     #cards-container {
         justify-content: left;
     }

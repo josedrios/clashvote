@@ -68,7 +68,7 @@ export default function processPlayerData(data) {
         home: {
             type: "home",
             hallLevel: data.townHallLevel,
-            weaponLevel: data.townHallWeaponLevel || "",
+            weaponLevel: data.townHallWeaponLevel || 0,
             current: data.trophies,
             best: data.bestTrophies,
             league: data.league?.name || "Unranked",
@@ -96,14 +96,17 @@ export default function processPlayerData(data) {
                     (troop) =>
                         troop.village === "home" && pets.includes(troop.name)
                 ),
-                spells: data.spells,
+                spells: data.spells.filter(
+                    (spell) => 
+                        spell.village === "home"
+                ),
                 heroEquipment: data.heroEquipment.filter(
                     (heroEq) => heroEq.village === "home"
                 ),
             },
             achievements: data.achievements.filter(
                 (achievement) => achievement.village === "home"
-            ),
+            )
         },
         builder: {
             type: "builder",
@@ -111,7 +114,6 @@ export default function processPlayerData(data) {
             current: data.builderBaseTrophies,
             best: data.bestBuilderBaseTrophies,
             league: data.builderBaseLeague?.name || "Unranked",
-            base: "builder",
             units: {
                 heroes: data.heroes.filter(
                     (hero) => hero.village === "builderBase"
@@ -139,6 +141,7 @@ export default function processPlayerData(data) {
     };
 
     // FIXER FUNCTIONS:
+
     // Checks if base troop level has unlocked super troop unit
     playerData.home.units.troops.map((troop) => {
         for (let i = 0; i < superReqs.length; i++) {
@@ -153,6 +156,7 @@ export default function processPlayerData(data) {
         }
     });
 
+    // Fixes clan role name to be more recognizable
     function fixClanRole(role) {
         var newRole = "";
         switch (role) {
@@ -178,6 +182,7 @@ export default function processPlayerData(data) {
         return newRole;
     }
 
+    // Removes any super troops from player's data if not unlocked yet
     playerData.home.units.supers.map((troop) => {
         if (troop.name.includes("Super ")) {
             troop.level = fixSuperTroop(troop.name, "Super ", "");
@@ -192,6 +197,7 @@ export default function processPlayerData(data) {
         }
     });
 
+    // Replaces super troops wrong level with original troops level
     function fixSuperTroop(troopName, original, replacer) {
         const newName = troopName.replace(original, replacer);
         const result = playerData.home.units.troops.filter(

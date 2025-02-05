@@ -63,9 +63,9 @@ function LeagueIcons({ data }) {
                 className="player-rank-icon"
                 alt=""
                 src={`${
-                    data.home.league === "Unranked"
+                    data.home.leagueIcon === "Unranked"
                         ? getImage("unranked")
-                        : data.home.LeagueIcon
+                        : data.home.leagueIcon
                 }`}
                 title={data.home.league}
             />

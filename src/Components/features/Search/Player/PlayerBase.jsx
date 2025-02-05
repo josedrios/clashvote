@@ -3,7 +3,7 @@ import { GoTrophy } from "react-icons/go";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-export default function PlayerHome({ data }) {
+export default function PlayerBase({ data }) {
     return (
         <div
             className="player-base-container"
