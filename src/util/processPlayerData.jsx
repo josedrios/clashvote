@@ -86,7 +86,8 @@ export default function processPlayerData(data) {
                     .filter(
                         (troop) =>
                             troop.village === "home" &&
-                            supers.includes(troop.name)
+                            supers.includes(troop.name) &&
+                            troop.level != 0
                     ),
                 sieges: data.troops.filter(
                     (siege) =>
@@ -203,7 +204,7 @@ export default function processPlayerData(data) {
         const result = playerData.home.units.troops.filter(
             (curr) => curr.name === newName
         );
-        return result[0].level;
+        return result.length > 0 ?  result[0].level : 0;
     }
 
     return playerData;

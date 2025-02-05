@@ -13,34 +13,52 @@ export default function PlayerBase({ data }) {
                     : "player-builder-data"
             }
         >
-            <PlayerHomeHeader
-                data={data}
-                getImage={getImage}
-            />
-            {data.units && data.units.heroes && (
-                <HeroUnitSection type={data.units.heroes} getImage={getImage} />
-            )}
-            {data.units && data.units.troops && (
-                <UnitSection type={data.units.troops} header="TROOPS" />
-            )}
-            {data.units && data.units.sieges && (
-                <UnitSection type={data.units.sieges} header="SIEGE MACHINES" />
-            )}
-            {data.units && data.units.pets && (
+            <PlayerHomeHeader data={data} getImage={getImage} />
+            {data.units &&
+                data.units.heroes &&
+                data.units.heroes.length != 0 && (
+                    <HeroUnitSection
+                        type={data.units.heroes}
+                        getImage={getImage}
+                    />
+                )}
+            {data.units &&
+                data.units.troops &&
+                data.units.troops.length != 0 && (
+                    <UnitSection type={data.units.troops} header="TROOPS" />
+                )}
+            {data.units &&
+                data.units.sieges &&
+                data.units.sieges.length != 0 && (
+                    <UnitSection
+                        type={data.units.sieges}
+                        header="SIEGE MACHINES"
+                    />
+                )}
+            {data.units && data.units.pets && data.units.pets.length != 0 && (
                 <UnitSection type={data.units.pets} header="PETS" />
             )}
-            {data.units && data.units.spells && (
-                <UnitSection type={data.units.spells} header="SPELLS" />
-            )}
-            {data.units && data.units.heroEquipment && (
-                <UnitSection
-                    type={data.units.heroEquipment}
-                    header="HERO EQUIPMENT"
-                />
-            )}
-            {data.units && data.units.supers && (
-                <UnitSection type={data.units.supers} header="SUPER TROOPS" />
-            )}
+            {data.units &&
+                data.units.spells &&
+                data.units.spells.length != 0 && (
+                    <UnitSection type={data.units.spells} header="SPELLS" />
+                )}
+            {data.units &&
+                data.units.heroEquipment &&
+                data.units.heroEquipment.length != 0 && (
+                    <UnitSection
+                        type={data.units.heroEquipment}
+                        header="HERO EQUIPMENT"
+                    />
+                )}
+            {data.units &&
+                data.units.supers &&
+                data.units.supers.length != 0 && (
+                    <UnitSection
+                        type={data.units.supers}
+                        header="SUPER TROOPS"
+                    />
+                )}
         </div>
     );
 }
@@ -105,24 +123,28 @@ function HeroUnitSection({ type, getImage }) {
                                 alt=""
                             />
                         </div>
-                        {unit.equipment?.[0] && (
+                        {unit.equipment?.length > 0 && (
                             <div className="hero-equipment">
-                                <img
-                                    title={unit.equipment?.[0].name || ""}
-                                    src={getImage(
-                                        unit.equipment?.[0].name || ""
-                                    )}
-                                    className="hero-item"
-                                    alt=""
-                                />
-                                <img
-                                    title={unit.equipment?.[1].name || ""}
-                                    src={getImage(
-                                        unit.equipment?.[1].name || ""
-                                    )}
-                                    className="hero-item"
-                                    alt=""
-                                />
+                                {unit.equipment[0] && (
+                                    <img
+                                        title={unit.equipment[0].name || ""}
+                                        src={getImage(
+                                            unit.equipment[0].name || ""
+                                        )}
+                                        className="hero-item"
+                                        alt=""
+                                    />
+                                )}
+                                {unit.equipment[1] && (
+                                    <img
+                                        title={unit.equipment[1].name || ""}
+                                        src={getImage(
+                                            unit.equipment[1].name || ""
+                                        )}
+                                        className="hero-item"
+                                        alt=""
+                                    />
+                                )}
                             </div>
                         )}
                     </div>
