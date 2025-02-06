@@ -11,9 +11,12 @@ const getBuilderLeague = (league) => {
     return getImage(league.split(" ")[0]);
 };
 
+const getBuilderDivision = (league) => {
+    return league.split(" ")[2];
+};
+
 function SearchResult({ playerData }) {
     const [achCurrent, setAchCurrent] = useState("home");
-    // console.log(playerData)
 
     if (playerData === "") {
         return <div id="search-result-container">Empty player data</div>;
@@ -28,6 +31,7 @@ function SearchResult({ playerData }) {
     }
 
     const data = PlayerData(playerData);
+    console.log(data)
 
     return (
         <div id="search-result-container">
@@ -69,13 +73,18 @@ function LeagueIcons({ data }) {
                 }`}
                 title={data.home.league}
             />
-            <img
-                className="player-rank-icon"
-                id="player-bh-icon"
-                src={getBuilderLeague(data.builder.league)}
-                title={data.builder.league}
-                alt=""
-            />
+            <div id="builder-rank-container" className={`${data.builder.league === "Unranked" ? "hide" : ""}`}>
+                <img
+                    className="player-rank-icon"
+                    id="player-bh-icon"
+                    src={getBuilderLeague(data.builder.league)}
+                    title={data.builder.league}
+                    alt=""
+                />
+                <div id="player-bh-division">
+                    {getBuilderDivision(data.builder.league)}
+                </div>
+            </div>
         </div>
     );
 }
