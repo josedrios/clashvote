@@ -1,6 +1,15 @@
 // ==========================
 // General
 // ==========================
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    font-family: $primary-font !important;
+    -webkit-box-shadow: 0 0 0 30px $secondary-background-color inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
 form {
     margin: $spacing-md;
     display: flex;

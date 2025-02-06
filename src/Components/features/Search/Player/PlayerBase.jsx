@@ -6,7 +6,7 @@ const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 export default function PlayerBase({ data }) {
     return (
         <div
-            className="player-base-container"
+            className={`player-base-container ${data.hallLevel ? "" : "hide"}`}
             id={
                 data.type === "home"
                     ? "player-home-data"
@@ -106,6 +106,7 @@ function HeroUnitSection({ type, getImage }) {
                     <div key={index}>
                         <div
                             className="unit-container hero-troop-container"
+                            key={index}
                             title={unit.name}
                         >
                             <h4
@@ -113,7 +114,7 @@ function HeroUnitSection({ type, getImage }) {
                                     unit.level === unit.maxLevel
                                         ? "max-level"
                                         : ""
-                                }`}
+                                } ${unit.level >= 100 ? "level-hundred" : ""}`}
                             >
                                 {unit.level}
                             </h4>
@@ -165,8 +166,8 @@ function PlayerHomeHeader({ data, getImage }) {
                     <div className="header-trophy-div">
                         <p>Current:{data.current}</p>
                         <GoTrophy className="trophy-icon" />
+                        &nbsp;
                     </div>
-                    &nbsp;
                     <div className="header-trophy-div">
                         <p>Best:{data.best}</p>
                         <GoTrophy className="trophy-icon" />
@@ -208,29 +209,21 @@ function PlayerHomeHeader({ data, getImage }) {
 }
 
 function ProgressBar({ type }) {
+    const progress =
+        (type.reduce((sum, unit) => sum + unit.level, 0) /
+            type.reduce((sum, unit) => sum + unit.maxLevel, 0)) *
+        100;
     return (
         <div className="unit-progress-flex">
             <div className="unit-progress-percentage">
-                {(
-                    (type.reduce((sum, unit) => sum + unit.level, 0) /
-                        type.reduce((sum, unit) => sum + unit.maxLevel, 0)) *
-                    100
-                ).toFixed(1)}
-                %
+                {progress === 100 ? "100" : progress.toFixed(1)}%
             </div>
             <div className="unit-progress-bar">
                 <div className="unit-bar" />
                 <div
                     className="unit-fill-bar"
                     style={{
-                        width: `${
-                            (type.reduce((sum, unit) => sum + unit.level, 0) /
-                                type.reduce(
-                                    (sum, unit) => sum + unit.maxLevel,
-                                    0
-                                )) *
-                            100
-                        }%`,
+                        width: `${progress}%`,
                     }}
                 />
             </div>
