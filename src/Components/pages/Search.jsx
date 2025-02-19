@@ -116,9 +116,9 @@ export default function Search() {
                     }`}
                     ref={inputRef}
                 />
-                <button id="test-json" onClick={handleTestJson} type="button">
+                {/* <button id="test-json" onClick={handleTestJson} type="button">
                     Test
-                </button>
+                </button> */}
                 <button type="submit" id="searchbar-submit-btn">
                     <IoIosSearch />
                 </button>

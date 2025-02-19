@@ -47,7 +47,7 @@ app.get('/api/players/:tag', async (req, res) => {
 app.get('/api/clans/:name', async (req, res) => {
   const { name } = req.params;
   try {
-    const response = await fetch(`https://api.clashofclans.com/v1/clans?name=${encodeURIComponent(name)}`, {
+    const response = await fetch(`https://api.clashofclans.com/v1/clans?name=${encodeURIComponent(name)}&limit=20`, {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`
       }
