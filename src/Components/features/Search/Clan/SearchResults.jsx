@@ -9,8 +9,6 @@ export default function SearchResults({ clanData }) {
 
     return (
         <div id="clan-results-container">
-            {/* Used for dynamic importing
-            <img src={currImage} alt="" /> */}
             {clanData?.items?.map((clan, key) => (
                 <div className="clan-result-card" key={key}>
                     <img src={clan.badgeUrls.medium} alt="" />

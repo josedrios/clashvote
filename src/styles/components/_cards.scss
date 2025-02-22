@@ -72,10 +72,11 @@
 
 // clan search result cards
 .clan-result-card {
+    margin: auto;
     width: 260px;
     @include flex(column, initial, center);
     background-color: $secondary-background-color;
-    margin-bottom: calc($spacing-lg + 20px);
+    margin-bottom: calc($spacing-lg + 10px);
     padding: $spacing-md;
     padding-top: $spacing-lg;
     border-radius: $border-radius-sm;
