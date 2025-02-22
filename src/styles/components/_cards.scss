@@ -70,6 +70,44 @@
     height: 55px;
 }
 
+// clan search result cards
+.clan-result-card {
+    width: 300px;
+    @include flex(column, initial, center);
+    background-color: $secondary-background-color;
+    margin-bottom: calc($spacing-lg + 20px);
+    padding-top: $spacing-lg !important;
+    padding: $spacing-sm;
+    border-radius: $border-radius-sm;
+    position: relative;
+
+    img {
+        top: -40px;
+        position: absolute;
+        @include box(80px);
+    }
+
+    h5 {
+        color: $primary-color;
+    }
+
+    .clan-card-tag {
+        color: $gray-lighter;
+    }
+}
+
+.clan-result-card-info {
+    @include flex(column, left);
+
+    h5 {
+        color: $primary-color;
+    }
+
+    p {
+        color: $gray-lighter;
+    }
+}
+
 // units
 .unit-section {
     padding: 0 $spacing-md;

@@ -2,6 +2,7 @@ import PlayerResult from "../features/Search/Player/SearchResult";
 import ClanResults from "../features/Search/Clan/SearchResults";
 import SearchTip from "../features/Search/SearchTip";
 import TestJSON from "../../clasher.json";
+import TestsJSON from "../../claner.json";
 import { useState, useRef, useEffect } from "react";
 
 import { BsPersonFill } from "react-icons/bs";
@@ -63,10 +64,17 @@ export default function Search() {
     }
 
     function handleTestJson() {
-        setSearchResult({
-            data: TestJSON,
-            tab: "player",
-        });
+        if (searchToggle === "player") {
+            setSearchResult({
+                data: TestJSON,
+                tab: "player"
+            });
+        } else {
+            setSearchResult({
+                data: TestsJSON,
+                tab: "clan"
+            });
+        }
     }
 
     return (
@@ -116,9 +124,9 @@ export default function Search() {
                     }`}
                     ref={inputRef}
                 />
-                {/* <button id="test-json" onClick={handleTestJson} type="button">
+                <button id="test-json" onClick={handleTestJson} type="button">
                     Test
-                </button> */}
+                </button>
                 <button type="submit" id="searchbar-submit-btn">
                     <IoIosSearch />
                 </button>
