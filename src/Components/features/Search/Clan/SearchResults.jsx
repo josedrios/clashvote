@@ -16,15 +16,16 @@ export default function SearchResults({ clanData }) {
                     <img src={clan.badgeUrls.medium} alt="" />
                     <h5>{clan.name}</h5>
                     <p className="clan-card-tag">{clan.tag}</p>
-                    <div className="clan-card-progress">
-                        <div>
-                            <p>Members</p>
-                            <p>{(((clan.members / 50)) * 100).toFixed(0)}%</p>
-                        </div>
+                    <div className="clan-card-progress-label">
+                        <p>Members</p>
+                        <p className="clan-card-member-fraction">{clan.members}<span>/50</span></p>
                     </div>
-                    <div>
-                    <p>{clan.warLeague.name}</p>
-                    <p>{clan.members}/50</p>
+                    <div className="clan-card-progress-bar">
+                        <div className="clan-card-fill-bar" style={{ width: `${clan.members * 2}%`}}/>
+                    </div>
+                    <div className="clan-card-footer">
+                        <p>{clan.warLeague.name}</p>
+                        <button className="standard-btn">View</button>
                     </div>
                 </div>
             ))}

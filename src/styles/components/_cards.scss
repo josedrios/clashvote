@@ -72,17 +72,17 @@
 
 // clan search result cards
 .clan-result-card {
-    width: 300px;
+    width: 260px;
     @include flex(column, initial, center);
     background-color: $secondary-background-color;
     margin-bottom: calc($spacing-lg + 20px);
-    padding-top: $spacing-lg !important;
-    padding: $spacing-sm;
+    padding: $spacing-md;
+    padding-top: $spacing-lg;
     border-radius: $border-radius-sm;
     position: relative;
 
     img {
-        top: -40px;
+        top: -45px;
         position: absolute;
         @include box(80px);
     }
@@ -92,16 +92,41 @@
     }
 
     .clan-card-tag {
-        color: $gray-lighter;
+        color: $gray-light;
+        margin-bottom: $spacing-sm;
     }
 }
 
-.clan-result-card-info {
-    @include flex(column, left);
+.clan-card-progress-label {
+    width: 100%;
+    @include flex(row, space-between);
+    margin-bottom: $spacing-xs;
+}
 
-    h5 {
-        color: $primary-color;
+.clan-card-progress-bar {
+    height: 8px;
+    border-radius: $border-radius-lg;
+    width: 100%;
+    background-color: color-fade($primary-color, 0.25);
+    position: relative;
+    margin-bottom: $spacing-md;
+
+    .clan-card-fill-bar {
+        border-radius: $border-radius-lg;
+        min-width: 8px;
+        height: inherit;
+        position: absolute;
+        background-color: $primary-color;
     }
+}
+
+.clan-card-member-fraction span {
+    color: $gray-light;
+}
+
+.clan-card-footer {
+    width: 100%;
+    @include flex(row, space-between, center);
 
     p {
         color: $gray-lighter;
