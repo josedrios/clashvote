@@ -2,6 +2,6 @@
     margin-top: $spacing-lg;
     width: 100%;
     display: grid;
-    column-gap: 10px;
+    column-gap: $spacing-md;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
