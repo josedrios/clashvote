@@ -2,38 +2,58 @@ import { useState } from "react";
 
 export default function SearchResults({ clanData }) {
     const [selectedClan, setSelectedClan] = useState(null);
-    // curl -H 'Authorization: Bearer API_KEY' https://api.clashofclans.com/v1/clans/%232Y0Q9QGQ2
-    // curl -H 'Authorization: Bearer API_KEY' https://api.clashofclans.com/v1/clans?name=theholycrusade
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
+    const handleViewClick = async (clanTag) => {
+        setIsLoading(true); // Mark page as loading
+        setError(null); // Clear any previous errors
 
-    const handleViewClick = (clan) => {
-        var data = fetchData(clan.slice(1))
-        setSelectedClan(data);
+        try {
+            const data = await fetchData(clanTag.slice(1)); // Remove '#' and fetch data 
+            if (data) {
+                setSelectedClan(data); 
+            } else {
+                setError("Failed to fetch clan data.");
+            }
+        } catch (error) {
+            setError(error.message); 
+        } finally {
+            setIsLoading(false);
+        }
     };
 
-    async function fetchData(prompt) {
+    const fetchData = async (clanTag) => {
         try {
-            var response = await fetch(
-                `http://localhost:3001/api/clan-info/${prompt}`
+            const response = await fetch(
+                `http://localhost:3001/api/clan-info/${clanTag}`
             );
-            
+
             if (response.status === 404) {
-                throw new Error(`Failed to get clan info for '${prompt}'`);
+                throw new Error(`Clan with tag '${clanTag}' not found.`);
             } else if (!response.ok) {
-                throw new Error("Clash of Clans API failed");
+                throw new Error("Failed to fetch clan data.");
             }
+
             const data = await response.json();
-            console.log(data)
             return data;
         } catch (error) {
-            console.log(error);
-            return null;
+            console.error(error);
+            throw error; // Re-throw the error to handle it in handleViewClick
         }
-    }
+    };
 
     const handleBackClick = () => {
-        setSelectedClan(null);
+        setSelectedClan(null); 
     };
+
+    if (isLoading) {
+        return <p>Loading clan details...</p>; 
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
 
     if (selectedClan) {
         return (
