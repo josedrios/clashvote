@@ -11,7 +11,7 @@ import { IoIosSearch } from "react-icons/io";
 
 export default function Search() {
     const inputRef = useRef(null);
-    const [searchToggle, setSearchToggle] = useState("player");
+    const [searchToggle, setSearchToggle] = useState("clan");
     const [searchResult, setSearchResult] = useState({
         data: "",
         tab: "",

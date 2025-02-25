@@ -5,3 +5,65 @@
     column-gap: $spacing-md;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
+
+.clan-details-view {
+    width: 100%;
+    max-width: 700px;
+}
+
+.clan-header-details {
+    width: 100%;
+    padding: 0 $spacing-md;
+    @include flex(row, left, center);
+    border-bottom: 2px solid $primary-color;
+    
+    h3 {
+        color: $primary-color;
+        text-wrap: nowrap;
+        margin-right: $spacing-sm;
+    }
+    
+    img {
+        aspect-ratio: 1/1;
+        height: 50px;
+    }
+}
+
+.clan-info-section {
+    background-color: $secondary-background-color;
+    padding: $spacing-md;
+}
+
+.clan-description {
+    background-color: $secondary-background-color;
+    margin-bottom: $spacing-sm;
+
+    h5 {
+        color: $primary-color;
+    }
+    
+}
+
+.clan-detail-cards {
+    width: 100%;
+    @include flex(row,space-between);
+}
+
+.clan-basic-card {
+    p {
+        color: $gray-lighter;
+    }
+}
+
+.clan-labels {
+    margin-top: $spacing-xs;
+}
+
+.clan-label-image {
+    aspect-ratio: 1/1;
+    height: 40px;
+}
+
+.clan-trophy-card {
+
+}

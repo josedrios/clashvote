@@ -10,14 +10,14 @@ export default function SearchResults({ clanData }) {
         setError(null); // Clear any previous errors
 
         try {
-            const data = await fetchData(clanTag.slice(1)); // Remove '#' and fetch data 
+            const data = await fetchData(clanTag.slice(1)); // Remove '#' and fetch data
             if (data) {
-                setSelectedClan(data); 
+                setSelectedClan(data);
             } else {
                 setError("Failed to fetch clan data.");
             }
         } catch (error) {
-            setError(error.message); 
+            setError(error.message);
         } finally {
             setIsLoading(false);
         }
@@ -36,6 +36,7 @@ export default function SearchResults({ clanData }) {
             }
 
             const data = await response.json();
+            console.log(data);
             return data;
         } catch (error) {
             console.error(error);
@@ -44,11 +45,11 @@ export default function SearchResults({ clanData }) {
     };
 
     const handleBackClick = () => {
-        setSelectedClan(null); 
+        setSelectedClan(null);
     };
 
     if (isLoading) {
-        return <p>Loading clan details...</p>; 
+        return <p>Loading clan details...</p>;
     }
 
     if (error) {
@@ -99,9 +100,75 @@ export default function SearchResults({ clanData }) {
 function ClanResult({ clan, handleBackClick }) {
     return (
         <div className="clan-details-view">
-            <h2>{clan.name}</h2>
-            <p>Tag: {clan.tag}</p>
-            <p>Members: {clan.members}/50</p>
+            <div className="clan-header-details">
+                <h3>{clan.name}</h3>
+                <img src={clan.badgeUrls.medium} alt="" />
+            </div>
+            <div className="clan-info-section">
+                <div className="clan-detail-cards">
+                    <div className="clan-basic-card">
+                        <p>{clan.warLeague.name}</p>
+                        <p>{clan.tag}</p>
+                        {clan.labels?.[0] && (
+                            <div className="clan-labels">
+                                <img
+                                    className="clan-label-image"
+                                    src={clan.labels[0].iconUrls.medium}
+                                    alt=""
+                                />
+                                {clan.labels[1] && (
+                                    <img
+                                        className="clan-label-image"
+                                        src={clan.labels[1].iconUrls.medium}
+                                        alt=""
+                                    />
+                                )}
+                                {clan.labels[2] && (
+                                    <img
+                                        className="clan-label-image"
+                                        src={clan.labels[2].iconUrls.medium}
+                                        alt=""
+                                    />
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    <div className="clan-trophy-card">
+                        <h5>Trophies</h5>
+                        <p>
+                            <span>REQUIRED:</span>
+                            {clan.requiredTrophies}
+                        </p>
+                        <p>TH:{clan.clanPoints}</p>
+                        <p>BH:{clan.clanBuilderBasePoints}</p>
+                    </div>
+                    <div className="clan-war-card">
+                        <h5>War:</h5>
+                        <p>
+                            <span>Frequency:</span>
+                            {clan.warFrequency}
+                        </p>
+                        <p>
+                            <span>Wins:</span>
+                            {clan.warWins}
+                        </p>
+                        <p>
+                            <span>Ties:</span>
+                            {clan.warTies}
+                        </p>
+                        <p>
+                            <span>Loses:</span>
+                            {clan.warLosses}
+                        </p>
+                    </div>
+                </div>
+                {clan.description !== "" && (
+                    <div className="clan-description">
+                        <h5>Description:</h5>
+                        <p>{clan.description}</p>
+                    </div>
+                )}
+            </div>
             <button className="standard-btn" onClick={handleBackClick}>
                 Back to Results
             </button>
