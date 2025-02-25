@@ -106,9 +106,11 @@ import Super_Witch from "../../assets/images/supers/Super_Witch.png";
 import Super_Wizard from "../../assets/images/supers/Super_Wizard.png";
 
 // Misc
+import bb_trophy from "../../assets/images/misc/bb_trophy.png";
 import slider from '../../assets/images/misc/slider.png'
 import unranked from "../../assets/images/misc/unranked.png";
 import star from "../../assets/images/misc/star.png";
+import th_trophy from "../../assets/images/misc/th_trophy.png";
 import xp from "../../assets/images/misc/xp.png"
 
 // Hero Equipment
@@ -201,6 +203,8 @@ const images = {
     Wood,
     unranked,
     star,
+    bb_trophy,
+    th_trophy,
     th1,
     th2,
     th3,

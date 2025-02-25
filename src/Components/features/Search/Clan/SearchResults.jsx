@@ -1,4 +1,7 @@
 import { useState } from "react";
+import images from "../../Images";
+
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 export default function SearchResults({ clanData }) {
     const [selectedClan, setSelectedClan] = useState(null);
@@ -101,12 +104,17 @@ function ClanResult({ clan, handleBackClick }) {
     return (
         <div className="clan-details-view">
             <div className="clan-header-details">
-                <h3>{clan.name}</h3>
-                <img src={clan.badgeUrls.medium} alt="" />
+                <div className="clan-header-label">
+                    <h3>{clan.name}</h3>
+                    <img src={clan.badgeUrls.medium} alt="" />
+                </div>
+                <button className="standard-btn" onClick={handleBackClick}>
+                    BACK
+                </button>
             </div>
             <div className="clan-info-section">
                 <div className="clan-detail-cards">
-                    <div className="clan-basic-card">
+                    <div className="clan-basic-card clan card">
                         <p>{clan.warLeague.name}</p>
                         <p>{clan.tag}</p>
                         {clan.labels?.[0] && (
@@ -133,32 +141,41 @@ function ClanResult({ clan, handleBackClick }) {
                             </div>
                         )}
                     </div>
-                    <div className="clan-trophy-card">
+                    <div className="clan-trophy-card clan-card">
                         <h5>Trophies</h5>
                         <p>
-                            <span>REQUIRED:</span>
-                            {clan.requiredTrophies}
+                            <span>
+                                <img src={getImage("th_trophy")} alt="" />
+                                {clan.clanPoints}
+                            </span>
+                            |
+                            <span>
+                                <img src={getImage("bb_trophy")} alt="" />
+                                {clan.clanBuilderBasePoints}
+                            </span>
                         </p>
-                        <p>TH:{clan.clanPoints}</p>
-                        <p>BH:{clan.clanBuilderBasePoints}</p>
-                    </div>
-                    <div className="clan-war-card">
-                        <h5>War:</h5>
+                        <h6>Requirements:</h6>
                         <p>
-                            <span>Frequency:</span>
+                            <span>
+                                <img src={getImage("th_trophy")} alt="" />
+                                {clan.requiredTrophies}
+                            </span>
+                            |
+                            <span>
+                                <img src={getImage("bb_trophy")} alt="" />
+                                {clan.requiredBuilderBaseTrophies}
+                            </span>
+                        </p>
+                    </div>
+                    <div className="clan-war-card clan-card">
+                        <h5>War</h5>
+                        <p>
+                            <span>Freq:</span>
                             {clan.warFrequency}
                         </p>
+                        <h6>Wins|Ties|Losses</h6>
                         <p>
-                            <span>Wins:</span>
-                            {clan.warWins}
-                        </p>
-                        <p>
-                            <span>Ties:</span>
-                            {clan.warTies}
-                        </p>
-                        <p>
-                            <span>Loses:</span>
-                            {clan.warLosses}
+                            {clan.warWins}/{clan.warTies}/{clan.warLosses}
                         </p>
                     </div>
                 </div>
@@ -169,9 +186,18 @@ function ClanResult({ clan, handleBackClick }) {
                     </div>
                 )}
             </div>
-            <button className="standard-btn" onClick={handleBackClick}>
-                Back to Results
-            </button>
+            <Members clan={clan}/>
+        </div>
+    );
+}
+
+function Members({ clan }) {
+    return (
+        <div className="clan-members-section">
+            <div className="clan-members-header">
+                <h5>Members({clan.members})</h5>
+                <p>other</p>
+            </div>
         </div>
     );
 }
