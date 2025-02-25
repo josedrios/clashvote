@@ -2,10 +2,34 @@ import { useState } from "react";
 
 export default function SearchResults({ clanData }) {
     const [selectedClan, setSelectedClan] = useState(null);
+    // curl -H 'Authorization: Bearer API_KEY' https://api.clashofclans.com/v1/clans/%232Y0Q9QGQ2
+    // curl -H 'Authorization: Bearer API_KEY' https://api.clashofclans.com/v1/clans?name=theholycrusade
+
 
     const handleViewClick = (clan) => {
-        setSelectedClan(clan);
+        var data = fetchData(clan.slice(1))
+        setSelectedClan(data);
     };
+
+    async function fetchData(prompt) {
+        try {
+            var response = await fetch(
+                `http://localhost:3001/api/clan-info/${prompt}`
+            );
+            
+            if (response.status === 404) {
+                throw new Error(`Failed to get clan info for '${prompt}'`);
+            } else if (!response.ok) {
+                throw new Error("Clash of Clans API failed");
+            }
+            const data = await response.json();
+            console.log(data)
+            return data;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
 
     const handleBackClick = () => {
         setSelectedClan(null);
@@ -41,7 +65,7 @@ export default function SearchResults({ clanData }) {
                         <p>{clan.warLeague.name}</p>
                         <button
                             className="standard-btn"
-                            onClick={() => handleViewClick(clan)}
+                            onClick={() => handleViewClick(clan.tag)}
                         >
                             View
                         </button>
@@ -58,9 +82,6 @@ function ClanResult({ clan, handleBackClick }) {
             <h2>{clan.name}</h2>
             <p>Tag: {clan.tag}</p>
             <p>Members: {clan.members}/50</p>
-            <p>Clan Level: {clan.clanLevel}</p>
-            <p>Clan Points: {clan.clanPoints}</p>
-            <p>War League: {clan.warLeague.name}</p>
             <button className="standard-btn" onClick={handleBackClick}>
                 Back to Results
             </button>

@@ -162,7 +162,6 @@ rect.bars {
 
 // Season
 .vote-btn {
-    height: 38px;
     margin-top: auto;
 }
 
@@ -208,11 +207,6 @@ rect.bars {
     background-color: transparent;
     margin-left: auto;
     margin-right: $spacing-sm;
-    
-    .reply-icon {
-        display: flex;
-        align-items: center;
-    }
 
     p {
         margin-left: $spacing-xs;

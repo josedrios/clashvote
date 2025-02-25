@@ -71,6 +71,13 @@ function CommentSection({ comments }) {
                 <h3>
                     Comments<p>({randomValue(1,800)})</p>
                 </h3>
+                {comments.slice(0,1).map(([username, comment], index) => (
+                    <Comment
+                        username={username}
+                        comment={comment}
+                        key={index}
+                    />
+                ))}
                 <div className="create-comment">
                     <input
                         className="comment-input-field"
@@ -86,13 +93,6 @@ function CommentSection({ comments }) {
                         </button>
                     </div>
                 </div>
-                {comments.map(([username, comment], index) => (
-                    <Comment
-                        username={username}
-                        comment={comment}
-                        key={index}
-                    />
-                ))}
             </div>
         </div>
     );
@@ -130,7 +130,6 @@ function Comment({ username, comment }) {
                         </button>
                     </div>
                     <button className="comment-reply-btn">
-                        <MdOutlineChat className="reply-icon" />
                         <p>Reply</p>
                     </button>
                 </div>
