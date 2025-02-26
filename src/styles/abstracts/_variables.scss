@@ -9,6 +9,10 @@ $secondary-color:              rgb(191, 179, 14);
 $primary-background-color:      #272626 !default;
 $secondary-background-color:    rgb(48, 48, 48);
 
+// --- Alert Colors --- 
+$success-color: rgb(42, 169, 42);
+$failure-color: rgb(209, 56, 56);
+
 // --- Gray + Shades ---
 $gray-base:                     #000;
 $gray-darker:                   lighten($gray-base, 13.5%); 

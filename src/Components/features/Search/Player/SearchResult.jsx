@@ -23,7 +23,7 @@ function SearchResult({ playerData }) {
     }
 
     if (playerData === "404") {
-        return <div id="search-result-container">Player not found</div>;
+        return <div className="player-not-found" id="search-result-container">Player not found :(</div>;
     }
 
     if (playerData === "!200") {

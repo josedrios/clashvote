@@ -120,7 +120,7 @@ export default function Search() {
                     id="searchbar"
                     type="search"
                     placeholder={`Enter ${
-                        searchToggle === "player" ? "Tag" : "Clan Name"
+                        searchToggle === "player" ? "Tag" : "Name/Tag"
                     }`}
                     ref={inputRef}
                 />

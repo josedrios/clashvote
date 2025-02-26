@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import images from "../../Images";
+import Members from "../Clan/Members";
 import { width } from "@fortawesome/free-regular-svg-icons/faAddressBook";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
@@ -8,6 +9,10 @@ export default function SearchResults({ clanData }) {
     const [selectedClan, setSelectedClan] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        setSelectedClan(null);
+    },[clanData])
 
     const handleViewClick = async (clanTag) => {
         setIsLoading(true); // Mark page as loading
@@ -63,6 +68,12 @@ export default function SearchResults({ clanData }) {
     if (selectedClan) {
         return (
             <ClanResult clan={selectedClan} handleBackClick={handleBackClick} />
+        );
+    }
+
+    if (clanData.items.length === 0) {
+        return (
+            <div>No clan(s) found :(</div>
         );
     }
 
@@ -188,77 +199,6 @@ function ClanResult({ clan, handleBackClick }) {
                 )}
             </div>
             <Members clan={clan} />
-        </div>
-    );
-}
-
-function Members({ clan }) {
-    const fixClanRole = (role) => {
-        var newRole = "";
-        switch (role) {
-            case "member":
-                newRole = "Member";
-                break;
-            case "admin":
-                newRole = "Elder";
-                break;
-            case "coLeader":
-                newRole = "Co-Leader";
-                break;
-            case "leader":
-                newRole = "Leader";
-                break;
-            case "None":
-                newRole = "None";
-                break;
-            default:
-                newRole = "UNKNOWN";
-                break;
-        }
-        return newRole;
-    }
-
-    return (
-        <div className="clan-members-section">
-            <div className="clan-members-header">
-                <h5>
-                    Member<p>({clan.members})</p>
-                </h5>
-                <div className="clan-members-status">
-                    <div className="clan-members-status-bar">
-                        <div
-                            className="clan-members-status-fill"
-                            style={{ width: `${clan.members * 2}%` }}
-                        />
-                    </div>
-                    <p>{clan.members * 2}%</p>
-                </div>
-            </div>
-            <div className="clan-member-list">
-                {clan?.memberList?.map((member, key) => (
-                    <div className="clan-member-row" key={key}>
-                        <div className="member-row-count">{key + 1}.</div>
-                        <div className="member-row-section member-name-info">
-                            <p>{member.name}</p>
-                            <p className="member-row-role">{fixClanRole(member.role)}</p>
-                        </div>
-                        <div className="member-row-section">
-                            <span>
-                                <img className="member-row-trophy-icon" src={getImage("th_trophy")} alt="" />
-                                {member.builderBaseTrophies}
-                            </span>
-                            <span>
-                                <img className="member-row-trophy-icon" src={getImage("bb_trophy")} alt="" />
-                                {member.trophies}
-                            </span>
-                        </div>
-                        <div className="member-row-section member-donation-section">
-                            <p>{member.donations}</p>
-                            <p>{member.donationsReceived}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
         </div>
     );
 }
