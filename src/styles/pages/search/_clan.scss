@@ -13,10 +13,10 @@
 
 .clan-header-details {
     width: 100%;
-    padding: 0 $spacing-md;
+    padding: 0 0 0 $spacing-md;
     @include flex(row, space-between, center);
     border-bottom: 2px solid $primary-color;
-    
+
     .clan-header-label {
         @include flex(row, left, center);
         flex-wrap: nowrap;
@@ -25,7 +25,7 @@
             text-wrap: nowrap;
             margin-right: $spacing-sm;
         }
-        
+
         img {
             aspect-ratio: 1/1;
             height: 50px;
@@ -46,14 +46,13 @@
     h5 {
         color: $primary-color;
     }
-    
 }
 
 .clan-detail-cards {
     width: 100%;
-    @include flex(row,left);
+    @include flex(row, left);
     flex-wrap: wrap;
-    gap: 0px 40px;
+    gap: 0px 30px;
 }
 
 .clan-card {
@@ -82,11 +81,11 @@
 }
 
 .clan-trophy-card {
-    width: 120px;
+    width: 140px;
 
     p {
         @include flex(row, space-between, center);
-        span{
+        span {
             @include flex(row, initial, center);
             img {
                 aspect-ratio: 1/1;
@@ -114,7 +113,86 @@
 
         h5 {
             color: $primary-color;
+
+            p {
+                display: inline;
+                color: $gray-lighter;
+                margin-left: $spacing-xs;
+                margin-right: $spacing-md
+            }
+        }
+    }
+}
+
+.clan-members-status {
+    @include flex(row, initial, center);
+    width: 100%;
+    .clan-members-status-bar {
+        margin-left: auto;
+        position: relative;
+        margin-right: $spacing-sm;
+        max-width: 200px;
+        width: 100%;
+        height: 8px;
+        background-color: color-fade($primary-color, 0.25);
+        border-radius: $border-radius-lg;
+
+        .clan-members-status-fill {
+            position: absolute;
+            height: 8px;
+            background-color: $primary-color;
+            border-radius: $border-radius-lg;
+        }
+    }
+}
+
+.clan-member-list {
+    @include flex(column, space-between);
+}
+
+.clan-member-row {
+    @include flex(row);
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid $gray;
+}
+
+.member-row-count {
+    text-align: center;
+    width: 30px;
+    margin: auto 0;
+}
+
+.member-row-section {
+    width: 30%;
+    @include flex(row, center, center);
+    margin-right: $spacing-sm;
+
+    p, span {
+        margin-right: $spacing-xs;
+    }
+
+    span {
+        @include flex(row, initial, center);
+
+        img {
+            margin-right: $spacing-xs;
         }
     }
 
+    .member-row-role {
+        color: $gray-light;
+    }
+}
+
+.member-name-info {
+    flex-direction: column !important;
+}
+
+.member-row-trophy-icon {
+    aspect-ratio: 1/1;
+    width: 20px;
+}
+
+.member-donation-section {
+    width: 20%;
 }
