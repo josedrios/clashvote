@@ -138,6 +138,7 @@ export default function processPlayerData(data) {
             donated: data.donations,
             received: data.donationsReceived,
             badge: data.clan?.badgeUrls.large || "",
+            tag: data.clan?.tag,
         },
     };
 

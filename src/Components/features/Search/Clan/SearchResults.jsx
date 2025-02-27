@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import images from "../../Images";
 import Members from "../Clan/Members";
-import { width } from "@fortawesome/free-regular-svg-icons/faAddressBook";
+import THOverview from "./THOverview";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
@@ -78,7 +78,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
         );
     }
 
-    if (clanData.items.length === 0) {
+    if (clanData.items?.length === 0) {
         return <div>No clan(s) found :(</div>;
     }
 
@@ -222,6 +222,7 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
                     </div>
                 )}
             </div>
+            <THOverview clan={clan}/>
             <Members clan={clan} fetchPlayer={fetchPlayer}/>
         </div>
     );

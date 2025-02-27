@@ -31,7 +31,9 @@ export default function Members({ clan, fetchPlayer }) {
 
     const handlePlayerInfo = (player) => {
         fetchPlayer(player.split("#").join(""), "player");
-    }
+    };
+
+    const removeHover = document.getElementById('clan-member-row-example');
 
     return (
         <div className="clan-members-section">
@@ -50,8 +52,29 @@ export default function Members({ clan, fetchPlayer }) {
                 </div>
             </div>
             <div className="clan-member-list">
+                <div
+                    className="clan-member-row"
+                    id="clan-member-row-example"
+                >
+                    <div className="member-row-section member-name-info">
+                        <p className="member-name" id="member-row-name-header">Name</p>
+                    </div>
+                    <div className="member-row-section member-trophy-section">
+                        <p>Trophies</p>
+                    </div>
+                    <div className="member-row-section member-donation-section">
+                        <p>
+                            Donations
+                        </p>
+                    </div>
+                    <p id="member-row-th-header">TH</p>
+                </div>
                 {clan?.memberList?.map((member, key) => (
-                    <div className="clan-member-row" key={key} onClick={() => handlePlayerInfo(member.tag)}>
+                    <div
+                        className="clan-member-row"
+                        key={key}
+                        onClick={() => handlePlayerInfo(member.tag)}
+                    >
                         <div className="member-row-section member-name-info">
                             <p className="member-name">{member.name}</p>
                             <p className="member-row-role">
@@ -86,7 +109,12 @@ export default function Members({ clan, fetchPlayer }) {
                                 {member.donationsReceived}
                             </p>
                         </div>
-                        <img src={getImage("th" + member.townHallLevel)} className="member-row-th-icon" alt="" />
+                        <img
+                            src={getImage("th" + member.townHallLevel)}
+                            className="member-row-th-icon"
+                            title={"TH" + member.townHallLevel}
+                            alt=""
+                        />
                     </div>
                 ))}
             </div>
