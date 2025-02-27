@@ -96,7 +96,7 @@ function PlayerClan({ data, handleClanInfo }) {
     return (
         <div id="player-clan">
             <div id="player-clan-info">
-                <h3 id="player-clan-title" onClick={()=>handleClanInfo(data.clan.name)} >{data.clan.name}</h3>
+                <h3 id="player-clan-title" onClick={()=>handleClanInfo(data.clan.tag.split("#").join(""))} >{data.clan.name}</h3>
                 <div>
                     Role:{" "}
                     <p>{data.clan.role === "None" ? "" : data.clan.role}</p>

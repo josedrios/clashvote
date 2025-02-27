@@ -20,14 +20,15 @@ export default function SearchResults({ clanData, fetchPlayer }) {
 
     useEffect(() => {
         setSelectedClan(null);
+        setError(null);
     }, [clanData]);
 
     const handleViewClick = async (clanTag) => {
-        setIsLoading(true); // Mark page as loading
-        setError(null); // Clear any previous errors
+        setIsLoading(true);
+        setError(null);
 
         try {
-            const data = await fetchData(clanTag.slice(1)); // Remove '#' and fetch data
+            const data = await getClanData(clanTag.slice(1)); // Remove '#' and fetch data
             if (data) {
                 setSelectedClan(data);
             } else {
@@ -40,7 +41,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
         }
     };
 
-    const fetchData = async (clanTag) => {
+    const getClanData = async (clanTag) => {
         try {
             const response = await fetch(
                 `http://localhost:3001/api/clan-info/${clanTag}`
@@ -57,7 +58,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
             return data;
         } catch (error) {
             console.error(error);
-            throw error; // Re-throw the error to handle it in handleViewClick
+            throw error;
         }
     };
 
@@ -85,6 +86,10 @@ export default function SearchResults({ clanData, fetchPlayer }) {
 
     if (clanData.items?.length === 0) {
         return <div>No clan(s) found :(</div>;
+    }
+
+    if (clanData.tag) {
+        return <ClanResult clan={clanData} fetchPlayer={fetchPlayer} />;
     }
 
     return (
@@ -149,14 +154,16 @@ const warFreqFixer = (oldFreq) => {
 function ClanResult({ clan, handleBackClick, fetchPlayer }) {
     return (
         <div className="clan-details-view">
-            <div className="center-return-button">
-                <button
-                    className="return-clan-results"
-                    onClick={handleBackClick}
-                >
-                    <FaArrowLeftLong className="return-clan-results-icon"/>
-                </button>
-            </div>
+            {handleBackClick && (
+                <div className="center-return-button">
+                    <button
+                        className="return-clan-results"
+                        onClick={handleBackClick}
+                    >
+                        <FaArrowLeftLong className="return-clan-results-icon" />
+                    </button>
+                </div>
+            )}
             <div className="clan-header-details">
                 <div className="clan-header-label">
                     <h3>{clan.name}</h3>

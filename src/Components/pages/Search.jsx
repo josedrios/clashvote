@@ -37,9 +37,19 @@ export default function Search() {
                     `http://localhost:3001/api/players/${prompt}`
                 );
             } else {
-                response = await fetch(
-                    `http://localhost:3001/api/clans/${prompt}`
-                );
+                var clanData = await getClanData(prompt);
+                if (clanData !== null) {
+                    setSearchResult({
+                        data: clanData,
+                        tab: type,
+                    });
+                    return;
+                } else {
+                    console.log("returned null");
+                    response = await fetch(
+                        `http://localhost:3001/api/clans/${prompt}`
+                    );
+                }
             }
             if (response.status === 404) {
                 setSearchResult({
@@ -55,28 +65,53 @@ export default function Search() {
                 throw new Error("Clash of Clans API failed");
             }
             const data = await response.json();
+            console.log(data)
             setSearchResult({
                 data: data,
                 tab: type,
             });
             if (scrollRef.current) {
-                scrollRef.current.scrollIntoView({ top: 0});
+                scrollRef.current.scrollIntoView({ top: 0 });
             }
         } catch (error) {
             console.log(error);
         }
     }
 
+    const getClanData = async (clanTag) => {
+        try {
+            const response = await fetch(
+                `http://localhost:3001/api/clan-info/${clanTag}`
+            );
+
+            if (!response.ok) {
+                if (response.status === 404) {
+                    console.error(`Clan with tag '${clanTag}' not found.`);
+                } else {
+                    console.error("Failed to fetch clan data.");
+                }
+                return null;
+            }
+
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    };
+
     function handleTestJson() {
         if (searchToggle === "player") {
             setSearchResult({
                 data: TestJSON,
-                tab: "player"
+                tab: "player",
             });
         } else {
             setSearchResult({
                 data: TestsJSON,
-                tab: "clan"
+                tab: "clan",
             });
         }
     }
@@ -135,10 +170,7 @@ export default function Search() {
                     <IoIosSearch />
                 </button>
             </form>
-            <RenderContent
-                searchResult={searchResult}
-                fetchData={fetchData}
-            />
+            <RenderContent searchResult={searchResult} fetchData={fetchData} />
         </div>
     );
 }
@@ -147,9 +179,15 @@ function RenderContent({ searchResult, fetchData }) {
     return (
         <>
             {searchResult.tab === "player" ? (
-                <PlayerResult playerData={searchResult.data} fetchData={fetchData}/>
+                <PlayerResult
+                    playerData={searchResult.data}
+                    fetchData={fetchData}
+                />
             ) : searchResult.tab === "clan" ? (
-                <ClanResults clanData={searchResult.data} fetchPlayer={fetchData}/>
+                <ClanResults
+                    clanData={searchResult.data}
+                    fetchPlayer={fetchData}
+                />
             ) : (
                 <SearchTip />
             )}
