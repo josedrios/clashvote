@@ -54,7 +54,15 @@
 #player-clan-title {
     font-size: 18px;
     color: $primary-color;
+    text-decoration: underline;
+    transition: color $transition-instant;
+    cursor: pointer;
+
+    &:hover {
+        color: $secondary-color;
+    }
 }
+
 
 #player-clan-image {
     display: flex;

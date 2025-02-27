@@ -11,6 +11,7 @@ import { IoIosSearch } from "react-icons/io";
 
 export default function Search() {
     const inputRef = useRef(null);
+    const scrollRef = useRef(null);
     const [searchToggle, setSearchToggle] = useState("clan");
     const [searchResult, setSearchResult] = useState({
         data: "",
@@ -58,6 +59,9 @@ export default function Search() {
                 data: data,
                 tab: type,
             });
+            if (scrollRef.current) {
+                scrollRef.current.scrollIntoView({ top: 0, behavior: "smooth" });
+            }
         } catch (error) {
             console.log(error);
         }
@@ -78,7 +82,7 @@ export default function Search() {
     }
 
     return (
-        <div id="search-page-container">
+        <div id="search-page-container" ref={scrollRef}>
             <form id="player-clan-search" onSubmit={handleFormSubmit}>
                 <div id="searchbar-toggle">
                     <button
@@ -132,20 +136,20 @@ export default function Search() {
                 </button>
             </form>
             <RenderContent
-                searchToggle={searchToggle}
                 searchResult={searchResult}
+                fetchData={fetchData}
             />
         </div>
     );
 }
 
-function RenderContent({ searchResult }) {
+function RenderContent({ searchResult, fetchData }) {
     return (
         <>
             {searchResult.tab === "player" ? (
-                <PlayerResult playerData={searchResult.data} />
+                <PlayerResult playerData={searchResult.data} fetchData={fetchData}/>
             ) : searchResult.tab === "clan" ? (
-                <ClanResults clanData={searchResult.data} />
+                <ClanResults clanData={searchResult.data} fetchPlayer={fetchData}/>
             ) : (
                 <SearchTip />
             )}

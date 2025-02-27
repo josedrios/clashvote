@@ -158,13 +158,20 @@
 
 .clan-member-list {
     @include flex(column, space-between);
-    background-color: $secondary-background-color;
 }
 
 .clan-member-row {
     @include flex(row, space-between);
+    background-color: $secondary-background-color;
+    margin-bottom: $spacing-sm;
+    border-radius: $border-radius-xs;
     padding: $spacing-sm $spacing-sm;
-    border-bottom: 1px solid $gray;
+    transition: background-color $transition-instant;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $gray-darker;
+    }
 }
 
 .member-row-count {

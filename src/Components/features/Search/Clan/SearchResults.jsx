@@ -12,7 +12,7 @@ const getCWL = (name) => {
     return league;
 };
 
-export default function SearchResults({ clanData }) {
+export default function SearchResults({ clanData, fetchPlayer }) {
     const [selectedClan, setSelectedClan] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -74,7 +74,7 @@ export default function SearchResults({ clanData }) {
 
     if (selectedClan) {
         return (
-            <ClanResult clan={selectedClan} handleBackClick={handleBackClick} />
+            <ClanResult clan={selectedClan} handleBackClick={handleBackClick} fetchPlayer={fetchPlayer}/>
         );
     }
 
@@ -125,7 +125,7 @@ export default function SearchResults({ clanData }) {
     );
 }
 
-function ClanResult({ clan, handleBackClick }) {
+function ClanResult({ clan, handleBackClick, fetchPlayer }) {
     return (
         <div className="clan-details-view">
             <div className="clan-header-details">
@@ -222,7 +222,7 @@ function ClanResult({ clan, handleBackClick }) {
                     </div>
                 )}
             </div>
-            <Members clan={clan} />
+            <Members clan={clan} fetchPlayer={fetchPlayer}/>
         </div>
     );
 }

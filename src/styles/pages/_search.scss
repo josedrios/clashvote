@@ -1,5 +1,6 @@
 #search-page-container {
     @include flex(column, initial, center);
+    overflow-y: auto;
 }
 
 #searchbar-toggle {

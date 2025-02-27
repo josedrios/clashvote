@@ -3,7 +3,7 @@ import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
-export default function Members({ clan }) {
+export default function Members({ clan, fetchPlayer }) {
     const fixClanRole = (role) => {
         var newRole = "";
         switch (role) {
@@ -29,6 +29,10 @@ export default function Members({ clan }) {
         return newRole;
     };
 
+    const handlePlayerInfo = (player) => {
+        fetchPlayer(player.split("#").join(""), "player");
+    }
+
     return (
         <div className="clan-members-section">
             <div className="clan-members-header">
@@ -47,7 +51,7 @@ export default function Members({ clan }) {
             </div>
             <div className="clan-member-list">
                 {clan?.memberList?.map((member, key) => (
-                    <div className="clan-member-row" key={key}>
+                    <div className="clan-member-row" key={key} onClick={() => handlePlayerInfo(member.tag)}>
                         <div className="member-row-section member-name-info">
                             <p className="member-name">{member.name}</p>
                             <p className="member-row-role">

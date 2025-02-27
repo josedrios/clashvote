@@ -1,10 +1,9 @@
 import PlayerData from "../../../../util/processPlayerData";
-
 import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
 import images from "../../Images";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
@@ -15,7 +14,11 @@ const getBuilderDivision = (league) => {
     return league.split(" ")[2];
 };
 
-function SearchResult({ playerData }) {
+function SearchResult({ playerData, fetchData }) {
+    const handleClanInfo = (clan) => {
+        fetchData(clan, "clan")
+    }
+
     const [achCurrent, setAchCurrent] = useState("home");
 
     if (playerData === "") {
@@ -43,7 +46,7 @@ function SearchResult({ playerData }) {
                 <div id="player-header">
                     <PlayerMain data={data} />
                     <div id="cards-container">
-                        <PlayerClan data={data} />
+                        <PlayerClan data={data} handleClanInfo={handleClanInfo}/>
                     </div>
                 </div>
             </div>
@@ -89,11 +92,11 @@ function LeagueIcons({ data }) {
     );
 }
 
-function PlayerClan({ data }) {
+function PlayerClan({ data, handleClanInfo }) {
     return (
         <div id="player-clan">
             <div id="player-clan-info">
-                <h3 id="player-clan-title">{data.clan.name}</h3>
+                <h3 id="player-clan-title" onClick={()=>handleClanInfo(data.clan.name)} >{data.clan.name}</h3>
                 <div>
                     Role:{" "}
                     <p>{data.clan.role === "None" ? "" : data.clan.role}</p>
