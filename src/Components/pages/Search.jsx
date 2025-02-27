@@ -60,7 +60,7 @@ export default function Search() {
                 tab: type,
             });
             if (scrollRef.current) {
-                scrollRef.current.scrollIntoView({ top: 0, behavior: "smooth" });
+                scrollRef.current.scrollIntoView({ top: 0});
             }
         } catch (error) {
             console.log(error);

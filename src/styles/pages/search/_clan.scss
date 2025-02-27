@@ -18,8 +18,10 @@
     border-bottom: 2px solid $primary-color;
 
     .clan-header-label {
-        @include flex(row, left, center);
+        width: 100%;
+        @include flex(row, space-between, center);
         flex-wrap: nowrap;
+
         h3 {
             color: $primary-color;
             text-wrap: nowrap;
@@ -182,7 +184,7 @@
     }
 
     #member-row-th-header {
-        margin-right: $spacing-sm;
+        margin-right: calc($spacing-sm + 4px);
     }
 
     &:hover {
@@ -277,4 +279,29 @@
     height: 40px;
     width: 40px;
     margin: auto 0;
+}
+
+.th-count-header {
+    color: $primary-color;
+    margin-top: $spacing-md;
+    padding: $spacing-xs $spacing-md;
+    border-bottom: 2px solid $primary-color;
+}
+
+.th-count-container {
+    background-color: $secondary-background-color;
+    padding: $spacing-md;
+    @include flex(row, left, center);
+    flex-wrap: wrap;
+    gap: $spacing-sm $spacing-sm;
+    border-radius: 0 0 $border-radius-xs $border-radius-xs;
+
+    .th-counter {
+        @include flex(column, center, center);
+
+        img {
+            aspect-ratio: 1/1;
+            width: 60px;
+        }
+    }
 }

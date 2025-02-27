@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import images from "../../Images";
 import Members from "../Clan/Members";
 import THOverview from "./THOverview";
@@ -74,7 +75,11 @@ export default function SearchResults({ clanData, fetchPlayer }) {
 
     if (selectedClan) {
         return (
-            <ClanResult clan={selectedClan} handleBackClick={handleBackClick} fetchPlayer={fetchPlayer}/>
+            <ClanResult
+                clan={selectedClan}
+                handleBackClick={handleBackClick}
+                fetchPlayer={fetchPlayer}
+            />
         );
     }
 
@@ -86,7 +91,11 @@ export default function SearchResults({ clanData, fetchPlayer }) {
         <div id="clan-results-container">
             {clanData?.items?.map((clan, key) => (
                 <div className="clan-result-card" key={key}>
-                    <img className="clan-result-badge" src={clan.badgeUrls.medium} alt="" />
+                    <img
+                        className="clan-result-badge"
+                        src={clan.badgeUrls.medium}
+                        alt=""
+                    />
                     <h5>{clan.name}</h5>
                     <p className="clan-card-tag">{clan.tag}</p>
                     <div className="clan-card-progress-label">
@@ -125,28 +134,47 @@ export default function SearchResults({ clanData, fetchPlayer }) {
     );
 }
 
+const warFreqFixer = (oldFreq) => {
+    const freqMap = {
+        never: "Never",
+        lessThanOncePerWeek: "> Weekly",
+        oncePerWeek: "Weekly",
+        moreThanOncePerWeek: "Bi-Weekly",
+        always: "Always",
+    };
+
+    return freqMap[oldFreq] || "Unknown";
+};
+
 function ClanResult({ clan, handleBackClick, fetchPlayer }) {
     return (
         <div className="clan-details-view">
+            <div className="center-return-button">
+                <button
+                    className="return-clan-results"
+                    onClick={handleBackClick}
+                >
+                    <FaArrowLeftLong className="return-clan-results-icon"/>
+                </button>
+            </div>
             <div className="clan-header-details">
                 <div className="clan-header-label">
                     <h3>{clan.name}</h3>
-                    <img
-                        className="clan-header-badge"
-                        src={clan.badgeUrls.medium}
-                        alt=""
-                    />
-                    {clan.warLeague.name.toLowerCase() !== "unranked" && (
+                    <div>
                         <img
-                            className="clan-header-cwl"
-                            src={getImage(getCWL(clan.warLeague.name))}
+                            className="clan-header-badge"
+                            src={clan.badgeUrls.medium}
                             alt=""
                         />
-                    )}
+                        {clan.warLeague.name.toLowerCase() !== "unranked" && (
+                            <img
+                                className="clan-header-cwl"
+                                src={getImage(getCWL(clan.warLeague.name))}
+                                alt=""
+                            />
+                        )}
+                    </div>
                 </div>
-                <button className="standard-btn" onClick={handleBackClick}>
-                    BACK
-                </button>
             </div>
             <div className="clan-info-section">
                 <div className="clan-detail-cards">
@@ -207,7 +235,7 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
                         <h5>War</h5>
                         <p>
                             <span>Freq:</span>
-                            {clan.warFrequency}
+                            {warFreqFixer(clan.warFrequency)}
                         </p>
                         <h6>Wins|Ties|Losses</h6>
                         <p>
@@ -222,8 +250,8 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
                     </div>
                 )}
             </div>
-            <THOverview clan={clan}/>
-            <Members clan={clan} fetchPlayer={fetchPlayer}/>
+            <THOverview clan={clan} />
+            <Members clan={clan} fetchPlayer={fetchPlayer} />
         </div>
     );
 }

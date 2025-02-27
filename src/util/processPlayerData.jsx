@@ -82,13 +82,12 @@ export default function processPlayerData(data) {
                         !supers.includes(troop.name) &&
                         !sieges.includes(troop.name)
                 ),
-                supers: data.troops
-                    .filter(
-                        (troop) =>
-                            troop.village === "home" &&
-                            supers.includes(troop.name) &&
-                            troop.level != 0
-                    ),
+                supers: data.troops.filter(
+                    (troop) =>
+                        troop.village === "home" &&
+                        supers.includes(troop.name) &&
+                        troop.level != 0
+                ),
                 sieges: data.troops.filter(
                     (siege) =>
                         siege.village === "home" && sieges.includes(siege.name)
@@ -97,17 +96,14 @@ export default function processPlayerData(data) {
                     (troop) =>
                         troop.village === "home" && pets.includes(troop.name)
                 ),
-                spells: data.spells.filter(
-                    (spell) => 
-                        spell.village === "home"
-                ),
+                spells: data.spells.filter((spell) => spell.village === "home"),
                 heroEquipment: data.heroEquipment.filter(
                     (heroEq) => heroEq.village === "home"
                 ),
             },
             achievements: data.achievements.filter(
                 (achievement) => achievement.village === "home"
-            )
+            ),
         },
         builder: {
             type: "builder",
@@ -151,37 +147,24 @@ export default function processPlayerData(data) {
                 troop.name === superReqs[i][0] &&
                 troop.level < superReqs[i][1]
             ) {
-                playerData.home.units.supers = playerData.home.units.supers.filter(
-                    (troop) => troop.name != superReqs[i][2]
-                );
+                playerData.home.units.supers =
+                    playerData.home.units.supers.filter(
+                        (troop) => troop.name != superReqs[i][2]
+                    );
             }
         }
     });
 
-    // Fixes clan role name to be more recognizable
     function fixClanRole(role) {
-        var newRole = "";
-        switch (role) {
-            case "member":
-                newRole = "Member";
-                break;
-            case "admin":
-                newRole = "Elder";
-                break;
-            case "coLeader":
-                newRole = "Co-Leader";
-                break;
-            case "leader":
-                newRole = "Leader";
-                break;
-            case "None":
-                newRole = "None";
-                break;
-            default:
-                newRole = "UNKNOWN";
-                break;
-        }
-        return newRole;
+        const roleMap = {
+            member: "Member",
+            admin: "Elder",
+            coLeader: "Co-Leader",
+            leader: "Leader",
+            None: "None",
+        };
+
+        return roleMap[role] || "UNKNOWN";
     }
 
     // Removes any super troops from player's data if not unlocked yet
@@ -205,7 +188,7 @@ export default function processPlayerData(data) {
         const result = playerData.home.units.troops.filter(
             (curr) => curr.name === newName
         );
-        return result.length > 0 ?  result[0].level : 0;
+        return result.length > 0 ? result[0].level : 0;
     }
 
     return playerData;

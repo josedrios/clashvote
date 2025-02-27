@@ -1,3 +1,6 @@
+import images from "../../Images";
+const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+
 export default function THOverview({ clan }) {
     const countTH = (clan) => {
         const thLevels = [];
@@ -19,12 +22,18 @@ export default function THOverview({ clan }) {
 
     return (
         <div>
-            {thCounts.map((count, thLevel) => {
-                if (count === 0) return null;
-                return <div>
-                    TH {thLevel} = {count}
-                </div>;
-            })}
+            <h5 className="th-count-header">TH Overview</h5>
+            <div className="th-count-container">
+                {thCounts.map((count, thLevel) => {
+                    if (count === 0) return null;
+                    return (
+                        <div className="th-counter">
+                            <img title={"TH" + thLevel} src={getImage("th" + thLevel)} alt="" />
+                            <p>{count}</p>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

@@ -51,11 +51,20 @@
 
 @media (max-width: 400px){
     #player-username {
-        font-size: 30px;
+        font-size: 25px;
         margin-bottom: 0 !important;
         align-self: center;
     }
+
+    .player-rank-icon {
+        height: 35px;
+    }
+    
+    #player-bh-icon {
+        height: 27px;
+    }
 }
+
 
 #player-xp-container {
     display: flex;
