@@ -5,6 +5,13 @@ import { width } from "@fortawesome/free-regular-svg-icons/faAddressBook";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
+const getCWL = (name) => {
+    name = name.toLowerCase().replace(" league", "");
+    const tokens = name.split(" ");
+    const league = tokens[0] + tokens[1].length;
+    return league;
+};
+
 export default function SearchResults({ clanData }) {
     const [selectedClan, setSelectedClan] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +19,7 @@ export default function SearchResults({ clanData }) {
 
     useEffect(() => {
         setSelectedClan(null);
-    },[clanData])
+    }, [clanData]);
 
     const handleViewClick = async (clanTag) => {
         setIsLoading(true); // Mark page as loading
@@ -72,16 +79,14 @@ export default function SearchResults({ clanData }) {
     }
 
     if (clanData.items.length === 0) {
-        return (
-            <div>No clan(s) found :(</div>
-        );
+        return <div>No clan(s) found :(</div>;
     }
 
     return (
         <div id="clan-results-container">
             {clanData?.items?.map((clan, key) => (
                 <div className="clan-result-card" key={key}>
-                    <img src={clan.badgeUrls.medium} alt="" />
+                    <img className="clan-result-badge" src={clan.badgeUrls.medium} alt="" />
                     <h5>{clan.name}</h5>
                     <p className="clan-card-tag">{clan.tag}</p>
                     <div className="clan-card-progress-label">
@@ -98,7 +103,15 @@ export default function SearchResults({ clanData }) {
                         />
                     </div>
                     <div className="clan-card-footer">
-                        <p>{clan.warLeague.name}</p>
+                        {clan.warLeague.name.toLowerCase() !== "unranked" ? (
+                            <img
+                                className="clan-result-cwl"
+                                src={getImage(getCWL(clan.warLeague.name))}
+                                alt="Clan War League Badge"
+                            />
+                        ) : (
+                            <p>Unranked</p>
+                        )}
                         <button
                             className="standard-btn"
                             onClick={() => handleViewClick(clan.tag)}
@@ -118,7 +131,18 @@ function ClanResult({ clan, handleBackClick }) {
             <div className="clan-header-details">
                 <div className="clan-header-label">
                     <h3>{clan.name}</h3>
-                    <img src={clan.badgeUrls.medium} alt="" />
+                    <img
+                        className="clan-header-badge"
+                        src={clan.badgeUrls.medium}
+                        alt=""
+                    />
+                    {clan.warLeague.name.toLowerCase() !== "unranked" && (
+                        <img
+                            className="clan-header-cwl"
+                            src={getImage(getCWL(clan.warLeague.name))}
+                            alt=""
+                        />
+                    )}
                 </div>
                 <button className="standard-btn" onClick={handleBackClick}>
                     BACK

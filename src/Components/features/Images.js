@@ -107,11 +107,11 @@ import Super_Wizard from "../../assets/images/supers/Super_Wizard.png";
 
 // Misc
 import bb_trophy from "../../assets/images/misc/bb_trophy.png";
-import slider from '../../assets/images/misc/slider.png'
+import slider from "../../assets/images/misc/slider.png";
 import unranked from "../../assets/images/misc/unranked.png";
 import star from "../../assets/images/misc/star.png";
 import th_trophy from "../../assets/images/misc/th_trophy.png";
-import xp from "../../assets/images/misc/xp.png"
+import xp from "../../assets/images/misc/xp.png";
 
 // Hero Equipment
 import Archer_Puppet from "../../assets/images/heroequipment/Archer_Puppet.png";
@@ -140,6 +140,26 @@ import Royal_Gem from "../../assets/images/heroequipment/Royal_Gem.png";
 import Seeking_Shield from "../../assets/images/heroequipment/Seeking_Shield.png";
 import Spiky_Ball from "../../assets/images/heroequipment/Spiky_Ball.png";
 import Vampstache from "../../assets/images/heroequipment/Vampstache.png";
+
+// Clan War Leagues
+import champion1 from "../../assets/images/clanwarleagues/champion1.png";
+import champion2 from "../../assets/images/clanwarleagues/champion2.png";
+import champion3 from "../../assets/images/clanwarleagues/champion3.png";
+import crystal1 from "../../assets/images/clanwarleagues/crystal1.png";
+import crystal2 from "../../assets/images/clanwarleagues/crystal2.png";
+import crystal3 from "../../assets/images/clanwarleagues/crystal3.png";
+import gold1 from "../../assets/images/clanwarleagues/gold1.png";
+import gold2 from "../../assets/images/clanwarleagues/gold2.png";
+import gold3 from "../../assets/images/clanwarleagues/gold3.png";
+import iron1 from "../../assets/images/clanwarleagues/iron1.png";
+import iron2 from "../../assets/images/clanwarleagues/iron2.png";
+import iron3 from "../../assets/images/clanwarleagues/iron3.png";
+import master1 from "../../assets/images/clanwarleagues/master1.png";
+import master2 from "../../assets/images/clanwarleagues/master2.png";
+import master3 from "../../assets/images/clanwarleagues/master3.png";
+import silver1 from "../../assets/images/clanwarleagues/silver1.png";
+import silver2 from "../../assets/images/clanwarleagues/silver2.png";
+import silver3 from "../../assets/images/clanwarleagues/silver3.png";
 
 // Town Halls
 import th1 from "../../assets/images/townhalls/th1.png";
@@ -205,6 +225,24 @@ const images = {
     star,
     bb_trophy,
     th_trophy,
+    champion1,
+    champion2,
+    champion3,
+    crystal1,
+    crystal2,
+    crystal3,
+    gold1,
+    gold2,
+    gold3,
+    iron1,
+    iron2,
+    iron3,
+    master1,
+    master2,
+    master3,
+    silver1,
+    silver2,
+    silver3,
     th1,
     th2,
     th3,

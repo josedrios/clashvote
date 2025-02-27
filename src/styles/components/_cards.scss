@@ -82,10 +82,15 @@
     border-radius: $border-radius-sm;
     position: relative;
 
-    img {
+    .clan-result-badge {
         top: -45px;
         position: absolute;
         @include box(80px);
+    }
+
+    .clan-result-cwl {
+        aspect-ratio: 1/1;
+        height: 35px;
     }
 
     h5 {

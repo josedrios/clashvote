@@ -33,6 +33,16 @@
     }
 }
 
+.clan-header-badge {
+    margin-right: $spacing-sm;
+}
+
+.clan-header-cwl {
+    margin-bottom: 2px;
+    height: 48px !important;
+    aspect-ratio: 1/1;
+}
+
 .clan-info-section {
     background-color: $secondary-background-color;
     padding: $spacing-md;
