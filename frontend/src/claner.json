@@ -1,0 +1,1196 @@
+{
+  "items": [
+    {
+      "tag": "#2QQCQY0PV",
+      "name": "Test",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000249,
+        "name": "United States",
+        "isCountry": true,
+        "countryCode": "US"
+      },
+      "isFamilyFriendly": true,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/fXUc2t8gP9r1fVib77CcE3EUrAEvdp_Ss9wjn2FQRIQ.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/fXUc2t8gP9r1fVib77CcE3EUrAEvdp_Ss9wjn2FQRIQ.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/fXUc2t8gP9r1fVib77CcE3EUrAEvdp_Ss9wjn2FQRIQ.png"
+      },
+      "clanLevel": 21,
+      "clanPoints": 42972,
+      "clanBuilderBasePoints": 36159,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 3200,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 193,
+      "warTies": 3,
+      "warLosses": 150,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000013,
+        "name": "Master League III"
+      },
+      "members": 46,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 2000,
+      "requiredTownhallLevel": 14,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2Q2CVGJUP",
+      "name": "clan test",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000006,
+        "name": "International",
+        "isCountry": false
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/vORTBz7rQeVTK5dpMvEfn9b5qbUpVTtnrFBfifMf58Y.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/vORTBz7rQeVTK5dpMvEfn9b5qbUpVTtnrFBfifMf58Y.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/vORTBz7rQeVTK5dpMvEfn9b5qbUpVTtnrFBfifMf58Y.png"
+      },
+      "clanLevel": 12,
+      "clanPoints": 9011,
+      "clanBuilderBasePoints": 11243,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 2100,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 246,
+      "warTies": 11,
+      "warLosses": 145,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 9,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000009,
+          "name": "Donations",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png"
+          }
+        },
+        {
+          "id": 56000016,
+          "name": "Clan Capital",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Odg2DaLfhMgQOci4QvHovdoYq4SDiBrocWS2Bjm8Ah8.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Odg2DaLfhMgQOci4QvHovdoYq4SDiBrocWS2Bjm8Ah8.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 12
+    },
+    {
+      "tag": "#28V9089U0",
+      "name": "SPRING TEST",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000006,
+        "name": "International",
+        "isCountry": false
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/UMu_Sq5LPp-H5wyEEq5XndAFKJaTsFicC3r0sJs42ZE.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/UMu_Sq5LPp-H5wyEEq5XndAFKJaTsFicC3r0sJs42ZE.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/UMu_Sq5LPp-H5wyEEq5XndAFKJaTsFicC3r0sJs42ZE.png"
+      },
+      "clanLevel": 13,
+      "clanPoints": 19160,
+      "clanBuilderBasePoints": 21939,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 163,
+      "warTies": 1,
+      "warLosses": 161,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000005,
+        "name": "Silver League II"
+      },
+      "members": 41,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000016,
+          "name": "Clan Capital",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Odg2DaLfhMgQOci4QvHovdoYq4SDiBrocWS2Bjm8Ah8.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Odg2DaLfhMgQOci4QvHovdoYq4SDiBrocWS2Bjm8Ah8.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2RJQRUJY0",
+      "name": "Forensics Test",
+      "type": "open",
+      "location": {
+        "id": 32000006,
+        "name": "International",
+        "isCountry": false
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/m_n9616bETmEAVWj8yd3jVYuPqn1r75F1yh55KyY-T4.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/m_n9616bETmEAVWj8yd3jVYuPqn1r75F1yh55KyY-T4.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/m_n9616bETmEAVWj8yd3jVYuPqn1r75F1yh55KyY-T4.png"
+      },
+      "clanLevel": 3,
+      "clanPoints": 13125,
+      "clanBuilderBasePoints": 10362,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 12,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 12,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000002,
+          "name": "Trophy Pushing",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png"
+          }
+        },
+        {
+          "id": 56000009,
+          "name": "Donations",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 10,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2PY9VJC0L",
+      "name": "Swab test",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000185,
+        "name": "Philippines",
+        "isCountry": true,
+        "countryCode": "PH"
+      },
+      "isFamilyFriendly": true,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/BMK4RnsRXAseZmf8_krSf_bJk6F2hXzRe1s1lHSVQks.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/BMK4RnsRXAseZmf8_krSf_bJk6F2hXzRe1s1lHSVQks.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/BMK4RnsRXAseZmf8_krSf_bJk6F2hXzRe1s1lHSVQks.png"
+      },
+      "clanLevel": 17,
+      "clanPoints": 28005,
+      "clanBuilderBasePoints": 29377,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 3500,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 134,
+      "warTies": 0,
+      "warLosses": 250,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000010,
+        "name": "Crystal League III"
+      },
+      "members": 33,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 3500,
+      "requiredTownhallLevel": 8,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#YPGGJCJU",
+      "name": "Test Attacker",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000185,
+        "name": "Philippines",
+        "isCountry": true,
+        "countryCode": "PH"
+      },
+      "isFamilyFriendly": true,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/-YQv7w5x_ioKNVnhgxkPZjPbcZNeC1E_DzahHLrUwss.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/-YQv7w5x_ioKNVnhgxkPZjPbcZNeC1E_DzahHLrUwss.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/-YQv7w5x_ioKNVnhgxkPZjPbcZNeC1E_DzahHLrUwss.png"
+      },
+      "clanLevel": 15,
+      "clanPoints": 25217,
+      "clanBuilderBasePoints": 23009,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 249,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000008,
+        "name": "Gold League II"
+      },
+      "members": 40,
+      "labels": [
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        },
+        {
+          "id": 56000015,
+          "name": "Newbie Friendly",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/3oOuYkPdkjWVrBUITgByz9Ur0nmJ4GsERXc-1NUrjKg.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/3oOuYkPdkjWVrBUITgByz9Ur0nmJ4GsERXc-1NUrjKg.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2Y8CRC8RR",
+      "name": "TEST REPUBLIC",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000185,
+        "name": "Philippines",
+        "isCountry": true,
+        "countryCode": "PH"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/9udKoTmFEPEA_cH3Wd7wMnfArBlSZoqwb8J3RUQc8BM.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/9udKoTmFEPEA_cH3Wd7wMnfArBlSZoqwb8J3RUQc8BM.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/9udKoTmFEPEA_cH3Wd7wMnfArBlSZoqwb8J3RUQc8BM.png"
+      },
+      "clanLevel": 20,
+      "clanPoints": 28677,
+      "clanBuilderBasePoints": 26628,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5500,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 159,
+      "warTies": 1,
+      "warLosses": 177,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000011,
+        "name": "Crystal League II"
+      },
+      "members": 35,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 5500,
+      "requiredTownhallLevel": 12,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2R0UVUC9L",
+      "name": "TEST TRAIN",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000185,
+        "name": "Philippines",
+        "isCountry": true,
+        "countryCode": "PH"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/nc_v39d-3T2Y_WhF7uCh7zsEdPOybkPT1wpTUdBUEk0.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/nc_v39d-3T2Y_WhF7uCh7zsEdPOybkPT1wpTUdBUEk0.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/nc_v39d-3T2Y_WhF7uCh7zsEdPOybkPT1wpTUdBUEk0.png"
+      },
+      "clanLevel": 11,
+      "clanPoints": 29946,
+      "clanBuilderBasePoints": 27011,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 1800,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 62,
+      "warTies": 7,
+      "warLosses": 42,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000009,
+        "name": "Gold League I"
+      },
+      "members": 45,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 2000,
+      "requiredTownhallLevel": 12,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#2RJ92VR98",
+      "name": "speed test",
+      "type": "open",
+      "location": {
+        "id": 32000006,
+        "name": "International",
+        "isCountry": false
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/0pAxX4sWqBbasI9LCZr_8haSTq_SPU889iiWp-lD8Do.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/0pAxX4sWqBbasI9LCZr_8haSTq_SPU889iiWp-lD8Do.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/0pAxX4sWqBbasI9LCZr_8haSTq_SPU889iiWp-lD8Do.png"
+      },
+      "clanLevel": 11,
+      "clanPoints": 38286,
+      "clanBuilderBasePoints": 29673,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 3500,
+      "warFrequency": "always",
+      "warWinStreak": 2,
+      "warWins": 36,
+      "warTies": 1,
+      "warLosses": 44,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000009,
+        "name": "Gold League I"
+      },
+      "members": 46,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000009,
+          "name": "Donations",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 12,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#29VU8JVR0",
+      "name": "MM Blood Test",
+      "type": "open",
+      "location": {
+        "id": 32000162,
+        "name": "Myanmar (Burma)",
+        "isCountry": true,
+        "countryCode": "MM"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/jDrxsHvH5C9QQhV1fcA1cp_vCWwwxhX5yMufyNrYZKQ.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/jDrxsHvH5C9QQhV1fcA1cp_vCWwwxhX5yMufyNrYZKQ.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/jDrxsHvH5C9QQhV1fcA1cp_vCWwwxhX5yMufyNrYZKQ.png"
+      },
+      "clanLevel": 15,
+      "clanPoints": 21014,
+      "clanBuilderBasePoints": 19305,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 1000,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 140,
+      "warTies": 3,
+      "warLosses": 109,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000009,
+        "name": "Gold League I"
+      },
+      "members": 18,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 10
+    },
+    {
+      "tag": "#2G8CLLJU9",
+      "name": "test aja dulu",
+      "type": "open",
+      "location": {
+        "id": 32000114,
+        "name": "Indonesia",
+        "isCountry": true,
+        "countryCode": "ID"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/gm5xlb0zJbAOHDj6it6LPbbrRa3V4L290UnSPYa5vGE.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/gm5xlb0zJbAOHDj6it6LPbbrRa3V4L290UnSPYa5vGE.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/gm5xlb0zJbAOHDj6it6LPbbrRa3V4L290UnSPYa5vGE.png"
+      },
+      "clanLevel": 21,
+      "clanPoints": 33442,
+      "clanBuilderBasePoints": 30603,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 3600,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 136,
+      "warTies": 0,
+      "warLosses": 130,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000011,
+        "name": "Crystal League II"
+      },
+      "members": 49,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000004,
+          "name": "Clan Games",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 3000,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000016,
+        "name": "Bahasa Indonesia",
+        "languageCode": "ID"
+      }
+    },
+    {
+      "tag": "#9P9LQ9YC",
+      "name": "Test the Limits",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000094,
+        "name": "Germany",
+        "isCountry": true,
+        "countryCode": "DE"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/Kv4ShtWkQpucBCOPUvhvW86VtBMDcrgyExyt2sl__hM.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/Kv4ShtWkQpucBCOPUvhvW86VtBMDcrgyExyt2sl__hM.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/Kv4ShtWkQpucBCOPUvhvW86VtBMDcrgyExyt2sl__hM.png"
+      },
+      "clanLevel": 11,
+      "clanPoints": 13697,
+      "clanBuilderBasePoints": 13787,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 2000,
+      "warFrequency": "unknown",
+      "warWinStreak": 1,
+      "warWins": 138,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 13,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000009,
+          "name": "Donations",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png"
+          }
+        },
+        {
+          "id": 56000010,
+          "name": "Friendly",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 8,
+      "chatLanguage": {
+        "id": 75000002,
+        "name": "Deutsch",
+        "languageCode": "DE"
+      }
+    },
+    {
+      "tag": "#2YY0PJQCP",
+      "name": "Test",
+      "type": "open",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/pqYbRctEvJ9NoFGnEqrcbJFhCea9sx_JF0JFYgP_gIk.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/pqYbRctEvJ9NoFGnEqrcbJFhCea9sx_JF0JFYgP_gIk.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/pqYbRctEvJ9NoFGnEqrcbJFhCea9sx_JF0JFYgP_gIk.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 2000,
+      "clanBuilderBasePoints": 2510,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "never",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 3,
+      "labels": [
+        {
+          "id": 56000010,
+          "name": "Friendly",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png"
+          }
+        },
+        {
+          "id": 56000011,
+          "name": "Talkative",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png"
+          }
+        },
+        {
+          "id": 56000013,
+          "name": "Relaxed",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1
+    },
+    {
+      "tag": "#2J8PPJUGV",
+      "name": "test",
+      "type": "open",
+      "location": {
+        "id": 32000087,
+        "name": "France",
+        "isCountry": true,
+        "countryCode": "FR"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/jtqwTVIC38OjSQVH7uHVCYwJX7nYl5QKtyaq_XRCVak.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/jtqwTVIC38OjSQVH7uHVCYwJX7nYl5QKtyaq_XRCVak.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/jtqwTVIC38OjSQVH7uHVCYwJX7nYl5QKtyaq_XRCVak.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1914,
+      "clanBuilderBasePoints": 2138,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "never",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 2,
+      "labels": [],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1,
+      "chatLanguage": {
+        "id": 75000001,
+        "name": "Français",
+        "languageCode": "FR"
+      }
+    },
+    {
+      "tag": "#2GCPU2VJU",
+      "name": "Test",
+      "type": "open",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1893,
+      "clanBuilderBasePoints": 2906,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "unknown",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 2,
+      "labels": [],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1
+    },
+    {
+      "tag": "#2GJ9PJC9P",
+      "name": "Test",
+      "type": "open",
+      "location": {
+        "id": 32000114,
+        "name": "Indonesia",
+        "isCountry": true,
+        "countryCode": "ID"
+      },
+      "isFamilyFriendly": true,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1792,
+      "clanBuilderBasePoints": 2737,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "unknown",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 5,
+      "labels": [
+        {
+          "id": 56000008,
+          "name": "Farming",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/iLWz6AiaIHg_DqfG6s9vAxUJKb-RsPbSYl_S0ii9GAM.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/iLWz6AiaIHg_DqfG6s9vAxUJKb-RsPbSYl_S0ii9GAM.png"
+          }
+        },
+        {
+          "id": 56000013,
+          "name": "Relaxed",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png"
+          }
+        },
+        {
+          "id": 56000015,
+          "name": "Newbie Friendly",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/3oOuYkPdkjWVrBUITgByz9Ur0nmJ4GsERXc-1NUrjKg.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/3oOuYkPdkjWVrBUITgByz9Ur0nmJ4GsERXc-1NUrjKg.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 3
+    },
+    {
+      "tag": "#V92PP9V8",
+      "name": "test",
+      "type": "inviteOnly",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/LhJv0CcOWtrWj4MukjBLlJcHL2E7PQDcD-97DFDhiZs.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/LhJv0CcOWtrWj4MukjBLlJcHL2E7PQDcD-97DFDhiZs.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/LhJv0CcOWtrWj4MukjBLlJcHL2E7PQDcD-97DFDhiZs.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1617,
+      "clanBuilderBasePoints": 75,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "moreThanOncePerWeek",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 3,
+      "labels": [],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1
+    },
+    {
+      "tag": "#2PVJRCJ9Q",
+      "name": "Test",
+      "type": "open",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/AScERIu8Z8KNrPmohX64pxDZIF_AKn_aSgzgxUlKgXE.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/AScERIu8Z8KNrPmohX64pxDZIF_AKn_aSgzgxUlKgXE.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/AScERIu8Z8KNrPmohX64pxDZIF_AKn_aSgzgxUlKgXE.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1331,
+      "clanBuilderBasePoints": 1829,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 4,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000010,
+          "name": "Friendly",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hM7SHnN0x7syFa-s6fE7LzeO5yWG2sfFpZUHuzgMwQg.png"
+          }
+        },
+        {
+          "id": 56000013,
+          "name": "Relaxed",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png"
+          }
+        }
+      ],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1,
+      "chatLanguage": {
+        "id": 75000012,
+        "name": "Pусский",
+        "languageCode": "RU"
+      }
+    },
+    {
+      "tag": "#2G9QVU0VJ",
+      "name": "test",
+      "type": "closed",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1314,
+      "clanBuilderBasePoints": 2298,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "unknown",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "warTies": 0,
+      "warLosses": 0,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 2,
+      "labels": [],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1
+    },
+    {
+      "tag": "#2GUQQ0RJ9",
+      "name": "test",
+      "type": "closed",
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png"
+      },
+      "clanLevel": 1,
+      "clanPoints": 1189,
+      "clanBuilderBasePoints": 1291,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 0,
+      "warFrequency": "unknown",
+      "warWinStreak": 0,
+      "warWins": 0,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000000,
+        "name": "Unranked"
+      },
+      "members": 1,
+      "labels": [],
+      "requiredBuilderBaseTrophies": 0,
+      "requiredTownhallLevel": 1
+    }
+  ],
+  "paging": {
+    "cursors": {
+      "after": "eyJwb3MiOjIwfQ"
+    }
+  }
+}

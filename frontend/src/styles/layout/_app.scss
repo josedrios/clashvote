@@ -1,0 +1,85 @@
+#root {
+    @include flex(column);
+}
+
+#main-navbar {
+    border-radius: $border-radius-sm;
+    padding: $spacing-md $spacing-md;
+    background-color: color-fade($secondary-background-color, 0.9);
+    margin: $spacing-md;
+    margin-bottom: 0;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: $z-navbar;
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 2*$spacing-md);
+}
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: auto;
+    padding-top: calc(80px + $spacing-md);
+}
+
+#main-sidebar {
+    border-bottom: none;
+    border-top-left-radius: $border-radius-sm;
+    border-top-right-radius: $border-radius-sm;
+    margin: $spacing-md $spacing-md 0 $spacing-md;
+    padding: $spacing-md $spacing-sm;
+    background-color: $secondary-background-color;
+    width: 250px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: $z-sidebar;
+}
+
+#main-body {
+    margin: 0 auto 0 auto;
+    max-width: $breakpoint-xl;
+    width: calc(100% - 250px - 5rem);
+    padding: $spacing-lg;
+    flex-grow: 1;
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+#non-interactable-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: color-fade($gray-base, 0.4);
+    z-index: $z-non-int-overlay;
+}
+
+@media (max-width: #{$breakpoint-lg}) {
+    #main-sidebar {
+        top: calc(80px + $spacing-md); 
+        height: calc(100% - 80px - $spacing-md);
+        position: absolute;
+        transform: translateX(-300px);
+    }
+
+    #bars-icon-btn {
+        display: inline !important;
+    }
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #main-sidebar {
+        top: calc(100px + $spacing-md);
+    }
+
+    #main-container {
+        padding-top: calc(100px + $spacing-md);
+    }
+}

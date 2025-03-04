@@ -1,0 +1,44 @@
+.main-sidebar {
+    :last-child {
+        border-bottom: none;
+    }
+}
+
+.sidebar-section {
+    @include flex(column, initial, flex-start);
+    border-bottom: 1px solid $gray-light;
+
+    :first-child {
+        margin-top: $spacing-sm;
+    }
+}
+
+.open {
+    transition: transform $transition-instant;
+}
+
+.close {
+    transition: transform $transition-instant;
+}
+
+.sidebar-link {
+    color: white;
+    text-wrap: nowrap;
+    margin-bottom: $spacing-sm;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-xs;
+    transition: $transition-ease $transition-instant;
+    width: 100%;
+
+    &:hover{
+        width: calc(100% - $spacing-xs);
+        background-color: $gray-darker;
+        transform: translateX($spacing-xs);
+    }
+}
+
+@media (max-width: #{$breakpoint-lg}) {
+    #main-sidebar.open{
+        transform: translateX(0px);
+    }
+}

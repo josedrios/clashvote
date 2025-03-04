@@ -1,0 +1,138 @@
+#search-page-container {
+    @include flex(column, initial, center);
+}
+
+#searchbar-toggle {
+    display: flex;
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-sm;
+    flex-direction: row;
+    width: 80px;
+    height: 50px;
+    flex: 0 0 auto;
+    position: relative;
+    margin-right: $spacing-sm;
+}
+
+#toggle-bg-slider {
+    @include box(50%, inherit);
+    z-index: $z-toggle-slider;
+    border-radius: $border-radius-sm;
+    background-color: color-fade($primary-color, 0.25);
+    transition: transform $transition-instant ease-out;
+}
+
+.shift-right {
+    transform: translateX(39px);
+}
+
+#search-result-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+
+    > * {
+        margin-bottom: $spacing-md;
+    }
+}
+
+#player-header {
+    @include flex(row, space-between);
+    margin-top: $spacing-sm;
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #player-header {
+        flex-direction: column;
+    }
+}
+
+#player-base-flex {
+    flex-direction: row;
+    display: flex;
+    > * {
+        width: 49%;
+    }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+    #player-base-flex {
+        flex-direction: column;
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    #player-builder-data {
+        margin-top: $spacing-md;
+        margin-left: 0% !important;
+    }
+
+    #player-home-data {
+        margin-right: 0% !important;
+    }
+}
+
+#search-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#search-info-header {
+    margin: auto;
+    text-align: center;
+    padding-bottom: $spacing-lg;
+    font-size: $font-size-lg
+}
+
+#search-info-tip-body {
+    @include flex(row, space-around);
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    #search-info-tip-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tip-info {
+        margin-bottom: 50px;
+    }
+}
+
+.tip-info {
+    @include flex(row, initial, center);
+    height: 4px;
+}
+
+.info-icon-container {
+    @include flex(row, center, center);
+    @include box(35px);
+    position: relative;
+}
+
+.info-icon-background {
+    @include box(45px);
+    position: absolute;
+    background-color: rgba(235, 222, 36, 0.271);
+    border-radius: $border-radius-c;
+}
+
+.info-icon {
+    font-size: $font-size-xl;
+    fill: $primary-color;
+}
+
+.info-tip-header {
+    font-size: $font-size-lg;
+    margin-left: $spacing-md;
+}
+
+.hall-container {
+    display: flex;
+    position: relative;
+    padding: 0 0 0 $spacing-xs;
+}

@@ -1,0 +1,122 @@
+.multiple-candidate-container {
+    padding: $spacing-md $spacing-md;
+    background-color: $secondary-background-color;
+
+    > *:last-child{
+        margin-bottom: $spacing-xs;
+    }
+}
+
+.candidate-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $spacing-md;
+}
+
+.candidate-image {
+    aspect-ratio: 1/1;
+    height: 57px;
+    border-radius: $border-radius-xs;
+}
+
+.candidate-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: $spacing-md;
+
+    h4 {
+        font-size: $font-size-lg;
+    }
+}
+
+.candidate-vote-bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: color-fade($primary-color, 0.25);
+    background-color: color-fade($primary-color, 0.25);
+    margin: $spacing-xs 0;
+    border-radius: $border-radius-lg;
+
+    .fill-bar {
+        position: absolute;
+        background-color: $primary-color;
+        height: 8px;
+        border-radius: $border-radius-lg;
+        min-width: 8px;
+    }
+}
+
+.candidate-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h5 {
+        font-size: $font-size-md;
+    }
+}
+// Search Result Unit Section Level Completion Graph
+@media (max-width: #{$breakpoint-xs}) {
+    .vote-item-percentage {
+        display: none;
+    }
+
+    .vote-item-percentage-xs {
+        display: block;
+    }
+}
+
+.unit-progress-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-sm;
+}
+
+.unit-progress-percentage {
+    color: $primary-color;
+    margin-right: $spacing-sm;
+    width: 50px;
+}
+
+.unit-progress-bar {
+    height: 5px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+}
+
+.unit-bar {
+    height: inherit;
+    width: 100%;
+    background-color: rgba(235, 222, 36, 0.333);
+    border-radius: $border-radius-sm;
+}
+
+.unit-fill-bar {
+    border-radius: $border-radius-sm;
+    position: absolute;
+    height: inherit;
+    background-color: $primary-color;
+    left: 0;
+    bottom: 0;
+}
+
+.unit-progress-fraction {
+    margin: 0 $spacing-sm;
+
+    p {
+        display: inline;
+    }
+
+    .fraction-numerator {
+        color: $primary-color;
+    }
+
+    .fraction-denominator {
+        color: gray;
+        font-size: 13px;
+    }
+}

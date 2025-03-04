@@ -1,0 +1,61 @@
+// Contact Page
+#contact-container {
+    @include box(100%, 300px);
+}
+
+#contact-title {
+    text-align: center;
+    padding-bottom: $spacing-sm;
+}
+
+#contact-body-container {
+    @include flex(row, center);
+    #contact-info,
+    #contact-create-message {
+        padding: $spacing-md;
+    }
+}
+
+#contact-info {
+    @include box(50%, min-content);
+    background-color: $primary-color;
+    border-radius: $border-radius-sm;
+    max-width: 300px;
+    margin-top: $spacing-md;
+
+    > * {
+        margin-bottom: $spacing-sm;
+    }
+
+    h3 {
+        color: black;
+    }
+
+    div {
+        color: black;
+        font-size: $font-size-md;
+    }
+}
+
+#contact-btns-container {
+    @include flex(row, space-between);
+    margin-bottom: 0;
+    width: 100px;
+    margin-left: auto;
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+    #contact-info {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    #contact-title {
+        margin-bottom: $spacing-md;
+    }
+
+    #contact-body-container {
+        flex-direction: column;
+    }
+}

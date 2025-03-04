@@ -1,0 +1,5 @@
+// Functions
+
+@function color-fade($color, $opacity) {
+    @return rgba($color, $opacity);
+}
