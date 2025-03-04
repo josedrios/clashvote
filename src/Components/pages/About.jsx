@@ -26,7 +26,7 @@ export default function About({}) {
     return (
         <div id="about-container">
             <h3 id="about-us-title">
-                Meet the <h3>Team</h3>
+                Meet the <span>Team</span>
             </h3>
             <div id="about-us-body">
                 <div id="about-us-description">

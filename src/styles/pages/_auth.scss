@@ -9,7 +9,7 @@
     overflow: hidden;
     margin: auto 0;
     background-color: $secondary-background-color;
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius-sm;
     width: 100%;
     max-width: 800px;
     min-height: 300px;
@@ -31,7 +31,7 @@
     img {
         object-fit: cover;
         @include box(100%);
-        border-radius: $border-radius-lg;
+        border-radius: $border-radius-sm;
     }
 
     h3 {

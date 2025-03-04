@@ -3,6 +3,7 @@ import Search from '../pages/Search'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Auth from '../pages/Auth'
+import Account from '../pages/Account'
 
 function MainBody({ mainView }) {
   return (
@@ -12,6 +13,7 @@ function MainBody({ mainView }) {
         {mainView === 'about' && <About/>}
         {mainView === 'contact' && <Contact/>}
         {mainView === 'auth' && <Auth/>}
+        {mainView === 'account' && <Account/>}
     </main>
   )
 }

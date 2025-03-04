@@ -256,3 +256,19 @@ rect.bars {
 #test-json:hover {
     background-color: $secondary-color;
 }
+
+// Account 
+
+.account-body-nav-button {
+    background-color: $gray-darker;
+    text-align: left;
+    border-radius: $border-radius-xs;
+    margin-bottom: $spacing-xs;
+    padding: $spacing-sm 10%;
+    transition: background-color $transition-instant;
+
+    &:hover {
+        background-color: transparent;
+    }
+}
+
