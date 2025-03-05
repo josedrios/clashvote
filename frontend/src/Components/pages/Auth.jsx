@@ -3,16 +3,11 @@ import { FiUser } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdLockOutline } from "react-icons/md";
 import { useState } from "react";
-import axios from 'axios';
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 export default function Auth({}) {
     const [authTab, setAuthTab] = useState("signup");
-
-    const addUser = async () => {
-        
-    }
 
     return (
         <div id="auth-container">
