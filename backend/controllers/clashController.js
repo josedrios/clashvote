@@ -6,7 +6,7 @@ exports.getPlayer = async (req, res) => {
     const response = await fetch(
       `https://api.clashofclans.com/v1/players/%23${tag}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: { Authorization: `Bearer ${process.env.VITE_API_TOKEN}` },
       }
     );
@@ -19,15 +19,12 @@ exports.getPlayer = async (req, res) => {
   }
 };
 
-exports.getClans = async (req, res) => {
-  const { name } = req.params;
+exports.getClanInfo = async (req, res) => {
+  const { tag } = req.params;
   try {
     const response = await fetch(
-      `https://api.clashofclans.com/v1/clans?name=${encodeURIComponent(
-        name
-      )}&limit=20`,
+      `https://api.clashofclans.com/v1/clans/%23${tag}`,
       {
-        method: "GET",
         headers: { Authorization: `Bearer ${process.env.VITE_API_TOKEN}` },
       }
     );
@@ -40,12 +37,15 @@ exports.getClans = async (req, res) => {
   }
 };
 
-exports.getClanInfo = async (req, res) => {
-  const { tag } = req.params;
+exports.getClans = async (req, res) => {
+  const { name } = req.params;
   try {
     const response = await fetch(
-      `https://api.clashofclans.com/v1/clans/%23${tag}`,
+      `https://api.clashofclans.com/v1/clans?name=${encodeURIComponent(
+        name
+      )}&limit=25`,
       {
+        method: 'GET',
         headers: { Authorization: `Bearer ${process.env.VITE_API_TOKEN}` },
       }
     );

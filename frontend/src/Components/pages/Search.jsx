@@ -12,7 +12,7 @@ import { IoIosSearch } from "react-icons/io";
 export default function Search() {
     const inputRef = useRef(null);
     const scrollRef = useRef(null);
-    const [searchToggle, setSearchToggle] = useState("clan");
+    const [searchToggle, setSearchToggle] = useState("player");
     const [searchResult, setSearchResult] = useState({
         data: "",
         tab: "",
@@ -34,7 +34,7 @@ export default function Search() {
             var response;
             if (type === "player") {
                 response = await fetch(
-                    `http://localhost:3001/api/players/${prompt}`
+                    `http://localhost:3001/api/clash/players/${prompt}`
                 );
             } else {
                 var clanData = await getClanData(prompt);
@@ -47,7 +47,7 @@ export default function Search() {
                 } else {
                     console.log("returned null");
                     response = await fetch(
-                        `http://localhost:3001/api/clans/${prompt}`
+                        `http://localhost:3001/api/clash/clans/search/${prompt}`
                     );
                 }
             }
@@ -81,7 +81,7 @@ export default function Search() {
     const getClanData = async (clanTag) => {
         try {
             const response = await fetch(
-                `http://localhost:3001/api/clan-info/${clanTag}`
+                `http://localhost:3001/api/clash/clans/search/${clanTag}`
             );
 
             if (!response.ok) {

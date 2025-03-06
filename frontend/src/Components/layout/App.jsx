@@ -8,7 +8,7 @@ import '../../styles/main.scss';
 
 export default function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-  const [mainView, setMainView] = useState('account');
+  const [mainView, setMainView] = useState('search');
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);

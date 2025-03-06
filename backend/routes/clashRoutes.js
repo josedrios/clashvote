@@ -4,7 +4,7 @@ const { getPlayer, getClans, getClanInfo } = require('../controllers/clashContro
 const router = express.Router();
 
 router.get('/players/:tag', getPlayer);
-router.get('/clans/:name', getClans);
-router.get('/clan-info/:tag', getClanInfo);
+router.get('/clans/:tag', getClanInfo);
+router.get('/clans/search/:name', getClans);
 
 module.exports = router;

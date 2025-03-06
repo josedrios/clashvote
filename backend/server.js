@@ -15,8 +15,8 @@ app.use(express.json());
 connectDB();
 
 // Load Routes
-app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api', require('./routes/clashRoutes'));
+app.use('/api/users', require('./routes/userRoutes')); // User related routes
+app.use('/api/clash', require('./routes/clashRoutes')); // Clash of Clans API related routes
 
 // Middleware (Error Handling)
 app.use(require('./middleware/errorHandler'));

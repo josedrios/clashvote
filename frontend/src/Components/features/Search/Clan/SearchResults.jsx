@@ -44,7 +44,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
     const getClanData = async (clanTag) => {
         try {
             const response = await fetch(
-                `http://localhost:3001/api/clan-info/${clanTag}`
+                `http://localhost:3001/api/clash/clans/${clanTag}`
             );
 
             if (response.status === 404) {
