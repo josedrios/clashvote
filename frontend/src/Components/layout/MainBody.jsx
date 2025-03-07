@@ -5,10 +5,12 @@ import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Auth from '../pages/Auth';
 import Account from '../pages/Account';
+import AlertBanner from './AlertBanner';
 
 function MainBody({ mainView }) {
   return (
     <main id="main-body">
+      <AlertBanner />
       <Routes>
         <Route path="/" element={<Season />} />
         <Route path="/search" element={<Search />} />

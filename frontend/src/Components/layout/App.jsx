@@ -1,14 +1,15 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-
 import NavBar from './Navbar';
 import MainBody from './MainBody';
 import SideBar from './SideBar';
 import { useState, useEffect } from 'react';
+import { useAlert } from '../../util/AlertContext';
 import '../../styles/main.scss';
 
 export default function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const [mainView, setMainView] = useState('auth');
+  const { showAlert } = useAlert();
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);

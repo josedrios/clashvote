@@ -46,6 +46,7 @@
     max-width: $breakpoint-xl;
     width: calc(100% - 250px - 5rem);
     padding: $spacing-lg;
+    padding-top: $spacing-md !important;
     flex-grow: 1;
     overflow: auto;
     padding-bottom: 100px;

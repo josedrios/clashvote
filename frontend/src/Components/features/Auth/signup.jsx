@@ -2,8 +2,11 @@ import { FiUser } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
+import { useAlert } from "../../../util/AlertContext";
 
 export default function Signup({ authType, authTab, setAuthTab }) {
+    const {showAlert} = useAlert();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -23,6 +26,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
 
   const handleSubmit = (e) => {
     console.log('Form submitted: ', formData);
+    showAlert('You submitted your form', "success")
   };
 
   return (

@@ -3,13 +3,14 @@ import ClanResults from "../features/Search/Clan/SearchResults";
 import SearchTip from "../features/Search/SearchTip";
 import TestJSON from "../../clasher.json";
 import TestsJSON from "../../claner.json";
-import { useState, useRef, useEffect } from "react";
-
+import { useState, useRef } from "react";
+import { useAlert } from "../../util/AlertContext";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShieldAlt } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 
 export default function Search() {
+    const { showAlert } = useAlert();
     const inputRef = useRef(null);
     const scrollRef = useRef(null);
     const [searchToggle, setSearchToggle] = useState("player");
@@ -21,8 +22,7 @@ export default function Search() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (inputRef.current.value.trim() == "") {
-            console.warn("ALERT: Empty string was given");
-            // Activate Alert Banner Here
+            showAlert('You entered an empty string!', 'error')
             return;
         }
         fetchData(inputRef.current.value.trim(), searchToggle);
