@@ -7,7 +7,11 @@ const postSchema = new mongoose.Schema({
       name: { type: String, required: true },
     },
   ],
-  season: { type: Number, required: true },
+  season: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Season',
+    required: true,
+  },
   createdAt: { type: Date, default: Date.now },
 });
 
