@@ -1,8 +1,11 @@
 import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
+import { useAlert } from '../../../util/AlertContext';
 
 export default function Login({ authType, authTab, setAuthTab }) {
+  const { showAlert } = useAlert();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -19,6 +22,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
 
   const handleSubmit = (e) => {
     console.log('Form submitted: ', formData);
+    showAlert('You logged in!', 'success');
   };
 
   return (

@@ -3,13 +3,10 @@ import NavBar from './Navbar';
 import MainBody from './MainBody';
 import SideBar from './SideBar';
 import { useState, useEffect } from 'react';
-import { useAlert } from '../../util/AlertContext';
 import '../../styles/main.scss';
 
 export default function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-  const [mainView, setMainView] = useState('auth');
-  const { showAlert } = useAlert();
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
@@ -31,14 +28,12 @@ export default function App() {
       <NavBar
         isSideBarOpen={isSideBarOpen}
         toggleSideBar={toggleSideBar}
-        setMainView={setMainView}
         setIsSideBarOpen={setIsSideBarOpen}
       />
       <div id="main-container">
         <SideBar
           isSideBarOpen={isSideBarOpen}
           setIsSideBarOpen={setIsSideBarOpen}
-          setMainView={setMainView}
         />
         <MainBody/>
         {isSideBarOpen && (

@@ -41,7 +41,6 @@ export default function Navbar({
         </svg>
       </button>
 
-      {/* ✅ Clicking the website name now navigates properly */}
       <button
         id="website-name-container"
         onClick={() => {

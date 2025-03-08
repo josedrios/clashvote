@@ -1,20 +1,51 @@
 .alert-banner {
-    text-align: center;
-    font-size: $font-size-sm;
-    padding: $spacing-sm;
-    border-radius: $border-radius-xs;
-    width: 100%;
-    margin-bottom: $spacing-md;
+  width: 100%;
+  text-align: center;
+  font-size: $font-size-sm;
+  padding: $spacing-sm;
+  border-radius: $border-radius-xs;
+  margin-bottom: $spacing-md;
+  position: relative;
+}
+
+.banner-button {
+  position: absolute;
+  right: $spacing-md;
+  bottom: 2px;
+  background-color: transparent;
+  font-size: $font-size-lg;
+  padding: none;
 }
 
 .alert-success {
-    background-color: color-fade($success-color, 0.4);
+  border: 1px solid $success-color;
+  background-color: color-fade($success-color, 0.1);
+  color: $success-color;
+  transition: background-color $transition-instant;
+
+  &:hover {
+    background-color: color-fade($success-color, 0.25);
+  }
 }
 
 .alert-error {
-    background-color: color-fade($error-color, 0.4);
+  border: 1px solid $error-color;
+  background-color: color-fade($error-color, 0.1);
+  color: $error-color;
+  transition: background-color $transition-instant;
+
+  &:hover {
+    background-color: color-fade($error-color, 0.25);
+  }
 }
 
 .alert-info {
-    background-color: color-fade($primary-color, 0.4);
+  border: 1px solid $primary-color;
+  background-color: color-fade($primary-color, 0.1);
+  color: $primary-color;
+  transition: background-color $transition-instant;
+
+  &:hover {
+    background-color: color-fade($primary-color, 0.25);
+  }
 }
