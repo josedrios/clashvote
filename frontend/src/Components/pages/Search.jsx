@@ -45,7 +45,6 @@ export default function Search() {
                     });
                     return;
                 } else {
-                    console.log("returned null");
                     response = await fetch(
                         `http://localhost:3001/api/clash/clans/search/${prompt}`
                     );
@@ -79,9 +78,11 @@ export default function Search() {
     }
 
     const getClanData = async (clanTag) => {
+        console.log(clanTag);
+        
         try {
             const response = await fetch(
-                `http://localhost:3001/api/clash/clans/search/${clanTag}`
+                `http://localhost:3001/api/clash/clans/${clanTag}`
             );
 
             if (!response.ok) {

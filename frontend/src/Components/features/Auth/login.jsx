@@ -22,7 +22,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
 
   const handleSubmit = (e) => {
     console.log('Form submitted: ', formData);
-    showAlert('You logged in!', 'success');
+    showAlert('You logged in!', 'info');
   };
 
   return (

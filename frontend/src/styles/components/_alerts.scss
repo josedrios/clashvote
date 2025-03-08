@@ -6,15 +6,11 @@
   border-radius: $border-radius-xs;
   margin-bottom: $spacing-md;
   position: relative;
+  transition: height 1s;
 }
 
-.banner-button {
-  position: absolute;
-  right: $spacing-md;
-  bottom: 2px;
-  background-color: transparent;
-  font-size: $font-size-lg;
-  padding: none;
+.alert-banner-type {
+    font-weight: 600;
 }
 
 .alert-success {
@@ -25,6 +21,10 @@
 
   &:hover {
     background-color: color-fade($success-color, 0.25);
+  }
+
+  span {
+    color: $success-color;
   }
 }
 
@@ -37,6 +37,10 @@
   &:hover {
     background-color: color-fade($error-color, 0.25);
   }
+
+  span {
+    color: $error-color;
+  }
 }
 
 .alert-info {
@@ -47,5 +51,9 @@
 
   &:hover {
     background-color: color-fade($primary-color, 0.25);
+  }
+
+  span {
+    color: $primary-color;
   }
 }

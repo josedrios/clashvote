@@ -33,8 +33,6 @@ export default function Members({ clan, fetchPlayer }) {
         fetchPlayer(player.split("#").join(""), "player");
     };
 
-    const removeHover = document.getElementById('clan-member-row-example');
-
     return (
         <div className="clan-members-section">
             <div className="clan-members-header">
