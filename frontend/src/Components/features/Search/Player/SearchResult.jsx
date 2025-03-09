@@ -3,7 +3,7 @@ import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
 import images from "../../Images";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
