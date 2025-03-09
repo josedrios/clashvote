@@ -22,21 +22,25 @@ export function validateAuthForm(formData, showAlert, formType) {
 
   // USERNAME VALIDATION CHECK
   if (formType === 'signup') {
-    if(!usernameCheck(formData, showAlert)) {
-        return false;
+    if (!usernameCheck(formData, showAlert)) {
+      return false;
     }
   }
 
   // EMAIL VALIDATION CHECK
-  if (!validator.isEmail(formData.email)) {
+  if (!validator.isEmail(formData.email.trim())) {
     showAlert(`'${formData.email}' is not a valid email`, 'error');
     return false;
   }
 
   // PASSWORD VALIDATION CHECK
-  if(!passwordCheck(formData, showAlert)) {
-    return false;
+  if (formType === 'signup') {
+    if (!passwordCheck(formData, showAlert)) {
+      return false;
+    }
   }
+
+  // IF GIVEN PW FOR LOGIN IS MORE THAN 64 CHARS, CUT EXTRA THEN RUN QUERY (OR INSTANTLY GIVE INVALID PW BANNER)
 
   return true;
 }
@@ -71,31 +75,35 @@ function usernameCheck(formData, showAlert) {
 }
 
 function passwordCheck(formData, showAlert) {
-    const passwordFaults = [];
+  const passwordFaults = [];
 
-    if (!validator.isLength(formData.password, { min: 8 })) {
-      passwordFaults.push('at least 8 characters');
-    }
-  
-    if (!validator.isLength(formData.password, { max: 64 })) {
-      passwordFaults.push('at most 64 characters');
-    }
-  
-    if (!/[0-9]/.test(formData.password)) {
-      passwordFaults.push('at least one number');
-    }
-  
-    if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
-      passwordFaults.push('at least one special character');
-    }
-  
-    if (passwordFaults.length > 0) {
-      showAlert(
-        `Your password does not have ${passwordFaults.join(', ')}`,
-        'error'
-      );
-      return false;
-    }
+  if (!validator.isLength(formData.password, { min: 8 })) {
+    passwordFaults.push('at least 8 characters');
+  }
 
-    return true;
+  if (!validator.isLength(formData.password, { max: 64 })) {
+    passwordFaults.push('at most 64 characters');
+  }
+
+  if (!/[0-9]/.test(formData.password)) {
+    passwordFaults.push('at least one number');
+  }
+
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
+    passwordFaults.push('at least one special character');
+  }
+
+  if (/\s/.test(formData.password)) {
+    passwordFaults.push('proper formatting (remove spaces)');
+  }
+
+  if (passwordFaults.length > 0) {
+    showAlert(
+      `Your password does not have ${passwordFaults.join(', ')}`,
+      'error'
+    );
+    return false;
+  }
+
+  return true;
 }
