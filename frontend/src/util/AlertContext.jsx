@@ -17,7 +17,7 @@ export function AlertProvider({ children }) {
       timeoutRef.current = setTimeout(() => {
         setAlert({ message: '', type: '' });
         timeoutRef.current = null; // Reset reference
-      }, 4500);
+      }, 5500);
     }
   };
 

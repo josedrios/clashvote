@@ -18,7 +18,7 @@ export default function Auth({}) {
                 height: '310px',
               }
             : {
-                height: '385px',
+                height: '430px',
               }
         }
       >

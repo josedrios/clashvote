@@ -2,6 +2,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
+import { validateAuthForm, processFormData } from '../../../util/processAuthInfo';
 
 export default function Login({ authType, authTab, setAuthTab }) {
   const { showAlert } = useAlert();
@@ -21,8 +22,10 @@ export default function Login({ authType, authTab, setAuthTab }) {
   };
 
   const handleSubmit = (e) => {
-    console.log('Form submitted: ', formData);
-    showAlert('You logged in!', 'info');
+    const validation = validateAuthForm(formData, showAlert, 'login');
+    if (validation) {
+      processFormData(formData, showAlert, 'login');
+    }
   };
 
   return (
@@ -48,6 +51,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
           onChange={handleChange}
           placeholder="Email"
           className="auth-input"
+          aria-label="Email"
         />
       </div>
       <div className="auth-input-container">
@@ -59,6 +63,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
           onChange={handleChange}
           placeholder="Password"
           className="auth-input"
+          aria-label="Password"
         />
       </div>
       <button

@@ -3,6 +3,10 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
+import {
+  validateAuthForm,
+  processFormData,
+} from '../../../util/processAuthInfo';
 
 export default function Signup({ authType, authTab, setAuthTab }) {
   const { showAlert } = useAlert();
@@ -25,8 +29,10 @@ export default function Signup({ authType, authTab, setAuthTab }) {
   };
 
   const handleSubmit = (e) => {
-    console.log('Form submitted: ', formData);
-    showAlert('You have registered!', 'success');
+    const validation = validateAuthForm(formData, showAlert, 'signup');
+    if (validation) {
+      processFormData(formData, showAlert, 'signup');
+    }
   };
 
   return (
@@ -53,6 +59,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
           onChange={handleChange}
           placeholder="Username"
           className="auth-input"
+          aria-label="Username"
         />
       </div>
 
@@ -65,9 +72,10 @@ export default function Signup({ authType, authTab, setAuthTab }) {
           onChange={handleChange}
           placeholder="Email"
           className="auth-input"
+          aria-label="Email"
         />
       </div>
-      <div className="auth-input-container">
+      <div className="auth-input-container signup-password">
         <MdLockOutline className="auth-input-icon" />
         <input
           type="password"
@@ -76,8 +84,10 @@ export default function Signup({ authType, authTab, setAuthTab }) {
           onChange={handleChange}
           placeholder="Password"
           className="auth-input"
+          aria-label="Password"
         />
       </div>
+      <p className='password-guideline'>Minimum 8 characters, include a number & special character</p>
       <div className="auth-checkbox-container">
         <p>
           <input
@@ -86,6 +96,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
             checked={formData.tos}
             onChange={handleChange}
             id="auth-form-tos"
+            aria-label="Terms of Serice"
           />{' '}
           I agree to the{' '}
           <a
@@ -104,6 +115,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
               checked={formData.age}
               onChange={handleChange}
               id="auth-form-age"
+              aria-label="Age Check"
             />{' '}
             I am 13 or older
           </p>
