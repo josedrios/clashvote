@@ -11,7 +11,24 @@ exports.getPlayer = async (req, res) => {
       }
     );
 
-    if (!response.ok) throw new Error('Failed to fetch player data');
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.log(response.status);
+        return res.status(404).json({ error: 'Player not found' });
+      } else if (response.status === 403) {
+        console.log(response.status);
+        return res.status(403).json({ error: 'Forbidden - Invalid API token' });
+      } else if (response.status === 429) {
+        console.log(response.status);
+        return res
+          .status(429)
+          .json({ error: 'Too many requests - Rate limit exceeded' });
+      }
+
+      return res
+        .status(response.status)
+        .json({ error: 'Failed to fetch player data' });
+    }
     const data = await response.json();
     res.json(data);
   } catch (error) {
@@ -29,7 +46,24 @@ exports.getClanInfo = async (req, res) => {
       }
     );
 
-    if (!response.ok) throw new Error('Failed to fetch clan data');
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.log(response.status);
+        return res.status(404).json({ error: 'Clan not found' });
+      } else if (response.status === 403) {
+        console.log(response.status);
+        return res.status(403).json({ error: 'Forbidden - Invalid API token' });
+      } else if (response.status === 429) {
+        console.log(response.status);
+        return res
+          .status(429)
+          .json({ error: 'Too many requests - Rate limit exceeded' });
+      }
+
+      return res
+        .status(response.status)
+        .json({ error: 'Failed to fetch clan data' });
+    }
     const data = await response.json();
     res.json(data);
   } catch (error) {
@@ -50,10 +84,27 @@ exports.getClans = async (req, res) => {
       }
     );
 
-    if (!response.ok) throw new Error('Failed to fetch clan data');
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.log(response.status);
+        return res.status(404).json({ error: 'Clan(s) not found' });
+      } else if (response.status === 403) {
+        console.log(response.status);
+        return res.status(403).json({ error: 'Forbidden - Invalid API token' });
+      } else if (response.status === 429) {
+        console.log(response.status);
+        return res
+          .status(429)
+          .json({ error: 'Too many requests - Rate limit exceeded' });
+      }
+
+      return res
+        .status(response.status)
+        .json({ error: 'Failed to fetch clan(s) data' });
+    }
     const data = await response.json();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch clan data' });
+    res.status(500).json({ error: 'Failed to fetch clan(s) data' });
   }
 };

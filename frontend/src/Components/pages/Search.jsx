@@ -50,15 +50,7 @@ export default function Search() {
           );
         }
       }
-      if (searchResult.data.items?.length === 0) {
-        showAlert(
-          `No ${type}(s) found with the entry of '${prompt}'.`,
-          'error'
-        );
-        throw new Error(
-          `Failed to get ${type}'s data right now. Please try again later.`
-        );
-      }
+
       if (response.status === 404) {
         showAlert(
           `No ${type}(s) found with the entry of '${prompt}'.`,
@@ -81,6 +73,13 @@ export default function Search() {
         );
       }
       const data = await response.json();
+      if (data.items?.length === 0) {
+        showAlert(
+          `No ${type}(s) found with the entry of '${prompt}'.`,
+          'error'
+        );
+        throw new Error(`No ${type}(s) with entry of '${prompt}' found`);
+      }
       console.log(data);
       setSearchResult({
         data: data,
