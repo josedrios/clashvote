@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
 import {
   validateAuthForm,
-  processFormData,
+  processRegister,
 } from '../../../util/processAuthInfo';
 
 export default function Signup({ authType, authTab, setAuthTab }) {
@@ -31,7 +31,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'signup');
     if (validation) {
-      processFormData(formData, showAlert, 'signup');
+      processRegister(formData, showAlert, 'signup');
     }
   };
 

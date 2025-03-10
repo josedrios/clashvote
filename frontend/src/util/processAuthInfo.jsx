@@ -1,7 +1,7 @@
 import validator from 'validator';
 
 export function validateAuthForm(formData, showAlert, formType) {
-  console.log(formData);
+  formData.email = formData.email?.trim();
 
   // EMPTY FIELD CHECKS
   const emptyFields = [];
@@ -12,7 +12,9 @@ export function validateAuthForm(formData, showAlert, formType) {
   if (formType === 'signup') {
     if (!formData.username) emptyFields.push('Username');
     if (!formData.age) emptyFields.push('Age Check');
-    if (!formData.tos) emptyFields.push('Terms of Service agreement');
+    if (!formData.age || formData.age !== true) emptyFields.push('Age Check');
+    if (!formData.tos || formData.tos !== true)
+      emptyFields.push('Terms of Service agreement');
   }
 
   if (emptyFields.length > 0) {
@@ -27,9 +29,21 @@ export function validateAuthForm(formData, showAlert, formType) {
     }
   }
 
+  const emailFaults = [];
+
   // EMAIL VALIDATION CHECK
-  if (!validator.isEmail(formData.email.trim())) {
-    showAlert(`'${formData.email}' is not a valid email`, 'error');
+  if (!validator.isEmail(formData.email)) {
+    emailFaults.push(
+      `Please enter a correctly formatted email address (ex. example@domain.com).`
+    );
+  }
+
+  if (!validator.isLength(formData.email, { max: 254 })) {
+    emailFaults.push(`Your email is too long (max 254 characters)`);
+  }
+
+  if (emailFaults.length > 0) {
+    showAlert(`Email is invalid: ${emailFaults.join(', ')}`, 'error');
     return false;
   }
 
@@ -45,8 +59,22 @@ export function validateAuthForm(formData, showAlert, formType) {
   return true;
 }
 
-export function processFormData(formData, showAlert, formType) {
+export async function processRegister(formData, showAlert) {
   showAlert(`Information has reached the process function`, 'success');
+  const { username, email, password } = formData;
+
+  try {
+    const response = await fetch('http://localhost:3001/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log('Error: ', error);
+  }
 }
 
 function usernameCheck(formData, showAlert) {
@@ -89,7 +117,7 @@ function passwordCheck(formData, showAlert) {
     passwordFaults.push('at least one number');
   }
 
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
+  if (!/\W/.test(formData.password)) {
     passwordFaults.push('at least one special character');
   }
 
