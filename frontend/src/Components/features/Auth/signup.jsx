@@ -3,10 +3,8 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
-import {
-  validateAuthForm,
-  processRegister,
-} from '../../../util/processAuthInfo';
+import { validateAuthForm } from '../../../util/validateAuth';
+import { processRegister } from '../../../util/processAuth';
 
 export default function Signup({ authType, authTab, setAuthTab }) {
   const { showAlert } = useAlert();
@@ -30,8 +28,8 @@ export default function Signup({ authType, authTab, setAuthTab }) {
 
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'signup');
-    if (validation) {
-      processRegister(formData, showAlert, 'signup');
+    if(validation){
+      processRegister(formData, showAlert)
     }
   };
 
@@ -87,7 +85,9 @@ export default function Signup({ authType, authTab, setAuthTab }) {
           aria-label="Password"
         />
       </div>
-      <p className='password-guideline'>Minimum 8 characters, include a number & special character</p>
+      <p className="password-guideline">
+        Minimum 8 characters, include a number & special character
+      </p>
       <div className="auth-checkbox-container">
         <p>
           <input

@@ -2,9 +2,8 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
-import {
-  validateAuthForm,
-} from '../../../util/processAuthInfo';
+import { validateAuthForm } from '../../../util/validateAuth';
+import { processLogin } from '../../../util/processAuth';
 
 export default function Login({ authType, authTab, setAuthTab }) {
   const { showAlert } = useAlert();
@@ -25,6 +24,9 @@ export default function Login({ authType, authTab, setAuthTab }) {
 
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'login');
+    if (validation) {
+      processLogin(formData, showAlert);
+    }
   };
 
   return (
