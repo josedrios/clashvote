@@ -86,7 +86,8 @@ export default function Navbar({
         <button
           className="nav-btn"
           onClick={() => {
-            navigate('/auth');
+            const token = localStorage.getItem('token');
+            navigate(token ? '/account' : '/auth');
             setIsSideBarOpen(false);
           }}
         >

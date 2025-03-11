@@ -57,5 +57,3 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: 'Error logging in', error: error.message });
   }
 };
-
-exports.logoutUser = async (req, res) => {};

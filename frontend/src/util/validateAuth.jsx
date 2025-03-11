@@ -43,7 +43,7 @@ export function validateAuthForm(formData, showAlert, formType) {
   }
 
   if (emailFaults.length > 0) {
-    showAlert(`Email is invalid: ${emailFaults.join(', ')}`, 'error');
+    showAlert(`Email is invalid,  ${emailFaults.join(', ')}`, 'error');
     return false;
   }
 
