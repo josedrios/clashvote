@@ -20,7 +20,7 @@ export async function processRegister(formData, navigate, showAlert) {
           'error'
         );
       }
-      tempPageChange(navigate);
+      tempPageChange(navigate, showAlert);
     } else {
       showAlert(data.message || 'Registration failed', 'error');
     }
@@ -52,7 +52,7 @@ export async function processLogin(formData, navigate, showAlert) {
         );
       }
       console.log('User has logged in');
-      tempPageChange(navigate);
+      tempPageChange(navigate, showAlert);
     } else {
       showAlert(data.message || 'Login failed', 'error');
     }
@@ -62,7 +62,8 @@ export async function processLogin(formData, navigate, showAlert) {
   }
 }
 
-function tempPageChange(navigate) {
+function tempPageChange(navigate, showAlert) {
   const token = localStorage.getItem('token');
-  navigate(token ? '/account' : '/auth');
+  navigate(token ? '/' : '/auth');
+  showAlert('You have successfully signed in!', 'success');
 }

@@ -3,18 +3,33 @@ import { useState } from 'react';
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
+import { usernameCheck } from '../../util/validateAuth';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
   navigate('/auth');
   showAlert('You have been logged out', 'info');
-
 }
 
 export default function Account({}) {
   const [bodyContent, setBodyContent] = useState('saved');
   const navigate = useNavigate();
   const { showAlert } = useAlert();
+
+  const [settingChanges, setSettingChanges] = useState({
+    username: '',
+    pfpColor: '',
+    pfpCharacter: '',
+  });
+
+  const accountChanges = (data) => {
+    console.log(data);
+    if (data.username) {
+      if (usernameCheck(data, showAlert)) {
+        console.log('Username sent to be changed');
+      }
+    }
+  };
 
   return (
     <div className="account-container">
@@ -61,6 +76,9 @@ export default function Account({}) {
               logoutUser={logoutUser}
               navigate={navigate}
               showAlert={showAlert}
+              settingChanges={settingChanges}
+              setSettingChanges={setSettingChanges}
+              accountChanges={accountChanges}
             />
           )}
         </div>
@@ -70,22 +88,66 @@ export default function Account({}) {
 }
 
 function SavedContent() {
-  return <div className="account-content-page">saved</div>;
+  return (
+    <div className="account-content-tab">
+      <h5>Saved</h5>
+    </div>
+  );
 }
 
 function VotesContent() {
-  return <div className="account-content-page">votes</div>;
+  return (
+    <div className="account-content-tab">
+      <h5>Votes</h5>
+    </div>
+  );
 }
 
 function CommentsContent() {
-  return <div className="account-content-page">comments</div>;
+  return (
+    <div className="account-content-tab">
+      <h5>Comments</h5>
+    </div>
+  );
 }
 
-function SettingsContent({ logoutUser, navigate, showAlert }) {
+function SettingsContent({
+  logoutUser,
+  navigate,
+  showAlert,
+  settingChanges,
+  setSettingChanges,
+  accountChanges,
+}) {
   return (
-    <div className="account-content-page">
-      <h4>Settings</h4>
-      <button onClick={() => logoutUser(navigate, showAlert)}>Logout</button>
+    <div className="account-content-tab account-settings-tab">
+      <h5>Settings</h5>
+      <label htmlFor="account-username-change">Change Username:</label>
+      <input
+        id="account-username-change"
+        type="text"
+        value={settingChanges.username}
+        onChange={(e) =>
+          setSettingChanges((prev) => ({
+            ...prev,
+            username: e.target.value,
+          }))
+        }
+      />
+      <div className="account-settings-buttons">
+        <button
+          className="standard-btn"
+          onClick={() => accountChanges(settingChanges)}
+        >
+          Save
+        </button>
+        <button
+          className="standard-btn"
+          onClick={() => logoutUser(navigate, showAlert)}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 }

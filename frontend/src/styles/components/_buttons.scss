@@ -272,3 +272,9 @@ rect.bars {
     }
 }
 
+// Account Settings Tab
+
+.account-settings-buttons {
+    @include flex(row, space-between, center);
+    margin-top: $spacing-sm;
+}

@@ -59,7 +59,7 @@ export function validateAuthForm(formData, showAlert, formType) {
   return true;
 }
 
-function usernameCheck(formData, showAlert) {
+export function usernameCheck(formData, showAlert) {
   const usernameFaults = [];
 
   if (!validator.isLength(formData.username, { min: 3 })) {
@@ -84,7 +84,7 @@ function usernameCheck(formData, showAlert) {
   return true;
 }
 
-function passwordCheck(formData, showAlert) {
+export function passwordCheck(formData, showAlert) {
   const passwordFaults = [];
 
   if (!validator.isLength(formData.password, { min: 8 })) {

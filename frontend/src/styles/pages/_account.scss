@@ -42,7 +42,17 @@
     padding-left: $spacing-md;
 }
 
-.account-content-page {
+.account-content-tab {
+    @include flex(column, initial, left);
     width: 100%;
-    text-align: center;
+
+    > * {
+        margin-bottom: $spacing-sm;
+    }
+
+    h5 {
+        color: $primary-color;
+        text-align: center;
+    }
 }
+
