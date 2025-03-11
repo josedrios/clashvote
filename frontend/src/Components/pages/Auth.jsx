@@ -18,19 +18,29 @@ export default function Auth({}) {
     navigate(`/auth/${authTab}`, { replace: true });
   }, [authTab, navigate]);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const height =
+    authTab === 'login'
+      ? windowWidth < 701
+        ? '200px' 
+        : '400px'
+      : '430px';
+
   return (
     <div id="auth-container">
       <div
         id="sign-log-container"
-        style={
-          'login' === authTab
-            ? {
-                height: '310px',
-              }
-            : {
-                height: '430px',
-              }
-        }
+        style={{
+          height
+        }}
       >
         <Signup authType={'signup'} authTab={authTab} setAuthTab={setAuthTab} />
         <Login authType={'login'} authTab={authTab} setAuthTab={setAuthTab} />

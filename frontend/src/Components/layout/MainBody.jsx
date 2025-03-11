@@ -6,17 +6,18 @@ import Contact from '../pages/Contact';
 import Auth from '../pages/Auth';
 import Account from '../pages/Account';
 import AlertBanner from './AlertBanner';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useAlert } from '../../util/AlertContext';
+// import { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import { useAlert } from '../../util/AlertContext';
 
 function MainBody({ mainView }) {
-  const location = useLocation();
-  const { showAlert } = useAlert();
+  // const location = useLocation();
+  // const { showAlert } = useAlert();
 
-  useEffect(() => {
-    showAlert('', '');
-  }, [location.pathname]);
+  // Clears banner on main page changes
+  // useEffect(() => {
+  //   showAlert('', '');
+  // }, [location.pathname]);
 
   return (
     <main id="main-body">

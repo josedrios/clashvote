@@ -10,7 +10,8 @@
 #account-pfp {
     aspect-ratio: 1/1;
     width: 20%;
-    max-width: 80px;
+    max-width: 60px;
+    border-radius: $border-radius-c;
 }
 
 #account-header {
@@ -36,7 +37,12 @@
     flex-direction: column;
 }
 
-#account-content-container {
+#account-content {
     width: 75%;
     padding-left: $spacing-md;
+}
+
+.account-content-page {
+    width: 100%;
+    text-align: center;
 }
