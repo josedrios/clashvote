@@ -4,6 +4,7 @@ const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
+import { changeUsername } from '../../util/updateUserInfo';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -24,9 +25,11 @@ export default function Account({}) {
 
   const accountChanges = (data) => {
     console.log(data);
+    const token = localStorage.getItem('token');
     if (data.username) {
       if (usernameCheck(data, showAlert)) {
         console.log('Username sent to be changed');
+        changeUsername(data, showAlert, token);
       }
     }
   };

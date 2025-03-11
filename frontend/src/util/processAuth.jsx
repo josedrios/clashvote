@@ -26,7 +26,7 @@ export async function processRegister(formData, navigate, showAlert) {
     }
   } catch (error) {
     console.log('Error: ', error);
-    showAlert('Something went wrong. Please try again.', 'error');
+    showAlert('Something went wrong. Please try again later.', 'error');
   }
 }
 
