@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
 import { validateAuthForm } from '../../../util/validateAuth';
 import { processLogin } from '../../../util/processAuth';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login({ authType, authTab, setAuthTab }) {
   const { showAlert } = useAlert();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -25,7 +27,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'login');
     if (validation) {
-      processLogin(formData, showAlert);
+      processLogin(formData, navigate, showAlert);
     }
   };
 

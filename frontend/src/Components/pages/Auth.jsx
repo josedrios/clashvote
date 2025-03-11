@@ -1,12 +1,22 @@
 import images from '../../Components/features/Images';
 import Login from '../features/Auth/login';
 import Signup from '../features/Auth/signup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
 export default function Auth({}) {
-  const [authTab, setAuthTab] = useState('signup');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [authTab, setAuthTab] = useState(
+    location.pathname.includes('signup') ? 'signup' : 'login'
+  );
+
+  useEffect(() => {
+    navigate(`/auth/${authTab}`, { replace: true });
+  }, [authTab, navigate]);
 
   return (
     <div id="auth-container">

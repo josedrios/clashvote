@@ -1,5 +1,4 @@
-export async function processRegister(formData, showAlert) {
-  showAlert(`Information has reached the process function`, 'success');
+export async function processRegister(formData, navigate, showAlert) {
   const { username, email, password } = formData;
 
   try {
@@ -10,14 +9,19 @@ export async function processRegister(formData, showAlert) {
     });
 
     const data = await response.json();
-    console.log(data);
+
+    if (response.ok) {
+      tempPageChange(navigate);
+    } else {
+      showAlert(data.message || 'Registration failed', 'error');
+    }
   } catch (error) {
     console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again.', 'error');
   }
 }
 
-export async function processLogin(formData, showAlert) {
-  showAlert(`Information has reached the process function`, 'success');
+export async function processLogin(formData, navigate, showAlert) {
   const { email, password } = formData;
 
   try {
@@ -28,8 +32,17 @@ export async function processLogin(formData, showAlert) {
     });
 
     const data = await response.json();
-    console.log(data);
+    if (response.ok) {
+      tempPageChange(navigate);
+    } else {
+      showAlert(data.message || 'Login failed', 'error');
+    }
   } catch (error) {
     console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again.', 'error');
   }
+}
+
+function tempPageChange(navigate) {
+  navigate('/');
 }

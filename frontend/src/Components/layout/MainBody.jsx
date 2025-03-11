@@ -26,6 +26,7 @@ function MainBody({ mainView }) {
         <Route path="/search" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/auth/:authType" element={<Auth />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/account" element={<Account />} />
       </Routes>
