@@ -159,7 +159,7 @@ function SettingsContent({
   return (
     <div className="account-content-tab account-settings-tab">
       <h5>Settings</h5>
-      <label htmlFor="">Profile Picture Color:</label>
+      <label htmlFor="" className='pfp-color-label'>Profile Picture Color:</label>
       <div className="pfp-color-options-container">
         {pfpColors.map((color) => {
           return (

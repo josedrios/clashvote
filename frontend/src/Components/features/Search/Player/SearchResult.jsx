@@ -4,6 +4,7 @@ import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
 import images from "../../Images";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 const getBuilderLeague = (league) => {
@@ -14,9 +15,11 @@ const getBuilderDivision = (league) => {
     return league.split(" ")[2];
 };
 
-function SearchResult({ playerData, fetchData }) {
+function SearchResult({ playerData }) {
+    const navigate = useNavigate();
+    
     const handleClanInfo = (clan) => {
-        fetchData(clan, "clan")
+        navigate(`/search/clan/${clan}`);
     }
 
     const [achCurrent, setAchCurrent] = useState("home");

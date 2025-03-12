@@ -92,18 +92,18 @@ export default function Search() {
           <IoIosSearch />
         </button>
       </form>
-      <RenderContent searchResult={searchResult} fetchData={fetchData} />
+      <RenderContent searchResult={searchResult} />
     </div>
   );
 }
 
-function RenderContent({ searchResult, fetchData }) {
+function RenderContent({ searchResult }) {
   return (
     <>
       {searchResult.tab === 'player' ? (
-        <PlayerResult playerData={searchResult.data} fetchData={fetchData} />
+        <PlayerResult playerData={searchResult.data}/>
       ) : searchResult.tab === 'clan' ? (
-        <ClanResults clanData={searchResult.data} fetchPlayer={fetchData} />
+        <ClanResults clanData={searchResult.data} />
       ) : (
         <SearchTip />
       )}

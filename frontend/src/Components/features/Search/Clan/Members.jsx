@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import images from "../../Images";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 export default function Members({ clan, fetchPlayer }) {
+    const navigate = useNavigate();
+
     const fixClanRole = (role) => {
         var newRole = "";
         switch (role) {
@@ -30,7 +33,7 @@ export default function Members({ clan, fetchPlayer }) {
     };
 
     const handlePlayerInfo = (player) => {
-        fetchPlayer(player.split("#").join(""), "player");
+        navigate(`/search/player/${player.split("#").join("")}`)
     };
 
     return (
