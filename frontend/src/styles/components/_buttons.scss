@@ -152,6 +152,23 @@ rect.bars {
     }
 }
 
+.save-clan-btn {
+    background-color: transparent;
+    font-size: $font-size-lg;
+    margin-left: $spacing-sm;
+
+    svg {
+        transition: fill $transition-instant;
+        fill: color-fade($primary-color, 0.5);
+    }
+
+    &:hover {
+        svg {
+            fill: $primary-color;
+        }
+    }
+}
+
 // Search (Player)
 #player-action-btns button {
     background-color: transparent;
@@ -277,4 +294,18 @@ rect.bars {
 .account-settings-buttons {
     @include flex(row, space-between, center);
     margin-top: $spacing-sm;
+}
+
+.pfp-color-option {
+    margin: $spacing-xs;
+    position: relative;
+    @include box (24px, 24px);
+    border-radius: $border-radius-c;
+
+    .pfp-color {
+        position: absolute;
+        @include box(16px, 16px);
+        margin: $spacing-xs;
+        border-radius: $border-radius-c;
+    }
 }

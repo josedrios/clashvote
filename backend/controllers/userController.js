@@ -30,3 +30,17 @@ exports.usernameChange = async (req, res) => {
       .json({ message: 'Error changing username', error: error.message });
   }
 };
+
+// Function to store saved players/clans to a users account
+exports.saveUnit = async (req,res) => {
+  try {
+    // Check if type is proper if it is, check if either are saved in users saved lists
+
+    // if not, check if the player/clan exist ?
+
+    // store in users list
+
+  } catch (error) {
+    
+  }
+}

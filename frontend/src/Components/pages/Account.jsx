@@ -19,8 +19,8 @@ export default function Account({}) {
 
   const [settingChanges, setSettingChanges] = useState({
     username: '',
-    pfpColor: '',
-    pfpCharacter: '',
+    color: '',
+    character: '',
   });
 
   const accountChanges = (data) => {
@@ -126,9 +126,59 @@ function SettingsContent({
   setSettingChanges,
   accountChanges,
 }) {
+  const pfpColors = [
+    'white',
+    'red',
+    'tomato',
+    'orangered',
+    'lightcoral',
+    'chocolate',
+    'gold',
+    'peachpuff',
+    'lime',
+    'palegreen',
+    'mediumspringgreen',
+    'cyan',
+    'dodgerblue',
+    'blue',
+    'midnightblue',
+    'plum',
+    'magenta',
+    'slategray',
+    'darkslategray',
+    'black',
+  ];
+
+  const onColorChange = (color) => {
+    setSettingChanges((prev) => ({
+      ...prev,
+      color: color,
+    }));
+  };
+
   return (
     <div className="account-content-tab account-settings-tab">
       <h5>Settings</h5>
+      <label htmlFor="">Profile Picture Color:</label>
+      <div className="pfp-color-options-container">
+        {pfpColors.map((color) => {
+          return (
+            <div
+              className="pfp-color-option"
+              style={{
+                outline:
+                  settingChanges.color === color ? '1px solid white' : 'none',
+              }}
+            >
+              <button
+                onClick={() => onColorChange(color)}
+                className="pfp-color"
+                style={{ background: `${color}` }}
+              ></button>
+            </div>
+          );
+        })}
+      </div>
       <label htmlFor="account-username-change">Change Username:</label>
       <input
         id="account-username-change"

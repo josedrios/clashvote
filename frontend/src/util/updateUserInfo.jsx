@@ -42,3 +42,6 @@ export async function changeUsername(data, showAlert, token) {
     }
   }
   
+export async function saveUnit(unit, type, showAlert, token) {
+  
+}

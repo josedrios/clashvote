@@ -35,6 +35,16 @@
     }
 }
 
+@media (max-width: 520px) {
+    .clan-header-label {
+        flex-direction: column !important;
+
+        h3 {
+            margin-bottom: $spacing-md;
+        }
+    }
+}
+
 .clan-header-badge {
     margin-right: $spacing-sm;
 }

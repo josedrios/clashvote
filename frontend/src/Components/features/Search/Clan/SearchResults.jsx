@@ -3,6 +3,7 @@ import { FaArrowLeftLong } from 'react-icons/fa6';
 import images from '../../Images';
 import Members from '../Clan/Members';
 import THOverview from './THOverview';
+import { IoBookmark } from 'react-icons/io5';
 
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
@@ -171,7 +172,12 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
       )}
       <div className="clan-header-details">
         <div className="clan-header-label">
-          <h3>{clan.name}</h3>
+          <h3>
+            {clan.name}
+            <button className='save-clan-btn' >
+              <IoBookmark />
+            </button>
+          </h3>
           <div>
             <img
               className="clan-header-badge"
@@ -251,7 +257,7 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
             </p>
             <h6>Wins|Ties|Losses</h6>
             <p>
-              {clan.warWins}/{clan.warTies}/{clan.warLosses}
+              {clan.warWins}/{clan.warTies || 0}/{clan.warLosses || 0}
             </p>
           </div>
         </div>

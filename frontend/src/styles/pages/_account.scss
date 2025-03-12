@@ -56,3 +56,7 @@
     }
 }
 
+.pfp-color-options-container {
+    @include flex(row, left, center);
+    flex-wrap: wrap;
+}
