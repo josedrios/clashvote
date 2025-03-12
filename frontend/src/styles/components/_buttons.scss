@@ -120,38 +120,6 @@ rect.bars {
     }
 }
 
-.center-return-button {
-    width: 100%;
-    @include flex(row, center, center);
-}
-
-.return-clan-results {
-    @include flex(row, center, center);
-    text-wrap: nowrap;
-    padding: $spacing-sm;
-    margin-left: calc($spacing-md - $spacing-sm);
-    margin-right: auto;
-    text-align: center;
-    background-color: transparent;
-    color: $gray-light;
-    font-size: $font-size-md;
-    transition: color $transition-instant;
-
-    .return-clan-results-icon {
-        transition: fill $transition-fast;
-        fill: $gray-light;
-        font-size: 25px;
-    }
-
-    &:hover {
-        color: $primary-color;
-
-        .return-clan-results-icon {
-            fill: $primary-color;
-        }
-    }
-}
-
 .save-clan-btn {
     background-color: transparent;
     font-size: $font-size-lg;
@@ -260,18 +228,6 @@ rect.bars {
     p {
         margin-left: $spacing-xs;
     }
-}
-
-// TESTING PURPOSES (REMOVE WHEN DONE)
-#test-json {
-    background-color: $primary-color;
-    padding: $spacing-xs;
-    transition: 0.15s;
-    color: black;
-}
-
-#test-json:hover {
-    background-color: $secondary-color;
 }
 
 // Account 

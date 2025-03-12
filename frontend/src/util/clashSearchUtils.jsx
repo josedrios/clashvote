@@ -55,18 +55,6 @@ export async function getClanData(clanTag) {
   }
 }
 
-export function handleTestJson(
-  searchToggle,
-  setSearchResult,
-  TestJSON,
-  TestsJSON
-) {
-  setSearchResult({
-    data: searchToggle === 'player' ? TestJSON : TestsJSON,
-    tab: searchToggle,
-  });
-}
-
 function handleErrors(response, type, prompt, showAlert) {
   if (response.status === 404) {
     showAlert(`No ${type}(s) found with the entry of '${prompt}'.`, 'error');

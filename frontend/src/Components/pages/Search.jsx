@@ -1,15 +1,13 @@
 import PlayerResult from '../features/Search/Player/SearchResult';
 import ClanResults from '../features/Search/Clan/SearchResults';
 import SearchTip from '../features/Search/SearchTip';
-import TestJSON from '../../clasher.json';
-import TestsJSON from '../../claner.json';
 import { useState, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { BsPersonFill } from 'react-icons/bs';
 import { FaShieldAlt } from 'react-icons/fa';
 import { IoIosSearch } from 'react-icons/io';
-import { fetchData, handleTestJson } from '../../util/clashSearchUtils';
+import { fetchData } from '../../util/clashSearchUtils';
 
 export default function Search() {
   const navigate = useNavigate();
@@ -40,10 +38,6 @@ export default function Search() {
     }
     navigate(`/search/${searchToggle}/${query}`);
     inputRef.current.value = '';
-  }
-
-  function handleTestJsonClick() {
-    handleTestJson(searchToggle, setSearchResult, TestJSON, TestsJSON);
   }
 
   return (
@@ -85,9 +79,6 @@ export default function Search() {
           }`}
           ref={inputRef}
         />
-        <button id="test-json" onClick={handleTestJsonClick} type="button">
-          Test
-        </button>
         <button type="submit" id="searchbar-submit-btn">
           <IoIosSearch />
         </button>

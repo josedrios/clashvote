@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { FaArrowLeftLong } from 'react-icons/fa6';
 import images from '../../Images';
 import Members from '../Clan/Members';
 import THOverview from './THOverview';
 import { IoBookmark } from 'react-icons/io5';
 import { useAlert } from '../../../../util/AlertContext';
 import { saveUnit } from '../../../../util/updateUserInfo';
+import { useNavigate } from 'react-router-dom';
 
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
@@ -20,10 +20,10 @@ export default function SearchResults({ clanData, fetchPlayer }) {
   const [selectedClan, setSelectedClan] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const { showAlert } = useAlert();
 
   useEffect(() => {
-    setSelectedClan(null);
     setError(null);
   }, [clanData]);
 
@@ -40,69 +40,17 @@ export default function SearchResults({ clanData, fetchPlayer }) {
   };
 
   const handleViewClick = async (clanTag) => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const data = await getClanData(clanTag.slice(1)); // Remove '#' and fetch data
-      if (data) {
-        setSelectedClan(data);
-      } else {
-        setError('Failed to fetch clan data.');
-      }
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const getClanData = async (clanTag) => {
-    try {
-      const response = await fetch(
-        `http://localhost:3001/api/clash/clans/${clanTag}`
-      );
-
-      if (response.status === 404) {
-        showAlert(
-          `No ${type}(s) found with the entry of '${prompt}'.`,
-          'error'
-        );
-        throw new Error(`Clan with tag '${clanTag}' not found.`);
-      } else if (!response.ok) {
-        showAlert(
-          `Failed to get ${type}'s data right now. Please try again later.`,
-          'error'
-        );
-        throw new Error('Failed to fetch clan data.');
-      }
-
-      const data = await response.json();
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  };
-
-  const handleBackClick = () => {
-    setSelectedClan(null);
+    navigate(`/search/clan/${clanTag.slice(1)}`);
   };
 
   if (isLoading) {
     return <p>Loading clan details...</p>;
   }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   if (selectedClan) {
     return (
       <ClanResult
         clan={selectedClan}
-        handleBackClick={handleBackClick}
         fetchPlayer={fetchPlayer}
         handleClanSave={handleClanSave}
       />
@@ -182,21 +130,17 @@ const warFreqFixer = (oldFreq) => {
   return freqMap[oldFreq] || 'Unknown';
 };
 
-function ClanResult({ clan, handleBackClick, fetchPlayer, handleClanSave }) {
+function ClanResult({ clan, fetchPlayer, handleClanSave }) {
   return (
     <div className="clan-details-view">
-      {handleBackClick && (
-        <div className="center-return-button">
-          <button className="return-clan-results" onClick={handleBackClick}>
-            <FaArrowLeftLong className="return-clan-results-icon" />
-          </button>
-        </div>
-      )}
       <div className="clan-header-details">
         <div className="clan-header-label">
           <h3>
             {clan.name}
-            <button className="save-clan-btn" onClick={()=> handleClanSave(clan)}>
+            <button
+              className="save-clan-btn"
+              onClick={() => handleClanSave(clan)}
+            >
               <IoBookmark />
             </button>
           </h3>
