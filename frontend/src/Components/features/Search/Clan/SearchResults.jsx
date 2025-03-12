@@ -4,6 +4,8 @@ import images from '../../Images';
 import Members from '../Clan/Members';
 import THOverview from './THOverview';
 import { IoBookmark } from 'react-icons/io5';
+import { useAlert } from '../../../../util/AlertContext';
+import { saveUnit } from '../../../../util/updateUserInfo';
 
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
@@ -18,11 +20,24 @@ export default function SearchResults({ clanData, fetchPlayer }) {
   const [selectedClan, setSelectedClan] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { showAlert } = useAlert();
 
   useEffect(() => {
     setSelectedClan(null);
     setError(null);
   }, [clanData]);
+
+  const handleClanSave = (data) => {
+    const token = localStorage.getItem('token');
+    saveUnit(
+      token,
+      'clan',
+      data.name,
+      data.tag.split('#').join(''),
+      data.badgeUrls.medium || 'Unranked',
+      showAlert
+    );
+  };
 
   const handleViewClick = async (clanTag) => {
     setIsLoading(true);
@@ -89,6 +104,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
         clan={selectedClan}
         handleBackClick={handleBackClick}
         fetchPlayer={fetchPlayer}
+        handleClanSave={handleClanSave}
       />
     );
   }
@@ -98,7 +114,13 @@ export default function SearchResults({ clanData, fetchPlayer }) {
   }
 
   if (clanData.tag) {
-    return <ClanResult clan={clanData} fetchPlayer={fetchPlayer} />;
+    return (
+      <ClanResult
+        clan={clanData}
+        fetchPlayer={fetchPlayer}
+        handleClanSave={handleClanSave}
+      />
+    );
   }
 
   return (
@@ -160,7 +182,7 @@ const warFreqFixer = (oldFreq) => {
   return freqMap[oldFreq] || 'Unknown';
 };
 
-function ClanResult({ clan, handleBackClick, fetchPlayer }) {
+function ClanResult({ clan, handleBackClick, fetchPlayer, handleClanSave }) {
   return (
     <div className="clan-details-view">
       {handleBackClick && (
@@ -174,7 +196,7 @@ function ClanResult({ clan, handleBackClick, fetchPlayer }) {
         <div className="clan-header-label">
           <h3>
             {clan.name}
-            <button className='save-clan-btn' >
+            <button className="save-clan-btn" onClick={()=> handleClanSave(clan)}>
               <IoBookmark />
             </button>
           </h3>

@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const Player = require('../models/Players');
+const Clan = require('../models/Clans');
 
 exports.usernameChange = async (req, res) => {
   try {
@@ -9,7 +11,8 @@ exports.usernameChange = async (req, res) => {
 
     if (existingUser) {
       return res.status(500).json({
-        message: `The username of '${username}' is already in use`});
+        message: `The username of '${username}' is already in use`,
+      });
     }
 
     const updateUser = await User.findByIdAndUpdate(
@@ -32,15 +35,62 @@ exports.usernameChange = async (req, res) => {
 };
 
 // Function to store saved players/clans to a users account
-exports.saveUnit = async (req,res) => {
+exports.saveUnit = async (req, res) => {
   try {
-    // Check if type is proper if it is, check if either are saved in users saved lists
+    const { type, tag } = req.params;
+    const { userId, name, icon } = req.body;
+    if (!userId || !name || !tag) {
+      return res.status(400).json({ message: 'Missing required field(s)' });
+    }
 
-    // if not, check if the player/clan exist ?
+    if (type !== 'player' && type !== 'clan') {
+      return res
+        .status(400)
+        .json({ message: `Cannot save unit of type: ${type}` });
+    }
 
-    // store in users list
+    const user = await User.findById(userId)
+      .populate('favoritePlayers') 
+      .populate('favoriteClans');
 
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+
+    let alreadySaved = false;
+
+    if (type === 'player') {
+      alreadySaved = user.favoritePlayers.some((unit) => unit.tag === tag);
+    } else if (type === 'clan') {
+      alreadySaved = user.favoriteClans.some((unit) => unit.tag === tag);
+    }
+
+    if (alreadySaved) {
+      return res.status(409).json({ message: `The ${type} is already saved` });
+    } else {
+      console.log('NO MATCHES');
+    }
+
+    // need to check if clan or player still exists before saving
+
+    let newUnit;
+
+    if (type === 'player') {
+      newUnit = new Player({ tag, name, icon });
+      await newUnit.save();
+      user.favoritePlayers.push(newUnit);
+    } else if (type === 'clan') {
+      newUnit = new Clan({ tag, name, icon });
+      await newUnit.save();
+      user.favoriteClans.push(newUnit);
+    }
+
+    await user.save();
+
+    return res.status(201).json({ message: 'Save was successful!' });
   } catch (error) {
-    
+    return res
+      .status(500)
+      .json({ message: 'Error occurred while saving unit', error: error });
   }
-}
+};

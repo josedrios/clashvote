@@ -27,7 +27,7 @@ export default function THOverview({ clan }) {
                 {thCounts.map((count, thLevel) => {
                     if (count === 0) return null;
                     return (
-                        <div className="th-counter">
+                        <div className="th-counter" key={thLevel}>
                             <img title={"TH" + thLevel} src={getImage("th" + thLevel)} alt="" />
                             <p>{count}</p>
                         </div>

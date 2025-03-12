@@ -24,11 +24,9 @@ export default function Account({}) {
   });
 
   const accountChanges = (data) => {
-    console.log(data);
     const token = localStorage.getItem('token');
     if (data.username) {
       if (usernameCheck(data, showAlert)) {
-        console.log('Username sent to be changed');
         changeUsername(data, showAlert, token);
       }
     }
