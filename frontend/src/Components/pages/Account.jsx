@@ -32,6 +32,10 @@ export default function Account({}) {
         changeUsername(data, showAlert, token);
       }
     }
+    setSettingChanges((prev) => ({
+      ...prev,
+      username: '',
+    }));
   };
 
   return (

@@ -3,7 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 export async function changeUsername(data, showAlert, token) {
     if (!token) {
       showAlert("Authentication error: No token found.", "error");
-      return;
+      return false;
     }
   
     const decodedToken = jwtDecode(token);
@@ -13,7 +13,7 @@ export async function changeUsername(data, showAlert, token) {
 
     if (!userId) {
       showAlert("Authentication error: User ID missing in token.", "error");
-      return;
+      return false;
     }
   
     try {
@@ -30,12 +30,15 @@ export async function changeUsername(data, showAlert, token) {
   
       if (response.ok) {
         showAlert("Username was changed", "success");
+        return true;
       } else {
         showAlert(responseData.message || "Username change was unsuccessful, please try again", "error");
+        return false;
       }
     } catch (error) {
       console.log("Error: ", error);
       showAlert("Something went wrong. Please try again later.", "error");
+      return false;
     }
   }
   

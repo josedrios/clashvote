@@ -21,20 +21,7 @@ function SearchResult({ playerData, fetchData }) {
 
     const [achCurrent, setAchCurrent] = useState("home");
 
-    if (playerData === "") {
-        return <div id="search-result-container">Empty player data</div>;
-    }
-
-    if (playerData === "404") {
-        return <div className="player-not-found" id="search-result-container">Player not found :(</div>;
-    }
-
-    if (playerData === "!200") {
-        return <div id="search-result-container">Not ok</div>;
-    }
-
     const data = PlayerData(playerData);
-    console.log(data)
 
     return (
         <div id="search-result-container">

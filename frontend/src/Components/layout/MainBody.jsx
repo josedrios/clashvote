@@ -6,18 +6,8 @@ import Contact from '../pages/Contact';
 import Auth from '../pages/Auth';
 import Account from '../pages/Account';
 import AlertBanner from './AlertBanner';
-// import { useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
-// import { useAlert } from '../../util/AlertContext';
 
 function MainBody({ mainView }) {
-  // const location = useLocation();
-  // const { showAlert } = useAlert();
-
-  // Clears banner on main page changes
-  // useEffect(() => {
-  //   showAlert('', '');
-  // }, [location.pathname]);
 
   return (
     <main id="main-body">
@@ -25,6 +15,7 @@ function MainBody({ mainView }) {
       <Routes>
         <Route path="/" element={<Season />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/search/:type/:tag?" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/auth/:authType" element={<Auth />} />

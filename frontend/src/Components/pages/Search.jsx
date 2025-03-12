@@ -3,17 +3,16 @@ import ClanResults from '../features/Search/Clan/SearchResults';
 import SearchTip from '../features/Search/SearchTip';
 import TestJSON from '../../clasher.json';
 import TestsJSON from '../../claner.json';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { BsPersonFill } from 'react-icons/bs';
 import { FaShieldAlt } from 'react-icons/fa';
 import { IoIosSearch } from 'react-icons/io';
-import {
-  fetchData,
-  handleTestJson,
-} from '../../util/clashSearchUtils';
+import { fetchData, handleTestJson } from '../../util/clashSearchUtils';
 
 export default function Search() {
+  const navigate = useNavigate();
   const { showAlert } = useAlert();
   const inputRef = useRef(null);
   const scrollRef = useRef(null);
@@ -22,20 +21,24 @@ export default function Search() {
     data: '',
     tab: '',
   });
+  const { type, tag } = useParams();
+
+  useEffect(() => {
+    if (type && tag) {
+      fetchData(tag, type, setSearchResult, showAlert, scrollRef);
+    } else if (type && !tag) {
+      navigate('/search', { replace: true });
+    }
+  }, [type, tag]);
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (inputRef.current.value.trim() === '') {
+    const query = inputRef.current.value.trim();
+    if (!query) {
       showAlert('You entered an empty string!', 'error');
       return;
     }
-    fetchData(
-      inputRef.current.value.trim(),
-      searchToggle,
-      setSearchResult,
-      showAlert,
-      scrollRef
-    );
+    navigate(`/search/${searchToggle}/${query}`);
     inputRef.current.value = '';
   }
 
