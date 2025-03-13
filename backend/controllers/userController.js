@@ -2,6 +2,10 @@ const User = require('../models/User');
 const Player = require('../models/Players');
 const Clan = require('../models/Clans');
 
+exports.getAccountData = async (req, res) => {
+  
+};
+
 exports.usernameChange = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -28,7 +32,7 @@ exports.usernameChange = async (req, res) => {
       .status(200)
       .json({ message: 'Username updated successfully', user: updateUser });
   } catch (error) {
-    res
+    return res
       .status(500)
       .json({ message: 'Error changing username', error: error.message });
   }
@@ -50,7 +54,7 @@ exports.saveUnit = async (req, res) => {
     }
 
     const user = await User.findById(userId)
-      .populate('favoritePlayers') 
+      .populate('favoritePlayers')
       .populate('favoriteClans');
 
     if (!user) {

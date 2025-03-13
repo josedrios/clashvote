@@ -1,10 +1,11 @@
 import images from '../features/Images';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
 import { changeUsername } from '../../util/updateUserInfo';
+import { jwtDecode } from 'jwt-decode';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -13,8 +14,9 @@ function logoutUser(navigate, showAlert) {
 }
 
 export default function Account({}) {
-  const [bodyContent, setBodyContent] = useState('saved');
+  const { tab } = useParams();
   const navigate = useNavigate();
+  const bodyContent = tab || 'saves';
   const { showAlert } = useAlert();
 
   const [settingChanges, setSettingChanges] = useState({
@@ -46,31 +48,31 @@ export default function Account({}) {
         <div id="account-body-nav">
           <button
             className="account-body-nav-button"
-            onClick={() => setBodyContent('saved')}
+            onClick={() => navigate('/account/saves')}
           >
-            Saved
+            Saves
           </button>
           <button
             className="account-body-nav-button"
-            onClick={() => setBodyContent('votes')}
+            onClick={() => navigate('/account/votes')}
           >
             Votes
           </button>
           <button
             className="account-body-nav-button"
-            onClick={() => setBodyContent('comments')}
+            onClick={() => navigate('/account/comments')}
           >
             Comments
           </button>
           <button
             className="account-body-nav-button"
-            onClick={() => setBodyContent('settings')}
+            onClick={() => navigate('/account/settings')}
           >
             Settings
           </button>
         </div>
         <div id="account-content">
-          {bodyContent === 'saved' ? (
+          {bodyContent === 'saves' ? (
             <SavedContent />
           ) : bodyContent === 'votes' ? (
             <VotesContent />
@@ -92,10 +94,11 @@ export default function Account({}) {
   );
 }
 
-function SavedContent() {
+function SavedContent({}) {
   return (
     <div className="account-content-tab">
-      <h5>Saved</h5>
+      <h5>Saves</h5>
+      <p></p>
     </div>
   );
 }
@@ -122,7 +125,6 @@ function SettingsContent({
   showAlert,
   settingChanges,
   setSettingChanges,
-  accountChanges,
 }) {
   const pfpColors = [
     'white',
@@ -157,7 +159,9 @@ function SettingsContent({
   return (
     <div className="account-content-tab account-settings-tab">
       <h5>Settings</h5>
-      <label htmlFor="" className='pfp-color-label'>Profile Picture Color:</label>
+      <label htmlFor="" className="pfp-color-label">
+        Profile Picture Color:
+      </label>
       <div className="pfp-color-options-container">
         {pfpColors.map((color) => {
           return (
