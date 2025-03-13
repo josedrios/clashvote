@@ -19,6 +19,8 @@ export default function Account({}) {
   const bodyContent = tab || 'saves';
   const { showAlert } = useAlert();
 
+  const [userData, setUserData] = useState(null);
+
   const [settingChanges, setSettingChanges] = useState({
     username: '',
     color: '',
@@ -37,6 +39,40 @@ export default function Account({}) {
       username: '',
     }));
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          navigate('/');
+          showAlert('No token detected. Please logout and try again', 'error');
+          return;
+        }
+
+        const response = await fetch('http://localhost:3001/api/user/account', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          showAlert('Failed to fetch user data', 'error');
+          throw new Error('Failed to fetch user data');
+        }
+
+        const data = await response.json();
+        setUserData(data);
+      } catch (err) {
+        showAlert(err.message, 'error');
+      } 
+    };
+
+    fetchUserData();
+  }, []);
+
 
   return (
     <div className="account-container">
@@ -86,6 +122,7 @@ export default function Account({}) {
               settingChanges={settingChanges}
               setSettingChanges={setSettingChanges}
               accountChanges={accountChanges}
+              userData={userData}
             />
           )}
         </div>
@@ -125,6 +162,8 @@ function SettingsContent({
   showAlert,
   settingChanges,
   setSettingChanges,
+  accountChanges, 
+  userData
 }) {
   const pfpColors = [
     'white',
@@ -186,6 +225,7 @@ function SettingsContent({
         id="account-username-change"
         type="text"
         value={settingChanges.username}
+        placeholder={userData.username}
         onChange={(e) =>
           setSettingChanges((prev) => ({
             ...prev,

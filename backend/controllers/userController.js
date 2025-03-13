@@ -1,9 +1,34 @@
 const User = require('../models/User');
 const Player = require('../models/Players');
 const Clan = require('../models/Clans');
+const jwt = require('jsonwebtoken');
 
 exports.getAccountData = async (req, res) => {
-  
+
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ error: 'Unauthorized - No token provided' });
+  }
+
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId)
+      .populate('favoritePlayers')
+      .populate('favoriteClans')
+      .select('-password');
+
+    console.log(user);
+    
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    return res.json(user);
+  } catch (error) {
+    return res.status(403).json({ error: 'Invalid token' });
+  }
 };
 
 exports.usernameChange = async (req, res) => {
