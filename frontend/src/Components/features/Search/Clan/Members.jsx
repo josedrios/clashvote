@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import images from "../../Images";
+import images from "../../../../util/Images";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;

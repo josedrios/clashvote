@@ -1,4 +1,4 @@
-import images from "../../Images";
+import images from "../../../../util/Images";
 import { FaCheck } from "react-icons/fa";
 
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;

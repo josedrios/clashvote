@@ -1,4 +1,4 @@
-import images from "../../Images";
+import images from "../../../../util/Images";
 const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
 
 export default function THOverview({ clan }) {

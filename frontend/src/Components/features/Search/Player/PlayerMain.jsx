@@ -4,7 +4,7 @@ import { IoBookmark } from 'react-icons/io5';
 import { saveUnit } from '../../../../util/updateUserInfo';
 import { useAlert } from '../../../../util/AlertContext';
 
-import images from '../../Images';
+import images from '../../../../util/Images';
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
 function PlayerMain({ data }) {

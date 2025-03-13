@@ -2,7 +2,7 @@ import PlayerData from "../../../../util/processPlayerData";
 import PlayerMain from "./PlayerMain";
 import PlayerBase from "./PlayerBase";
 import Achievements from "./PlayerAchievements";
-import images from "../../Images";
+import images from "../../../../util/Images";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 

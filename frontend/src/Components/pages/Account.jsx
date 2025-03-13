@@ -1,4 +1,4 @@
-import images from '../features/Images';
+import images from '../../util/Images';
 import { useEffect, useState } from 'react';
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { useParams, useNavigate } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import images from '../../Images';
+import images from '../../../../util/Images';
 import Members from '../Clan/Members';
 import THOverview from './THOverview';
 import { IoBookmark } from 'react-icons/io5';

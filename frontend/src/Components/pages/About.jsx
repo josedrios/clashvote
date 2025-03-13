@@ -1,13 +1,26 @@
-import images from "../features/Images";
-const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+import useImage from "../../util/useImage";
 
-export default function About({}) {
+function TeamMemberCard({ name, role }) {
+    const imageSrc = useImage(name); 
+
+    return (
+        <div className="team-member-card">
+            <img className="team-member-pfp" src={imageSrc} alt={name} />
+            <div className="team-member-info">
+                <div className="team-member-name">Jose D. Rios</div>
+                <div className="team-member-role">{role}</div>
+            </div>
+        </div>
+    );
+}
+
+export default function About() {
     const pfp = [
         "Archer",
         "Golem",
         "Wizard",
-        "Thrower",
-        "Inferno Dragon",
+        "Goblin",
+        "Dragon",
         "Valkyrie",
     ];
     const aboutP1 =
@@ -35,19 +48,7 @@ export default function About({}) {
                 </div>
                 <div id="team-member-container">
                     {roles.map((role, index) => (
-                        <div className="team-member-card" key={index}>
-                            <img
-                                className="team-member-pfp"
-                                src={getImage(pfp[index])}
-                                alt=""
-                            />
-                            <div className="team-member-info">
-                                <div className="team-member-name">
-                                    Jose D. Rios
-                                </div>
-                                <div className="team-member-role">{role}</div>
-                            </div>
-                        </div>
+                        <TeamMemberCard key={index} name={pfp[index]} role={role} />
                     ))}
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import images from '../../Components/features/Images';
+import images from '../../util/Images';
 import Login from '../features/Auth/login';
 import Signup from '../features/Auth/signup';
 import { useState, useEffect } from 'react';
