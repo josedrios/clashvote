@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
 import { changeUsername } from '../../util/updateUserInfo';
-import { jwtDecode } from 'jwt-decode';
+import { fetchUserData } from '../../util/getUserData';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -31,7 +31,12 @@ export default function Account({}) {
     const token = localStorage.getItem('token');
     if (data.username) {
       if (usernameCheck(data, showAlert)) {
-        changeUsername(data, showAlert, token);
+        if(changeUsername(data, showAlert, token)){
+          setUserData((prev) => ({
+            ...prev,
+            username: data.username,
+          }))
+        }
       }
     }
     setSettingChanges((prev) => ({
@@ -41,44 +46,19 @@ export default function Account({}) {
   };
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          navigate('/');
-          showAlert('No token detected. Please logout and try again', 'error');
-          return;
-        }
-
-        const response = await fetch('http://localhost:3001/api/user/account', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!response.ok) {
-          showAlert('Failed to fetch user data', 'error');
-          throw new Error('Failed to fetch user data');
-        }
-
-        const data = await response.json();
-        setUserData(data);
-      } catch (err) {
-        showAlert(err.message, 'error');
-      } 
-    };
-
-    fetchUserData();
+    fetchUserData(navigate, showAlert, setUserData);
   }, []);
 
+  if (!userData) return <div>Loading...</div>;
 
   return (
-    <div className="account-container">
+    <div id='account-container'>
+      <div className="account-tab">
       <div id="account-header">
         <img src={getImage('Thrower')} id="account-pfp" alt="" />
-        <h3 id="account-username">1234567890123456</h3>
+        <h3 id="account-username">
+          {userData ? userData.username : '...loading'}
+        </h3>
       </div>
       <div id="account-body">
         <div id="account-body-nav">
@@ -128,6 +108,7 @@ export default function Account({}) {
         </div>
       </div>
     </div>
+    </div>
   );
 }
 
@@ -162,7 +143,7 @@ function SettingsContent({
   showAlert,
   settingChanges,
   setSettingChanges,
-  accountChanges, 
+  accountChanges,
   userData
 }) {
   const pfpColors = [
@@ -202,10 +183,11 @@ function SettingsContent({
         Profile Picture Color:
       </label>
       <div className="pfp-color-options-container">
-        {pfpColors.map((color) => {
+        {pfpColors.map((color, key) => {
           return (
             <div
               className="pfp-color-option"
+              key={key}
               style={{
                 outline:
                   settingChanges.color === color ? '1px solid white' : 'none',
@@ -225,7 +207,7 @@ function SettingsContent({
         id="account-username-change"
         type="text"
         value={settingChanges.username}
-        placeholder={userData.username}
+        placeholder={userData ? userData.username : ''}
         onChange={(e) =>
           setSettingChanges((prev) => ({
             ...prev,

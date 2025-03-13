@@ -1,4 +1,10 @@
-.account-container {
+#account-container {
+    @include flex(row, center);
+    @include box(100%);
+    margin: auto;
+}
+
+.account-tab {
     margin: auto;
     max-width: 600px;
     width: 100%;
