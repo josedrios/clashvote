@@ -271,10 +271,17 @@ rect.bars {
 }
 
 .character-option {
-    border-radius: $border-radius-c;
+    @include box(50px);
+    border-radius: $border-radius-sm;
     background-color: $primary-background-color;
     aspect-ratio: 1/1;
-    width: 50px;
     margin-bottom: $spacing-sm;
+
+    img {
+        width: 50px;
+        aspect-ratio: 1/1;
+        border-radius: $border-radius-sm;
+        transform: scale(101%);
+    }
 }
 

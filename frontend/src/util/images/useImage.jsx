@@ -21,8 +21,6 @@ function useImage(name) {
 
   useEffect(() => {
     async function loadImage() {
-      console.log(name);
-      
       const formattedName = name.replace(/[ ]/g, '_');
       const type = findImageType(formattedName);
       if (type === null) {

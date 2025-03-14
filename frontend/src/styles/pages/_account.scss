@@ -13,11 +13,16 @@
     padding: $spacing-md;
 }
 
+#account-pfp-container {
+    border-radius: $border-radius-sm;
+    @include box(60px);
+}
+
 #account-pfp {
     aspect-ratio: 1/1;
-    width: 20%;
-    max-width: 60px;
+    width: 100%;
     border-radius: $border-radius-sm;
+    transform: scale(101%);
 }
 
 #account-header {

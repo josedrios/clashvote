@@ -61,6 +61,31 @@ exports.usernameChange = async (req, res) => {
   }
 };
 
+exports.characterChange = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { character } = req.body;
+
+    const updateUser = await User.findByIdAndUpdate(
+      userId,
+      { pfpCharacter: character },
+      { new: true, runValidators: true }
+    );
+
+    if (!updateUser) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    res
+      .status(200)
+      .json({ message: 'PFP Character updated successfully', user: updateUser });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: 'Error changing character pfp', error: error.message });
+  }
+};
+
 // Function to store saved players/clans to a users account
 exports.saveUnit = async (req, res) => {
   try {

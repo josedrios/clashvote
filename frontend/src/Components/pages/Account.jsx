@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
-import { changeUsername } from '../../util/updateUserInfo';
+import { changeUsername, changeCharacter } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
 import { troopNames } from '../../util/images/imageCategories';
@@ -27,35 +27,65 @@ export default function Account({}) {
     character: '',
   });
 
-  const accountChanges = (data) => {
+  const accountChanges = (settingsData, accountData) => {
     const token = localStorage.getItem('token');
-    if (data.username) {
-      if (usernameCheck(data, showAlert)) {
-        if (changeUsername(data, showAlert, token)) {
+
+    // USERNAME CHANGE
+    if (settingsData.username === '') {
+      console.log('error changing username0');
+    } else if (settingsData.username !== accountData.username) {
+      if (usernameCheck(settingsData, showAlert)) {
+        if (changeUsername(settingsData, showAlert, token)) {
           setUserData((prev) => ({
             ...prev,
-            username: data.username,
+            username: settingsData.username,
           }));
+          setSettingChanges((prev) => ({
+            ...prev,
+            username: '',
+          }));
+        } else {
+          console.warn('error changing username');
         }
+      } else {
+        console.warn('error changing username2');
       }
+    } else {
+      console.log('error changing username3');
     }
-    setSettingChanges((prev) => ({
-      ...prev,
-      username: '',
-    }));
+
+    //PFP CHARACTER CHANGE
+    if (settingsData.character !== accountData.character) {
+      if (changeCharacter(settingsData, showAlert, token)) {
+        setUserData((prev) => ({
+          ...prev,
+          character: settingsData.character,
+        }));
+        setSettingChanges((prev) => ({
+          ...prev,
+          character: '',
+        }));
+      } else {
+        console.warn('error changing username');
+      }
+    } else {
+      console.log('you already have the character u entered');
+    }
   };
 
   useEffect(() => {
     fetchUserData(navigate, showAlert, setUserData);
   }, []);
 
-  function GetPFP({name, id, bgcolor}) {
+  function GetPFP({ name, bgcolor }) {
     const imageSrc = useImage(name);
-    
+
     return (
-        <img src={imageSrc} id={id} style={{backgroundColor: bgcolor}} alt="" />
-    )
-}
+      <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
+        <img src={imageSrc} id="account-pfp" alt="" />
+      </div>
+    );
+  }
 
   if (!userData) return <div>Loading...</div>;
 
@@ -63,7 +93,7 @@ export default function Account({}) {
     <div id="account-container">
       <div className="account-tab">
         <div id="account-header">
-        <GetPFP name={userData.pfpCharacter} id='account-pfp' bgcolor={userData.pfpColor}/>
+          <GetPFP name={userData.pfpCharacter} bgcolor={userData.pfpColor} />
           <h3 id="account-username">
             {userData ? userData.username : '...loading'}
           </h3>
@@ -184,6 +214,13 @@ function SettingsContent({
     }));
   };
 
+  const onCharacterChange = (character) => {
+    setSettingChanges((prev) => ({
+      ...prev,
+      character: character,
+    }));
+  };
+
   const getSource = (name) => {
     return useImage(name);
   };
@@ -229,16 +266,28 @@ function SettingsContent({
       </div>
       <label htmlFor="">Profile Picture Troop:</label>
       <div className="pfp-character-options-container">
-        {troopNames.map((troop) => {
+        {troopNames.map((troop, key) => {
           return (
-            <img src={getSource(troop)} className="character-option" alt="" />
+            <button
+              className="character-option"
+              onClick={() => onCharacterChange(troop)}
+              key={key}
+              style={{
+                outline:
+                  settingChanges.character === troop
+                    ? '1px solid white'
+                    : 'none',
+              }}
+            >
+              <img src={getSource(troop)} alt="" />
+            </button>
           );
         })}
       </div>
       <div className="account-settings-buttons">
         <button
           className="standard-btn"
-          onClick={() => accountChanges(settingChanges)}
+          onClick={() => accountChanges(settingChanges, userData)}
         >
           Save
         </button>
