@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
-import { changeUsername, changeCharacter } from '../../util/updateUserInfo';
+import {
+  changeUsername,
+  changeCharacter,
+  changeColor,
+} from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
 import { troopNames } from '../../util/images/imageCategories';
@@ -28,6 +32,9 @@ export default function Account({}) {
   });
 
   const accountChanges = (settingsData, accountData) => {
+    console.log('TESTING: ', settingsData.color);
+    console.log('TESTING: ', settingsData.character);
+
     const token = localStorage.getItem('token');
 
     // USERNAME CHANGE
@@ -59,17 +66,35 @@ export default function Account({}) {
       if (changeCharacter(settingsData, showAlert, token)) {
         setUserData((prev) => ({
           ...prev,
-          character: settingsData.character,
+          character: settingsData.pfpCharacter,
         }));
         setSettingChanges((prev) => ({
           ...prev,
           character: '',
         }));
       } else {
-        console.warn('error changing username');
+        console.warn('error changing character');
       }
     } else {
       console.log('you already have the character u entered');
+    }
+
+    //PFP COLOR CHANGE
+    if (settingsData.color !== accountData.pfpColor) {
+      if (changeColor(settingsData, showAlert, token)) {
+        setUserData((prev) => ({
+          ...prev,
+          color: settingsData.pfpColor,
+        }));
+        setSettingChanges((prev) => ({
+          ...prev,
+          color: '',
+        }));
+      } else {
+        console.warn('error changing color');
+      }
+    } else {
+      console.log('you already have the color u entered');
     }
   };
 
@@ -208,6 +233,7 @@ function SettingsContent({
   ];
 
   const onColorChange = (color) => {
+    console.log(color);
     setSettingChanges((prev) => ({
       ...prev,
       color: color,

@@ -86,6 +86,34 @@ exports.characterChange = async (req, res) => {
   }
 };
 
+exports.colorChange = async (req, res) => {
+  console.log('reached code here')
+
+  try {
+    const { userId } = req.params;
+    const { color } = req.body;
+
+    const updateUser = await User.findByIdAndUpdate(
+      userId,
+      { pfpColor: color },
+      { new: true, runValidators: true }
+    );
+
+
+    if (!updateUser) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    res
+      .status(200)
+      .json({ message: 'PFP color updated successfully', user: updateUser });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: 'Error changing color pfp', error: error.message });
+  }
+};
+
 // Function to store saved players/clans to a users account
 exports.saveUnit = async (req, res) => {
   try {
