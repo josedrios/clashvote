@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const Player = require('../models/Players');
 const Clan = require('../models/Clans');
-const jwt = require('jsonwebtoken');
 
 exports.getAccountData = async (req, res) => {
 
@@ -22,6 +21,8 @@ exports.getAccountData = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
+
+    console.log(user);
     return res.json(user);
   } catch (error) {
     return res.status(403).json({ error: 'Invalid token' });

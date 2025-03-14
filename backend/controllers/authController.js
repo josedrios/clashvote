@@ -1,6 +1,10 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const {
+  pfpCharacters,
+  pfpColors,
+} = require('../constants/pfpOptions');
 
 exports.registerUser = async (req, res) => {
   try {
@@ -11,7 +15,9 @@ exports.registerUser = async (req, res) => {
     const newUser = new User({
       username,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      pfpColor: pfpColors[Math.floor(Math.random() * (18 + 1))],
+      pfpCharacter: pfpCharacters[Math.floor(Math.random() * (37 + 1))],
     });
 
     await newUser.save();
@@ -24,7 +30,12 @@ exports.registerUser = async (req, res) => {
 
     res.status(201).json({ message: 'User successfully registered', token });
   } catch (error) {
-    res.status(500).json({ message: 'Error occurred while registering user', error: error.message });
+    res
+      .status(500)
+      .json({
+        message: 'Error occurred while registering user',
+        error: error.message,
+      });
   }
 };
 
@@ -33,7 +44,7 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    
+
     if (!user) {
       return res
         .status(400)

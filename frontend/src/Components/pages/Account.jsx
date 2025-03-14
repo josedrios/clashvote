@@ -31,11 +31,11 @@ export default function Account({}) {
     const token = localStorage.getItem('token');
     if (data.username) {
       if (usernameCheck(data, showAlert)) {
-        if(changeUsername(data, showAlert, token)){
+        if (changeUsername(data, showAlert, token)) {
           setUserData((prev) => ({
             ...prev,
             username: data.username,
-          }))
+          }));
         }
       }
     }
@@ -49,67 +49,73 @@ export default function Account({}) {
     fetchUserData(navigate, showAlert, setUserData);
   }, []);
 
-  const imageSrc = useImage('Rage Spell');
+  function GetPFP({name, id, bgcolor}) {
+    const imageSrc = useImage(name);
+    
+    return (
+        <img src={imageSrc} id={id} style={{backgroundColor: bgcolor}} alt="" />
+    )
+}
 
   if (!userData) return <div>Loading...</div>;
 
   return (
-    <div id='account-container'>
+    <div id="account-container">
       <div className="account-tab">
-      <div id="account-header">
-        <img src={imageSrc} id="account-pfp" alt="" />
-        <h3 id="account-username">
-          {userData ? userData.username : '...loading'}
-        </h3>
-      </div>
-      <div id="account-body">
-        <div id="account-body-nav">
-          <button
-            className="account-body-nav-button"
-            onClick={() => navigate('/account/saves')}
-          >
-            Saves
-          </button>
-          <button
-            className="account-body-nav-button"
-            onClick={() => navigate('/account/votes')}
-          >
-            Votes
-          </button>
-          <button
-            className="account-body-nav-button"
-            onClick={() => navigate('/account/comments')}
-          >
-            Comments
-          </button>
-          <button
-            className="account-body-nav-button"
-            onClick={() => navigate('/account/settings')}
-          >
-            Settings
-          </button>
+        <div id="account-header">
+        <GetPFP name={userData.pfpCharacter} id='account-pfp' bgcolor={userData.pfpColor}/>
+          <h3 id="account-username">
+            {userData ? userData.username : '...loading'}
+          </h3>
         </div>
-        <div id="account-content">
-          {bodyContent === 'saves' ? (
-            <SavedContent />
-          ) : bodyContent === 'votes' ? (
-            <VotesContent />
-          ) : bodyContent === 'comments' ? (
-            <CommentsContent />
-          ) : (
-            <SettingsContent
-              logoutUser={logoutUser}
-              navigate={navigate}
-              showAlert={showAlert}
-              settingChanges={settingChanges}
-              setSettingChanges={setSettingChanges}
-              accountChanges={accountChanges}
-              userData={userData}
-            />
-          )}
+        <div id="account-body">
+          <div id="account-body-nav">
+            <button
+              className="account-body-nav-button"
+              onClick={() => navigate('/account/saves')}
+            >
+              Saves
+            </button>
+            <button
+              className="account-body-nav-button"
+              onClick={() => navigate('/account/votes')}
+            >
+              Votes
+            </button>
+            <button
+              className="account-body-nav-button"
+              onClick={() => navigate('/account/comments')}
+            >
+              Comments
+            </button>
+            <button
+              className="account-body-nav-button"
+              onClick={() => navigate('/account/settings')}
+            >
+              Settings
+            </button>
+          </div>
+          <div id="account-content">
+            {bodyContent === 'saves' ? (
+              <SavedContent />
+            ) : bodyContent === 'votes' ? (
+              <VotesContent />
+            ) : bodyContent === 'comments' ? (
+              <CommentsContent />
+            ) : (
+              <SettingsContent
+                logoutUser={logoutUser}
+                navigate={navigate}
+                showAlert={showAlert}
+                settingChanges={settingChanges}
+                setSettingChanges={setSettingChanges}
+                accountChanges={accountChanges}
+                userData={userData}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
@@ -146,7 +152,7 @@ function SettingsContent({
   settingChanges,
   setSettingChanges,
   accountChanges,
-  userData
+  userData,
 }) {
   const pfpColors = [
     'white',
@@ -180,11 +186,24 @@ function SettingsContent({
 
   const getSource = (name) => {
     return useImage(name);
-  }
+  };
 
   return (
     <div className="account-content-tab account-settings-tab">
-      <h5>Settings</h5>
+      <h5>Settings</h5>{' '}
+      <label htmlFor="account-username-change">Change Username:</label>
+      <input
+        id="account-username-change"
+        type="text"
+        value={settingChanges.username}
+        placeholder={userData ? userData.username : ''}
+        onChange={(e) =>
+          setSettingChanges((prev) => ({
+            ...prev,
+            username: e.target.value,
+          }))
+        }
+      />
       <label htmlFor="" className="pfp-color-label">
         Profile Picture Color:
       </label>
@@ -208,29 +227,14 @@ function SettingsContent({
           );
         })}
       </div>
-      <label htmlFor="">
-        Profile Picture Troop:
-      </label>
+      <label htmlFor="">Profile Picture Troop:</label>
       <div className="pfp-character-options-container">
         {troopNames.map((troop) => {
           return (
-            <img src={getSource(troop)} className='character-option' alt="" />
+            <img src={getSource(troop)} className="character-option" alt="" />
           );
         })}
       </div>
-      <label htmlFor="account-username-change">Change Username:</label>
-      <input
-        id="account-username-change"
-        type="text"
-        value={settingChanges.username}
-        placeholder={userData ? userData.username : ''}
-        onChange={(e) =>
-          setSettingChanges((prev) => ({
-            ...prev,
-            username: e.target.value,
-          }))
-        }
-      />
       <div className="account-settings-buttons">
         <button
           className="standard-btn"
