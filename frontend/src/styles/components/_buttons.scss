@@ -252,7 +252,7 @@ rect.bars {
     margin-top: $spacing-sm;
 }
 
-.pfp-color-label {
+.pfp-color-label  {
     margin-bottom: $spacing-xs !important;
 }
 
@@ -269,3 +269,12 @@ rect.bars {
         border-radius: $border-radius-c;
     }
 }
+
+.character-option {
+    border-radius: $border-radius-c;
+    background-color: $primary-background-color;
+    aspect-ratio: 1/1;
+    width: 50px;
+    margin-bottom: $spacing-sm;
+}
+

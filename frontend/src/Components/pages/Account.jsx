@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
 import { changeUsername } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
+import { troopNames } from '../../util/images/imageCategories';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -178,6 +178,10 @@ function SettingsContent({
     }));
   };
 
+  const getSource = (name) => {
+    return useImage(name);
+  }
+
   return (
     <div className="account-content-tab account-settings-tab">
       <h5>Settings</h5>
@@ -201,6 +205,16 @@ function SettingsContent({
                 style={{ background: `${color}` }}
               ></button>
             </div>
+          );
+        })}
+      </div>
+      <label htmlFor="">
+        Profile Picture Troop:
+      </label>
+      <div className="pfp-character-options-container">
+        {troopNames.map((troop) => {
+          return (
+            <img src={getSource(troop)} className='character-option' alt="" />
           );
         })}
       </div>

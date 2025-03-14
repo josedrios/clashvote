@@ -62,7 +62,8 @@
     }
 }
 
-.pfp-color-options-container {
+.pfp-color-options-container, .pfp-character-options-container {
     @include flex(row, left, center);
     flex-wrap: wrap;
+    gap: 0px $spacing-sm;
 }
