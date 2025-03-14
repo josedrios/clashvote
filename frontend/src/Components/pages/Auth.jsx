@@ -1,10 +1,8 @@
-import images from '../../util/Images';
+import useImage from '../../util/images/useImage';
 import Login from '../features/Auth/login';
 import Signup from '../features/Auth/signup';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 
 export default function Auth({}) {
   const navigate = useNavigate();
@@ -23,23 +21,21 @@ export default function Auth({}) {
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const height =
-    authTab === 'login'
-      ? windowWidth < 701
-        ? '200px' 
-        : '400px'
-      : '430px';
+    authTab === 'login' ? (windowWidth < 701 ? '200px' : '400px') : '430px';
+
+  const imageSrc = useImage('slider');
 
   return (
     <div id="auth-container">
       <div
         id="sign-log-container"
         style={{
-          height
+          height,
         }}
       >
         <Signup authType={'signup'} authTab={authTab} setAuthTab={setAuthTab} />
@@ -49,7 +45,7 @@ export default function Auth({}) {
           className={authTab === 'login' ? '' : 'art-slide-right'}
         >
           <h3>CV</h3>
-          <img src={getImage('slider')} alt="" />
+          <img src={imageSrc} alt="" />
         </div>
       </div>
     </div>

@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import images from '../../../../util/Images';
 import Members from '../Clan/Members';
 import THOverview from './THOverview';
 import { IoBookmark } from 'react-icons/io5';
 import { useAlert } from '../../../../util/AlertContext';
 import { saveUnit } from '../../../../util/updateUserInfo';
 import { useNavigate } from 'react-router-dom';
-
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
+import useImage from '../../../../util/images/useImage';
 
 const getCWL = (name) => {
   name = name.toLowerCase().replace(' league', '');
@@ -15,6 +13,12 @@ const getCWL = (name) => {
   const league = tokens[0] + tokens[1].length;
   return league;
 };
+
+function RetrieveImage({ name, classname }) {
+  const imageSrc = useImage(name);
+
+  return <img src={imageSrc} classname={classname} alt="" />;
+}
 
 export default function SearchResults({ clanData, fetchPlayer }) {
   const [selectedClan, setSelectedClan] = useState(null);
@@ -75,10 +79,9 @@ export default function SearchResults({ clanData, fetchPlayer }) {
     <div id="clan-results-container">
       {clanData?.items?.map((clan, key) => (
         <div className="clan-result-card" key={key}>
-          <img
-            className="clan-result-badge"
-            src={clan.badgeUrls.medium}
-            alt=""
+          <RetrieveImage
+            name={clan.badgeUrls.medium}
+            classname={'clan-result-badge'}
           />
           <h5>{clan.name}</h5>
           <p className="clan-card-tag">{clan.tag}</p>
@@ -97,10 +100,9 @@ export default function SearchResults({ clanData, fetchPlayer }) {
           </div>
           <div className="clan-card-footer">
             {clan.warLeague.name.toLowerCase() !== 'unranked' ? (
-              <img
-                className="clan-result-cwl"
-                src={getImage(getCWL(clan.warLeague.name))}
-                alt="Clan War League Badge"
+              <RetrieveImage
+                name={getCWL(clan.warLeague.name)}
+                classname={'clan-result-cwl'}
               />
             ) : (
               <p>Unranked</p>
@@ -146,15 +148,14 @@ function ClanResult({ clan, fetchPlayer, handleClanSave }) {
           </h3>
           <div>
             <img
-              className="clan-header-badge"
               src={clan.badgeUrls.medium}
+              classname="clan-header-badge"
               alt=""
             />
             {clan.warLeague.name.toLowerCase() !== 'unranked' && (
-              <img
-                className="clan-header-cwl"
-                src={getImage(getCWL(clan.warLeague.name))}
-                alt=""
+              <RetrieveImage
+                name={getCWL(clan.warLeague.name)}
+                classname={'clan-header-cwl'}
               />
             )}
           </div>
@@ -193,24 +194,23 @@ function ClanResult({ clan, fetchPlayer, handleClanSave }) {
             <h5>Trophies</h5>
             <p>
               <span>
-                <img src={getImage('th_trophy')} alt="" />
+                <RetrieveImage name={'th_trophy'} />
                 {clan.clanPoints}
               </span>
               |
               <span>
-                <img src={getImage('bb_trophy')} alt="" />
+                <RetrieveImage name={'bb_trophy'} />{' '}
                 {clan.clanBuilderBasePoints}
               </span>
             </p>
             <h6>Requirements:</h6>
             <p>
               <span>
-                <img src={getImage('th_trophy')} alt="" />
-                {clan.requiredTrophies}
+                <RetrieveImage name={'th_trophy'} /> {clan.requiredTrophies}
               </span>
               |
               <span>
-                <img src={getImage('bb_trophy')} alt="" />
+                <RetrieveImage name={'bb_trophy'} />{' '}
                 {clan.requiredBuilderBaseTrophies}
               </span>
             </p>

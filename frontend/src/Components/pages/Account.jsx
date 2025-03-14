@@ -1,4 +1,3 @@
-import images from '../../util/Images';
 import { useEffect, useState } from 'react';
 const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { useParams, useNavigate } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
 import { changeUsername } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
+import useImage from '../../util/images/useImage';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -49,13 +49,15 @@ export default function Account({}) {
     fetchUserData(navigate, showAlert, setUserData);
   }, []);
 
+  const imageSrc = useImage('Rage Spell');
+
   if (!userData) return <div>Loading...</div>;
 
   return (
     <div id='account-container'>
       <div className="account-tab">
       <div id="account-header">
-        <img src={getImage('Thrower')} id="account-pfp" alt="" />
+        <img src={imageSrc} id="account-pfp" alt="" />
         <h3 id="account-username">
           {userData ? userData.username : '...loading'}
         </h3>

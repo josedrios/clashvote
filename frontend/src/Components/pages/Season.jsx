@@ -1,8 +1,7 @@
-import images from '../../util/Images';
 import Data from '../../general_data.json';
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
 import { FaEllipsisVertical } from 'react-icons/fa6';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import useImage from '../../util/images/useImage';
 
 // TEMPORARY (FOR COMMENT VOTE VALUES)
 function randomValue(bot, top) {
@@ -30,7 +29,8 @@ function VoteComponent({ object, title }) {
     ['Jose', 'This is a testing comment'],
     ['Eric', 'I am testing the UI of my comment section'],
     ['Anna', 'Loving this new feature!'],
-  ];
+  ]; 
+
   return (
     <div className="vote-component-container">
       <div className="vote-component-header">
@@ -40,11 +40,7 @@ function VoteComponent({ object, title }) {
       <div className="multiple-candidate-container">
         {object.slice(0, 3).map((candidate, key) => (
           <div className="candidate-container" key={key}>
-            <img
-              className="candidate-image"
-              src={getImage(candidate.name)}
-              alt=""
-            />
+            <CandidateImage candidate={candidate}/>
             <div className="candidate-info">
               <h4>{candidate.name}</h4>
               <div className="candidate-vote-bar">
@@ -61,6 +57,13 @@ function VoteComponent({ object, title }) {
       <CommentSection comments={comments} />
     </div>
   );
+}
+
+function CandidateImage({ candidate }) {
+  const imageSrc = useImage(candidate.name);
+  return (
+    <img src={imageSrc} alt="" className='candidate-image'/>
+  )
 }
 
 function CommentSection({ comments }) {
@@ -90,10 +93,12 @@ function CommentSection({ comments }) {
 }
 
 function Comment({ username, comment }) {
+  const imageSrc = useImage('Lightning Spell');
+
   return (
     <div className="comment">
       <div className="comment-pfp-container">
-        <img className="comment-pfp" src={getImage('Sneaky Goblin')} alt="" />
+        <img className="comment-pfp" src={imageSrc} alt="" />
       </div>
       <div className="comment-info">
         <div className="comment-top-bar">

@@ -21,6 +21,7 @@ export default function processPlayerData(data) {
         "Log Launcher",
         "Flame Flinger",
         "Battle Drill",
+        "Troop Launcher"
     ];
 
     const supers = [

@@ -17,10 +17,7 @@ exports.getAccountData = async (req, res) => {
     const user = await User.findById(userId)
       .populate('favoritePlayers')
       .populate('favoriteClans')
-      .select('-password');
-
-    console.log(user);
-    
+      .select('-password');    
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

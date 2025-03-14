@@ -3,12 +3,14 @@ import { FaUserCheck } from 'react-icons/fa';
 import { IoBookmark } from 'react-icons/io5';
 import { saveUnit } from '../../../../util/updateUserInfo';
 import { useAlert } from '../../../../util/AlertContext';
-
-import images from '../../../../util/Images';
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
+import useImage from '../../../../util/images/useImage';
 
 function PlayerMain({ data }) {
   const { showAlert } = useAlert();
+
+  const getSource = (name) => {
+    return useImage(name);
+  }
 
   const handlePlayerSave = (data) => {
     const token = localStorage.getItem('token');
@@ -33,7 +35,7 @@ function PlayerMain({ data }) {
       )}
       <div id="player-tag">{data.tag}</div>
       <div id="player-xp-container">
-        <img id="xp-icon" src={getImage('xp')} alt="" />
+        <img id="xp-icon" src={getSource('XP')} alt="" />
         <div id="player-level">{data.level}</div>
       </div>
       <div id="player-action-btns">

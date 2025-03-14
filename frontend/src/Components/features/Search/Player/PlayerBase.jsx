@@ -1,8 +1,18 @@
-import images from '../../../../util/Images';
 import { GoTrophy } from 'react-icons/go';
-import useImage from '../../../../util/useImage';
+import useImage from '../../../../util/images/useImage';
 
-const getImage = (name) => images[name.replace(/[ .]/g, '_')] || null;
+function RetrieveImage({ name, classname }) {
+  const imageSrc = useImage(name);
+
+  return (
+    <img
+      src={imageSrc}
+      className={classname}
+      title={name}
+      alt=""
+    />
+  );
+}
 
 export default function PlayerBase({ data }) {
   return (
@@ -10,9 +20,9 @@ export default function PlayerBase({ data }) {
       className={`player-base-container ${data.hallLevel ? '' : 'hide'}`}
       id={data.type === 'home' ? 'player-home-data' : 'player-builder-data'}
     >
-      <PlayerHomeHeader data={data} getImage={getImage} />
+      <PlayerHomeHeader data={data} />
       {data.units && data.units.heroes && data.units.heroes.length != 0 && (
-        <HeroUnitSection type={data.units.heroes} getImage={getImage} />
+        <HeroUnitSection type={data.units.heroes} />
       )}
       {data.units && data.units.troops && data.units.troops.length != 0 && (
         <UnitSection type={data.units.troops} header="TROOPS" />
@@ -59,7 +69,7 @@ function UnitSection({ type, header }) {
               >
                 {unit.level}
               </h4>
-              <img className="unit-img" src={getImage(unit.name)} alt="" />
+              <RetrieveImage name={unit.name} classname={'unit-img'} />
             </div>
           );
         })}
@@ -68,7 +78,7 @@ function UnitSection({ type, header }) {
   );
 }
 
-function HeroUnitSection({ type, getImage }) {
+function HeroUnitSection({ type }) {
   return (
     <div className="unit-section">
       <h3>HEROES</h3>
@@ -88,24 +98,20 @@ function HeroUnitSection({ type, getImage }) {
               >
                 {unit.level}
               </h4>
-              <img className="unit-img" src={getImage(unit.name)} alt="" />
+              <RetrieveImage name={unit.name} classname={'unit-img'} />
             </div>
             {unit.equipment?.length > 0 && (
               <div className="hero-equipment">
                 {unit.equipment[0] && (
-                  <img
-                    title={unit.equipment[0].name || ''}
-                    src={getImage(unit.equipment[0].name || '')}
-                    className="hero-item"
-                    alt=""
+                  <RetrieveImage
+                    name={unit.equipment[0].name || ''}
+                    classname={'hero-item'}
                   />
                 )}
                 {unit.equipment[1] && (
-                  <img
-                    title={unit.equipment[1].name || ''}
-                    src={getImage(unit.equipment[1].name || '')}
-                    className="hero-item"
-                    alt=""
+                  <RetrieveImage
+                    name={unit.equipment[1].name || ''}
+                    classname={'hero-item'}
                   />
                 )}
               </div>
@@ -117,7 +123,11 @@ function HeroUnitSection({ type, getImage }) {
   );
 }
 
-function PlayerHomeHeader({ data, getImage }) {
+function PlayerHomeHeader({ data }) {
+  const getSource = (name) => {
+    return useImage(name);
+  };
+
   return (
     <div className="player-base-header-container">
       <div className="player-base-header-info">
@@ -153,15 +163,14 @@ function PlayerHomeHeader({ data, getImage }) {
             <img
               className="weapon-level-star"
               key={index}
-              src={getImage('star')}
+              src={getSource('star')}
               alt=""
             />
           ))}
         </div>
-        <img
-          className="hall-img"
-          src={getImage((data.type === 'home' ? 'th' : 'bh') + data.hallLevel)}
-          alt=""
+        <RetrieveImage
+          name={data.type === 'home' ? ('th' + data.hallLevel) : ('bh' + data.hallLevel)}
+          classname={'hall-img'}
         />
       </div>
     </div>

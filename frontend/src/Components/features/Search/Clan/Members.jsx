@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import images from "../../../../util/Images";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
+import useImage from '../../../../util/images/useImage';
 
-const getImage = (name) => images[name.replace(/[ .]/g, "_")] || null;
+function GetImage({name, className}) {
+    const imageSrc = useImage(name);
+    
+    return (
+        <img src={imageSrc} className={className} alt="" />
+    )
+}
 
 export default function Members({ clan, fetchPlayer }) {
     const navigate = useNavigate();
@@ -84,19 +90,11 @@ export default function Members({ clan, fetchPlayer }) {
                         </div>
                         <div className="member-row-section member-trophy-section">
                             <span>
-                                <img
-                                    className="member-row-trophy-icon"
-                                    src={getImage("th_trophy")}
-                                    alt=""
-                                />
+                                <GetImage name={"th_trophy"} className={"member-row-trophy-icon"}/>
                                 {member.builderBaseTrophies}
                             </span>
                             <span>
-                                <img
-                                    className="member-row-trophy-icon"
-                                    src={getImage("bb_trophy")}
-                                    alt=""
-                                />
+                                <GetImage name={"bb_trophy"} className={"member-row-trophy-icon"}/>
                                 {member.trophies}
                             </span>
                         </div>
@@ -110,12 +108,7 @@ export default function Members({ clan, fetchPlayer }) {
                                 {member.donationsReceived}
                             </p>
                         </div>
-                        <img
-                            src={getImage("th" + member.townHallLevel)}
-                            className="member-row-th-icon"
-                            title={"TH" + member.townHallLevel}
-                            alt=""
-                        />
+                        <GetImage name={"th" + member.townHallLevel} className={"member-row-th-icon"}/>
                     </div>
                 ))}
             </div>

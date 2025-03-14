@@ -1,4 +1,4 @@
-import useImage from "../../util/useImage";
+import useImage from "../../util/images/useImage";
 
 function TeamMemberCard({ name, role }) {
     const imageSrc = useImage(name); 
@@ -21,7 +21,7 @@ export default function About() {
         "Wizard",
         "Goblin",
         "Dragon",
-        "Valkyrie",
+        "Archer Queen",
     ];
     const aboutP1 =
         "I started playing Clash of Clans (COC) as a kid, over a decade ago, and watched it evolve while building my base. I played with my brothers and friends and my favorite aspect of the game was the sense of community. The removal of global chat was a major devastation to us all, and though I kept playing, the sense of connection was never the same.";
