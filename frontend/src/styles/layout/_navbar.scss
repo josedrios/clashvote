@@ -1,58 +1,75 @@
 #main-navbar {
-    align-items: center;
+  align-items: center;
 }
 
 #website-name-container {
-    background-color: transparent;
-    h1 {
-        font-family: $navbar-font;
-        color: white;
-        span {
-            transition: color $transition-instant $transition-ease;
-            color: $primary-color;
-        }
+  background-color: transparent;
+  h1 {
+    font-family: $navbar-font;
+    color: white;
+    span {
+      transition: color $transition-instant $transition-ease;
+      color: $primary-color;
     }
+  }
 
-    &:hover {
-        h1 {
-            span {
-                color: $secondary-color;
-            }
-        }
+  &:hover {
+    h1 {
+      span {
+        color: $secondary-color;
+      }
     }
+  }
 }
 
 #nav-btns-container {
-    margin-left: auto;
-    display: flex;
-    width: 200px;
-    justify-content: space-around;
+  margin-left: auto;
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
 }
 
 #nav-bars-icon-xs {
-    display: none;
+  display: none;
+}
+
+#nav-account-pfp-container {
+  border-radius: $border-radius-sm;
+  @include box(40px);
+  transition: box-shadow $transition-fast;
+
+  &:hover {
+    box-shadow: 4px 4px 5px 2px rgb(26, 25, 25);
+  }
+}
+
+#nav-account-pfp {
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: $border-radius-sm;
+  transform: scale(101%);
 }
 
 @media (max-width: #{$breakpoint-xs}) {
-    #main-navbar {
-        padding: $spacing-xs;
-        flex-wrap: wrap;
-        height: 100px;
-    }
+  #main-navbar {
+    padding: $spacing-xs;
+    flex-wrap: wrap;
+    height: 100px;
+  }
 
-    #bars-icon-btn {
-        display: none !important;
-    }
+  #bars-icon-btn {
+    display: none !important;
+  }
 
-    #nav-bars-icon-xs {
-        display: inline;
-    }
+  #nav-bars-icon-xs {
+    display: inline;
+  }
 
-    #website-name-container {
-        margin: auto;
-    }
+  #website-name-container {
+    margin: auto;
+  }
 
-    #nav-btns-container {
-        flex-basis: 100%;
-    }
+  #nav-btns-container {
+    flex-basis: 100%;
+  }
 }

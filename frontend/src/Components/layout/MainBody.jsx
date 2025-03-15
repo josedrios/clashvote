@@ -7,7 +7,7 @@ import Auth from '../pages/Auth';
 import Account from '../pages/Account';
 import AlertBanner from './AlertBanner';
 
-function MainBody({ mainView }) {
+function MainBody({ userData, setUserData }) {
 
   return (
     <main id="main-body">
@@ -20,8 +20,11 @@ function MainBody({ mainView }) {
         <Route path="/contact" element={<Contact />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/auth/:authType" element={<Auth />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/account/:tab" element={<Account />} />
+        <Route
+          path="/account"
+          element={<Account userData={userData} setUserData={setUserData} />}
+        />
+        <Route path="/account/:tab" element={<Account userData={userData} setUserData={setUserData}/>} />
       </Routes>
     </main>
   );

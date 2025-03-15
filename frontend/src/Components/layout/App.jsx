@@ -23,19 +23,22 @@ export default function App() {
     return () => window.removeEventListener('resize', handleResize);
   });
 
+  const [userData, setUserData] = useState(null);
+
   return (
     <Router>
       <NavBar
         isSideBarOpen={isSideBarOpen}
         toggleSideBar={toggleSideBar}
         setIsSideBarOpen={setIsSideBarOpen}
+        userData={userData}
       />
       <div id="main-container">
         <SideBar
           isSideBarOpen={isSideBarOpen}
           setIsSideBarOpen={setIsSideBarOpen}
         />
-        <MainBody/>
+        <MainBody userData={userData} setUserData={setUserData}/>
         {isSideBarOpen && (
           <div
             id="non-interactable-overlay"

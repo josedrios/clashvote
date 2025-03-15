@@ -3,11 +3,13 @@ import { GoHome } from 'react-icons/go';
 import { GoPerson } from 'react-icons/go';
 import { HiBars2 } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
+import useImage from '../../util/images/useImage';
 
 export default function Navbar({
   isSideBarOpen,
   toggleSideBar,
   setIsSideBarOpen,
+  userData,
 }) {
   const navigate = useNavigate();
 
@@ -87,13 +89,28 @@ export default function Navbar({
           className="nav-btn"
           onClick={() => {
             const token = localStorage.getItem('token');
+            console.log(userData);
             navigate(token ? '/account' : '/auth');
             setIsSideBarOpen(false);
           }}
         >
-          <GoPerson strokeWidth={0.15} />
+          {userData === null ? (
+            <GoPerson strokeWidth={0.15} />
+          ) : (
+            <GetPFP name={userData.pfpCharacter} bgcolor={userData.pfpColor} />
+          )}
         </button>
       </div>
     </nav>
+  );
+}
+
+export function GetPFP({ name, bgcolor }) {
+  var imageSrc = useImage(name);
+
+  return (
+    <div id="nav-account-pfp-container" style={{ backgroundColor: bgcolor }}>
+      <img src={imageSrc} id="nav-account-pfp" alt="" />
+    </div>
   );
 }

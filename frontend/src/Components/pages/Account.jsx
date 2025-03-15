@@ -17,13 +17,21 @@ function logoutUser(navigate, showAlert) {
   showAlert('You have been logged out', 'info');
 }
 
-export default function Account({}) {
+export function GetPFP({ name, bgcolor }) {
+  var imageSrc = useImage(name);
+
+  return (
+    <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
+      <img src={imageSrc} id="account-pfp" alt="" />
+    </div>
+  );
+}
+
+export default function Account({userData, setUserData}) {
   const { tab } = useParams();
   const navigate = useNavigate();
   const bodyContent = tab || 'saves';
   const { showAlert } = useAlert();
-
-  const [userData, setUserData] = useState(null);
 
   const [settingChanges, setSettingChanges] = useState({
     username: '',
@@ -118,16 +126,6 @@ export default function Account({}) {
   useEffect(() => {
     fetchUserData(navigate, showAlert, setUserData);
   }, []);
-
-  function GetPFP({ name, bgcolor }) {
-    var imageSrc = useImage(name);
-
-    return (
-      <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
-        <img src={imageSrc} id="account-pfp" alt="" />
-      </div>
-    );
-  }
 
   if (!userData) return <div>Loading...</div>;
 
