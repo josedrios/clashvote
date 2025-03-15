@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { usernameCheck } from '../../util/validateAuth';
-import {
-  changeUsername,
-  changeCharacter,
-  changeColor,
-} from '../../util/updateUserInfo';
+import { changeAccount } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
-import { troopNames } from '../../util/images/imageCategories';
+import {
+  troopNames,
+  superTroopNames,
+  petNames,
+  heroNames,
+  pfpColors,
+} from '../../util/images/imageCategories';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -27,7 +29,7 @@ export function GetPFP({ name, bgcolor }) {
   );
 }
 
-export default function Account({userData, setUserData}) {
+export default function Account({ userData, setUserData }) {
   const { tab } = useParams();
   const navigate = useNavigate();
   const bodyContent = tab || 'saves';
@@ -39,88 +41,19 @@ export default function Account({userData, setUserData}) {
     character: '',
   });
 
-  const accountChanges = (settingsData, accountData) => {
-    const token = localStorage.getItem('token');
-    var changed = false;
-
-    if (
-      settingsData.username !== accountData.username &&
-      settingsData.username !== ''
-    ) {
-      if (usernameCheck(settingsData, showAlert)) {
-        if (changeUsername(settingsData, showAlert, token)) {
-          setUserData((prev) => ({
-            ...prev,
-            username: settingsData.username,
-          }));
-          setSettingChanges((prev) => ({
-            ...prev,
-            username: '',
-          }));
-          changed = true;
-        } else {
-          return;
-        }
-      } else {
-        return;
-      }
-    } else {
-      setSettingChanges((prev) => ({
-        ...prev,
-        username: '',
-      }));
-    }
-
-    if (
-      settingsData.character !== accountData.character &&
-      settingsData.character !== ''
-    ) {
-      if (changeCharacter(settingsData, showAlert, token)) {
-        setUserData((prev) => ({
-          ...prev,
-          pfpCharacter: settingsData.character,
-        }));
-        setSettingChanges((prev) => ({
-          ...prev,
-          character: '',
-        }));
-        changed = true;
-      } else {
-        return;
-      }
-    } else {
-      setSettingChanges((prev) => ({
-        ...prev,
-        character: '',
-      }));
-    }
-
-    if (
-      settingsData.color !== accountData.pfpColor &&
-      settingsData.color !== ''
-    ) {
-      if (changeColor(settingsData, showAlert, token)) {
-        setUserData((prev) => ({
-          ...prev,
-          pfpColor: settingsData.color,
-        }));
-        setSettingChanges((prev) => ({
-          ...prev,
-          color: '',
-        }));
-      } else {
-        return;
-      }
-    } else {
-      setSettingChanges((prev) => ({
-        ...prev,
-        color: '',
-      }));
-    }
-
-    if (changed === true) {
-      showAlert('Account settings have been changed', 'success');
-    }
+  const accountChanges = (
+    settingsData,
+    accountData,
+    setSettingChanges,
+    showAlert
+  ) => {
+    changeAccount(
+      settingsData,
+      accountData,
+      setSettingChanges,
+      showAlert,
+      setUserData
+    );
   };
 
   useEffect(() => {
@@ -137,50 +70,58 @@ export default function Account({userData, setUserData}) {
           <h3 id="account-username">
             {userData ? userData.username : '...loading'}
           </h3>
+          <button
+            className="standard-btn"
+            onClick={() => {
+              setUserData(null);
+              logoutUser(navigate, showAlert);
+            }}
+          >
+            Logout
+          </button>
+        </div>
+        <div id="account-body-nav">
+          <button
+            className="account-body-nav-button"
+            onClick={() => navigate('/account/saves')}
+          >
+            Saves
+          </button>
+          <button
+            className="account-body-nav-button"
+            onClick={() => navigate('/account/votes')}
+          >
+            Votes
+          </button>
+          <button
+            className="account-body-nav-button"
+            onClick={() => navigate('/account/comments')}
+          >
+            Comments
+          </button>
+          <button
+            className="account-body-nav-button"
+            onClick={() => navigate('/account/settings')}
+          >
+            Settings
+          </button>
         </div>
         <div id="account-body">
-          <div id="account-body-nav">
-            <button
-              className="account-body-nav-button"
-              onClick={() => navigate('/account/saves')}
-            >
-              Saves
-            </button>
-            <button
-              className="account-body-nav-button"
-              onClick={() => navigate('/account/votes')}
-            >
-              Votes
-            </button>
-            <button
-              className="account-body-nav-button"
-              onClick={() => navigate('/account/comments')}
-            >
-              Comments
-            </button>
-            <button
-              className="account-body-nav-button"
-              onClick={() => navigate('/account/settings')}
-            >
-              Settings
-            </button>
-          </div>
           <div id="account-content">
             {bodyContent === 'saves' ? (
-              <SavedContent />
+              <SavedContent userData={userData} />
             ) : bodyContent === 'votes' ? (
               <VotesContent />
             ) : bodyContent === 'comments' ? (
               <CommentsContent />
             ) : (
               <SettingsContent
-                logoutUser={logoutUser}
-                navigate={navigate}
                 showAlert={showAlert}
                 settingChanges={settingChanges}
                 setSettingChanges={setSettingChanges}
                 accountChanges={accountChanges}
                 userData={userData}
+                setUserData={setUserData}
               />
             )}
           </div>
@@ -190,11 +131,18 @@ export default function Account({userData, setUserData}) {
   );
 }
 
-function SavedContent({}) {
+function SavedContent({ userData }) {
   return (
     <div className="account-content-tab">
       <h5>Saves</h5>
-      <p></p>
+      Players:
+      {userData.favoritePlayers.map((player, key) => (
+        <div key={key}>{player.name}</div>
+      ))}
+      Clans:
+      {userData.favoriteClans.map((clan, key) => (
+        <div key={key}>{clan.name}</div>
+      ))}
     </div>
   );
 }
@@ -216,37 +164,13 @@ function CommentsContent() {
 }
 
 function SettingsContent({
-  logoutUser,
-  navigate,
   showAlert,
   settingChanges,
   setSettingChanges,
   accountChanges,
   userData,
+  setUserData,
 }) {
-  const pfpColors = [
-    'white',
-    'red',
-    'tomato',
-    'orangered',
-    'lightcoral',
-    'chocolate',
-    'gold',
-    'peachpuff',
-    'lime',
-    'palegreen',
-    'mediumspringgreen',
-    'cyan',
-    'dodgerblue',
-    'blue',
-    'midnightblue',
-    'plum',
-    'magenta',
-    'slategray',
-    'darkslategray',
-    'black',
-  ];
-
   const onColorChange = (color) => {
     if (color === settingChanges.color) {
       setSettingChanges((prev) => ({
@@ -304,6 +228,7 @@ function SettingsContent({
             <div
               className="pfp-color-option"
               key={key}
+              title={color}
               style={{
                 outline:
                   settingChanges.color === color ? '1px solid white' : 'none',
@@ -325,7 +250,62 @@ function SettingsContent({
             <button
               className="character-option"
               onClick={() => onCharacterChange(troop)}
+              title={troop}
               key={key}
+              style={{
+                outline:
+                  settingChanges.character === troop
+                    ? '1px solid white'
+                    : 'none',
+              }}
+            >
+              <img src={getSource(troop)} alt="" />
+            </button>
+          );
+        })}
+        {superTroopNames.map((troop, key) => {
+          return (
+            <button
+              className="character-option"
+              onClick={() => onCharacterChange(troop)}
+              title={troop}
+              key={key}
+              style={{
+                outline:
+                  settingChanges.character === troop
+                    ? '1px solid white'
+                    : 'none',
+              }}
+            >
+              <img src={getSource(troop)} alt="" />
+            </button>
+          );
+        })}
+        {petNames.map((troop, key) => {
+          return (
+            <button
+              className="character-option"
+              onClick={() => onCharacterChange(troop)}
+              title={troop}
+              key={key}
+              style={{
+                outline:
+                  settingChanges.character === troop
+                    ? '1px solid white'
+                    : 'none',
+              }}
+            >
+              <img src={getSource(troop)} alt="" />
+            </button>
+          );
+        })}
+        {heroNames.map((troop, key) => {
+          return (
+            <button
+              className="character-option"
+              onClick={() => onCharacterChange(troop)}
+              key={key}
+              title={troop}
               style={{
                 outline:
                   settingChanges.character === troop
@@ -341,15 +321,17 @@ function SettingsContent({
       <div className="account-settings-buttons">
         <button
           className="standard-btn"
-          onClick={() => accountChanges(settingChanges, userData)}
+          onClick={() =>
+            accountChanges(
+              settingChanges,
+              userData,
+              setSettingChanges,
+              showAlert,
+              setUserData
+            )
+          }
         >
           Save
-        </button>
-        <button
-          className="standard-btn"
-          onClick={() => logoutUser(navigate, showAlert)}
-        >
-          Logout
         </button>
       </div>
     </div>

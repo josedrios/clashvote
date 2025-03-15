@@ -232,3 +232,65 @@ export {
   townhallNames,
   troopNames,
 };
+
+// Storing PFP Colors Here:
+export const pfpColors = [
+  // Whites & Grays
+  'white',
+  'gray',
+  'darkgray',
+  'dimgray',
+  'slategray',
+  'darkslategray',
+
+  // Reds & Pinks
+  'tomato',
+  'orangered',
+  'lightcoral',
+  'salmon',
+  'crimson',
+  'firebrick',
+  'coral',
+  'deepPink',
+  'magenta',
+
+  // Oranges & Browns
+  'chocolate',
+  'sienna',
+  'goldenrod',
+  'peru',
+
+  // Yellows & Golds
+  'gold',
+  'khaki',
+  'peachpuff',
+
+  // Greens
+  'lime',
+  'palegreen',
+  'mediumseagreen',
+  'seagreen',
+  'forestgreen',
+  'darkolivegreen',
+  'mediumspringgreen',
+
+  // Blues & Teals
+  'cyan',
+  'teal',
+  'steelblue',
+  'dodgerblue',
+  'royalblue',
+  'blue',
+  'midnightblue',
+  'indigo',
+
+  // Purples
+  'mediumslateblue',
+  'rebeccapurple',
+  'plum',
+  'orchid',
+  'darkorchid',
+
+  // Black
+  'black',
+];

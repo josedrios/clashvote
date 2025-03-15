@@ -235,17 +235,15 @@ rect.bars {
 .account-body-nav-button {
     background-color: $gray-darker;
     text-align: left;
-    border-radius: $border-radius-xs;
-    margin-bottom: $spacing-xs;
-    padding: $spacing-sm 10%;
+    padding: 12px 0;
     transition: background-color $transition-instant;
+    width: 25%;
+    text-align: center;
 
     &:hover {
         background-color: transparent;
     }
 }
-
-// Account Settings Tab
 
 .account-settings-buttons {
     @include flex(row, space-between, center);
@@ -284,4 +282,3 @@ rect.bars {
         transform: scale(101%);
     }
 }
-

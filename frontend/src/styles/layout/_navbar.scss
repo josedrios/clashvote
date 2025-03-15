@@ -36,10 +36,12 @@
 #nav-account-pfp-container {
   border-radius: $border-radius-sm;
   @include box(40px);
-  transition: box-shadow $transition-fast;
+  transition: box-shadow $transition-fast, transform $transition-instant;
+  position: relative;
 
   &:hover {
-    box-shadow: 4px 4px 5px 2px rgb(26, 25, 25);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 3px 2px rgb(26, 25, 25);
   }
 }
 

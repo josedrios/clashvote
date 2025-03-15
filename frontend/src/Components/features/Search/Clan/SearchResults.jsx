@@ -17,7 +17,7 @@ const getCWL = (name) => {
 function RetrieveImage({ name, classname }) {
   const imageSrc = useImage(name);
 
-  return <img src={imageSrc} classname={classname} alt="" />;
+  return <img src={imageSrc} className={classname} alt="" />;
 }
 
 export default function SearchResults({ clanData, fetchPlayer }) {
@@ -79,9 +79,10 @@ export default function SearchResults({ clanData, fetchPlayer }) {
     <div id="clan-results-container">
       {clanData?.items?.map((clan, key) => (
         <div className="clan-result-card" key={key}>
-          <RetrieveImage
-            name={clan.badgeUrls.medium}
-            classname={'clan-result-badge'}
+          <img
+            className="clan-result-badge"
+            src={clan.badgeUrls.medium}
+            alt=""
           />
           <h5>{clan.name}</h5>
           <p className="clan-card-tag">{clan.tag}</p>
