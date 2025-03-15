@@ -19,11 +19,16 @@ const imageGlobs = {
 function useImage(name) {
   const [src, setSrc] = useState('');
 
+  if (typeof name === "undefined" || name === null || name === '') {
+    console.log("String is undefined or null");
+    return;
+  }
+
   useEffect(() => {
     async function loadImage() {
       const formattedName = name.replace(/[ ]/g, '_');
       const type = findImageType(formattedName);
-      if (type === null) {
+      if (!type || !imageGlobs[type]) {
         console.warn('No image type was found');
         return;
       }

@@ -3,7 +3,6 @@ const Player = require('../models/Players');
 const Clan = require('../models/Clans');
 
 exports.getAccountData = async (req, res) => {
-
   const token = req.headers.authorization?.split(' ')[1];
 
   if (!token) {
@@ -16,7 +15,7 @@ exports.getAccountData = async (req, res) => {
     const user = await User.findById(userId)
       .populate('favoritePlayers')
       .populate('favoriteClans')
-      .select('-password');    
+      .select('-password');
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
@@ -78,7 +77,10 @@ exports.characterChange = async (req, res) => {
 
     res
       .status(200)
-      .json({ message: 'PFP Character updated successfully', user: updateUser });
+      .json({
+        message: 'PFP Character updated successfully',
+        user: updateUser,
+      });
   } catch (error) {
     return res
       .status(500)
@@ -87,8 +89,6 @@ exports.characterChange = async (req, res) => {
 };
 
 exports.colorChange = async (req, res) => {
-  console.log('reached code here')
-
   try {
     const { userId } = req.params;
     const { color } = req.body;
@@ -98,7 +98,6 @@ exports.colorChange = async (req, res) => {
       { pfpColor: color },
       { new: true, runValidators: true }
     );
-
 
     if (!updateUser) {
       return res.status(404).json({ message: 'User not found.' });

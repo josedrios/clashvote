@@ -32,15 +32,13 @@ export default function Account({}) {
   });
 
   const accountChanges = (settingsData, accountData) => {
-    console.log('TESTING: ', settingsData.color);
-    console.log('TESTING: ', settingsData.character);
-
     const token = localStorage.getItem('token');
+    var changed = false;
 
-    // USERNAME CHANGE
-    if (settingsData.username === '') {
-      console.log('error changing username0');
-    } else if (settingsData.username !== accountData.username) {
+    if (
+      settingsData.username !== accountData.username &&
+      settingsData.username !== ''
+    ) {
       if (usernameCheck(settingsData, showAlert)) {
         if (changeUsername(settingsData, showAlert, token)) {
           setUserData((prev) => ({
@@ -51,50 +49,69 @@ export default function Account({}) {
             ...prev,
             username: '',
           }));
+          changed = true;
         } else {
-          console.warn('error changing username');
+          return;
         }
       } else {
-        console.warn('error changing username2');
+        return;
       }
     } else {
-      console.log('error changing username3');
+      setSettingChanges((prev) => ({
+        ...prev,
+        username: '',
+      }));
     }
 
-    //PFP CHARACTER CHANGE
-    if (settingsData.character !== accountData.character) {
+    if (
+      settingsData.character !== accountData.character &&
+      settingsData.character !== ''
+    ) {
       if (changeCharacter(settingsData, showAlert, token)) {
         setUserData((prev) => ({
           ...prev,
-          character: settingsData.pfpCharacter,
+          pfpCharacter: settingsData.character,
         }));
         setSettingChanges((prev) => ({
           ...prev,
           character: '',
         }));
+        changed = true;
       } else {
-        console.warn('error changing character');
+        return;
       }
     } else {
-      console.log('you already have the character u entered');
+      setSettingChanges((prev) => ({
+        ...prev,
+        character: '',
+      }));
     }
 
-    //PFP COLOR CHANGE
-    if (settingsData.color !== accountData.pfpColor) {
+    if (
+      settingsData.color !== accountData.pfpColor &&
+      settingsData.color !== ''
+    ) {
       if (changeColor(settingsData, showAlert, token)) {
         setUserData((prev) => ({
           ...prev,
-          color: settingsData.pfpColor,
+          pfpColor: settingsData.color,
         }));
         setSettingChanges((prev) => ({
           ...prev,
           color: '',
         }));
       } else {
-        console.warn('error changing color');
+        return;
       }
     } else {
-      console.log('you already have the color u entered');
+      setSettingChanges((prev) => ({
+        ...prev,
+        color: '',
+      }));
+    }
+
+    if (changed === true) {
+      showAlert('Account settings have been changed', 'success');
     }
   };
 
@@ -103,7 +120,7 @@ export default function Account({}) {
   }, []);
 
   function GetPFP({ name, bgcolor }) {
-    const imageSrc = useImage(name);
+    var imageSrc = useImage(name);
 
     return (
       <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
@@ -233,18 +250,31 @@ function SettingsContent({
   ];
 
   const onColorChange = (color) => {
-    console.log(color);
-    setSettingChanges((prev) => ({
-      ...prev,
-      color: color,
-    }));
+    if (color === settingChanges.color) {
+      setSettingChanges((prev) => ({
+        ...prev,
+        color: '',
+      }));
+    } else {
+      setSettingChanges((prev) => ({
+        ...prev,
+        color: color,
+      }));
+    }
   };
 
   const onCharacterChange = (character) => {
-    setSettingChanges((prev) => ({
-      ...prev,
-      character: character,
-    }));
+    if (character === settingChanges.character) {
+      setSettingChanges((prev) => ({
+        ...prev,
+        character: '',
+      }));
+    } else {
+      setSettingChanges((prev) => ({
+        ...prev,
+        character: character,
+      }));
+    }
   };
 
   const getSource = (name) => {
