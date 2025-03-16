@@ -7,8 +7,5 @@ const playerSchema = new mongoose.Schema({
   lastUpdated: { type: Date, default: Date.now },
 });
 
-// For caching:
-// data: { type: Object, required: true }
-
 const Player = mongoose.model('Player', playerSchema);
 module.exports = Player;

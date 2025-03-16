@@ -1,79 +1,120 @@
 #account-container {
-    @include flex(row, center);
-    @include box(100%);
+  @include flex(row, center);
+  @include box(100%);
 }
 
 .account-tab {
-    max-width: 600px;
-    width: 100%;
-    border-radius: $border-radius-sm;
+  max-width: 600px;
+  width: 100%;
+  border-radius: $border-radius-sm;
 }
 
 #account-header {
-    background-color: $secondary-background-color;
-    border-radius: $border-radius-sm $border-radius-sm 0 0;
-    width: 100%;
-    @include flex(row, space-between, center);
-    padding-right: $spacing-md;
-    height: 60px;
-    margin-top: calc(60px);
-    position: relative;
+  background-color: $secondary-background-color;
+  border-radius: $border-radius-xs $border-radius-xs 0 0;
+  width: 100%;
+  @include flex(row, space-between, center);
+  padding: $spacing-md $spacing-md $spacing-md 0;
+  height: 60px;
+  margin-top: calc(30px);
+  position: relative;
 }
 
 #account-pfp-container {
-    border-radius: $border-radius-sm;
-    @include box(60px);
-    position: absolute;
-    left: $spacing-md;
-    bottom: $spacing-md;
+  border-radius: $border-radius-sm;
+  @include box(60px);
+  position: absolute;
+  left: $spacing-md;
+  bottom: 10px;
 }
 
 #account-pfp {
-    aspect-ratio: 1/1;
-    width: 100%;
-    border-radius: $border-radius-sm;
-    transform: scale(101%);
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: $border-radius-sm;
+  transform: scale(101%);
+}
+
+#account-username-change-label {
+  margin-top: $spacing-sm;
 }
 
 #account-username {
-    margin-left: calc(60px + $spacing-md*2);
+  margin-left: calc(60px + $spacing-md * 2);
 }
 
 #account-body {
-    padding:  $spacing-sm $spacing-md $spacing-md $spacing-md;
-    border-radius: 0 0 $border-radius-sm $border-radius-sm;
-    display: flex;
-    flex-direction: column;
-    background-color: $secondary-background-color;
+  padding: $spacing-sm $spacing-md $spacing-md $spacing-md;
+  border-radius: 0 0 $border-radius-xs $border-radius-xs;
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-background-color;
 }
 
 #account-body-nav {
-    @include flex(row, space-around, center);
-    border-top: 2px solid $primary-color;
-    width: 100%;
+  background-color: $secondary-background-color;
+  @include flex(row, space-around, center);
+  border-bottom: 2px solid $primary-color;
+  width: 100%;
 }
 
 #account-content {
-    width: 100%;
-    padding-left: $spacing-md;
+  width: 100%;
 }
 
 .account-content-tab {
-    @include flex(column, column, left);
-    width: 100%;
+  @include flex(column, column, left);
+  width: 100%;
+  margin-top: $spacing-sm;
 
-    > * {
-        margin-bottom: $spacing-sm;
-    }
-
-    h5 {
-        color: $primary-color;
-        text-align: center;
-    }
+  > * {
+    margin-bottom: $spacing-sm;
+  }
 }
 
-.pfp-color-options-container, .pfp-character-options-container {
-    @include flex(row, left, center);
-    flex-wrap: wrap;
-    gap: 0px $spacing-sm;
+.pfp-color-options-container,
+.pfp-character-options-container {
+  @include flex(row, left, center);
+  flex-wrap: wrap;
+  gap: 0px $spacing-sm;
+}
+
+.saved-container {
+  @include flex(row, initial, top);
+  column-gap: $spacing-sm;
+}
+
+.saved-container-tab {
+  width: 50%;
+
+  h5 {
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+@media (max-width: 475px) {
+    .saved-container {
+      flex-direction: column;
+      column-gap: 0px;
+    }
+
+    .saved-container-tab {
+        width: 100%;
+    }
+  }
+
+@media (max-width: 400px) {
+  #account-pfp-container {
+    display: none;
+  }
+
+  #account-username {
+    margin-left: $spacing-md;
+  }
+
+  #account-header {
+    padding-bottom: 0px;
+  }
 }

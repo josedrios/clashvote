@@ -278,3 +278,41 @@
         }
     }
 }
+
+// Account
+.saved-card {
+    width: 100%;
+    padding: $spacing-sm;
+    padding-top: $spacing-xs !important;
+    background-color: $gray-darker;
+    border-radius: $border-radius-xs;
+    margin-bottom: $spacing-sm;
+    transition: background-color $transition-instant;
+
+    .saved-card-header {
+        @include flex(row, center, center);
+
+        img {
+            aspect-ratio: 1/1;
+            width: 35px;
+        }
+
+        p {
+            margin-right: $spacing-sm;
+        }
+    }
+
+    .saved-card-footer {
+        @include flex(row, center, center);
+        position: relative;
+
+        p {
+            color: $gray-light;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: color-fade($gray-darker, 0.8);
+    }
+}

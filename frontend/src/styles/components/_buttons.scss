@@ -233,7 +233,9 @@ rect.bars {
 // Account 
 
 .account-body-nav-button {
-    background-color: $gray-darker;
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-xs;
+    margin: $spacing-sm;
     text-align: left;
     padding: 12px 0;
     transition: background-color $transition-instant;
@@ -241,13 +243,31 @@ rect.bars {
     text-align: center;
 
     &:hover {
-        background-color: transparent;
+        background-color: $primary-background-color;
     }
 }
 
 .account-settings-buttons {
-    @include flex(row, space-between, center);
+    @include flex(row, right, center);
     margin-top: $spacing-sm;
+}
+
+.logout-narrow {
+    margin-top: $spacing-sm;
+    display: block;
+    margin-left: auto;
+}
+
+@media (max-width: 529px) {
+    .logout-wide {
+        display: none;
+    }
+}
+
+@media (min-width: 530px) {
+    .logout-narrow {
+        display: none;
+    }
 }
 
 .pfp-color-label  {
@@ -280,5 +300,18 @@ rect.bars {
         aspect-ratio: 1/1;
         border-radius: $border-radius-sm;
         transform: scale(101%);
+    }
+}
+
+.saved-card-trash {
+    fill: color-fade($error-color, 0.6);
+    position: absolute;
+    font-size: 19px;
+    right: $spacing-sm;
+    transition: fill $transition-instant, transform $transition-instant;
+
+    &:hover {
+        fill: $error-color;
+        transform: scale(110%);
     }
 }

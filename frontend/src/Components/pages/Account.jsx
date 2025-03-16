@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
-import { usernameCheck } from '../../util/validateAuth';
 import { changeAccount } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
+import { GoBookmarkSlash } from 'react-icons/go';
 import {
   troopNames,
   superTroopNames,
@@ -65,13 +65,22 @@ export default function Account({ userData, setUserData }) {
   return (
     <div id="account-container">
       <div className="account-tab">
+        <button
+          className="standard-btn logout-narrow"
+          onClick={() => {
+            setUserData(null);
+            logoutUser(navigate, showAlert);
+          }}
+        >
+          Logout
+        </button>
         <div id="account-header">
           <GetPFP name={userData.pfpCharacter} bgcolor={userData.pfpColor} />
           <h3 id="account-username">
             {userData ? userData.username : '...loading'}
           </h3>
           <button
-            className="standard-btn"
+            className="standard-btn logout-wide"
             onClick={() => {
               setUserData(null);
               logoutUser(navigate, showAlert);
@@ -84,24 +93,32 @@ export default function Account({ userData, setUserData }) {
           <button
             className="account-body-nav-button"
             onClick={() => navigate('/account/saves')}
+            style={{
+              color: tab === 'saves' || !tab ? 'rgb(235, 222, 36)' : '',
+            }}
           >
             Saves
           </button>
           <button
             className="account-body-nav-button"
             onClick={() => navigate('/account/votes')}
+            style={{ color: tab === 'votes' ? 'rgb(235, 222, 36)' : '' }}
           >
             Votes
           </button>
           <button
             className="account-body-nav-button"
             onClick={() => navigate('/account/comments')}
+            style={{ color: tab === 'comments' ? 'rgb(235, 222, 36)' : '' }}
           >
             Comments
           </button>
           <button
             className="account-body-nav-button"
             onClick={() => navigate('/account/settings')}
+            style={{
+              color: tab === 'settings' ? 'rgb(235, 222, 36)' : '',
+            }}
           >
             Settings
           </button>
@@ -133,33 +150,50 @@ export default function Account({ userData, setUserData }) {
 
 function SavedContent({ userData }) {
   return (
-    <div className="account-content-tab">
-      <h5>Saves</h5>
-      Players:
-      {userData.favoritePlayers.map((player, key) => (
-        <div key={key}>{player.name}</div>
-      ))}
-      Clans:
-      {userData.favoriteClans.map((clan, key) => (
-        <div key={key}>{clan.name}</div>
-      ))}
+    <div className="account-content-tab saved-container">
+      <div className="saved-container-tab">
+        <h5>Players</h5>{' '}
+        {userData.favoritePlayers.map((player, key) => (
+          <div className="saved-card" key={key}>
+            <div className="saved-card-header">
+              <p>{player.name}</p>
+              <img src={player.icon} alt="" />
+            </div>
+            <div className="saved-card-footer">
+              <p>#{player.tag}</p>
+              <GoBookmarkSlash className="saved-card-trash" />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="saved-container-tab">
+        <h5>Clans</h5>{' '}
+        {userData.favoriteClans.map((clan, key) => (
+          <div className="saved-card" key={key}>
+            <div className="saved-card-header">
+              <p>{clan.name}</p>
+              <img src={clan.icon} alt="" />
+            </div>
+            <div className="saved-card-footer">
+              <p>#{clan.tag}</p>
+              <GoBookmarkSlash className="saved-card-trash" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 function VotesContent() {
   return (
-    <div className="account-content-tab">
-      <h5>Votes</h5>
-    </div>
+    <div className="account-content-tab">populate with player's votes</div>
   );
 }
 
 function CommentsContent() {
   return (
-    <div className="account-content-tab">
-      <h5>Comments</h5>
-    </div>
+    <div className="account-content-tab">populate with player's comments </div>
   );
 }
 
@@ -205,8 +239,12 @@ function SettingsContent({
 
   return (
     <div className="account-content-tab account-settings-tab">
-      <h5>Settings</h5>{' '}
-      <label htmlFor="account-username-change">Change Username:</label>
+      <label
+        id="account-username-change-label"
+        htmlFor="account-username-change"
+      >
+        Change Username:
+      </label>
       <input
         id="account-username-change"
         type="text"
