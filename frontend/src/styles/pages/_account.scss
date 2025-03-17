@@ -94,6 +94,10 @@
   }
 }
 
+.saved-card-row {
+  @include flex(row, center, center);
+}
+
 @media (max-width: 475px) {
     .saved-container {
       flex-direction: column;

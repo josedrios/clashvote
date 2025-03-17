@@ -304,10 +304,8 @@ rect.bars {
 }
 
 .saved-card-trash {
-    fill: color-fade($error-color, 0.8);
-    position: absolute;
-    font-size: 19px;
-    right: $spacing-sm;
+    fill: color-fade($error-color, 0.7);
+    font-size: 22px;
     transition: fill $transition-instant, transform $transition-instant;
 
     &:hover {

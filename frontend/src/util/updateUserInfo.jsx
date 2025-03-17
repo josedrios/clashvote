@@ -1,5 +1,7 @@
 import { jwtDecode } from 'jwt-decode';
 import { usernameCheck } from './validateAuth';
+import { fetchUserData } from './getUserData';
+import { Navigate } from 'react-router-dom';
 
 export async function changeAccount(
   settingsData,
@@ -298,6 +300,69 @@ export async function saveUnit(token, type, name, tag, icon, showAlert) {
           'info'
         );
       }
+      return false;
+    }
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return false;
+  }
+}
+
+export async function deleteSave(type, tag, showAlert, setUserData) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken?.userId || decodedToken?.id;
+
+  if (!userId) {
+    showAlert(
+      'Authentication error: User ID missing in token, try again after logging out',
+      'error'
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      `http://localhost:3001/api/user/unsave/${type}/${tag}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      showAlert('Unit was unsaved', 'success');
+      if(type === 'player') {
+        setUserData(prevState => ({
+          ...prevState,
+          favoritePlayers: prevState.favoritePlayers.filter(player => player.tag !== tag)
+        }));
+      } else if( type === 'clan') {
+        setUserData(prevState => ({
+          ...prevState,
+          favoriteClans: prevState.favoriteClans.filter(clan => clan.tag !== tag)
+        }));
+      }
+      return true;
+    } else {
+      showAlert(
+        responseData.message ||
+          'Unit unsave was unsuccessful, please try again',
+        'error'
+      );
       return false;
     }
   } catch (error) {

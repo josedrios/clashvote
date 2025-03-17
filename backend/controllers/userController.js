@@ -75,12 +75,10 @@ exports.characterChange = async (req, res) => {
       return res.status(404).json({ message: 'User not found.' });
     }
 
-    res
-      .status(200)
-      .json({
-        message: 'PFP Character updated successfully',
-        user: updateUser,
-      });
+    res.status(200).json({
+      message: 'PFP Character updated successfully',
+      user: updateUser,
+    });
   } catch (error) {
     return res
       .status(500)
@@ -146,9 +144,7 @@ exports.saveUnit = async (req, res) => {
 
     if (alreadySaved) {
       return res.status(409).json({ message: `The ${type} is already saved` });
-    } else {
-      console.log('NO MATCHES');
-    }
+    } 
 
     // need to check if clan or player still exists before saving
 
@@ -168,10 +164,53 @@ exports.saveUnit = async (req, res) => {
 
     return res.status(201).json({ message: 'Save was successful!' });
   } catch (error) {
+    console.log(error.message);
     return res
       .status(500)
       .json({ message: 'Error occurred while saving unit', error: error });
   }
+};
+
+exports.unsaveUnit = async (req, res) => {
+  const { type, tag } = req.params;
+  if (type !== 'player' && type !== 'clan') {
+    return res
+      .status(400)
+      .json({ message: `Cannot unsave unit of type: ${type}` });
+  }
+
+  const userId = req.user.id;
+
+  const user = await User.findById(userId)
+    .populate('favoritePlayers')
+    .populate('favoriteClans');
+
+  if (!user) {
+    return res.status(400).json({ message: 'User not found' });
+  }
+
+  let deletedItem;
+  if (type === 'player') {
+    deletedItem = user.favoritePlayers.find((unit) => unit.tag === tag);
+    user.favoritePlayers = user.favoritePlayers.filter(
+      (unit) => unit.tag !== tag
+    );
+  } else if (type === 'clan') {
+    deletedItem = user.favoriteClans.find((unit) => unit.tag === tag);
+    user.favoriteClans = user.favoriteClans.filter((unit) => unit.tag !== tag);
+  }
+
+  await user.save(); 
+
+  if (deletedItem) {
+    if (type === 'player') {
+      await Player.findByIdAndDelete(deletedItem._id);
+    } else if (type === 'clan') {
+      await Clan.findByIdAndDelete(deletedItem._id);
+    }
+  }
+
+  return res.json({ message: 'Unit unsaved successfully' });
 };
 
 exports.getPFP = async (req, res) => {

@@ -4,6 +4,7 @@ const {
   characterChange,
   colorChange,
   saveUnit,
+  unsaveUnit,
   getAccountData,
   getPFP,
 } = require('../controllers/userController');
@@ -18,5 +19,7 @@ router.patch('/:userId/color', authMiddleware, colorChange);
 router.get('/account', authMiddleware, getAccountData);
 router.get('/pfp', authMiddleware, getPFP);
 router.post('/save/:type/:tag', authMiddleware, saveUnit);
+router.patch('/unsave/:type/:tag', authMiddleware, unsaveUnit);
+
 
 module.exports = router;

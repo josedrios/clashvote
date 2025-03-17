@@ -282,6 +282,7 @@
 // Account
 .saved-card {
     margin: auto;
+    margin-right: $spacing-sm !important;
     width: 100%;
     padding: $spacing-sm;
     padding-top: $spacing-xs !important;

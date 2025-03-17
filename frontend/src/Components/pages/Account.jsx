@@ -120,7 +120,7 @@ export default function Account({ userData, setUserData }) {
         <div id="account-body">
           <div id="account-content">
             {bodyContent === 'saves' ? (
-              <SavedContent userData={userData} navigate={navigate}/>
+              <SavedContent userData={userData} navigate={navigate} showAlert={showAlert} setUserData={setUserData}/>
             ) : bodyContent === 'votes' ? (
               <VotesContent />
             ) : bodyContent === 'comments' ? (

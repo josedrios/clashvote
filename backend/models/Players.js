@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const playerSchema = new mongoose.Schema({
-  tag: { type: String, required: true, unique: true },
+  tag: { type: String, required: true },
   name: { type: String, required: true },
   icon: { type: String, required: true},
   lastUpdated: { type: Date, default: Date.now },

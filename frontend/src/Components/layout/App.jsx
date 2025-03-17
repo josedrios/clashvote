@@ -25,6 +25,10 @@ export default function App() {
 
   const [userData, setUserData] = useState(null);
 
+  useEffect(() => {
+    console.log(userData)
+  },[userData]);
+
   return (
     <Router>
       <NavBar
