@@ -289,14 +289,14 @@ rect.bars {
 }
 
 .character-option {
-    @include box(50px);
+    @include box(40px);
     border-radius: $border-radius-sm;
     background-color: $primary-background-color;
     aspect-ratio: 1/1;
     margin-bottom: $spacing-sm;
 
     img {
-        width: 50px;
+        width: 40px;
         aspect-ratio: 1/1;
         border-radius: $border-radius-sm;
         transform: scale(101%);

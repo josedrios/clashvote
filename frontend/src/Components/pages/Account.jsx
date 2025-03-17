@@ -4,14 +4,8 @@ import { useAlert } from '../../util/AlertContext';
 import { changeAccount } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
-import { GoBookmarkSlash } from 'react-icons/go';
-import {
-  troopNames,
-  superTroopNames,
-  petNames,
-  heroNames,
-  pfpColors,
-} from '../../util/images/imageCategories';
+import { SettingsContent } from '../features/Account/Settings';
+import { SavedContent } from '../features/Account/Saved';
 
 function logoutUser(navigate, showAlert) {
   localStorage.removeItem('token');
@@ -126,7 +120,7 @@ export default function Account({ userData, setUserData }) {
         <div id="account-body">
           <div id="account-content">
             {bodyContent === 'saves' ? (
-              <SavedContent userData={userData} />
+              <SavedContent userData={userData} navigate={navigate}/>
             ) : bodyContent === 'votes' ? (
               <VotesContent />
             ) : bodyContent === 'comments' ? (
@@ -148,43 +142,6 @@ export default function Account({ userData, setUserData }) {
   );
 }
 
-function SavedContent({ userData }) {
-  return (
-    <div className="account-content-tab saved-container">
-      <div className="saved-container-tab">
-        <h5>Players</h5>{' '}
-        {userData.favoritePlayers.map((player, key) => (
-          <div className="saved-card" key={key}>
-            <div className="saved-card-header">
-              <p>{player.name}</p>
-              <img src={player.icon} alt="" />
-            </div>
-            <div className="saved-card-footer">
-              <p>#{player.tag}</p>
-              <GoBookmarkSlash className="saved-card-trash" />
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="saved-container-tab">
-        <h5>Clans</h5>{' '}
-        {userData.favoriteClans.map((clan, key) => (
-          <div className="saved-card" key={key}>
-            <div className="saved-card-header">
-              <p>{clan.name}</p>
-              <img src={clan.icon} alt="" />
-            </div>
-            <div className="saved-card-footer">
-              <p>#{clan.tag}</p>
-              <GoBookmarkSlash className="saved-card-trash" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function VotesContent() {
   return (
     <div className="account-content-tab">populate with player's votes</div>
@@ -194,184 +151,5 @@ function VotesContent() {
 function CommentsContent() {
   return (
     <div className="account-content-tab">populate with player's comments </div>
-  );
-}
-
-function SettingsContent({
-  showAlert,
-  settingChanges,
-  setSettingChanges,
-  accountChanges,
-  userData,
-  setUserData,
-}) {
-  const onColorChange = (color) => {
-    if (color === settingChanges.color) {
-      setSettingChanges((prev) => ({
-        ...prev,
-        color: '',
-      }));
-    } else {
-      setSettingChanges((prev) => ({
-        ...prev,
-        color: color,
-      }));
-    }
-  };
-
-  const onCharacterChange = (character) => {
-    if (character === settingChanges.character) {
-      setSettingChanges((prev) => ({
-        ...prev,
-        character: '',
-      }));
-    } else {
-      setSettingChanges((prev) => ({
-        ...prev,
-        character: character,
-      }));
-    }
-  };
-
-  const getSource = (name) => {
-    return useImage(name);
-  };
-
-  return (
-    <div className="account-content-tab account-settings-tab">
-      <label
-        id="account-username-change-label"
-        htmlFor="account-username-change"
-      >
-        Change Username:
-      </label>
-      <input
-        id="account-username-change"
-        type="text"
-        value={settingChanges.username}
-        placeholder={userData ? userData.username : ''}
-        onChange={(e) =>
-          setSettingChanges((prev) => ({
-            ...prev,
-            username: e.target.value,
-          }))
-        }
-      />
-      <label htmlFor="" className="pfp-color-label">
-        Profile Picture Color:
-      </label>
-      <div className="pfp-color-options-container">
-        {pfpColors.map((color, key) => {
-          return (
-            <div
-              className="pfp-color-option"
-              key={key}
-              title={color}
-              style={{
-                outline:
-                  settingChanges.color === color ? '1px solid white' : 'none',
-              }}
-            >
-              <button
-                onClick={() => onColorChange(color)}
-                className="pfp-color"
-                style={{ background: `${color}` }}
-              ></button>
-            </div>
-          );
-        })}
-      </div>
-      <label htmlFor="">Profile Picture Troop:</label>
-      <div className="pfp-character-options-container">
-        {troopNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {superTroopNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {petNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {heroNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              key={key}
-              title={troop}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-      </div>
-      <div className="account-settings-buttons">
-        <button
-          className="standard-btn"
-          onClick={() =>
-            accountChanges(
-              settingChanges,
-              userData,
-              setSettingChanges,
-              showAlert,
-              setUserData
-            )
-          }
-        >
-          Save
-        </button>
-      </div>
-    </div>
   );
 }
