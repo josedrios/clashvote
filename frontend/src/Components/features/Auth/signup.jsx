@@ -7,7 +7,7 @@ import { validateAuthForm } from '../../../util/validateAuth';
 import { processRegister } from '../../../util/processAuth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Signup({ authType, authTab, setAuthTab }) {
+export default function Signup({ authType, authTab, setAuthTab, setUserData }) {
   const { showAlert } = useAlert();
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export default function Signup({ authType, authTab, setAuthTab }) {
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'signup');
     if(validation){
-      processRegister(formData, navigate, showAlert)
+      processRegister(formData, navigate, showAlert, setUserData)
     }
   };
 

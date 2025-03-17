@@ -18,8 +18,8 @@ function MainBody({ userData, setUserData }) {
         <Route path="/search/:type/:tag?" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/auth/:authType" element={<Auth />} />
+        <Route path="/auth" element={<Auth setUserData={setUserData}/>} />
+        <Route path="/auth/:authType" element={<Auth setUserData={setUserData}/>} />
         <Route
           path="/account"
           element={<Account userData={userData} setUserData={setUserData} />}

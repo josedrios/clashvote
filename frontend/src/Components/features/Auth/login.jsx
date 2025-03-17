@@ -6,7 +6,7 @@ import { validateAuthForm } from '../../../util/validateAuth';
 import { processLogin } from '../../../util/processAuth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login({ authType, authTab, setAuthTab }) {
+export default function Login({ authType, authTab, setAuthTab, setUserData }) {
   const { showAlert } = useAlert();
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ export default function Login({ authType, authTab, setAuthTab }) {
   const handleSubmit = (e) => {
     const validation = validateAuthForm(formData, showAlert, 'login');
     if (validation) {
-      processLogin(formData, navigate, showAlert);
+      processLogin(formData, navigate, showAlert, setUserData);
     }
   };
 

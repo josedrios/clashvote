@@ -4,7 +4,7 @@ import Signup from '../features/Auth/signup';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function Auth({}) {
+export default function Auth({setUserData}) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -38,8 +38,8 @@ export default function Auth({}) {
           height,
         }}
       >
-        <Signup authType={'signup'} authTab={authTab} setAuthTab={setAuthTab} />
-        <Login authType={'login'} authTab={authTab} setAuthTab={setAuthTab} />
+        <Signup authType={'signup'} authTab={authTab} setAuthTab={setAuthTab} setUserData={setUserData}/>
+        <Login authType={'login'} authTab={authTab} setAuthTab={setAuthTab} setUserData={setUserData}/>
         <div
           id="art-slider"
           className={authTab === 'login' ? '' : 'art-slide-right'}

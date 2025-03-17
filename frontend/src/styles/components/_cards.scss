@@ -281,13 +281,15 @@
 
 // Account
 .saved-card {
+    margin: auto;
     width: 100%;
     padding: $spacing-sm;
     padding-top: $spacing-xs !important;
     background-color: $gray-darker;
     border-radius: $border-radius-xs;
     margin-bottom: $spacing-sm;
-    transition: background-color $transition-instant;
+    transition: background-color $transition-instant, box-shadow $transition-instant, transform $transition-instant;
+    max-width: 300px;
 
     .saved-card-header {
         @include flex(row, center, center);
@@ -313,6 +315,8 @@
 
     &:hover {
         cursor: pointer;
-        background-color: color-fade($gray-darker, 0.8);
+        background-color: color-fade($primary-color, 0.1);
+        box-shadow: 2px 3px 5px 2px rgb(35, 34, 34);
+        transform: translateY(-2px);
     }
 }

@@ -1,4 +1,6 @@
-export async function processRegister(formData, navigate, showAlert) {
+import { fetchUserData } from "./getUserData";
+
+export async function processRegister(formData, navigate, showAlert, setUserData) {
   const { username, email, password } = formData;
 
   try {
@@ -14,6 +16,7 @@ export async function processRegister(formData, navigate, showAlert) {
       console.log('User has been registered');
       if (data.token) {
         localStorage.setItem('token', data.token);
+        fetchUserData(navigate, showAlert, setUserData);
       } else {
         showAlert(
           data.message || 'Registration failed, no token given',
@@ -30,7 +33,7 @@ export async function processRegister(formData, navigate, showAlert) {
   }
 }
 
-export async function processLogin(formData, navigate, showAlert) {
+export async function processLogin(formData, navigate, showAlert, setUserData) {
   const { email, password } = formData;
 
   try {
@@ -45,6 +48,7 @@ export async function processLogin(formData, navigate, showAlert) {
     if (response.ok) {
       if (data.token) {
         localStorage.setItem('token', data.token);
+        fetchUserData(navigate, showAlert, setUserData);
       } else {
         showAlert(
           data.message || 'Login failed, no token given',

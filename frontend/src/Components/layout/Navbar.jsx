@@ -14,7 +14,7 @@ export default function Navbar({
   const navigate = useNavigate();
 
   return (
-    <nav id="main-navbar">
+    <nav id="main-navbar" >
       <button
         onClick={toggleSideBar}
         id="bars-icon-btn"
