@@ -7,8 +7,8 @@ import {
   pfpColors,
 } from '../../../util/images/imageCategories';
 import useImage from '../../../util/images/useImage';
-import { passwordCheck } from '../../../util/validateAuth';
-import { changePassword } from '../../../util/updateUserInfo';
+import { passwordCheck, emailCheck } from '../../../util/validateAuth';
+import { changePassword, changeEmail } from '../../../util/updateUserInfo';
 
 export function SettingsContent({
   showAlert,
@@ -52,7 +52,7 @@ export function SettingsContent({
 
   return (
     <div className="account-content-tab account-settings-tab">
-      <ChangeForms showAlert={showAlert} passwordChange={changePassword}/>
+      <ChangeForms showAlert={showAlert} passwordChange={changePassword} emailChange={changeEmail}/>
       <label
         id="account-username-change-label"
         htmlFor="account-username-change"
@@ -190,7 +190,7 @@ export function SettingsContent({
   );
 }
 
-function ChangeForms({ showAlert, passwordChange }) {
+function ChangeForms({ showAlert, passwordChange, emailChange }) {
   const [pwChanges, setPWChanges] = useState({
     currentPassword: '',
     newPassword: '',
@@ -219,7 +219,23 @@ function ChangeForms({ showAlert, passwordChange }) {
     }
   };
 
-  const changeEmail = () => {};
+  const changeEmail = (emailChanges, setEmailChanges, showAlert) => {
+    if(emailChanges.currentPassword === '' || emailChanges.newEmail === ''){
+      showAlert('An input field was left empty', 'error');
+      return;
+    }
+
+    if(!emailCheck(emailChanges.newEmail, showAlert)) {
+      return;
+    }
+
+    if(emailChange(emailChanges.currentPassword, emailChanges.newEmail, showAlert)) {
+      setEmailChanges({
+        currentPassword: '',
+        newEmail: ''
+      })
+    }
+  };
 
   return (
     <div id="account-settings-forms-container">
@@ -272,7 +288,7 @@ function ChangeForms({ showAlert, passwordChange }) {
           id="current-password-for-email"
           placeholder="Current Password"
           type="password"
-          value={pwChanges.username}
+          value={emailChanges.currentPassword}
           onChange={(e) =>
             setEmailChanges((prev) => ({
               ...prev,
@@ -285,7 +301,7 @@ function ChangeForms({ showAlert, passwordChange }) {
           id="current-email"
           placeholder="Current Email"
           type="email"
-          value={emailChanges.username}
+          value={emailChanges.newEmail}
           onChange={(e) =>
             setEmailChanges((prev) => ({
               ...prev,
@@ -297,7 +313,7 @@ function ChangeForms({ showAlert, passwordChange }) {
           className="standard-btn account-form-button"
           onClick={(e) => {
             e.preventDefault();
-            changeEmail(pwChanges, setPWChanges, showAlert);
+            changeEmail(emailChanges, setEmailChanges, showAlert);
           }}
         >
           Save

@@ -254,11 +254,9 @@ exports.changePassword = async (req, res) => {
 
     const isSamePassword = await bcrypt.compare(newPassword, user.password);
     if (isSamePassword)
-      return res
-        .status(400)
-        .json({
-          message: 'New password must be different from the old password',
-        });
+      return res.status(400).json({
+        message: 'New password must be different from your current password',
+      });
 
     const pwMatch = await bcrypt.compare(currentPassword, user.password);
     if (!pwMatch) {
@@ -273,7 +271,7 @@ exports.changePassword = async (req, res) => {
 
     await user.save();
 
-    return res.json({ message: 'Password was successfully changes' });
+    return res.json({ message: 'Password was successfully changed' });
   } catch (error) {
     return res
       .status(500)
@@ -281,4 +279,47 @@ exports.changePassword = async (req, res) => {
   }
 };
 
-exports.changeEmail = async (req, res) => {};
+exports.changeEmail = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { currentPassword, newEmail } = req.body;
+
+
+    const emailExists = await User.findOne({ email: newEmail });
+    if (emailExists) {
+      return res.status(400).json({ message: 'Email is already in use' });
+    }
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: `No user was found`,
+      });
+    }
+
+    if (newEmail === user.email)
+      return res.status(400).json({
+        message: 'New email must be different from your current email',
+      });
+
+    const pwMatch = await bcrypt.compare(currentPassword, user.password);
+
+    if (!pwMatch) {
+      return res.status(400).json({
+        message: `Inputted incorrect current password`,
+      });
+    }
+
+    user.email = newEmail;
+
+    await user.save();
+
+    return res.json({ message: 'Email was successfully changed' });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .json({ message: 'Error changing email', error: error.message });
+  }
+};

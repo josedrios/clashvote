@@ -29,22 +29,11 @@ export function validateAuthForm(formData, showAlert, formType) {
     }
   }
 
-  const emailFaults = [];
-
   // EMAIL VALIDATION CHECK
-  if (!validator.isEmail(formData.email)) {
-    emailFaults.push(
-      `Please enter a correctly formatted email address (ex. example@domain.com).`
-    );
-  }
-
-  if (!validator.isLength(formData.email, { max: 254 })) {
-    emailFaults.push(`Your email is too long (max 254 characters)`);
-  }
-
-  if (emailFaults.length > 0) {
-    showAlert(`Email is invalid,  ${emailFaults.join(', ')}`, 'error');
-    return false;
+  if (formType === 'signup') {
+    if (!emailCheck(formData.email, showAlert)) {
+      return false;
+    }
   }
 
   // PASSWORD VALIDATION CHECK
@@ -53,7 +42,6 @@ export function validateAuthForm(formData, showAlert, formType) {
       return false;
     }
   }
-
   // IF GIVEN PW FOR LOGIN IS MORE THAN 64 CHARS, CUT EXTRA THEN RUN QUERY (OR INSTANTLY GIVE INVALID PW BANNER)
 
   return true;
@@ -81,6 +69,26 @@ export function usernameCheck(formData, showAlert) {
     return false;
   }
 
+  return true;
+}
+
+export function emailCheck(email, showAlert) {
+  const emailFaults = [];
+
+  if (!validator.isEmail(email)) {
+    emailFaults.push(
+      `Please enter a correctly formatted email address (ex. example@domain.com).`
+    );
+  }
+
+  if (!validator.isLength(email, { max: 254 })) {
+    emailFaults.push(`Your email is too long (max 254 characters)`);
+  }
+
+  if (emailFaults.length > 0) {
+    showAlert(`Email is invalid,  ${emailFaults.join(', ')}`, 'error');
+    return false;
+  }
   return true;
 }
 

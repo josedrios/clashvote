@@ -21,8 +21,6 @@ router.patch('/:userId/color', authMiddleware, colorChange);
 router.patch('/unsave/:type/:tag', authMiddleware, unsaveUnit);
 router.patch('/change/password', authMiddleware, changePassword);
 router.patch('/change/email', authMiddleware, changeEmail);
-// add change password route
-// add change email route
 router.get('/account', authMiddleware, getAccountData);
 router.get('/pfp', authMiddleware, getPFP);
 router.post('/save/:type/:tag', authMiddleware, saveUnit);

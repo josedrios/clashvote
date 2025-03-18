@@ -417,7 +417,60 @@ export async function changePassword(currentPassword, newPassword, showAlert) {
     } else {
       showAlert(
         responseData.message ||
-          'Unit unsave was unsuccessful, please try again',
+          'Password change was unsuccessful, please try again',
+        'error'
+      );
+      return false;
+    }
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return false;
+  }
+}
+
+export async function changeEmail(currentPassword, newEmail, showAlert) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken?.userId || decodedToken?.id;
+
+  if (!userId) {
+    showAlert(
+      'Authentication error: User ID missing in token, try again after logging out',
+      'error'
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3001/api/user/change/email`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        currentPassword: currentPassword,
+        newEmail: newEmail,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      showAlert('Email was changed', 'success');
+      return true;
+    } else {
+      showAlert(
+        responseData.message ||
+          'Email change was unsuccessful, please try again',
         'error'
       );
       return false;
