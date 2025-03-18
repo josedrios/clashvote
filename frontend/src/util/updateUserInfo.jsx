@@ -345,17 +345,74 @@ export async function deleteSave(type, tag, showAlert, setUserData) {
 
     if (response.ok) {
       showAlert('Unit was unsaved', 'success');
-      if(type === 'player') {
-        setUserData(prevState => ({
+      if (type === 'player') {
+        setUserData((prevState) => ({
           ...prevState,
-          favoritePlayers: prevState.favoritePlayers.filter(player => player.tag !== tag)
+          favoritePlayers: prevState.favoritePlayers.filter(
+            (player) => player.tag !== tag
+          ),
         }));
-      } else if( type === 'clan') {
-        setUserData(prevState => ({
+      } else if (type === 'clan') {
+        setUserData((prevState) => ({
           ...prevState,
-          favoriteClans: prevState.favoriteClans.filter(clan => clan.tag !== tag)
+          favoriteClans: prevState.favoriteClans.filter(
+            (clan) => clan.tag !== tag
+          ),
         }));
       }
+      return true;
+    } else {
+      showAlert(
+        responseData.message ||
+          'Unit unsave was unsuccessful, please try again',
+        'error'
+      );
+      return false;
+    }
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return false;
+  }
+}
+
+export async function changePassword(currentPassword, newPassword, showAlert) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken?.userId || decodedToken?.id;
+
+  if (!userId) {
+    showAlert(
+      'Authentication error: User ID missing in token, try again after logging out',
+      'error'
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3001/api/user/change/password`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      showAlert('Password was changed', 'success');
       return true;
     } else {
       showAlert(

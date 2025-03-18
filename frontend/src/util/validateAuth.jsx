@@ -49,7 +49,7 @@ export function validateAuthForm(formData, showAlert, formType) {
 
   // PASSWORD VALIDATION CHECK
   if (formType === 'signup') {
-    if (!passwordCheck(formData, showAlert)) {
+    if (!passwordCheck(formData.password, showAlert)) {
       return false;
     }
   }
@@ -84,26 +84,26 @@ export function usernameCheck(formData, showAlert) {
   return true;
 }
 
-export function passwordCheck(formData, showAlert) {
+export function passwordCheck(password, showAlert) {
   const passwordFaults = [];
 
-  if (!validator.isLength(formData.password, { min: 8 })) {
+  if (!validator.isLength(password, { min: 8 })) {
     passwordFaults.push('at least 8 characters');
   }
 
-  if (!validator.isLength(formData.password, { max: 64 })) {
+  if (!validator.isLength(password, { max: 64 })) {
     passwordFaults.push('at most 64 characters');
   }
 
-  if (!/[0-9]/.test(formData.password)) {
+  if (!/[0-9]/.test(password)) {
     passwordFaults.push('at least one number');
   }
 
-  if (!/\W/.test(formData.password)) {
+  if (!/\W/.test(password)) {
     passwordFaults.push('at least one special character');
   }
 
-  if (/\s/.test(formData.password)) {
+  if (/\s/.test(password)) {
     passwordFaults.push('proper formatting (remove spaces)');
   }
 

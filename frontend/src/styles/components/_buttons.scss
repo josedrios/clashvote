@@ -285,12 +285,17 @@ rect.bars {
   position: relative;
   @include box(24px, 24px);
   border-radius: $border-radius-c;
+  transition: transform $transition-instant;
 
   .pfp-color {
     position: absolute;
     @include box(16px, 16px);
     margin: $spacing-xs;
     border-radius: $border-radius-c;
+  }
+
+  &:hover {
+    transform: scale(120%);
   }
 }
 
@@ -300,12 +305,17 @@ rect.bars {
   background-color: $primary-background-color;
   aspect-ratio: 1/1;
   margin-bottom: $spacing-sm;
+  transition: transform $transition-instant;
 
   img {
     width: 40px;
     aspect-ratio: 1/1;
     border-radius: $border-radius-sm;
     transform: scale(101%);
+  }
+
+  &:hover {
+    transform: scale(110%);
   }
 }
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   troopNames,
   superTroopNames,
@@ -6,6 +7,8 @@ import {
   pfpColors,
 } from '../../../util/images/imageCategories';
 import useImage from '../../../util/images/useImage';
+import { passwordCheck } from '../../../util/validateAuth';
+import { changePassword } from '../../../util/updateUserInfo';
 
 export function SettingsContent({
   showAlert,
@@ -49,7 +52,7 @@ export function SettingsContent({
 
   return (
     <div className="account-content-tab account-settings-tab">
-      <ChangeForms />
+      <ChangeForms showAlert={showAlert} passwordChange={changePassword}/>
       <label
         id="account-username-change-label"
         htmlFor="account-username-change"
@@ -59,8 +62,8 @@ export function SettingsContent({
       <input
         id="account-username-change"
         type="text"
-        value={settingChanges.username}
         placeholder={userData ? userData.username : ''}
+        value={settingChanges.username}
         onChange={(e) =>
           setSettingChanges((prev) => ({
             ...prev,
@@ -187,7 +190,37 @@ export function SettingsContent({
   );
 }
 
-function ChangeForms() {
+function ChangeForms({ showAlert, passwordChange }) {
+  const [pwChanges, setPWChanges] = useState({
+    currentPassword: '',
+    newPassword: '',
+  });
+
+  const [emailChanges, setEmailChanges] = useState({
+    currentPassword: '',
+    newEmail: '',
+  });
+
+  const changePassword = (pwChanges, setPWChanges, showAlert) => {
+    if (pwChanges.currentPassword === '' || pwChanges.newPassword === '') {
+      showAlert('An input field was left empty', 'error');
+      return;
+    }
+
+    if(!passwordCheck(pwChanges.newPassword, showAlert)) {
+      return;
+    }
+
+    if(passwordChange(pwChanges.currentPassword, pwChanges.newPassword, showAlert)){
+      setPWChanges({
+        currentPassword: '',
+        newPassword: ''
+      })
+    }
+  };
+
+  const changeEmail = () => {};
+
   return (
     <div id="account-settings-forms-container">
       <form
@@ -196,27 +229,79 @@ function ChangeForms() {
         id="password-change-form"
       >
         <h5>Change Password</h5>
-        <label htmlFor="">Current password:</label>
+        <label htmlFor="current-password">Current password:</label>
         <input
           id="current-password"
           placeholder="Current Password"
           type="password"
+          value={pwChanges.currentPassword}
+          onChange={(e) =>
+            setPWChanges((prev) => ({
+              ...prev,
+              currentPassword: e.target.value,
+            }))
+          }
         />
-        <label htmlFor="">New password:</label>
-        <input id="new-password" placeholder="New Password" type="password" />
-        <button className="standard-btn account-form-button">Save</button>
+        <label htmlFor="new-password">New password:</label>
+        <input
+          id="new-password"
+          placeholder="New Password"
+          type="password"
+          value={pwChanges.newPassword}
+          onChange={(e) =>
+            setPWChanges((prev) => ({
+              ...prev,
+              newPassword: e.target.value,
+            }))
+          }
+        />
+        <button
+          className="standard-btn account-form-button"
+          onClick={(e) => {
+            e.preventDefault();
+            changePassword(pwChanges, setPWChanges, showAlert);
+          }}
+        >
+          Save
+        </button>
       </form>
       <form action="" className="account-settings-form" id="email-change-form">
         <h5>Change Email</h5>
-        <label htmlFor="">Current password:</label>
+        <label htmlFor="current-password-for-email">Current password:</label>
         <input
           id="current-password-for-email"
           placeholder="Current Password"
           type="password"
+          value={pwChanges.username}
+          onChange={(e) =>
+            setEmailChanges((prev) => ({
+              ...prev,
+              currentPassword: e.target.value,
+            }))
+          }
         />
-        <label htmlFor="">New email:</label>
-        <input id="current-email" placeholder="Current Email" type="email" />
-        <button className="standard-btn account-form-button">Save</button>
+        <label htmlFor="current-email">New email:</label>
+        <input
+          id="current-email"
+          placeholder="Current Email"
+          type="email"
+          value={emailChanges.username}
+          onChange={(e) =>
+            setEmailChanges((prev) => ({
+              ...prev,
+              newEmail: e.target.value,
+            }))
+          }
+        />
+        <button
+          className="standard-btn account-form-button"
+          onClick={(e) => {
+            e.preventDefault();
+            changeEmail(pwChanges, setPWChanges, showAlert);
+          }}
+        >
+          Save
+        </button>
       </form>
     </div>
   );

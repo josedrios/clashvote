@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Player = require('../models/Players');
 const Clan = require('../models/Clans');
+const bcrypt = require('bcrypt');
 
 exports.getAccountData = async (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -144,7 +145,7 @@ exports.saveUnit = async (req, res) => {
 
     if (alreadySaved) {
       return res.status(409).json({ message: `The ${type} is already saved` });
-    } 
+    }
 
     // need to check if clan or player still exists before saving
 
@@ -200,7 +201,7 @@ exports.unsaveUnit = async (req, res) => {
     user.favoriteClans = user.favoriteClans.filter((unit) => unit.tag !== tag);
   }
 
-  await user.save(); 
+  await user.save();
 
   if (deletedItem) {
     if (type === 'player') {
@@ -237,3 +238,47 @@ exports.getPFP = async (req, res) => {
     return res.status(403).json({ error: 'Invalid token' });
   }
 };
+
+exports.changePassword = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { currentPassword, newPassword } = req.body;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: `No user was found`,
+      });
+    }
+
+    const isSamePassword = await bcrypt.compare(newPassword, user.password);
+    if (isSamePassword)
+      return res
+        .status(400)
+        .json({
+          message: 'New password must be different from the old password',
+        });
+
+    const pwMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!pwMatch) {
+      return res.status(400).json({
+        message: `Inputted incorrect current password`,
+      });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    user.password = hashedPassword;
+
+    await user.save();
+
+    return res.json({ message: 'Password was successfully changes' });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: 'Error changing password', error: error.message });
+  }
+};
+
+exports.changeEmail = async (req, res) => {};
