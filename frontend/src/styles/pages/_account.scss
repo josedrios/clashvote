@@ -1,6 +1,5 @@
 #account-container {
   @include flex(row, center);
-  @include box(100%);
 }
 
 .account-tab {
@@ -72,6 +71,18 @@
   }
 }
 
+#account-settings-forms-container {
+  @include flex(row, initial, center);
+  column-gap: $spacing-lg;
+  margin: 0 !important;
+}
+
+@media (max-width: 530px) {
+  #account-settings-forms-container {
+    flex-direction: column;
+  }
+}
+
 .pfp-color-options-container,
 .pfp-character-options-container {
   @include flex(row, left, center);
@@ -86,12 +97,34 @@
 
 .saved-container-tab {
   width: 50%;
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+  .saved-container {
+    flex-direction: column;
+  }
+
+  .saved-container-tab {
+    width: 100%;
+  }
+}
+
+.saved-container-header {
+  @include flex(row, center, flex-end);
+  margin-bottom: $spacing-sm;
 
   h5 {
     color: $primary-color;
     text-align: center;
-    margin-bottom: $spacing-sm;
+    // margin-left: $spacing-sm;
+    // margin-right: $spacing-xs;
   }
+
+  // p {
+  //   color: $gray;
+  //   font-size: $font-size-sm;
+  //   padding-bottom: 1px;
+  // }
 }
 
 .saved-card-row {

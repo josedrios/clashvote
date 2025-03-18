@@ -49,6 +49,7 @@ export function SettingsContent({
 
   return (
     <div className="account-content-tab account-settings-tab">
+      <ChangeForms />
       <label
         id="account-username-change-label"
         htmlFor="account-username-change"
@@ -182,6 +183,41 @@ export function SettingsContent({
           Save
         </button>
       </div>
+    </div>
+  );
+}
+
+function ChangeForms() {
+  return (
+    <div id="account-settings-forms-container">
+      <form
+        action=""
+        className="account-settings-form"
+        id="password-change-form"
+      >
+        <h5>Change Password</h5>
+        <label htmlFor="">Current password:</label>
+        <input
+          id="current-password"
+          placeholder="Current Password"
+          type="password"
+        />
+        <label htmlFor="">New password:</label>
+        <input id="new-password" placeholder="New Password" type="password" />
+        <button className="standard-btn account-form-button">Save</button>
+      </form>
+      <form action="" className="account-settings-form" id="email-change-form">
+        <h5>Change Email</h5>
+        <label htmlFor="">Current password:</label>
+        <input
+          id="current-password-for-email"
+          placeholder="Current Password"
+          type="password"
+        />
+        <label htmlFor="">New email:</label>
+        <input id="current-email" placeholder="Current Email" type="email" />
+        <button className="standard-btn account-form-button">Save</button>
+      </form>
     </div>
   );
 }

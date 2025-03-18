@@ -1,315 +1,335 @@
 // General
 .standard-btn {
-    background-color: $primary-color;
-    border-radius: $border-radius-xs;
-    width: min-content;
-    padding: $spacing-sm;
-    color: black;
-    transition: background-color $transition-instant;
+  background-color: $primary-color;
+  border-radius: $border-radius-xs;
+  width: min-content;
+  padding: $spacing-sm;
+  color: black;
+  transition: background-color $transition-instant;
 
-    &:hover {
-        background-color: darken($primary-color, 12%);
-    }
+  &:hover {
+    background-color: darken($primary-color, 12%);
+  }
 }
 
 // Navbar
 .nav-btn {
-    background-color: transparent;
-    svg {
-        fill: white;
-        font-size: calc($font-size-xl - 2px);
-        transition: $transition-instant $transition-ease;
-    }
+  background-color: transparent;
+  svg {
+    fill: white;
+    font-size: calc($font-size-xl - 2px);
+    transition: $transition-instant $transition-ease;
+  }
 
-    &:hover {
-        svg{
-            fill: $gray-light
-        }
+  &:hover {
+    svg {
+      fill: $gray-light;
     }
+  }
 }
 
 // Auth
 .auth-form-confirm {
-    background-color: $primary-color;
-    padding: $spacing-sm;
-    border-radius: $border-radius-xs;
-    color: black;
-    width: 100%;
-    max-width: 200px;
-    margin-bottom: $spacing-md;
-    transition: background-color $transition-instant;
+  background-color: $primary-color;
+  padding: $spacing-sm;
+  border-radius: $border-radius-xs;
+  color: black;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: $spacing-md;
+  transition: background-color $transition-instant;
 
-    &:hover {
-        background-color: darken($primary-color, 12%);
-    }
+  &:hover {
+    background-color: darken($primary-color, 12%);
+  }
 }
 
 // Contact
 #contact-btns-container button {
-    background-color: transparent;
-    svg {
-        fill: black;
-        font-size: $font-size-lg;
-    }
+  background-color: transparent;
+  svg {
+    fill: black;
+    font-size: $font-size-lg;
+  }
 }
 
 #contact-submit-btn {
-    margin-left: auto;
-    margin-top: $spacing-md;
+  margin-left: auto;
+  margin-top: $spacing-md;
 }
 
 // Navbar
 #bars-icon-btn {
-    display: none;
-    position: relative;
-    top: $spacing-xs;
-    background-color: transparent;
-    margin-right: $spacing-sm;
+  display: none;
+  position: relative;
+  top: $spacing-xs;
+  background-color: transparent;
+  margin-right: $spacing-sm;
 }
 
 rect.bars {
-    transition: width $transition-instant;
-    fill: $gray-light;
+  transition: width $transition-instant;
+  fill: $gray-light;
 }
 
 #bars-icon-btn:hover {
-    #bottom-bar {
-        width: 70px;
-    }
+  #bottom-bar {
+    width: 70px;
+  }
 }
 
 // Search
 .toggle-btn {
-    @include box(40px, 50px);
-    z-index: $z-toggle-icon;
-    position: absolute;
-    background-color: transparent;
-    top: 2px;
+  @include box(40px, 50px);
+  z-index: $z-toggle-icon;
+  position: absolute;
+  background-color: transparent;
+  top: 2px;
 
-    .toggle-icon {
-        fill: $primary-color;
-        font-size: 20px;
-    }
+  .toggle-icon {
+    fill: $primary-color;
+    font-size: 20px;
+  }
 }
 
 #player-search-toggle {
-    left: 0;
+  left: 0;
 }
 
 #clan-search-toggle {
-    right: 0;
+  right: 0;
 }
 
 #searchbar-submit-btn {
-    border-left: none;
-    background-color: $primary-color;
-    border-top-right-radius: $border-radius-sm;
-    border-bottom-right-radius: $border-radius-sm;
-    aspect-ratio: 1/1;
-    transition: background-color $transition-fast;
+  border-left: none;
+  background-color: $primary-color;
+  border-top-right-radius: $border-radius-sm;
+  border-bottom-right-radius: $border-radius-sm;
+  aspect-ratio: 1/1;
+  transition: background-color $transition-fast;
 
-    svg {
-        position: relative;
-        top: 2px;
-        font-size: 23px;
-        fill: black;
-    }
+  svg {
+    position: relative;
+    top: 2px;
+    font-size: 23px;
+    fill: black;
+  }
 
-    &:hover {
-        background-color: rgba(228, 215, 39, 0.871);
-    }
+  &:hover {
+    background-color: rgba(228, 215, 39, 0.871);
+  }
 }
 
 .save-clan-btn {
-    background-color: transparent;
-    font-size: $font-size-lg;
-    margin-left: $spacing-sm;
+  background-color: transparent;
+  font-size: $font-size-lg;
+  margin-left: $spacing-sm;
 
+  svg {
+    transition: fill $transition-instant;
+    fill: color-fade($primary-color, 0.5);
+  }
+
+  &:hover {
     svg {
-        transition: fill $transition-instant;
-        fill: color-fade($primary-color, 0.5);
+      fill: $primary-color;
     }
-
-    &:hover {
-        svg {
-            fill: $primary-color;
-        }
-    }
+  }
 }
 
 // Search (Player)
 #player-action-btns button {
-    background-color: transparent;
-    padding: 0 $spacing-sm 0 0;
-    svg {
-        display: flex;
-        align-items: center;
-        font-size: $font-size-lg;
-        fill: $gray-light;
-        transition: fill $transition-fast, transform $transition-fast;
-        position: relative;
+  background-color: transparent;
+  padding: 0 $spacing-sm 0 0;
+  svg {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-lg;
+    fill: $gray-light;
+    transition: fill $transition-fast, transform $transition-fast;
+    position: relative;
 
-        &:hover {
-            transform: translateY(-2px);
-            fill: $primary-color;
-        }
+    &:hover {
+      transform: translateY(-2px);
+      fill: $primary-color;
     }
+  }
 }
 
 // Search (Achievements)
 .ach-btn {
-    @include box(50%, 50px);
-    background-color: transparent;
-    border-bottom: 2px solid color-fade($primary-color, 0.25);
-    font-size: 20px;
-    color: $gray;
-    transition: border-bottom $transition-fast $transition-ease, 
-            color $transition-fast $transition-ease, 
-            background-color $transition-instant $transition-ease;
+  @include box(50%, 50px);
+  background-color: transparent;
+  border-bottom: 2px solid color-fade($primary-color, 0.25);
+  font-size: 20px;
+  color: $gray;
+  transition: border-bottom $transition-fast $transition-ease,
+    color $transition-fast $transition-ease,
+    background-color $transition-instant $transition-ease;
 
-    &:hover {
-        background-color: $gray-darker;
-    }
+  &:hover {
+    background-color: $gray-darker;
+  }
 }
 
 .ach-btn-selected {
-    border-bottom: 2px solid $primary-color;
-    color: white;
+  border-bottom: 2px solid $primary-color;
+  color: white;
 }
 
 // Season
 .vote-btn {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .comment-misc-btn {
-    background-color: transparent;
-    margin-right: $spacing-xs;
-    margin-top: auto;
+  background-color: transparent;
+  margin-right: $spacing-xs;
+  margin-top: auto;
 }
 
 .create-comment-actions {
-    .cancel-comment-btn {
-        background-color: color-fade($gray-light, 0.4);
-        color: white;
+  .cancel-comment-btn {
+    background-color: color-fade($gray-light, 0.4);
+    color: white;
 
-        &:hover {
-            background-color: color-fade($gray-light, 0.25);
-        }
+    &:hover {
+      background-color: color-fade($gray-light, 0.25);
     }
+  }
 }
 
-.comment-actions{
-    .comment-reaction-btn {
-        margin-right: $spacing-xs;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-    }
-
-    .react-btn-count {
-        display: flex;
-        align-items: center;
-        margin-right: $spacing-sm;
-
-        p {
-            margin-left: calc($spacing-xs - 1px);
-            display: inline;
-        }
-    }
-}
-
-.comment-reply-btn {
-    @include flex(row, initial, center);
+.comment-actions {
+  .comment-reaction-btn {
+    margin-right: $spacing-xs;
     background-color: transparent;
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .react-btn-count {
+    display: flex;
+    align-items: center;
     margin-right: $spacing-sm;
 
     p {
-        margin-left: $spacing-xs;
+      margin-left: calc($spacing-xs - 1px);
+      display: inline;
     }
+  }
 }
 
-// Account 
+.comment-reply-btn {
+  @include flex(row, initial, center);
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: $spacing-sm;
+
+  p {
+    margin-left: $spacing-xs;
+  }
+}
+
+// Account
 
 .account-body-nav-button {
-    background-color: $secondary-background-color;
-    border-radius: $border-radius-xs;
-    margin: $spacing-sm;
-    text-align: left;
-    padding: 12px 0;
-    transition: background-color $transition-instant;
-    width: 25%;
-    text-align: center;
+  background-color: $secondary-background-color;
+  border-radius: $border-radius-xs;
+  margin: $spacing-sm;
+  text-align: left;
+  padding: 12px 0;
+  transition: background-color $transition-instant;
+  width: 25%;
+  text-align: center;
 
-    &:hover {
-        background-color: $primary-background-color;
-    }
+  &:hover {
+    background-color: $primary-background-color;
+  }
 }
 
 .account-settings-buttons {
-    @include flex(row, right, center);
-    margin-top: $spacing-sm;
+  @include flex(row, right, center);
+  margin-top: $spacing-sm;
+}
+
+@media (max-width: 530px) {
+  .account-settings-buttons {
+    justify-content: center !important;
+  }
 }
 
 .logout-narrow {
-    margin-top: $spacing-sm;
-    display: block;
-    margin-left: auto;
+  margin-top: $spacing-sm;
+  display: block;
+  margin-left: auto;
 }
 
 @media (max-width: 529px) {
-    .logout-wide {
-        display: none;
-    }
+  .logout-wide {
+    display: none;
+  }
 }
 
 @media (min-width: 530px) {
-    .logout-narrow {
-        display: none;
-    }
+  .logout-narrow {
+    display: none;
+  }
 }
 
-.pfp-color-label  {
-    margin-bottom: $spacing-xs !important;
+.pfp-color-label {
+  margin-bottom: $spacing-xs !important;
 }
 
 .pfp-color-option {
-    margin: $spacing-xs;
-    position: relative;
-    @include box (24px, 24px);
-    border-radius: $border-radius-c;
+  margin: $spacing-xs;
+  position: relative;
+  @include box(24px, 24px);
+  border-radius: $border-radius-c;
 
-    .pfp-color {
-        position: absolute;
-        @include box(16px, 16px);
-        margin: $spacing-xs;
-        border-radius: $border-radius-c;
-    }
+  .pfp-color {
+    position: absolute;
+    @include box(16px, 16px);
+    margin: $spacing-xs;
+    border-radius: $border-radius-c;
+  }
 }
 
 .character-option {
-    @include box(40px);
-    border-radius: $border-radius-sm;
-    background-color: $primary-background-color;
-    aspect-ratio: 1/1;
-    margin-bottom: $spacing-sm;
+  @include box(40px);
+  border-radius: $border-radius-sm;
+  background-color: $primary-background-color;
+  aspect-ratio: 1/1;
+  margin-bottom: $spacing-sm;
 
-    img {
-        width: 40px;
-        aspect-ratio: 1/1;
-        border-radius: $border-radius-sm;
-        transform: scale(101%);
-    }
+  img {
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: $border-radius-sm;
+    transform: scale(101%);
+  }
 }
 
 .saved-card-trash {
-    fill: color-fade($error-color, 0.7);
-    font-size: 22px;
-    transition: fill $transition-instant, transform $transition-instant;
+  fill: color-fade($error-color, 0.7);
+  font-size: 22px;
+  transition: fill $transition-instant, transform $transition-instant;
 
-    &:hover {
-        fill: $error-color;
-        transform: scale(110%);
-    }
+  &:hover {
+    cursor: pointer;
+    fill: $error-color;
+    transform: scale(110%);
+  }
+}
+
+.account-form-button {
+  display: block;
+  margin-left: auto;
+  margin-top: $spacing-sm;
+}
+
+@media (max-width: 530px) {
+  .account-form-button {
+    margin: $spacing-sm auto;
+    padding: $spacing-sm $spacing-md;
+  }
 }

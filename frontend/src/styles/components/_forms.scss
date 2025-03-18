@@ -281,6 +281,30 @@ input[type='search']::-moz-search-clear-button {
 // Account Page
 // ==========================
 #account-username-change {
-  max-width: 180px;
+  max-width: 200px;
   margin-bottom: $spacing-md;
+}
+
+.account-settings-form {
+  width: 50%;
+  margin: $spacing-sm 0;
+
+  > * {
+    margin-bottom: $spacing-sm;
+  }
+
+  input {
+    max-width: 400px;
+  }
+
+  h5 {
+    font-size: 16px;
+    color: $primary-color;
+  }
+}
+
+@media (max-width: 530px) {
+  .account-settings-form {
+    width: 100%;
+  }
 }

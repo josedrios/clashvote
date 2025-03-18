@@ -21,5 +21,4 @@ router.get('/pfp', authMiddleware, getPFP);
 router.post('/save/:type/:tag', authMiddleware, saveUnit);
 router.patch('/unsave/:type/:tag', authMiddleware, unsaveUnit);
 
-
 module.exports = router;
