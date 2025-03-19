@@ -245,17 +245,6 @@ rect.bars {
   }
 }
 
-.account-settings-buttons {
-  @include flex(row, right, center);
-  margin-top: $spacing-sm;
-}
-
-@media (max-width: 530px) {
-  .account-settings-buttons {
-    justify-content: center !important;
-  }
-}
-
 .logout-narrow {
   margin-top: $spacing-sm;
   display: block;

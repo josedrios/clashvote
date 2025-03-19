@@ -148,7 +148,16 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
           getSource={getSource}
         />
       </div>
-      <div className="account-settings-buttons">
+      <div className="account-settings-pfp-footer">
+        <div className='pfp-preview-layer'>
+          <p>Preview:</p>
+          <PFPPreview
+            previewCharacter={settingChanges.character}
+            currentCharacter={userData.pfpCharacter}
+            previewColor={settingChanges.color}
+            currentColor={userData.pfpColor}
+          />
+        </div>
         <button
           className="standard-btn"
           onClick={() =>
@@ -164,6 +173,28 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
           Save
         </button>
       </div>
+    </div>
+  );
+}
+
+function PFPPreview({
+  previewCharacter,
+  currentCharacter,
+  previewColor,
+  currentColor,
+}) {
+  var imageSrc = useImage(
+    previewCharacter === '' ? currentCharacter : previewCharacter
+  );
+
+  return (
+    <div
+      className="pfp-preview-container"
+      style={{
+        backgroundColor: previewColor === '' ? currentColor : previewColor,
+      }}
+    >
+      <img className="pfp-preview" src={imageSrc} alt="" />
     </div>
   );
 }

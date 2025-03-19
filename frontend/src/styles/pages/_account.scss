@@ -134,6 +134,44 @@
   @include flex(row, center, center);
 }
 
+.account-settings-pfp-footer {
+  @include flex(row, right,center);
+  margin-top: $spacing-sm;
+}
+
+.pfp-preview-layer {
+  @include flex(row, center, center);
+
+  p {
+    margin-right: $spacing-sm;
+  }
+}
+
+.pfp-preview-container {
+  border-radius: $border-radius-sm;
+  @include box(36px);
+  margin-right: $spacing-md;
+}
+
+.pfp-preview {
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: $border-radius-sm;
+  transform: scale(101%);
+}
+
+@media (max-width: 530px) {
+  .account-settings-pfp-footer {
+    flex-direction: column;
+    justify-content: center !important;
+    margin-top: 0;
+  }
+
+  .pfp-preview-layer {
+    margin-bottom: $spacing-md;
+  }
+}
+
 @media (max-width: 475px) {
     .saved-container {
       flex-direction: column;
