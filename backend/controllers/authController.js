@@ -10,6 +10,20 @@ exports.registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
+    const isEmailFree = await User.findOne({email});
+    
+    if(isEmailFree) {
+      res.status(400).json({message: 'Email already in use'})
+      return;
+    }
+
+    const isUsernameFree = await User.findOne({username});
+    
+    if(isUsernameFree) {
+      res.status(400).json({message: 'Username has already been taken'})
+      return;
+    }
+
     hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
