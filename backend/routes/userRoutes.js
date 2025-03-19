@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  usernameChange,
+  updateUsername,
   characterChange,
   colorChange,
   saveUnit,
@@ -19,7 +19,7 @@ router.get('/account', authMiddleware, getAccountData);
 // router.get('/account', authMiddleware, getAccountData);
 
 // User settings related routes
-router.patch('/:userId/username', authMiddleware, usernameChange);
+router.patch('/username', authMiddleware, updateUsername);
 router.patch('/change/character', authMiddleware, characterChange);
 router.patch('/:userId/color', authMiddleware, colorChange);
 router.patch('/change/email', authMiddleware, changeEmail);

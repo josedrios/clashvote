@@ -9,7 +9,7 @@ import {
 import useImage from '../../../util/images/useImage';
 import { passwordCheck, emailCheck } from '../../../util/processInputs';
 import { changePassword, changeEmail } from '../../../util/accountUtils';
-import { changeAccount } from '../../../util/accountUtils';
+import { updateAccountSettings } from '../../../util/accountUtils';
 
 export function SettingsContent({ showAlert, userData, setUserData }) {
   const [settingChanges, setSettingChanges] = useState({
@@ -130,9 +130,9 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
         <button
           className="standard-btn"
           onClick={() =>
-            changeAccount(
-              settingsData,
-              accountData,
+            updateAccountSettings(
+              settingChanges,
+              userData,
               setSettingChanges,
               showAlert,
               setUserData

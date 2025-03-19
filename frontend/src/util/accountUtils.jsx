@@ -1,93 +1,52 @@
 import { jwtDecode } from 'jwt-decode';
 import { usernameCheck } from './processInputs';
 
-export async function changeAccount(
+export async function updateAccountSettings(
   settingsData,
   accountData,
   setSettingChanges,
   showAlert,
   setUserData
 ) {
-  const token = localStorage.getItem('token');
-  var changed = false;
+  const token = localStorage.getItem("token");
+  let changed = false;
 
-  if (
-    settingsData.username !== accountData.username &&
-    settingsData.username !== ''
-  ) {
-    if (usernameCheck(settingsData.username, showAlert)) {
-      if (changeUsername(settingsData, showAlert, token)) {
+  const updateSetting = async (key, accountKey, updateFunction, userKey) => {
+    if (settingsData[key] !== accountData[accountKey] && settingsData[key] !== "") {
+      if (await updateFunction(settingsData, showAlert, token)) {
         setUserData((prev) => ({
           ...prev,
-          username: settingsData.username,
-        }));
-        setSettingChanges((prev) => ({
-          ...prev,
-          username: '',
+          [userKey]: settingsData[key],
         }));
         changed = true;
       } else {
-        return;
+        return false;
       }
-    } else {
-      return;
     }
-  } else {
     setSettingChanges((prev) => ({
       ...prev,
-      username: '',
+      [key]: "",
     }));
+    return true;
+  };
+
+  const usernameValid = settingsData.username === accountData.username || 
+    (settingsData.username !== "" && usernameCheck(settingsData.username, showAlert));
+
+  if (!usernameValid) return;
+
+  const updates = [
+    updateSetting("username", "username", changeUsername, "username"),
+    updateSetting("character", "character", changeCharacter, "pfpCharacter"),
+    updateSetting("color", "pfpColor", changeColor, "pfpColor"),
+  ];
+
+  for (const update of updates) {
+    if (!(await update)) return;
   }
 
-  if (
-    settingsData.character !== accountData.character &&
-    settingsData.character !== ''
-  ) {
-    if (changeCharacter(settingsData, showAlert, token)) {
-      setUserData((prev) => ({
-        ...prev,
-        pfpCharacter: settingsData.character,
-      }));
-      setSettingChanges((prev) => ({
-        ...prev,
-        character: '',
-      }));
-      changed = true;
-    } else {
-      return;
-    }
-  } else {
-    setSettingChanges((prev) => ({
-      ...prev,
-      character: '',
-    }));
-  }
-
-  if (
-    settingsData.color !== accountData.pfpColor &&
-    settingsData.color !== ''
-  ) {
-    if (changeColor(settingsData, showAlert, token)) {
-      setUserData((prev) => ({
-        ...prev,
-        pfpColor: settingsData.color,
-      }));
-      setSettingChanges((prev) => ({
-        ...prev,
-        color: '',
-      }));
-    } else {
-      return;
-    }
-  } else {
-    setSettingChanges((prev) => ({
-      ...prev,
-      color: '',
-    }));
-  }
-
-  if (changed === true) {
-    showAlert('Account settings have been changed', 'success');
+  if (changed) {
+    showAlert("Account settings have been changed", "success");
   }
 }
 
@@ -100,21 +59,9 @@ export async function changeUsername(data, showAlert, token) {
     return false;
   }
 
-  const decodedToken = jwtDecode(token);
-
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
-      'error'
-    );
-    return false;
-  }
-
   try {
     const response = await fetch(
-      `http://localhost:3001/api/user/${userId}/username`,
+      `http://localhost:3001/api/user/username`,
       {
         method: 'PATCH',
         headers: {
@@ -128,7 +75,6 @@ export async function changeUsername(data, showAlert, token) {
     const responseData = await response.json();
 
     if (response.ok) {
-      showAlert('Username was changed', 'success');
       return true;
     } else {
       showAlert(
@@ -260,17 +206,6 @@ export async function saveUnit(token, type, name, tag, icon, showAlert) {
     return false;
   }
 
-  const decodedToken = jwtDecode(token);
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
-      'error'
-    );
-    return false;
-  }
-
   try {
     const response = await fetch(
       `http://localhost:3001/api/user/save/${type}/${tag}`,
@@ -312,16 +247,6 @@ export async function deleteSave(type, tag, showAlert, setUserData) {
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
-      'error'
-    );
-    return false;
-  }
-  const decodedToken = jwtDecode(token);
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
       'error'
     );
     return false;
@@ -383,16 +308,6 @@ export async function changePassword(currentPassword, newPassword, showAlert) {
     );
     return false;
   }
-  const decodedToken = jwtDecode(token);
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
-      'error'
-    );
-    return false;
-  }
 
   try {
     const response = await fetch(`http://localhost:3001/api/user/change/password`, {
@@ -432,16 +347,6 @@ export async function changeEmail(currentPassword, newEmail, showAlert) {
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
-      'error'
-    );
-    return false;
-  }
-  const decodedToken = jwtDecode(token);
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
       'error'
     );
     return false;

@@ -29,9 +29,9 @@ exports.getAccountData = async (req, res) => {
   }
 };
 
-exports.usernameChange = async (req, res) => {
+exports.updateUsername = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const userId = req.user.id;
     const { username } = req.body;
 
     const existingUser = await User.findOne({ username });
@@ -49,8 +49,11 @@ exports.usernameChange = async (req, res) => {
     );
 
     if (!updateUser) {
-      return res.status(404).json({ message: 'User not found.' });
+      return res
+        .status(404)
+        .json({ message: 'User not found, logout and try again' });
     }
+
     res
       .status(200)
       .json({ message: 'Username updated successfully', user: updateUser });
@@ -258,7 +261,6 @@ exports.changeEmail = async (req, res) => {
   try {
     const userId = req.user.id;
     const { currentPassword, newEmail } = req.body;
-
 
     const emailExists = await User.findOne({ email: newEmail });
     if (emailExists) {
