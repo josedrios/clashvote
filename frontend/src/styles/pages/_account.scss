@@ -34,9 +34,12 @@
   transform: scale(101%);
 }
 
-#account-username-change-label {
-  margin-top: $spacing-sm;
+#account-username-change-header {
+  color: $primary-color;
+  font-size: $font-size-md;
+  max-width: 400px;
 }
+
 
 #account-username {
   margin-left: calc(60px + $spacing-md * 2);
@@ -73,7 +76,7 @@
 
 #account-settings-forms-container {
   @include flex(row, initial, center);
-  column-gap: $spacing-lg;
+  column-gap: $spacing-md;
   margin: 0 !important;
 }
 

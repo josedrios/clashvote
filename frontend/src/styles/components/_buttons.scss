@@ -234,8 +234,6 @@ rect.bars {
 
 .account-body-nav-button {
   background-color: $secondary-background-color;
-  border-radius: $border-radius-xs;
-  margin: $spacing-sm;
   text-align: left;
   padding: 12px 0;
   transition: background-color $transition-instant;
@@ -337,9 +335,19 @@ rect.bars {
   margin-top: $spacing-sm;
 }
 
+.username-change-btn-container {
+  @include flex(row, right);
+  width: calc(50% - $spacing-md/2);
+}
+
 @media (max-width: 530px) {
-  .account-form-button {
+  .account-form-button, .confirm-username-change {
     margin: $spacing-sm auto;
     padding: $spacing-sm $spacing-md;
+  }
+
+  .username-change-btn-container {
+    width: 100%;
+    justify-content: center;
   }
 }

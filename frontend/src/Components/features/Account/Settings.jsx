@@ -8,8 +8,12 @@ import {
 } from '../../../util/images/imageCategories';
 import useImage from '../../../util/images/useImage';
 import { passwordCheck, emailCheck } from '../../../util/processInputs';
-import { changePassword, changeEmail } from '../../../util/accountUtils';
-import { updateAccountSettings } from '../../../util/accountUtils';
+import {
+  changePassword,
+  changeEmail,
+  updateUsernameSettings,
+  updateAccountSettings,
+} from '../../../util/accountUtils';
 
 export function SettingsContent({ showAlert, userData, setUserData }) {
   const [settingChanges, setSettingChanges] = useState({
@@ -57,11 +61,12 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
         passwordChange={changePassword}
         emailChange={changeEmail}
       />
+      <h5 id="account-username-change-header">Change Username</h5>
       <label
         id="account-username-change-label"
         htmlFor="account-username-change"
       >
-        Change Username:
+        New username:
       </label>
       <input
         id="account-username-change"
@@ -75,6 +80,23 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
           }))
         }
       />
+      <div className="username-change-btn-container">
+        <button
+          className="standard-btn confirm-username-change"
+          onClick={(e) => {
+            e.preventDefault();
+            updateUsernameSettings(
+              settingChanges.username,
+              userData,
+              setSettingChanges,
+              showAlert,
+              setUserData
+            );
+          }}
+        >
+          Save
+        </button>
+      </div>
       <label htmlFor="" className="pfp-color-label">
         Profile Picture Color:
       </label>

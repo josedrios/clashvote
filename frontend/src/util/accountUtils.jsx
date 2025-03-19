@@ -11,7 +11,7 @@ export async function updateAccountSettings(
 
   const updateSetting = async (key, accountKey, updateFunction, userKey) => {
     if (settingsData[key] && settingsData[key] !== accountData[accountKey]) {
-      const success = await updateFunction(settingsData, showAlert);
+      const success = await updateFunction(settingsData[key], showAlert);
       if (success) {
         setUserData((prev) => ({
           ...prev,
@@ -26,16 +26,7 @@ export async function updateAccountSettings(
     }
   };
 
-  if (
-    settingsData.username &&
-    settingsData.username !== accountData.username &&
-    !usernameCheck(settingsData.username, showAlert)
-  ) {
-    return;
-  }
-
   await Promise.all([
-    updateSetting('username', 'username', changeUsername, 'username'),
     updateSetting('character', 'character', changeCharacter, 'pfpCharacter'),
     updateSetting('color', 'pfpColor', changeColor, 'pfpColor'),
   ]);
@@ -45,7 +36,44 @@ export async function updateAccountSettings(
   }
 }
 
-export async function changeUsername(data, showAlert) {
+export async function updateUsernameSettings(
+  username,
+  accountData,
+  setSettingChanges,
+  showAlert,
+  setUserData
+) {
+  if(username === '') {
+    showAlert('Input field was left empty', 'error')
+    return;
+  }
+
+  if(!usernameCheck(username, showAlert)) {
+    return;
+  }
+
+  let changed = false;
+
+  const success = await changeUsername(username, showAlert);
+
+  if (success) {
+    setUserData((prev) => ({
+      ...prev,
+      username: username,
+    }));
+    changed = true;
+  }
+  setSettingChanges((prev) => ({
+    ...prev,
+    username: '',
+  }));
+
+  if (changed) {
+    showAlert('Account settings have been changed', 'success');
+  }
+}
+
+export async function changeUsername(username, showAlert) {
   const token = localStorage.getItem('token');
 
   if (!token) {
@@ -63,7 +91,7 @@ export async function changeUsername(data, showAlert) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ username: data.username }),
+      body: JSON.stringify({ username: username }),
     });
 
     const responseData = await response.json();
@@ -85,7 +113,7 @@ export async function changeUsername(data, showAlert) {
   }
 }
 
-export async function changeCharacter(data, showAlert) {
+export async function changeCharacter(character, showAlert) {
   const token = localStorage.getItem('token');
 
   if (!token) {
@@ -103,7 +131,7 @@ export async function changeCharacter(data, showAlert) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ character: data.character }),
+      body: JSON.stringify({ character: character }),
     });
 
     const responseData = await response.json();
@@ -125,7 +153,7 @@ export async function changeCharacter(data, showAlert) {
   }
 }
 
-export async function changeColor(data, showAlert) {
+export async function changeColor(color, showAlert) {
   const token = localStorage.getItem('token');
 
   if (!token) {
@@ -143,7 +171,7 @@ export async function changeColor(data, showAlert) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ color: data.color }),
+      body: JSON.stringify({ color: color }),
     });
 
     const responseData = await response.json();
