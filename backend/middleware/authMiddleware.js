@@ -16,17 +16,3 @@ module.exports = (req, res, next) => {
     res.status(400).json({ message: 'Invalid token. Please logout and try again.' });
   }
 };
-
-// HOW FRONT END WILL LOOK LIKE:
-
-// const token = localStorage.getItem('token');
-
-// fetch('http://localhost:3001/api/user/profile', {
-//     method: 'GET',
-//     headers: {
-//         'Authorization': token
-//     }
-// })
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch(error => console.error(error));

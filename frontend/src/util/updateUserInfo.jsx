@@ -1,7 +1,5 @@
 import { jwtDecode } from 'jwt-decode';
-import { usernameCheck } from './validateAuth';
-import { fetchUserData } from './getUserData';
-import { Navigate } from 'react-router-dom';
+import { usernameCheck } from './validateInputs';
 
 export async function changeAccount(
   settingsData,
@@ -17,7 +15,7 @@ export async function changeAccount(
     settingsData.username !== accountData.username &&
     settingsData.username !== ''
   ) {
-    if (usernameCheck(settingsData, showAlert)) {
+    if (usernameCheck(settingsData.username, showAlert)) {
       if (changeUsername(settingsData, showAlert, token)) {
         setUserData((prev) => ({
           ...prev,

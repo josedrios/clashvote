@@ -214,31 +214,6 @@ exports.unsaveUnit = async (req, res) => {
   return res.json({ message: 'Unit unsaved successfully' });
 };
 
-exports.getPFP = async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-
-  if (!token) {
-    return res.status(401).json({ error: 'Unauthorized - No token provided' });
-  }
-
-  try {
-    const userId = req.user.id;
-
-    const pfp = await User.findById(userId)
-      .select('pfpColor')
-      .select('pfpCharacter');
-
-    if (!pfp) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    console.log(pfp);
-    return res.json(pfp);
-  } catch (error) {
-    return res.status(403).json({ error: 'Invalid token' });
-  }
-};
-
 exports.changePassword = async (req, res) => {
   try {
     const userId = req.user.id;

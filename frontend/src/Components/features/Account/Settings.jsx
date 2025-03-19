@@ -7,17 +7,32 @@ import {
   pfpColors,
 } from '../../../util/images/imageCategories';
 import useImage from '../../../util/images/useImage';
-import { passwordCheck, emailCheck } from '../../../util/validateAuth';
+import { passwordCheck, emailCheck } from '../../../util/validateInputs';
 import { changePassword, changeEmail } from '../../../util/updateUserInfo';
+import { changeAccount } from '../../../util/updateUserInfo';
 
-export function SettingsContent({
-  showAlert,
-  settingChanges,
-  setSettingChanges,
-  accountChanges,
-  userData,
-  setUserData,
-}) {
+export function SettingsContent({ showAlert, userData, setUserData }) {
+  const [settingChanges, setSettingChanges] = useState({
+    username: '',
+    color: '',
+    character: '',
+  });
+
+  const accountChanges = (
+    settingsData,
+    accountData,
+    setSettingChanges,
+    showAlert
+  ) => {
+    changeAccount(
+      settingsData,
+      accountData,
+      setSettingChanges,
+      showAlert,
+      setUserData
+    );
+  };
+
   const onColorChange = (color) => {
     if (color === settingChanges.color) {
       setSettingChanges((prev) => ({
@@ -52,7 +67,11 @@ export function SettingsContent({
 
   return (
     <div className="account-content-tab account-settings-tab">
-      <ChangeForms showAlert={showAlert} passwordChange={changePassword} emailChange={changeEmail}/>
+      <ChangeForms
+        showAlert={showAlert}
+        passwordChange={changePassword}
+        emailChange={changeEmail}
+      />
       <label
         id="account-username-change-label"
         htmlFor="account-username-change"
@@ -207,33 +226,45 @@ function ChangeForms({ showAlert, passwordChange, emailChange }) {
       return;
     }
 
-    if(!passwordCheck(pwChanges.newPassword, showAlert)) {
+    if (!passwordCheck(pwChanges.newPassword, showAlert)) {
       return;
     }
 
-    if(passwordChange(pwChanges.currentPassword, pwChanges.newPassword, showAlert)){
+    if (
+      passwordChange(
+        pwChanges.currentPassword,
+        pwChanges.newPassword,
+        showAlert
+      )
+    ) {
       setPWChanges({
         currentPassword: '',
-        newPassword: ''
-      })
+        newPassword: '',
+      });
     }
   };
 
   const changeEmail = (emailChanges, setEmailChanges, showAlert) => {
-    if(emailChanges.currentPassword === '' || emailChanges.newEmail === ''){
+    if (emailChanges.currentPassword === '' || emailChanges.newEmail === '') {
       showAlert('An input field was left empty', 'error');
       return;
     }
 
-    if(!emailCheck(emailChanges.newEmail, showAlert)) {
+    if (!emailCheck(emailChanges.newEmail, showAlert)) {
       return;
     }
 
-    if(emailChange(emailChanges.currentPassword, emailChanges.newEmail, showAlert)) {
+    if (
+      emailChange(
+        emailChanges.currentPassword,
+        emailChanges.newEmail,
+        showAlert
+      )
+    ) {
       setEmailChanges({
         currentPassword: '',
-        newEmail: ''
-      })
+        newEmail: '',
+      });
     }
   };
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
-import { changeAccount } from '../../util/updateUserInfo';
 import { fetchUserData } from '../../util/getUserData';
 import useImage from '../../util/images/useImage';
 import { SettingsContent } from '../features/Account/Settings';
@@ -28,27 +27,6 @@ export default function Account({ userData, setUserData }) {
   const navigate = useNavigate();
   const bodyContent = tab || 'saves';
   const { showAlert } = useAlert();
-
-  const [settingChanges, setSettingChanges] = useState({
-    username: '',
-    color: '',
-    character: '',
-  });
-
-  const accountChanges = (
-    settingsData,
-    accountData,
-    setSettingChanges,
-    showAlert
-  ) => {
-    changeAccount(
-      settingsData,
-      accountData,
-      setSettingChanges,
-      showAlert,
-      setUserData
-    );
-  };
 
   useEffect(() => {
     fetchUserData(navigate, showAlert, setUserData);
@@ -128,9 +106,6 @@ export default function Account({ userData, setUserData }) {
             ) : (
               <SettingsContent
                 showAlert={showAlert}
-                settingChanges={settingChanges}
-                setSettingChanges={setSettingChanges}
-                accountChanges={accountChanges}
                 userData={userData}
                 setUserData={setUserData}
               />

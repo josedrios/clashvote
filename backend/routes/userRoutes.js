@@ -6,7 +6,6 @@ const {
   saveUnit,
   unsaveUnit,
   getAccountData,
-  getPFP,
   changePassword,
   changeEmail
 } = require('../controllers/userController');
@@ -15,14 +14,27 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.patch('/:userId/username', authMiddleware, usernameChange);
-router.patch('/:userId/character', authMiddleware, characterChange);
-router.patch('/:userId/color', authMiddleware, colorChange);
-router.patch('/unsave/:type/:tag', authMiddleware, unsaveUnit);
-router.patch('/change/password', authMiddleware, changePassword);
-router.patch('/change/email', authMiddleware, changeEmail);
+// Fetch Account Data
 router.get('/account', authMiddleware, getAccountData);
-router.get('/pfp', authMiddleware, getPFP);
+// router.get('/account', authMiddleware, getAccountData);
+
+// User settings related routes
+router.patch('/:userId/username', authMiddleware, usernameChange);
+router.patch('/change/character', authMiddleware, characterChange);
+router.patch('/:userId/color', authMiddleware, colorChange);
+router.patch('/change/email', authMiddleware, changeEmail);
+router.patch('/change/password', authMiddleware, changePassword);
+// router.patch('/username', authMiddleware, usernameChange);
+// router.patch('/character', authMiddleware, characterChange);
+// router.patch('/color', authMiddleware, colorChange);
+// router.patch('/email', authMiddleware, emailChange);
+// router.patch('/password', authMiddleware, passwordChange);
+
+// User saves, votes, comments related routes 
+// CREATE ITS OWN SECTION - interactionRoutes.js, interactionController.js
+router.patch('/unsave/:type/:tag', authMiddleware, unsaveUnit);
 router.post('/save/:type/:tag', authMiddleware, saveUnit);
+//router.post('/saves/:type/:tag', authMiddleware, unsaveUnit);
+//router.delete('/saves/:type/:tag', authMiddleware, saveUnit);
 
 module.exports = router;

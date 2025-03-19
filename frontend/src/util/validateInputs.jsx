@@ -1,19 +1,19 @@
 import validator from 'validator';
 
-export function validateAuthForm(formData, showAlert, formType) {
-  formData.email = formData.email?.trim();
+export function validateAuthForm(data, showAlert, formType) {
+  data.email = data.email?.trim();
 
-  // EMPTY FIELD CHECKS
+  // Empty fields check
   const emptyFields = [];
 
-  if (!formData.email) emptyFields.push('Email');
-  if (!formData.password) emptyFields.push('Password');
+  if (!data.email) emptyFields.push('Email');
+  if (!data.password) emptyFields.push('Password');
 
   if (formType === 'signup') {
-    if (!formData.username) emptyFields.push('Username');
-    if (!formData.age) emptyFields.push('Age Check');
-    if (!formData.age || formData.age !== true) emptyFields.push('Age Check');
-    if (!formData.tos || formData.tos !== true)
+    if (!data.username) emptyFields.push('Username');
+    if (!data.age) emptyFields.push('Age Check');
+    if (!data.age || data.age !== true) emptyFields.push('Age Check');
+    if (!data.tos || data.tos !== true)
       emptyFields.push('Terms of Service agreement');
   }
 
@@ -22,50 +22,49 @@ export function validateAuthForm(formData, showAlert, formType) {
     return false;
   }
 
-  // USERNAME VALIDATION CHECK
+  // Username validation
   if (formType === 'signup') {
-    if (!usernameCheck(formData, showAlert)) {
+    if (!usernameCheck(data.username, showAlert)) {
       return false;
     }
   }
 
-  // EMAIL VALIDATION CHECK
+  // Email validation
   if (formType === 'signup') {
-    if (!emailCheck(formData.email, showAlert)) {
+    if (!emailCheck(data.email, showAlert)) {
       return false;
     }
   }
 
-  // PASSWORD VALIDATION CHECK
+  // Password validation
   if (formType === 'signup') {
-    if (!passwordCheck(formData.password, showAlert)) {
+    if (!passwordCheck(data.password, showAlert)) {
       return false;
     }
   }
-  // IF GIVEN PW FOR LOGIN IS MORE THAN 64 CHARS, CUT EXTRA THEN RUN QUERY (OR INSTANTLY GIVE INVALID PW BANNER)
 
   return true;
 }
 
-export function usernameCheck(formData, showAlert) {
+export function usernameCheck(username, showAlert) {
   const usernameFaults = [];
 
-  if (!validator.isLength(formData.username, { min: 3 })) {
+  if (!validator.isLength(username, { min: 3 })) {
     usernameFaults.push('less than 3 characters');
   }
 
-  if (!/^[a-zA-Z0-9_.]+$/.test(formData.username)) {
+  if (!/^[a-zA-Z0-9_.]+$/.test(username)) {
     usernameFaults.push(
-      'special characters (only letters, numbers, underscores, and dots are allowed)'
+      'special characters or spaces (only letters, numbers, underscores, and dots are allowed)'
     );
   }
 
-  if (!validator.isLength(formData.username, { max: 16 })) {
+  if (!validator.isLength(username, { max: 16 })) {
     usernameFaults.push('more than 16 characters');
   }
 
   if (usernameFaults.length > 0) {
-    showAlert(`Your username has ${usernameFaults.join(', ')}`, 'error');
+    showAlert(`Your username contains ${usernameFaults.join(', ')}`, 'error');
     return false;
   }
 
