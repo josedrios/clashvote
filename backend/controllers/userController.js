@@ -64,9 +64,9 @@ exports.updateUsername = async (req, res) => {
   }
 };
 
-exports.characterChange = async (req, res) => {
+exports.updateCharacter = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const userId = req.user.id;
     const { character } = req.body;
 
     const updateUser = await User.findByIdAndUpdate(
@@ -90,9 +90,9 @@ exports.characterChange = async (req, res) => {
   }
 };
 
-exports.colorChange = async (req, res) => {
+exports.updateColor = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const userId = req.user.id;
     const { color } = req.body;
 
     const updateUser = await User.findByIdAndUpdate(

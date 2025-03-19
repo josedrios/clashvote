@@ -8,49 +8,47 @@ export async function updateAccountSettings(
   showAlert,
   setUserData
 ) {
-  const token = localStorage.getItem("token");
   let changed = false;
 
   const updateSetting = async (key, accountKey, updateFunction, userKey) => {
-    if (settingsData[key] !== accountData[accountKey] && settingsData[key] !== "") {
-      if (await updateFunction(settingsData, showAlert, token)) {
+    if (settingsData[key] && settingsData[key] !== accountData[accountKey]) {
+      const success = await updateFunction(settingsData, showAlert);
+      if (success) {
         setUserData((prev) => ({
           ...prev,
           [userKey]: settingsData[key],
         }));
         changed = true;
-      } else {
-        return false;
       }
+      setSettingChanges((prev) => ({
+        ...prev,
+        [key]: '',
+      }));
     }
-    setSettingChanges((prev) => ({
-      ...prev,
-      [key]: "",
-    }));
-    return true;
   };
 
-  const usernameValid = settingsData.username === accountData.username || 
-    (settingsData.username !== "" && usernameCheck(settingsData.username, showAlert));
-
-  if (!usernameValid) return;
-
-  const updates = [
-    updateSetting("username", "username", changeUsername, "username"),
-    updateSetting("character", "character", changeCharacter, "pfpCharacter"),
-    updateSetting("color", "pfpColor", changeColor, "pfpColor"),
-  ];
-
-  for (const update of updates) {
-    if (!(await update)) return;
+  if (
+    settingsData.username &&
+    settingsData.username !== accountData.username &&
+    !usernameCheck(settingsData.username, showAlert)
+  ) {
+    return;
   }
 
+  await Promise.all([
+    updateSetting('username', 'username', changeUsername, 'username'),
+    updateSetting('character', 'character', changeCharacter, 'pfpCharacter'),
+    updateSetting('color', 'pfpColor', changeColor, 'pfpColor'),
+  ]);
+
   if (changed) {
-    showAlert("Account settings have been changed", "success");
+    showAlert('Account settings have been changed', 'success');
   }
 }
 
-export async function changeUsername(data, showAlert, token) {
+export async function changeUsername(data, showAlert) {
+  const token = localStorage.getItem('token');
+
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
@@ -60,17 +58,14 @@ export async function changeUsername(data, showAlert, token) {
   }
 
   try {
-    const response = await fetch(
-      `http://localhost:3001/api/user/username`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ username: data.username }),
-      }
-    );
+    const response = await fetch(`http://localhost:3001/api/user/username`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ username: data.username }),
+    });
 
     const responseData = await response.json();
 
@@ -91,7 +86,9 @@ export async function changeUsername(data, showAlert, token) {
   }
 }
 
-export async function changeCharacter(data, showAlert, token) {
+export async function changeCharacter(data, showAlert) {
+  const token = localStorage.getItem('token');
+
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
@@ -100,30 +97,15 @@ export async function changeCharacter(data, showAlert, token) {
     return false;
   }
 
-  const decodedToken = jwtDecode(token);
-
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
-      'error'
-    );
-    return false;
-  }
-
   try {
-    const response = await fetch(
-      `http://localhost:3001/api/user/${userId}/character`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ character: data.character }),
-      }
-    );
+    const response = await fetch(`http://localhost:3001/api/user/character`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ character: data.character }),
+    });
 
     const responseData = await response.json();
 
@@ -144,7 +126,9 @@ export async function changeCharacter(data, showAlert, token) {
   }
 }
 
-export async function changeColor(data, showAlert, token) {
+export async function changeColor(data, showAlert) {
+  const token = localStorage.getItem('token');
+
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
@@ -153,21 +137,9 @@ export async function changeColor(data, showAlert, token) {
     return false;
   }
 
-  const decodedToken = jwtDecode(token);
-
-  const userId = decodedToken?.userId || decodedToken?.id;
-
-  if (!userId) {
-    showAlert(
-      'Authentication error: User ID missing in token, try again after logging out',
-      'error'
-    );
-    return false;
-  }
-
   try {
     const response = await fetch(
-      `http://localhost:3001/api/user/${userId}/color`,
+      `http://localhost:3001/api/user/color`,
       {
         method: 'PATCH',
         headers: {
@@ -310,17 +282,20 @@ export async function changePassword(currentPassword, newPassword, showAlert) {
   }
 
   try {
-    const response = await fetch(`http://localhost:3001/api/user/change/password`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        currentPassword: currentPassword,
-        newPassword: newPassword,
-      }),
-    });
+    const response = await fetch(
+      `http://localhost:3001/api/user/change/password`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          currentPassword: currentPassword,
+          newPassword: newPassword,
+        }),
+      }
+    );
 
     const responseData = await response.json();
 
@@ -353,17 +328,20 @@ export async function changeEmail(currentPassword, newEmail, showAlert) {
   }
 
   try {
-    const response = await fetch(`http://localhost:3001/api/user/change/email`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        currentPassword: currentPassword,
-        newEmail: newEmail,
-      }),
-    });
+    const response = await fetch(
+      `http://localhost:3001/api/user/change/email`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          currentPassword: currentPassword,
+          newEmail: newEmail,
+        }),
+      }
+    );
 
     const responseData = await response.json();
 

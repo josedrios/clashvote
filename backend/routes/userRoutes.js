@@ -1,8 +1,8 @@
 const express = require('express');
 const {
   updateUsername,
-  characterChange,
-  colorChange,
+  updateCharacter,
+  updateColor,
   saveUnit,
   unsaveUnit,
   getAccountData,
@@ -20,15 +20,12 @@ router.get('/account', authMiddleware, getAccountData);
 
 // User settings related routes
 router.patch('/username', authMiddleware, updateUsername);
-router.patch('/change/character', authMiddleware, characterChange);
-router.patch('/:userId/color', authMiddleware, colorChange);
+router.patch('/character', authMiddleware, updateCharacter);
+router.patch('/color', authMiddleware, updateColor);
 router.patch('/change/email', authMiddleware, changeEmail);
 router.patch('/change/password', authMiddleware, changePassword);
-// router.patch('/username', authMiddleware, usernameChange);
-// router.patch('/character', authMiddleware, characterChange);
-// router.patch('/color', authMiddleware, colorChange);
-// router.patch('/email', authMiddleware, emailChange);
-// router.patch('/password', authMiddleware, passwordChange);
+// router.patch('/email', authMiddleware, updateEmail);
+// router.patch('/password', authMiddleware, updatePassword);
 
 // User saves, votes, comments related routes 
 // CREATE ITS OWN SECTION - interactionRoutes.js, interactionController.js
