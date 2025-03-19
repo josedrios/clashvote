@@ -1,4 +1,3 @@
-import { jwtDecode } from 'jwt-decode';
 import { usernameCheck } from './processInputs';
 
 export async function updateAccountSettings(
@@ -138,17 +137,14 @@ export async function changeColor(data, showAlert) {
   }
 
   try {
-    const response = await fetch(
-      `http://localhost:3001/api/user/color`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ color: data.color }),
-      }
-    );
+    const response = await fetch(`http://localhost:3001/api/user/color`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ color: data.color }),
+    });
 
     const responseData = await response.json();
 
@@ -169,7 +165,8 @@ export async function changeColor(data, showAlert) {
   }
 }
 
-export async function saveUnit(token, type, name, tag, icon, showAlert) {
+export async function changeEmail(currentPassword, newEmail, showAlert) {
+  const token = localStorage.getItem('token');
   if (!token) {
     showAlert(
       'Authentication error: No token found, please logout and try again',
@@ -179,15 +176,101 @@ export async function saveUnit(token, type, name, tag, icon, showAlert) {
   }
 
   try {
+    const response = await fetch(`http://localhost:3001/api/user/email`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        currentPassword: currentPassword,
+        newEmail: newEmail,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      showAlert('Email was changed', 'success');
+      return true;
+    } else {
+      showAlert(
+        responseData.message ||
+          'Email change was unsuccessful, please try again',
+        'error'
+      );
+      return false;
+    }
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return false;
+  }
+}
+
+export async function changePassword(currentPassword, newPassword, showAlert) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3001/api/user/password`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      showAlert('Password was changed', 'success');
+      return true;
+    } else {
+      showAlert(
+        responseData.message ||
+          'Password change was unsuccessful, please try again',
+        'error'
+      );
+      return false;
+    }
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return false;
+  }
+}
+
+export async function saveUnit(type, name, tag, icon, showAlert) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+  
+  try {
     const response = await fetch(
-      `http://localhost:3001/api/user/save/${type}/${tag}`,
+      `http://localhost:3001/api/user/saves/${type}/${tag}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ userId: userId, name: name, icon: icon }),
+        body: JSON.stringify({ name: name, icon: icon }),
       }
     );
 
@@ -214,7 +297,7 @@ export async function saveUnit(token, type, name, tag, icon, showAlert) {
   }
 }
 
-export async function deleteSave(type, tag, showAlert, setUserData) {
+export async function unsaveUnit(type, tag, showAlert, setUserData) {
   const token = localStorage.getItem('token');
   if (!token) {
     showAlert(
@@ -226,9 +309,9 @@ export async function deleteSave(type, tag, showAlert, setUserData) {
 
   try {
     const response = await fetch(
-      `http://localhost:3001/api/user/unsave/${type}/${tag}`,
+      `http://localhost:3001/api/user/saves/${type}/${tag}`,
       {
-        method: 'PATCH',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -260,98 +343,6 @@ export async function deleteSave(type, tag, showAlert, setUserData) {
       showAlert(
         responseData.message ||
           'Unit unsave was unsuccessful, please try again',
-        'error'
-      );
-      return false;
-    }
-  } catch (error) {
-    console.log('Error: ', error);
-    showAlert('Something went wrong. Please try again later.', 'error');
-    return false;
-  }
-}
-
-export async function changePassword(currentPassword, newPassword, showAlert) {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    showAlert(
-      'Authentication error: No token found, please logout and try again',
-      'error'
-    );
-    return false;
-  }
-
-  try {
-    const response = await fetch(
-      `http://localhost:3001/api/user/change/password`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          currentPassword: currentPassword,
-          newPassword: newPassword,
-        }),
-      }
-    );
-
-    const responseData = await response.json();
-
-    if (response.ok) {
-      showAlert('Password was changed', 'success');
-      return true;
-    } else {
-      showAlert(
-        responseData.message ||
-          'Password change was unsuccessful, please try again',
-        'error'
-      );
-      return false;
-    }
-  } catch (error) {
-    console.log('Error: ', error);
-    showAlert('Something went wrong. Please try again later.', 'error');
-    return false;
-  }
-}
-
-export async function changeEmail(currentPassword, newEmail, showAlert) {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    showAlert(
-      'Authentication error: No token found, please logout and try again',
-      'error'
-    );
-    return false;
-  }
-
-  try {
-    const response = await fetch(
-      `http://localhost:3001/api/user/change/email`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          currentPassword: currentPassword,
-          newEmail: newEmail,
-        }),
-      }
-    );
-
-    const responseData = await response.json();
-
-    if (response.ok) {
-      showAlert('Email was changed', 'success');
-      return true;
-    } else {
-      showAlert(
-        responseData.message ||
-          'Email change was unsuccessful, please try again',
         'error'
       );
       return false;

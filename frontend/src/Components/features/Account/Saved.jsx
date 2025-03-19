@@ -1,5 +1,5 @@
 import { IoClose } from 'react-icons/io5';
-import { deleteSave } from '../../../util/accountUtils';
+import { unsaveUnit } from '../../../util/accountUtils';
 
 export function SavedContent({ userData, navigate, showAlert, setUserData }) {
   return (
@@ -29,7 +29,7 @@ export function SavedContent({ userData, navigate, showAlert, setUserData }) {
               <IoClose
                 className="saved-card-trash"
                 onClick={() =>
-                  deleteSave('player', player.tag, showAlert, setUserData)
+                  unsaveUnit('player', player.tag, showAlert, setUserData)
                 }
               />
             </div>
@@ -61,7 +61,7 @@ export function SavedContent({ userData, navigate, showAlert, setUserData }) {
               <IoClose
                 className="saved-card-trash"
                 onClick={() =>
-                  deleteSave('clan', clan.tag, showAlert, setUserData)
+                  unsaveUnit('clan', clan.tag, showAlert, setUserData)
                 }
               />
             </div>

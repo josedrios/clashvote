@@ -13,9 +13,7 @@ function PlayerMain({ data }) {
   }
 
   const handlePlayerSave = (data) => {
-    const token = localStorage.getItem('token');
     saveUnit(
-      token,
       'player',
       data.username,
       data.tag.split('#').join(''),

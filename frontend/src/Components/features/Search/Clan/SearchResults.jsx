@@ -32,9 +32,7 @@ export default function SearchResults({ clanData, fetchPlayer }) {
   }, [clanData]);
 
   const handleClanSave = (data) => {
-    const token = localStorage.getItem('token');
     saveUnit(
-      token,
       'clan',
       data.name,
       data.tag.split('#').join(''),
