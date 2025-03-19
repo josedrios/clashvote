@@ -1,4 +1,4 @@
-import { fetchUserData } from "./getUserData";
+import { fetchUserData } from "./accountUtils";
 
 export async function processRegister(formData, navigate, showAlert, setUserData) {
   const { username, email, password } = formData;
@@ -13,7 +13,6 @@ export async function processRegister(formData, navigate, showAlert, setUserData
     const data = await response.json();
 
     if (response.ok) {
-      console.log('User has been registered');
       if (data.token) {
         localStorage.setItem('token', data.token);
         fetchUserData(navigate, showAlert, setUserData);

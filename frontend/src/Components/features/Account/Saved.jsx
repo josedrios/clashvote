@@ -1,5 +1,5 @@
 import { IoClose } from 'react-icons/io5';
-import { deleteSave } from '../../../util/updateUserInfo';
+import { deleteSave } from '../../../util/accountUtils';
 
 export function SavedContent({ userData, navigate, showAlert, setUserData }) {
   return (

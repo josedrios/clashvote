@@ -1,26 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
-import { fetchUserData } from '../../util/getUserData';
+import { fetchUserData } from '../../util/accountUtils';
 import useImage from '../../util/images/useImage';
 import { SettingsContent } from '../features/Account/Settings';
 import { SavedContent } from '../features/Account/Saved';
-
-function logoutUser(navigate, showAlert) {
-  localStorage.removeItem('token');
-  navigate('/auth');
-  showAlert('You have been logged out', 'info');
-}
-
-export function GetPFP({ name, bgcolor }) {
-  var imageSrc = useImage(name);
-
-  return (
-    <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
-      <img src={imageSrc} id="account-pfp" alt="" />
-    </div>
-  );
-}
 
 export default function Account({ userData, setUserData }) {
   const { tab } = useParams();
@@ -40,8 +24,7 @@ export default function Account({ userData, setUserData }) {
         <button
           className="standard-btn logout-narrow"
           onClick={() => {
-            setUserData(null);
-            logoutUser(navigate, showAlert);
+            logoutUser(navigate, showAlert, setUserData);
           }}
         >
           Logout
@@ -54,8 +37,7 @@ export default function Account({ userData, setUserData }) {
           <button
             className="standard-btn logout-wide"
             onClick={() => {
-              setUserData(null);
-              logoutUser(navigate, showAlert);
+              logoutUser(navigate, showAlert, setUserData);
             }}
           >
             Logout
@@ -113,6 +95,23 @@ export default function Account({ userData, setUserData }) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function logoutUser(navigate, showAlert, setUserData) {
+  setUserData(null);
+  localStorage.removeItem('token');
+  navigate('/auth');
+  showAlert('You have been logged out', 'info');
+}
+
+export function GetPFP({ name, bgcolor }) {
+  var imageSrc = useImage(name);
+
+  return (
+    <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>
+      <img src={imageSrc} id="account-pfp" alt="" />
     </div>
   );
 }

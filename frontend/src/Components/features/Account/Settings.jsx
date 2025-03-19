@@ -7,9 +7,9 @@ import {
   pfpColors,
 } from '../../../util/images/imageCategories';
 import useImage from '../../../util/images/useImage';
-import { passwordCheck, emailCheck } from '../../../util/validateInputs';
-import { changePassword, changeEmail } from '../../../util/updateUserInfo';
-import { changeAccount } from '../../../util/updateUserInfo';
+import { passwordCheck, emailCheck } from '../../../util/processInputs';
+import { changePassword, changeEmail } from '../../../util/accountUtils';
+import { changeAccount } from '../../../util/accountUtils';
 
 export function SettingsContent({ showAlert, userData, setUserData }) {
   const [settingChanges, setSettingChanges] = useState({
@@ -17,21 +17,6 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
     color: '',
     character: '',
   });
-
-  const accountChanges = (
-    settingsData,
-    accountData,
-    setSettingChanges,
-    showAlert
-  ) => {
-    changeAccount(
-      settingsData,
-      accountData,
-      setSettingChanges,
-      showAlert,
-      setUserData
-    );
-  };
 
   const onColorChange = (color) => {
     if (color === settingChanges.color) {
@@ -116,86 +101,38 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
       </div>
       <label htmlFor="">Profile Picture Troop:</label>
       <div className="pfp-character-options-container">
-        {troopNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {superTroopNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {petNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              title={troop}
-              key={key}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
-        {heroNames.map((troop, key) => {
-          return (
-            <button
-              className="character-option"
-              onClick={() => onCharacterChange(troop)}
-              key={key}
-              title={troop}
-              style={{
-                outline:
-                  settingChanges.character === troop
-                    ? '1px solid white'
-                    : 'none',
-              }}
-            >
-              <img src={getSource(troop)} alt="" />
-            </button>
-          );
-        })}
+        <CharacterOptions
+          units={troopNames}
+          settingChanges={settingChanges}
+          onCharacterChange={onCharacterChange}
+          getSource={getSource}
+        />
+        <CharacterOptions
+          units={superTroopNames}
+          settingChanges={settingChanges}
+          onCharacterChange={onCharacterChange}
+          getSource={getSource}
+        />
+        <CharacterOptions
+          units={petNames}
+          settingChanges={settingChanges}
+          onCharacterChange={onCharacterChange}
+          getSource={getSource}
+        />
+        <CharacterOptions
+          units={heroNames}
+          settingChanges={settingChanges}
+          onCharacterChange={onCharacterChange}
+          getSource={getSource}
+        />
       </div>
       <div className="account-settings-buttons">
         <button
           className="standard-btn"
           onClick={() =>
-            accountChanges(
-              settingChanges,
-              userData,
+            changeAccount(
+              settingsData,
+              accountData,
               setSettingChanges,
               showAlert,
               setUserData
@@ -206,6 +143,34 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
         </button>
       </div>
     </div>
+  );
+}
+
+function CharacterOptions({
+  units,
+  settingChanges,
+  onCharacterChange,
+  getSource,
+}) {
+  return (
+    <>
+      {units.map((troop, key) => {
+        return (
+          <button
+            className="character-option"
+            onClick={() => onCharacterChange(troop)}
+            title={troop}
+            key={key}
+            style={{
+              outline:
+                settingChanges.character === troop ? '1px solid white' : 'none',
+            }}
+          >
+            <img src={getSource(troop)} alt="" />
+          </button>
+        );
+      })}
+    </>
   );
 }
 

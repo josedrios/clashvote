@@ -3,7 +3,7 @@ import Members from '../Clan/Members';
 import THOverview from './THOverview';
 import { IoBookmark } from 'react-icons/io5';
 import { useAlert } from '../../../../util/AlertContext';
-import { saveUnit } from '../../../../util/updateUserInfo';
+import { saveUnit } from '../../../../util/accountUtils';
 import { useNavigate } from 'react-router-dom';
 import useImage from '../../../../util/images/useImage';
 

@@ -2,7 +2,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { MdLockOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { useAlert } from '../../../util/AlertContext';
-import { validateAuthForm } from '../../../util/validateInputs';
+import { validateAuthForm } from '../../../util/processInputs';
 import { processLogin } from '../../../util/processAuth';
 import { useNavigate } from 'react-router-dom';
 

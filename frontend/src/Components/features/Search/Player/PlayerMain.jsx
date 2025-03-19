@@ -1,7 +1,7 @@
 import { IoMdShare } from 'react-icons/io';
 import { FaUserCheck } from 'react-icons/fa';
 import { IoBookmark } from 'react-icons/io5';
-import { saveUnit } from '../../../../util/updateUserInfo';
+import { saveUnit } from '../../../../util/accountUtils';
 import { useAlert } from '../../../../util/AlertContext';
 import useImage from '../../../../util/images/useImage';
 
