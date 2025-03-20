@@ -50,10 +50,6 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
     }
   };
 
-  const getSource = (name) => {
-    return useImage(name);
-  };
-
   return (
     <div className="account-content-tab account-settings-tab">
       <ChangeForms
@@ -127,25 +123,21 @@ export function SettingsContent({ showAlert, userData, setUserData }) {
           units={troopNames}
           settingChanges={settingChanges}
           onCharacterChange={onCharacterChange}
-          getSource={getSource}
         />
         <CharacterOptions
           units={superTroopNames}
           settingChanges={settingChanges}
           onCharacterChange={onCharacterChange}
-          getSource={getSource}
         />
         <CharacterOptions
           units={petNames}
           settingChanges={settingChanges}
           onCharacterChange={onCharacterChange}
-          getSource={getSource}
         />
         <CharacterOptions
           units={heroNames}
           settingChanges={settingChanges}
           onCharacterChange={onCharacterChange}
-          getSource={getSource}
         />
       </div>
       <div className="account-settings-pfp-footer">
@@ -183,7 +175,7 @@ function PFPPreview({
   previewColor,
   currentColor,
 }) {
-  var imageSrc = useImage(
+  const imageSrc = useImage(
     previewCharacter === '' ? currentCharacter : previewCharacter
   );
 
@@ -203,7 +195,6 @@ function CharacterOptions({
   units,
   settingChanges,
   onCharacterChange,
-  getSource,
 }) {
   return (
     <>
@@ -219,12 +210,18 @@ function CharacterOptions({
                 settingChanges.character === troop ? '1px solid white' : 'none',
             }}
           >
-            <img src={getSource(troop)} alt="" />
+            <RetrieveImage name={troop}/>
           </button>
         );
       })}
     </>
   );
+}
+
+function RetrieveImage({ name }) {
+  const imageSrc = useImage(name);
+
+  return <img src={imageSrc} alt="" />;
 }
 
 function ChangeForms({ showAlert, passwordChange, emailChange }) {

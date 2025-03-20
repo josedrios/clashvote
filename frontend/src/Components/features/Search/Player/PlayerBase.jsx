@@ -124,9 +124,7 @@ function HeroUnitSection({ type }) {
 }
 
 function PlayerHomeHeader({ data }) {
-  const getSource = (name) => {
-    return useImage(name);
-  };
+  const starImg = useImage('star');
 
   return (
     <div className="player-base-header-container">
@@ -163,7 +161,7 @@ function PlayerHomeHeader({ data }) {
             <img
               className="weapon-level-star"
               key={index}
-              src={getSource('star')}
+              src={starImg}
               alt=""
             />
           ))}

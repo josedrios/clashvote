@@ -105,7 +105,7 @@ export default function Navbar({
 }
 
 export function GetPFP({ name, bgcolor }) {
-  var imageSrc = useImage(name);
+  const imageSrc = useImage(name);
 
   return (
     <div id="nav-account-pfp-container" style={{ backgroundColor: bgcolor }}>

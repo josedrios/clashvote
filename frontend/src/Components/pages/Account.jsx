@@ -107,7 +107,7 @@ function logoutUser(navigate, showAlert, setUserData) {
 }
 
 export function GetPFP({ name, bgcolor }) {
-  var imageSrc = useImage(name);
+  const imageSrc = useImage(name);
 
   return (
     <div id="account-pfp-container" style={{ backgroundColor: bgcolor }}>

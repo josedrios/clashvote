@@ -8,9 +8,7 @@ function PlayerAchievements({ achievements, base, achCurrent }) {
     }
   });
 
-  const getSource = (name) => {
-    return useImage(name);
-  }
+  const starImg = useImage('star');
 
   return (
     <div
@@ -27,7 +25,7 @@ function PlayerAchievements({ achievements, base, achCurrent }) {
                   <img
                     className="ach-star"
                     key={index}
-                    src={getSource('star')}
+                    src={starImg}
                     alt=""
                   />
                 ))}
@@ -35,7 +33,7 @@ function PlayerAchievements({ achievements, base, achCurrent }) {
                   <img
                     className="ach-star-empty"
                     key={index}
-                    src={getSource('star')}
+                    src={starImg}
                     alt=""
                   />
                 ))}

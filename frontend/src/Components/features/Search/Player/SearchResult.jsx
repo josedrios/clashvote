@@ -6,18 +6,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useImage from '../../../../util/images/useImage';
 
-const getSource = (name) => {
-    return useImage(name);
-  };
-
-const getBuilderLeague = (league) => {
-  return getSource(league.split(' ')[0]);
-};
-
-const getBuilderDivision = (league) => {
-  return league.split(' ')[2];
-};
-
 function SearchResult({ playerData }) {
   const navigate = useNavigate();
 
@@ -57,16 +45,19 @@ function SearchResult({ playerData }) {
 }
 
 function LeagueIcons({ data }) {
+  const homeLeagueIcon =
+    data.home.leagueIcon === 'Unranked'
+      ? useImage('unranked')
+      : data.home.leagueIcon;
+
+  const builderLeagueIcon = useImage(data.builder.league.split(' ')[0]);
+
   return (
     <div id="player-rank-flex">
       <img
         className="player-rank-icon"
         alt=""
-        src={`${
-          data.home.leagueIcon === 'Unranked'
-            ? getSource('unranked')
-            : data.home.leagueIcon
-        }`}
+        src={homeLeagueIcon}
         title={data.home.league}
       />
       <div
@@ -76,13 +67,11 @@ function LeagueIcons({ data }) {
         <img
           className="player-rank-icon"
           id="player-bh-icon"
-          src={getBuilderLeague(data.builder.league)}
+          src={builderLeagueIcon}
           title={data.builder.league}
           alt=""
         />
-        <div id="player-bh-division">
-          {getBuilderDivision(data.builder.league)}
-        </div>
+        <div id="player-bh-division">{data.builder.league.split(' ')[2]}</div>
       </div>
     </div>
   );

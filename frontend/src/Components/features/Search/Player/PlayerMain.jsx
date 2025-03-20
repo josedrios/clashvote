@@ -8,9 +8,7 @@ import useImage from '../../../../util/images/useImage';
 function PlayerMain({ data }) {
   const { showAlert } = useAlert();
 
-  const getSource = (name) => {
-    return useImage(name);
-  }
+  const xpImg = useImage('XP');
 
   const handlePlayerSave = (data) => {
     saveUnit(
@@ -33,7 +31,7 @@ function PlayerMain({ data }) {
       )}
       <div id="player-tag">{data.tag}</div>
       <div id="player-xp-container">
-        <img id="xp-icon" src={getSource('XP')} alt="" />
+        <img id="xp-icon" src={xpImg} alt="" />
         <div id="player-level">{data.level}</div>
       </div>
       <div id="player-action-btns">

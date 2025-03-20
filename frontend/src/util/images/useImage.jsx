@@ -29,7 +29,7 @@ function useImage(name) {
       const formattedName = name.replace(/[ ]/g, '_');
       const type = findImageType(formattedName);
       if (!type || !imageGlobs[type]) {
-        console.warn('No image type was found');
+        console.warn('No image type was found for:', formattedName);
         return;
       }
       const path = `/src/assets/images/${type}/${formattedName}.png`;
