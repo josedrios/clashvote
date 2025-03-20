@@ -86,11 +86,15 @@
   }
 }
 
-.pfp-color-options-container,
+.pfp-color-options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(24px + $spacing-xs), 1fr))
+}
+
 .pfp-character-options-container {
-  @include flex(row, left, center);
-  flex-wrap: wrap;
-  gap: 0px $spacing-sm;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  column-gap: $spacing-sm
 }
 
 .saved-container {

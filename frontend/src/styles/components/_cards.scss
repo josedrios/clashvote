@@ -80,10 +80,10 @@
 // clan search result cards
 .clan-result-card {
   margin: auto;
-  width: 260px;
+  width: 100%;
   @include flex(column, initial, center);
   background-color: $secondary-background-color;
-  margin-bottom: calc($spacing-lg + 10px);
+  margin-bottom: calc($spacing-lg + $spacing-md);
   padding: $spacing-md;
   padding-top: $spacing-lg;
   border-radius: $border-radius-sm;
@@ -161,10 +161,20 @@
   }
 }
 
+// .units-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+// }
+
 .units-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(40px, 1fr)
+  );
+  gap: $spacing-xs;
+  justify-content: left;
 }
 
 .unit-container {
@@ -176,7 +186,6 @@
   background-color: $primary-background-color;
   overflow: hidden;
   display: inline-block;
-  margin: 0 $spacing-xs $spacing-xs 0;
 }
 
 .hero-troop-container {
@@ -316,7 +325,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: color-fade($primary-color, 0.1);
+    background-color: color-fade(black, 0.5);
     box-shadow: 2px 3px 5px 2px rgb(35, 34, 34);
     transform: translateY(-2px);
   }

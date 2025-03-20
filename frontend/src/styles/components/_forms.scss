@@ -266,18 +266,6 @@ input[type='search']::-moz-search-clear-button {
 }
 
 // ==========================
-// Season Page
-// ==========================
-.comment-input-field {
-  width: calc(100% - 2 * $spacing-sm) !important;
-  margin: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-xs;
-  background-color: color-fade($gray-darker, 0.9) !important;
-  border: none !important;
-  padding: $spacing-sm 15px !important;
-}
-
-// ==========================
 // Account Page
 // ==========================
 #account-username-change-label {

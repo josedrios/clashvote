@@ -120,11 +120,6 @@ exports.updateEmail = async (req, res) => {
     const userId = req.user.id;
     const { currentPassword, newEmail } = req.body;
 
-    const emailExists = await User.findOne({ email: newEmail });
-    if (emailExists) {
-      return res.status(400).json({ message: 'Email is already in use' });
-    }
-
     const user = await User.findById(userId);
 
     if (!user) {
@@ -133,17 +128,22 @@ exports.updateEmail = async (req, res) => {
       });
     }
 
+    const pwMatch = await bcrypt.compare(currentPassword, user.password);
+
+    if (!pwMatch) {
+      return res.status(400).json({
+        message: `Invalid credentials`,
+      });
+    }
+
     if (newEmail === user.email)
       return res.status(400).json({
         message: 'New email must be different from your current email',
       });
 
-    const pwMatch = await bcrypt.compare(currentPassword, user.password);
-
-    if (!pwMatch) {
-      return res.status(400).json({
-        message: `Inputted incorrect current password`,
-      });
+    const emailExists = await User.findOne({ email: newEmail });
+    if (emailExists) {
+      return res.status(400).json({ message: 'Email is already in use' });
     }
 
     user.email = newEmail;
@@ -171,17 +171,17 @@ exports.updatePassword = async (req, res) => {
         message: `No user was found`,
       });
     }
-
-    const isSamePassword = await bcrypt.compare(newPassword, user.password);
-    if (isSamePassword)
-      return res.status(400).json({
-        message: 'New password must be different from your current password',
-      });
-
+    
     const pwMatch = await bcrypt.compare(currentPassword, user.password);
     if (!pwMatch) {
       return res.status(400).json({
-        message: `Inputted incorrect current password`,
+        message: `Invalid credentials`,
+      });
+    }
+
+    if (await bcrypt.compare(newPassword, user.password)) {
+      return res.status(400).json({
+        message: 'New password must be different from your current password',
       });
     }
 
@@ -232,6 +232,15 @@ exports.addSave = async (req, res) => {
 
     if (alreadySaved) {
       return res.status(409).json({ message: `The ${type} is already saved` });
+    }
+
+    if (
+      (type === 'player' && user.favoritePlayers?.length === 5) ||
+      (type === 'clan' && user.favoriteClans?.length === 5)
+    ) {
+      return res
+        .status(400)
+        .json({ message: `You can only save up to 5 ${type}s` });
     }
 
     let newUnit;

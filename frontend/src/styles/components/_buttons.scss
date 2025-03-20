@@ -268,11 +268,11 @@ rect.bars {
 }
 
 .pfp-color-option {
-  margin: $spacing-xs;
   position: relative;
   @include box(24px, 24px);
   border-radius: $border-radius-c;
   transition: transform $transition-instant;
+  margin-bottom: $spacing-xs;
 
   .pfp-color {
     position: absolute;
