@@ -1,16 +1,13 @@
 .season-home-container {
+    background-color: $secondary-background-color;
+    border-radius: $border-radius-sm;
 }
 
 .season-cards-container {
     width: 100%;
-    border: 1px solid blue;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: $spacing-sm;
+    align-items: top;
+    gap: $spacing-md;
     padding: 16px;
-
-    div {
-        border: 1px solid lime;
-        height: 200px;
-    }
 }

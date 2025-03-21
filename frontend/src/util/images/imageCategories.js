@@ -74,6 +74,8 @@ const heroequipmentNames = [
   'Seeking_Shield',
   'Spiky_Ball',
   'Vampstache',
+  'Metal_Pants',
+  'Snake_Bracelet'
 ];
 
 const heroNames = [
@@ -116,6 +118,7 @@ const siegeNames = [
   'Siege_Barracks',
   'Stone_Slammer',
   'Wall_Wrecker',
+  'Troop_Launcher'
 ];
 
 const spellNames = [

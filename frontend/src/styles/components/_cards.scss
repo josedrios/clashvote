@@ -169,10 +169,7 @@
 
 .units-container {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(40px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
   gap: $spacing-xs;
   justify-content: left;
 }
@@ -343,4 +340,114 @@
   padding: $spacing-sm;
   border-radius: $border-radius-xs;
   color: $gray;
+}
+
+// Season Cards
+
+.season-card {
+  @include flex(column);
+  border-radius: $border-radius-xs;
+  background-color: transparent;
+  transition: transform $transition-instant, box-shadow $transition-instant;
+
+  .season-card-body {
+    background-color: color-fade(black, 0.4);
+    padding: $spacing-md;
+    border-radius: 0 0 $spacing-xs $spacing-xs;
+  }
+
+  .season-card-header {
+    @include flex(row, center, center);
+    background-color: color-fade(black, 0.2);
+    padding: $spacing-sm $spacing-md;
+    border-radius: $spacing-xs $spacing-xs 0 0;
+
+    h5 {
+      transition: color $transition-instant;
+      text-align: center;
+      font-size: $font-size-md;
+    }
+
+    svg {
+      transition: transform $transition-instant, fill $transition-instant;
+      margin-left: $spacing-sm;
+      font-size: 18px;
+    }
+  }
+
+  .season-card-footer {
+    @include flex(row, space-between);
+    width: 100%;
+    margin-top: $spacing-sm;
+
+    p {
+      color: $gray-light;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &:hover {
+    transform: scale(102%);
+    box-shadow: 2px 3px 5px 2px rgb(35, 34, 34);
+
+    h5 {
+      color: $primary-color;
+    }
+
+    .season-card-header svg {
+      transform: translateX(5px);
+      fill: $primary-color;
+    }
+  }
+}
+
+.candidate-row {
+  @include flex(row, initial, flex-end);
+  width: 100%;
+  margin-bottom: $spacing-xs;
+
+  img {
+    aspect-ratio: 1/1;
+    width: 40px;
+    border-radius: $border-radius-sm;
+  }
+
+  .candidate-row-body {
+    @include flex(column, initial, flex-start);
+    margin-left: $spacing-sm;
+    width: 100%;
+
+    p {
+      font-size: $font-size-sm;
+    }
+  }
+
+  .candidate-progress-bar-label {
+    width: 100%;
+    @include flex(row, space-between, flex-end);
+
+    .candidate-name {
+      font-size: $font-size-xs;
+      margin-bottom: 2px;
+      color: $gray-lighter;
+    }
+  }
+
+  .candidate-progress-bar {
+    width: 100%;
+    background-color: $gray-dark;
+    height: 8px;
+    border-radius: $border-radius-c;
+    position: relative;
+    margin-bottom: $spacing-sm;
+
+    .candidate-fill-bar {
+      position: relative;
+      height: 8px;
+      background-color: $primary-color;
+      border-radius: $border-radius-c;
+      left: 0;
+      width: 33%;
+    }
+  }
 }

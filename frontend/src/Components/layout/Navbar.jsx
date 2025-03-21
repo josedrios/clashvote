@@ -18,8 +18,6 @@ export default function Navbar({
       <button
         onClick={toggleSideBar}
         id="bars-icon-btn"
-        aria-expanded={isSideBarOpen}
-        aria-controls="#main-sidebar"
       >
         <svg id="bars-icon" viewBox="0 0 100 100" width={40} height={40}>
           <rect
@@ -60,7 +58,6 @@ export default function Navbar({
           id="nav-bars-icon-xs"
           className="nav-btn"
           onClick={toggleSideBar}
-          aria-expanded={isSideBarOpen}
         >
           <HiBars2 strokeWidth={0.3} />
         </button>

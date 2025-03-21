@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function SideBar({ isSideBarOpen, setIsSideBarOpen }) {
   return (
-    <aside className={`main-sidebar ${isSideBarOpen ? "open" : "close"}`} aria-hidden={!isSideBarOpen} id="main-sidebar">
+    <aside className={`main-sidebar ${isSideBarOpen ? "open" : "close"}`} id="main-sidebar">
       <div className="sidebar-section">
         <Link to="/" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
           <span>Current Season</span>
