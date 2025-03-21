@@ -18,7 +18,7 @@ export default function VoteHome() {
     <div className="vote-home-container">
       <div className="vote-home-header">
         <h3>Votes</h3>
-        <button className="vote-dropdown-button">Last Year ▼</button>
+        <button className="vote-dropdown-button">All Time ▼</button>
       </div>
       <div className="vote-cards-container">
         <VoteCard data={troopNames} title="Best Troop" navigate={navigate} />
@@ -65,7 +65,7 @@ function VoteCard({ data, title, navigate }) {
   );
 }
 
-function CandidateRow({ name, key }) {
+export function CandidateRow({ name, key, voteCount }) {
   const labelName = name.replace('_', ' ');
 
   return (
@@ -74,7 +74,7 @@ function CandidateRow({ name, key }) {
       <div className="candidate-row-body">
         <div className="candidate-progress-bar-label">
           <p className="candidate-percentage">33%</p>
-          <p className="candidate-name">{labelName}</p>
+          <p className="candidate-name">{voteCount ? voteCount : labelName}</p>
         </div>
         <div className="candidate-progress-bar">
           <div className="candidate-fill-bar" />
@@ -86,6 +86,7 @@ function CandidateRow({ name, key }) {
 
 function RetrieveImage({ name, classname = '' }) {
   const imageSrc = useImage(name);
+  const labelName = name.replace('_', ' ');
 
-  return <img src={imageSrc} className={classname} alt="" />;
+  return <img src={imageSrc} className={classname} title={labelName} alt="" />;
 }

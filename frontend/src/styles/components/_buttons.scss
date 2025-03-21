@@ -230,6 +230,14 @@ rect.bars {
   }
 }
 
+.vote-time-dropdown {
+  width: 100%;
+  border-radius: $border-radius-xs;
+  padding: $spacing-xs;
+  margin-bottom: $spacing-sm;
+  background-color: color-fade($primary-color, 0.7);
+}
+
 // Account
 
 .account-body-nav-button {

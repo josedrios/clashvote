@@ -1,31 +1,75 @@
+// Vote Home
 .vote-home-container {
-    background-color: $secondary-background-color;
-    border-radius: $border-radius-sm;
+  background-color: $secondary-background-color;
+  border-radius: $border-radius-sm;
 
-    .vote-home-header {
-        @include flex(row, space-between, center);
-    }
+  .vote-home-header {
+    @include flex(row, space-between, center);
+  }
 
-    h3 {
-        margin: $spacing-md;
-        margin-bottom: 0 !important;
-        color: $primary-color;
-    }
+  h3 {
+    margin: $spacing-md;
+    margin-bottom: 0 !important;
+    color: $primary-color;
+  }
 
-    .vote-dropdown-button {
-        margin: $spacing-md;
-        margin-bottom: 0 !important;
-        background-color: $gray-darker;
-        padding: $spacing-md;
-        border-radius: $border-radius-xs;
-    }
+  .vote-dropdown-button {
+    margin: $spacing-md;
+    margin-bottom: 0 !important;
+    background-color: $gray-darker;
+    padding: $spacing-md;
+    border-radius: $border-radius-xs;
+  }
 }
 
 .vote-cards-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    align-items: top;
-    gap: $spacing-md;
-    padding: 16px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  align-items: top;
+  gap: $spacing-md;
+  padding: 16px;
+}
+
+// Vote Post
+.vote-post-container {
+  margin: auto;
+  max-width: 900px;
+  padding: $spacing-md;
+  background-color: $secondary-background-color;
+  border-radius: $border-radius-sm;
+  @include flex(row, initial, flex-start);
+  column-gap: $spacing-md;
+}
+
+.vote-result-container {
+  width: 230px;
+  padding: $spacing-sm;
+  background-color: color-fade(black, 0.4);
+  border-radius: $border-radius-sm;
+  height: 400px;
+  position: relative;
+
+  .vote-result-units {
+    // Container size - button (and spacing) size - container padding size
+    height: calc(400px - 28px - $spacing-sm * 2);
+    overflow: scroll;
+  }
+}
+
+.vote-content-container {
+  width: calc(100% - 230px);
+
+  .vote-post-header {
+    @include flex(row, center);
+    margin-bottom: $spacing-sm;
+  }
+
+  .vote-post-voting-section {
+    border: 1px solid red;
+  }
+
+  .vote-post-comment-section {
+    border: 1px solid cyan;
+  }
 }
