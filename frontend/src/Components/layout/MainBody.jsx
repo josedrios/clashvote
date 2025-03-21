@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import SeasonHome from '../pages/SeasonHome';
+import VoteHome from '../pages/VoteHome';
 import Search from '../pages/Search';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Auth from '../pages/Auth';
 import Account from '../pages/Account';
 import AlertBanner from './AlertBanner';
+import VotePost from '../pages/VotePost';
 
 function MainBody({ userData, setUserData }) {
 
@@ -13,7 +14,8 @@ function MainBody({ userData, setUserData }) {
     <main id="main-body">
       <AlertBanner />
       <Routes>
-        <Route path="/" element={<SeasonHome />} />
+        <Route path="/" element={<VoteHome />} />
+        <Route path="/post" element={<VotePost />} />
         <Route path="/search" element={<Search />} />
         <Route path="/search/:type/:tag?" element={<Search />} />
         <Route path="/about" element={<About />} />

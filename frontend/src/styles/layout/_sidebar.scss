@@ -6,8 +6,7 @@
 
 .sidebar-section {
     @include flex(column, initial, flex-start);
-    border-bottom: 1px solid $gray-light;
-
+    
     :first-child {
         margin-top: $spacing-sm;
     }

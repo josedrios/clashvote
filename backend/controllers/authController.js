@@ -39,7 +39,7 @@ exports.registerUser = async (req, res) => {
     const token = jwt.sign(
       { id: newUser._id, email: email },
       process.env.JWT_SECRET,
-      { expiresIn: '2d' }
+      { expiresIn: '1d' }
     );
 
     res.status(201).json({ message: 'User successfully registered', token });
@@ -75,7 +75,7 @@ exports.loginUser = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email },
       process.env.JWT_SECRET,
-      { expiresIn: '2d' }
+      { expiresIn: '1d' }
     );
 
     res.status(201).json({ message: 'Login successful', token });

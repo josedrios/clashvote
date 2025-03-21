@@ -5,20 +5,15 @@ export default function SideBar({ isSideBarOpen, setIsSideBarOpen }) {
     <aside className={`main-sidebar ${isSideBarOpen ? "open" : "close"}`} id="main-sidebar">
       <div className="sidebar-section">
         <Link to="/" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
-          <span>Current Season</span>
+          Vote
         </Link>
         <Link to="/search" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
           Search
         </Link>
-      </div>
-
-      <div className="sidebar-section">
-        <Link to="/" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
-          Season ??
+        {/* Fix when logged out */}
+        <Link to="/account" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
+          Account
         </Link>
-      </div>
-
-      <div className="sidebar-section">
         <Link to="/about" className="sidebar-link" onClick={() => setIsSideBarOpen(false)}>
           About Us
         </Link>

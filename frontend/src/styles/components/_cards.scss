@@ -342,21 +342,21 @@
   color: $gray;
 }
 
-// Season Cards
+// Vote Cards
 
-.season-card {
+.vote-card {
   @include flex(column);
   border-radius: $border-radius-xs;
   background-color: transparent;
   transition: transform $transition-instant, box-shadow $transition-instant;
 
-  .season-card-body {
+  .vote-card-body {
     background-color: color-fade(black, 0.4);
     padding: $spacing-md;
     border-radius: 0 0 $spacing-xs $spacing-xs;
   }
 
-  .season-card-header {
+  .vote-card-header {
     @include flex(row, center, center);
     background-color: color-fade(black, 0.2);
     padding: $spacing-sm $spacing-md;
@@ -375,7 +375,7 @@
     }
   }
 
-  .season-card-footer {
+  .vote-card-footer {
     @include flex(row, space-between);
     width: 100%;
     margin-top: $spacing-sm;
@@ -394,7 +394,7 @@
       color: $primary-color;
     }
 
-    .season-card-header svg {
+    .vote-card-header svg {
       transform: translateX(5px);
       fill: $primary-color;
     }
