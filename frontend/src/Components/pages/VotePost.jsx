@@ -23,6 +23,7 @@ export default function VotePost() {
             <button className="vote-confirm-button">Vote</button>
           </div>
         </div>
+        <button className='view-comments standard-btn'>View Comments</button>
         <div className="vote-post-comment-section">
           <div className="create-comment">
             <input
@@ -47,8 +48,7 @@ export default function VotePost() {
                     <p>53 min</p>
                   </div>
                   <div className="comment-content">
-                    This is the content of a comment. This is for testing
-                    purposes.
+                    This is the content of a comment and it is for testing purposes.
                   </div>
                   <div className="comment-footer">
                     <div>
@@ -66,6 +66,34 @@ export default function VotePost() {
                   </div>
                 </div>
               </div>
+
+              <div className="comment-card">
+                <RetrieveImage name="Barbarian" classname="comment-pfp" />
+                <div className="comment-body">
+                  <div className="comment-header">
+                    <h5>TestUsername</h5>
+                    <p>53 min</p>
+                  </div>
+                  <div className="comment-content">
+                    This is the content of a comment and it is for testing purposes.
+                  </div>
+                  <div className="comment-footer">
+                    <div>
+                      <FaArrowUp />
+                      <p>25</p>{' '}
+                    </div>
+                    <div>
+                      <FaArrowDown />
+                      <p>3</p>
+                    </div>
+                    <button className="comment-reply-button">Reply</button>
+                    <button className="comment-misc-button">
+                      <VscEllipsis />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

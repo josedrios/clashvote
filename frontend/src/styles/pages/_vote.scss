@@ -35,7 +35,8 @@
 .vote-post-container {
   margin: auto;
   max-width: 900px;
-  height: 400px;
+  min-height: 500px;
+  height: calc(70vh);
   padding: $spacing-md;
   background-color: $secondary-background-color;
   border-radius: $border-radius-xs;
@@ -69,12 +70,51 @@
   }
 }
 
+@media (max-width: 600px) {
+  .vote-post-container {
+    flex-direction: column !important;
+  }
+  
+  .vote-result-container {
+    width: 100%;
+    order: 3;
+    flex: 1;
+    overflow: scroll;
+  }
+
+  .vote-content-container {
+    height: auto;
+    width: 100%;
+    margin-bottom: $spacing-sm;
+
+    .vote-post-comment-section {
+      display: none !important;
+    }
+  }
+
+  .view-comments {
+    display: block;
+  }
+}
+
+@media(max-width: 800px) {
+  .vote-post-header {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .vote-voting-section {
+    margin-top: $spacing-sm;
+  }
+}
+
 .vote-post-comment-section {
   @include flex(column);
   padding: $spacing-md;
   background-color: color-fade(black, 0.4);
   border-radius: $border-radius-xs;
   flex: 1;
+  overflow: scroll;
 
   .create-comment {
     @include flex(column, initial, flex-end);
@@ -86,6 +126,7 @@
 
     .comment-section-header {
       @include flex(row, left, flex-start);
+      margin-top: $spacing-xs;
       margin-bottom: $spacing-sm;
 
       h5 {
@@ -99,6 +140,8 @@
       }
 
       button {
+        padding: 0 !important;
+        color: $gray-light;
         margin-left: auto;
       }
     }

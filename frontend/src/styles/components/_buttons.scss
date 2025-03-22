@@ -216,7 +216,7 @@ rect.bars {
 }
 
 .comment-reply-button {
-  margin-right: $spacing-sm;
+  margin-right: $spacing-xs;
   padding: $spacing-xs $spacing-sm;
   border-radius: $border-radius-xs;
   background-color: transparent;
@@ -355,4 +355,12 @@ rect.bars {
     width: 100%;
     justify-content: center;
   }
+}
+
+.view-comments {
+  width: 100%;
+  max-width: 300px;
+  padding: $spacing-xs;
+  margin: auto;
+  display: none;
 }
