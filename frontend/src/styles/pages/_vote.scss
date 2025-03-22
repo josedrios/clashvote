@@ -35,41 +35,76 @@
 .vote-post-container {
   margin: auto;
   max-width: 900px;
+  height: 400px;
   padding: $spacing-md;
   background-color: $secondary-background-color;
-  border-radius: $border-radius-sm;
+  border-radius: $border-radius-xs;
   @include flex(row, initial, flex-start);
   column-gap: $spacing-md;
 }
 
 .vote-result-container {
   width: 230px;
-  padding: $spacing-sm;
+  padding: $spacing-md;
   background-color: color-fade(black, 0.4);
-  border-radius: $border-radius-sm;
-  height: 400px;
+  border-radius: $border-radius-xs;
   position: relative;
+  height: 100%;
 
   .vote-result-units {
-    // Container size - button (and spacing) size - container padding size
-    height: calc(400px - 28px - $spacing-sm * 2);
+    height: calc(100% - 28px);
     overflow: scroll;
   }
 }
 
 .vote-content-container {
   width: calc(100% - 230px);
+  height: 100%;
+  @include flex(column);
 
   .vote-post-header {
-    @include flex(row, center);
+    @include flex(row, space-between, center);
+    margin-bottom: $spacing-xs;
+    padding: $spacing-sm 0;
+  }
+}
+
+.vote-post-comment-section {
+  @include flex(column);
+  padding: $spacing-md;
+  background-color: color-fade(black, 0.4);
+  border-radius: $border-radius-xs;
+  flex: 1;
+
+  .create-comment {
+    @include flex(column, initial, flex-end);
     margin-bottom: $spacing-sm;
   }
 
-  .vote-post-voting-section {
-    border: 1px solid red;
-  }
+  .comment-section {
+    @include flex(column);
 
-  .vote-post-comment-section {
-    border: 1px solid cyan;
+    .comment-section-header {
+      @include flex(row, left, flex-start);
+      margin-bottom: $spacing-sm;
+
+      h5 {
+        font-size: $font-size-md;
+      }
+
+      .comment-count {
+        font-size: $font-size-sm;
+        color: $gray-light;
+        margin-left: $spacing-xs;
+      }
+
+      button {
+        margin-left: auto;
+      }
+    }
   }
+}
+
+.comments-container {
+    @include flex(column, left);
 }

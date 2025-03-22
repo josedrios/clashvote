@@ -451,3 +451,69 @@
     }
   }
 }
+
+// Vote Comment Section
+
+.comment-card {
+  width: 100%;
+  @include flex(row);
+
+  .comment-pfp {
+    background-color: slateblue;
+    border-radius: $border-radius-sm;
+    aspect-ratio: 1/1;
+    height: 28px;
+    margin-right: $spacing-sm;
+  }
+
+  .comment-body {
+    flex: 1;
+    @include flex(column);
+
+    .comment-header {
+      @include flex(row, left, flex-end);
+      padding-bottom: $spacing-sm;
+      height: 30px;
+
+      h5 {
+        font-size: $font-size-md;
+        line-height: 1;
+        color: $primary-color;
+        margin-right: $spacing-sm;
+      }
+
+      p {
+        font-size: $font-size-xs;
+        line-height: 1;
+        color: $gray-light;
+      }
+    }
+
+    .comment-content {
+      font-size: $font-size-sm;
+    }
+
+    .comment-footer {
+      margin-top: $spacing-xs;
+      @include flex(row, left, center);
+      line-height: 1;
+
+      div {
+        @include flex(row, initial, center);
+        margin-right: $spacing-sm;
+        
+        p {
+          font-size: $font-size-sm;
+          color: $gray-lighter;
+        }
+
+        svg {
+          fill: $gray-lighter;
+          font-size: $font-size-sm;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+
+}

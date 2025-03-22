@@ -306,3 +306,12 @@ input[type='search']::-moz-search-clear-button {
     width: 100%;
   }
 }
+
+// ==========================
+// Vote Page
+// ==========================
+.create-comment-input {
+  border-radius: $border-radius-xs;
+  border-bottom: 0px !important;
+  margin-bottom: $spacing-sm;
+}

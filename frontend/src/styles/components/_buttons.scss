@@ -182,60 +182,68 @@ rect.bars {
   margin-top: auto;
 }
 
-.comment-misc-btn {
-  background-color: transparent;
-  margin-right: $spacing-xs;
-  margin-top: auto;
-}
-
-.create-comment-actions {
-  .cancel-comment-btn {
-    background-color: color-fade($gray-light, 0.4);
-    color: white;
-
-    &:hover {
-      background-color: color-fade($gray-light, 0.25);
-    }
-  }
-}
-
-.comment-actions {
-  .comment-reaction-btn {
-    margin-right: $spacing-xs;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-  }
-
-  .react-btn-count {
-    display: flex;
-    align-items: center;
-    margin-right: $spacing-sm;
-
-    p {
-      margin-left: calc($spacing-xs - 1px);
-      display: inline;
-    }
-  }
-}
-
-.comment-reply-btn {
-  @include flex(row, initial, center);
-  background-color: transparent;
-  margin-left: auto;
-  margin-right: $spacing-sm;
-
-  p {
-    margin-left: $spacing-xs;
-  }
-}
-
+// Used in vote page
 .vote-time-dropdown {
   width: 100%;
   border-radius: $border-radius-xs;
   padding: $spacing-xs;
   margin-bottom: $spacing-sm;
   background-color: color-fade($primary-color, 0.7);
+}
+
+.vote-choice-dropdown {
+  background-color: color-fade(black, 0.4);
+  border-radius: $border-radius-xs;
+  padding: $spacing-sm;
+  margin-right: $spacing-sm;
+}
+
+.vote-confirm-button {
+  background-color: $primary-color;
+  border-radius: $border-radius-xs;
+  padding: $spacing-sm;
+  color: black;
+}
+
+.post-comment {
+  padding: $spacing-xs $spacing-sm !important;
+}
+
+.comment-sort-dropdown {
+  padding: $spacing-xs;
+  background-color: transparent;
+  border-radius: $border-radius-xs;
+}
+
+.comment-reply-button {
+  margin-right: $spacing-sm;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-xs;
+  background-color: transparent;
+  transition: background-color $transition-instant;
+  color: $gray-lighter;
+
+  &:hover {
+    background-color: $gray;
+  }
+}
+
+.comment-misc-button {
+  @include flex(initial, center, center);
+  background-color: transparent;
+  font-size: $font-size-md;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-xs;
+  transition: background-color $transition-instant;
+
+  svg {
+    fill: $gray-lighter;
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
 }
 
 // Account
