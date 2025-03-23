@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAlert } from '../../util/AlertContext';
 import { fetchUserData } from '../../util/accountUtils';
 import useImage from '../../util/images/useImage';
 import { SettingsContent } from '../features/Account/Settings';
 import { SavedContent } from '../features/Account/Saved';
+import { createPostUtil } from '../../util/adminUtils';
 
 export default function Account({ userData, setUserData }) {
   const { tab } = useParams();
@@ -98,7 +99,7 @@ export default function Account({ userData, setUserData }) {
                   setUserData={setUserData}
                 />
                 {userData.role === 'admin' && (
-                  <AdminConsole userData={userData} />
+                  <AdminConsole showAlert={showAlert} />
                 )}
               </>
             )}
@@ -138,33 +139,73 @@ function CommentsContent() {
   );
 }
 
-function AdminConsole({ userData }) {
+function AdminConsole({ showAlert }) {
+  const [createPost, setCreatePost] = useState({
+    title: '',
+    type: '',
+  });
+
+  const handlePostCreation = (data) => {
+    createPostUtil(data, showAlert);
+  };
+
   return (
     <div className="admin-panel">
       <h3>Admin Panel</h3>
       <h5>Create Post</h5>
-      <form className="create-post" action="">
+      <form
+        className="create-post"
+        action=""
+        onSubmit={(e) => {
+          e.preventDefault();
+          handlePostCreation(createPost);
+          setCreatePost({
+            title: '',
+            type: '',
+          });
+        }}
+      >
         <div>
-          <label htmlFor="">Title:</label>
-          <input type="text" />
+          <label htmlFor="post-title">Title:</label>
+          <input
+            id="post-title"
+            type="text"
+            value={createPost.title}
+            onChange={(e) =>
+              setCreatePost({ ...createPost, title: e.target.value })
+            }
+          />
         </div>
         <div>
-          <label htmlFor="">Units:</label>
-          <input type="text" />
+          <label htmlFor="post-type">Units:</label>
+          <input
+            id="post-type"
+            type="text"
+            value={createPost.type}
+            onChange={(e) =>
+              setCreatePost({ ...createPost, type: e.target.value })
+            }
+          />
         </div>
-        <button className="standard-btn create-post-btn">Create</button>
+        <button className="standard-btn create-post-btn" type="submit">
+          Create
+        </button>
       </form>
       <div>
         <h5 className="post-card-container-header">Current Post(s)</h5>
         <div className="admin-post-cards-container">
           <div className="admin-post-card">
             <div className="admin-post-card-header">
-              <h5><span>Title: </span>Best Hero Equipment</h5>
+              <h5>
+                <span>Title: </span>Best Hero Equipment
+              </h5>
               <p>(Hero Equipment)</p>
             </div>
             <div className="admin-post-card-footer">
-              <p><span>Last Updated:</span>03-34-25 09:28 AM</p>
-              <button className='standard-btn'>Update</button>
+              <p>
+                <span>Last Updated:</span>03-34-25 09:28 AM
+              </p>
+              <button className="standard-btn">Update</button>
             </div>
           </div>
         </div>

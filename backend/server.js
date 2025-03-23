@@ -7,7 +7,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-
 app.use(
   cors({
     origin: 'http://localhost:5173', 
@@ -24,6 +23,7 @@ connectDB();
 app.use('/api/auth', require('./routes/authRoutes')); // User Authentication related routes
 app.use('/api/user', require('./routes/userRoutes')); // General user related routes
 app.use('/api/clash', require('./routes/clashRoutes')); // Clash of Clans API related routes
+app.use('/api/post', require('./routes/postRoutes')); // ADMIN ONLY post related routes
 
 // Middleware (Error Handling)
 app.use(require('./middleware/errorHandler'));

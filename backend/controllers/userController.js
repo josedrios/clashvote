@@ -4,9 +4,10 @@ const Clan = require('../models/Clans');
 const bcrypt = require('bcrypt');
 
 exports.getAccountData = async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
+  const token = req.user.id;
 
   if (!token) {
+    console.log('No token found')
     return res.status(401).json({ error: 'Unauthorized - No token provided' });
   }
 
@@ -25,6 +26,7 @@ exports.getAccountData = async (req, res) => {
     console.log(user);
     return res.json(user);
   } catch (error) {
+    console.log(error)
     return res.status(403).json({ error: 'Invalid token' });
   }
 };
