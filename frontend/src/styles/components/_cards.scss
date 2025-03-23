@@ -518,3 +518,55 @@
   }
 
 }
+
+// Admin Post Card
+.admin-post-card {
+  @include flex(column);
+  background-color: $gray-darker;
+  border-radius: $border-radius-xs;
+  padding: $spacing-sm;
+
+  .admin-post-card-header {
+    @include flex(row,left, flex-end);
+    margin-bottom: $spacing-sm;
+
+    h5 {
+      color: white;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    p {
+      margin-left: $spacing-sm;
+      font-size: $font-size-xs;
+      color: $gray;
+      
+    }
+  }
+
+  .admin-post-card-footer {
+    @include flex(row, space-between, flex-end);
+
+    p {
+      font-size: $font-size-xs;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    button {
+      padding: $spacing-xs $spacing-sm;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-post-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: right !important;
+  }
+}

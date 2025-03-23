@@ -8,6 +8,13 @@ const userSchema = new mongoose.Schema({
   favoriteClans: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Clan' }],
   pfpColor: { type: String, required: true },
   pfpCharacter: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ['user', 'moderator', 'admin'],
+    default: 'user',
+  },
+  restrictions: [{ type: String }],
+  privacy: [{ type: String }],
   createdAt: { type: Date, default: Date.now },
 });
 

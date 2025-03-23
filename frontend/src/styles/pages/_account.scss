@@ -200,3 +200,65 @@
     padding-bottom: 0px;
   }
 }
+
+// Admin panel
+
+.admin-panel {
+  padding: $spacing-md;
+  padding-right: 0 !important;
+
+  h3 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+
+  h5 {
+    color: $primary-color;
+    font-size: $font-size-md;
+  }
+}
+
+.create-post {
+  margin: 0;
+  margin-top: $spacing-sm;
+  @include flex(row, left, flex-end);
+  column-gap: $spacing-md;
+
+  div {
+    width: 50%;
+  }
+
+  label {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .create-post {
+    flex-direction: column;
+
+    div {
+      width: 100%;
+    }
+
+    input {
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  .create-post-btn {
+    margin-top: $spacing-xs;
+  }
+}
+
+.post-card-container-header {
+  font-size: $font-size-sm;
+  margin-top: $spacing-md;
+}
+
+.admin-post-cards-container {
+  margin-top: $spacing-sm;
+  width: 100%;
+  @include flex(column);
+}

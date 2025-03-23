@@ -80,17 +80,27 @@ export default function Account({ userData, setUserData }) {
         <div id="account-body">
           <div id="account-content">
             {bodyContent === 'saves' ? (
-              <SavedContent userData={userData} navigate={navigate} showAlert={showAlert} setUserData={setUserData}/>
+              <SavedContent
+                userData={userData}
+                navigate={navigate}
+                showAlert={showAlert}
+                setUserData={setUserData}
+              />
             ) : bodyContent === 'votes' ? (
               <VotesContent />
             ) : bodyContent === 'comments' ? (
               <CommentsContent />
             ) : (
-              <SettingsContent
-                showAlert={showAlert}
-                userData={userData}
-                setUserData={setUserData}
-              />
+              <>
+                <SettingsContent
+                  showAlert={showAlert}
+                  userData={userData}
+                  setUserData={setUserData}
+                />
+                {userData.role === 'admin' && (
+                  <AdminConsole userData={userData} />
+                )}
+              </>
             )}
           </div>
         </div>
@@ -125,5 +135,40 @@ function VotesContent() {
 function CommentsContent() {
   return (
     <div className="account-content-tab">populate with player's comments </div>
+  );
+}
+
+function AdminConsole({ userData }) {
+  return (
+    <div className="admin-panel">
+      <h3>Admin Panel</h3>
+      <h5>Create Post</h5>
+      <form className="create-post" action="">
+        <div>
+          <label htmlFor="">Title:</label>
+          <input type="text" />
+        </div>
+        <div>
+          <label htmlFor="">Units:</label>
+          <input type="text" />
+        </div>
+        <button className="standard-btn create-post-btn">Create</button>
+      </form>
+      <div>
+        <h5 className="post-card-container-header">Current Post(s)</h5>
+        <div className="admin-post-cards-container">
+          <div className="admin-post-card">
+            <div className="admin-post-card-header">
+              <h5><span>Title: </span>Best Hero Equipment</h5>
+              <p>(Hero Equipment)</p>
+            </div>
+            <div className="admin-post-card-footer">
+              <p><span>Last Updated:</span>03-34-25 09:28 AM</p>
+              <button className='standard-btn'>Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
