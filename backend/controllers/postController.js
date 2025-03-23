@@ -3,16 +3,30 @@ const units = require('../constants/units.json');
 
 exports.getPosts = async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1});
+    const posts = await Post.find().sort({ createdAt: -1 });
     res.json(posts);
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({
-        message: 'Error occurred while retrieving post',
-        error: error.message,
-      });
+    return res.status(500).json({
+      message: 'Error occurred while retrieving posts',
+      error: error.message,
+    });
+  }
+};
+
+exports.getPost = async (req, res) => {
+  try {
+    const { postId } = req.params;
+    console.log('Post id:', postId)
+    const post = await Post.findById(postId);
+    console.log(post)
+    return res.json(post);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: 'Error occurred while retrieving post',
+      error: error.message,
+    });
   }
 };
 
@@ -37,12 +51,10 @@ exports.createPost = async (req, res) => {
     return res.status(201).json(newPost);
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({
-        message: 'Error occurred while creating post',
-        error: error.message,
-      });
+    return res.status(500).json({
+      message: 'Error occurred while creating post',
+      error: error.message,
+    });
   }
 };
 

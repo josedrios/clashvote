@@ -5,7 +5,7 @@ import { fetchUserData } from '../../util/accountUtils';
 import useImage from '../../util/images/useImage';
 import { SettingsContent } from '../features/Account/Settings';
 import { SavedContent } from '../features/Account/Saved';
-import { createPostUtil, retrievePost } from '../../util/adminUtils';
+import { createPostUtil, retrievePostList } from '../../util/adminUtils';
 
 export default function Account({ userData, setUserData }) {
   const { tab } = useParams();
@@ -148,7 +148,7 @@ function AdminConsole({ showAlert }) {
   const [postList, setPostList] = useState('');
 
   useEffect(() => {
-    retrievePost(setPostList);
+    retrievePostList(setPostList);
   }, []);
 
   useEffect(() => {

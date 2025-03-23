@@ -16,6 +16,7 @@ function MainBody({ userData, setUserData }) {
       <Routes>
         <Route path="/" element={<VoteHome />} />
         <Route path="/post" element={<VotePost />} />
+        <Route path="/post/:postId" element={<VotePost />} />
         <Route path="/search" element={<Search />} />
         <Route path="/search/:type/:tag?" element={<Search />} />
         <Route path="/about" element={<About />} />

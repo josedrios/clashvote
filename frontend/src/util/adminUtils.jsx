@@ -1,4 +1,4 @@
-export async function retrievePost(setPostList) {
+export async function retrievePostList(setPostList) {
   const token = localStorage.getItem('token');
 
   if (!token) {
@@ -10,7 +10,7 @@ export async function retrievePost(setPostList) {
   }
 
   try {
-    const response = await fetch(`http://localhost:3001/api/post/get`, {
+    const response = await fetch(`http://localhost:3001/api/post/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -1,18 +1,17 @@
-import {
-  troopNames,
-  heroNames,
-  petNames,
-  heroequipmentNames,
-  superTroopNames,
-  siegeNames,
-  spellNames,
-} from '../../util/images/imageCategories';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import useImage from '../../util/images/useImage';
 import { useNavigate } from 'react-router-dom';
+import { retrievePostList } from '../../util/postUtils';
+import { useState, useEffect } from 'react';
 
 export default function VoteHome() {
   const navigate = useNavigate();
+
+  const [postList, setPostList] = useState('');
+
+  useEffect(() => {
+    retrievePostList(setPostList);
+  }, []);
 
   return (
     <div className="vote-home-container">
@@ -21,40 +20,30 @@ export default function VoteHome() {
         <button className="vote-dropdown-button">All Time ▼</button>
       </div>
       <div className="vote-cards-container">
-        <VoteCard data={troopNames} title="Best Troop" navigate={navigate} />
-        <VoteCard data={heroNames} title="Best Hero" navigate={navigate} />
-        <VoteCard data={petNames} title="Best Pet" navigate={navigate} />
-        <VoteCard
-          data={heroequipmentNames}
-          title="Best Hero Equipment"
-          navigate={navigate}
-        />
-        <VoteCard data={spellNames} title="Best Spell" navigate={navigate} />
-        <VoteCard
-          data={superTroopNames}
-          title="Best Super Troop"
-          navigate={navigate}
-        />
-        <VoteCard
-          data={siegeNames}
-          title="Best Siege Machine"
-          navigate={navigate}
-        />
+        {postList.length > 0 ? (
+            postList.map((post, key) => {
+              const topCandidates = post.candidates.slice(0,3);
+              return (<VoteCard candidates={topCandidates} title={post.title} key={key} navigate={navigate} postId={post._id}/>);
+            })
+          ) : (
+            <div>loading...</div>
+          )}
       </div>
     </div>
   );
 }
 
-function VoteCard({ data, title, navigate }) {
+function VoteCard({ candidates, title, key, navigate, postId }) {
+
   return (
-    <button className="vote-card" onClick={() => navigate(`/post`)}>
+    <button className="vote-card" key={key} onClick={() => navigate(`/post/${postId}`)}>
       <div className="vote-card-header">
         <h5>{title}</h5>
         <FaArrowRightLong />
       </div>
       <div className="vote-card-body">
-        {data.slice(0, 3).map((unit, key) => {
-          return <CandidateRow name={unit} key={key} />;
+        {candidates.map((unit, key) => {
+          return <CandidateRow name={unit.name} key={key} />;
         })}
         <div className="vote-card-footer">
           <p>Votes:219</p>
