@@ -525,6 +525,7 @@
   background-color: $gray-darker;
   border-radius: $border-radius-xs;
   padding: $spacing-sm;
+  margin-bottom: $spacing-sm;
 
   .admin-post-card-header {
     @include flex(row,left, flex-end);
@@ -568,5 +569,9 @@
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: right !important;
+
+    p {
+      margin-left: 0 !important;
+    }
   }
 }

@@ -5,7 +5,7 @@ import { fetchUserData } from '../../util/accountUtils';
 import useImage from '../../util/images/useImage';
 import { SettingsContent } from '../features/Account/Settings';
 import { SavedContent } from '../features/Account/Saved';
-import { createPostUtil } from '../../util/adminUtils';
+import { createPostUtil, retrievePost } from '../../util/adminUtils';
 
 export default function Account({ userData, setUserData }) {
   const { tab } = useParams();
@@ -145,6 +145,16 @@ function AdminConsole({ showAlert }) {
     type: '',
   });
 
+  const [postList, setPostList] = useState('');
+
+  useEffect(() => {
+    retrievePost(setPostList);
+  }, []);
+
+  useEffect(() => {
+    console.log(postList);
+  }, [postList]);
+
   const handlePostCreation = (data) => {
     createPostUtil(data, showAlert);
   };
@@ -194,21 +204,34 @@ function AdminConsole({ showAlert }) {
       <div>
         <h5 className="post-card-container-header">Current Post(s)</h5>
         <div className="admin-post-cards-container">
-          <div className="admin-post-card">
-            <div className="admin-post-card-header">
-              <h5>
-                <span>Title: </span>Best Hero Equipment
-              </h5>
-              <p>(Hero Equipment)</p>
-            </div>
-            <div className="admin-post-card-footer">
-              <p>
-                <span>Last Updated:</span>03-34-25 09:28 AM
-              </p>
-              <button className="standard-btn">Update</button>
-            </div>
-          </div>
+          {postList.length > 0 ? (
+            postList.map((post, key) => {
+              return <AdminPostCard post={post} key={key} />;
+            })
+          ) : (
+            <div>null</div>
+          )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function AdminPostCard({ post, key }) {
+  console.log(post);
+  return (
+    <div className="admin-post-card">
+      <div className="admin-post-card-header">
+        <h5>
+          <span>Title: </span>{post.title}
+        </h5>
+        <p>{post.type}</p>
+      </div>
+      <div className="admin-post-card-footer">
+        <p>
+          <span>Last Updated: </span>{post.lastUpdated}
+        </p>
+        <button className="standard-btn">Update</button>
       </div>
     </div>
   );
