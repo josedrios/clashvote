@@ -40,13 +40,22 @@ export default function VotePost() {
           </div>
         </div>
         <button className="view-comments standard-btn">View Comments</button>
-        <CommentSection />
+        <CommentSection showAlert={showAlert}/>
       </div>
     </div>
   );
 }
 
-function CommentSection() {
+function CommentSection(showAlert) {
+  const [comment, setComment] = useState('');
+
+  const createComment = () => {
+    if(comment === '') {
+      showAlert
+    }
+    console.log(comment)
+  }
+
   return (
     <div className="vote-post-comment-section">
       <div className="create-comment">
@@ -54,8 +63,10 @@ function CommentSection() {
           type="text"
           className="create-comment-input"
           placeholder="Add comment..."
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
         />
-        <button className="post-comment standard-btn">Comment</button>
+        <button onClick={() => createComment(comment)} className="post-comment standard-btn">Comment</button>
       </div>
       <div className="comment-section">
         <div className="comment-section-header">

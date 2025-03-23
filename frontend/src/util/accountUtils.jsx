@@ -291,7 +291,7 @@ export async function saveUnit(type, name, tag, icon, showAlert) {
   
   try {
     const response = await fetch(
-      `http://localhost:3001/api/user/saves/${type}/${tag}`,
+      `http://localhost:3001/api/interaction/saves/${type}/${tag}`,
       {
         method: 'POST',
         headers: {
@@ -337,7 +337,7 @@ export async function unsaveUnit(type, tag, showAlert, setUserData) {
 
   try {
     const response = await fetch(
-      `http://localhost:3001/api/user/saves/${type}/${tag}`,
+      `http://localhost:3001/api/interaction/saves/${type}/${tag}`,
       {
         method: 'DELETE',
         headers: {
