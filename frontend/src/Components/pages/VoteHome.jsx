@@ -3,14 +3,16 @@ import useImage from '../../util/images/useImage';
 import { useNavigate } from 'react-router-dom';
 import { retrievePostList } from '../../util/postUtils';
 import { useState, useEffect } from 'react';
+import { useAlert } from '../../util/AlertContext';
 
 export default function VoteHome() {
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
 
   const [postList, setPostList] = useState('');
 
   useEffect(() => {
-    retrievePostList(setPostList);
+    retrievePostList(setPostList, showAlert);
   }, []);
 
   return (
@@ -21,22 +23,33 @@ export default function VoteHome() {
       </div>
       <div className="vote-cards-container">
         {postList.length > 0 ? (
-            postList.map((post, key) => {
-              const topCandidates = post.candidates.slice(0,3);
-              return (<VoteCard candidates={topCandidates} title={post.title} key={key} navigate={navigate} postId={post._id}/>);
-            })
-          ) : (
-            <div>loading...</div>
-          )}
+          postList.map((post, key) => {
+            const topCandidates = post.candidates.slice(0, 3);
+            return (
+              <VoteCard
+                candidates={topCandidates}
+                title={post.title}
+                key={key}
+                navigate={navigate}
+                postId={post._id}
+              />
+            );
+          })
+        ) : (
+          <div>loading...</div>
+        )}
       </div>
     </div>
   );
 }
 
 function VoteCard({ candidates, title, key, navigate, postId }) {
-
   return (
-    <button className="vote-card" key={key} onClick={() => navigate(`/post/${postId}`)}>
+    <button
+      className="vote-card"
+      key={key}
+      onClick={() => navigate(`/post/${postId}`)}
+    >
       <div className="vote-card-header">
         <h5>{title}</h5>
         <FaArrowRightLong />

@@ -12,8 +12,8 @@ const { authenticate, isAdmin } = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // User Post Routes
-router.get('/', authenticate, getPosts)
-router.get('/:postId', authenticate, getPost)
+router.get('/', getPosts)
+router.get('/:postId', getPost)
 
 // Admin ONLY Post Routes
 router.post('/create', authenticate, isAdmin, createPost);

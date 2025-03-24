@@ -386,7 +386,7 @@ export const fetchUserData = async (navigate, showAlert, setUserData) => {
   try {
     const token = localStorage.getItem('token');
     if (!token) {
-      navigate('/');
+      navigate('/auth');
       showAlert('No token detected. Please logout and try again', 'error');
       return;
     }
@@ -401,6 +401,7 @@ export const fetchUserData = async (navigate, showAlert, setUserData) => {
 
     if (!response.ok) {
       showAlert('Failed to fetch user data', 'error');
+      navigate('/auth')
       throw new Error('Failed to fetch user data');
     }
 

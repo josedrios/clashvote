@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { troopNames } from '../../util/images/imageCategories';
 import useImage from '../../util/images/useImage';
 import { CandidateRow } from './VoteHome';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
@@ -7,6 +6,9 @@ import { VscEllipsis } from 'react-icons/vsc';
 import { useParams } from 'react-router-dom';
 import { getPostData } from '../../util/postUtils';
 import { useAlert } from '../../util/AlertContext';
+import { fetchComments, handleCreateComment } from '../../util/commentUtils';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 export default function VotePost() {
   const { postId } = useParams();
@@ -40,21 +42,42 @@ export default function VotePost() {
           </div>
         </div>
         <button className="view-comments standard-btn">View Comments</button>
-        <CommentSection showAlert={showAlert}/>
+        <CommentSection showAlert={showAlert} postId={postId} />
       </div>
     </div>
   );
 }
 
-function CommentSection(showAlert) {
+function CommentSection({ showAlert, postId }) {
   const [comment, setComment] = useState('');
+  const [commentList, setCommentList] = useState(null);
 
-  const createComment = () => {
-    if(comment === '') {
-      showAlert
-    }
-    console.log(comment)
+  useEffect(() => {
+    fetchComments(postId, setCommentList, showAlert);
+  }, []);
+
+  if (commentList === null) {
+    return <div>loading...</div>;
   }
+
+  const createComment = async (content, postId) => {
+    if (comment === '') {
+      showAlert('Comment content cannot be left empty', 'error');
+      return;
+    }
+
+    if (comment.length > 500) {
+      showAlert('Comment can not be longer than 500 characters', 'error');
+      return;
+    }
+
+    const success = await handleCreateComment(content, postId, showAlert);
+    if (success) {
+      setComment('');
+      fetchComments(postId, setCommentList, showAlert); // refetch updated comments
+    }
+    console.log(comment);
+  };
 
   return (
     <div className="vote-post-comment-section">
@@ -66,7 +89,12 @@ function CommentSection(showAlert) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        <button onClick={() => createComment(comment)} className="post-comment standard-btn">Comment</button>
+        <button
+          onClick={() => createComment(comment, postId)}
+          className="post-comment standard-btn"
+        >
+          Comment
+        </button>
       </div>
       <div className="comment-section">
         <div className="comment-section-header">
@@ -75,35 +103,44 @@ function CommentSection(showAlert) {
           <button className="comment-sort-dropdown">Most Recent</button>
         </div>
         <div className="comments-container">
-          <CommentCard />
-          <CommentCard />
-          <CommentCard />
+          {commentList.map((comment, key) => (
+            <CommentCard comment={comment} key={key} />
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-function CommentCard() {
+function CommentCard({ comment, key }) {
+  dayjs.extend(relativeTime);
+
+  function timeAgo(date) {
+    const diffInSeconds = dayjs().diff(dayjs(date), 'second');
+  
+    if (diffInSeconds < 60) return `${diffInSeconds}s ago`;
+    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
+    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+    return `${Math.floor(diffInSeconds / 86400)}d ago`;
+  }
+
   return (
-    <div className="comment-card">
-      <RetrieveImage name="Archer" classname="comment-pfp" />
+    <div className="comment-card" key={key}>
+      <PFP name={comment.user.pfpCharacter} bg={comment.user.pfpColor} classname="comment-pfp" />
       <div className="comment-body">
         <div className="comment-header">
-          <h5>Username</h5>
-          <p>53 min</p>
+          <h5>{comment.user.username}</h5>
+          <p>{timeAgo(comment.createdAt)}</p>
         </div>
-        <div className="comment-content">
-          This is the content of a comment and it is for testing purposes.
-        </div>
+        <div className="comment-content">{comment.content}</div>
         <div className="comment-footer">
           <div>
             <FaArrowUp />
-            <p>25</p>{' '}
+            <p>{comment.likes}</p>{' '}
           </div>
           <div>
             <FaArrowDown />
-            <p>3</p>
+            <p>{comment.dislikes}</p>
           </div>
           <button className="comment-reply-button">Reply</button>
           <button className="comment-misc-button">
@@ -115,15 +152,17 @@ function CommentCard() {
   );
 }
 
-function RetrieveImage({ name, classname }) {
+function PFP({ name, bg, classname }) {
   const imageSrc = useImage(name);
 
   return (
-    <img
-      src={imageSrc}
-      className={classname}
-      title={name.toUpperCase()}
-      alt=""
-    />
+    <div className='comment-pfp-container' style={{backgroundColor: bg}}>
+      <img
+        src={imageSrc}
+        className={classname}
+        title={name.toUpperCase()}
+        alt=""
+      />
+    </div>
   );
 }

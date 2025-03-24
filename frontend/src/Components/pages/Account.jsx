@@ -148,7 +148,7 @@ function AdminConsole({ showAlert }) {
   const [postList, setPostList] = useState('');
 
   useEffect(() => {
-    retrievePostList(setPostList);
+    retrievePostList(setPostList, showAlert);
   }, []);
 
   useEffect(() => {

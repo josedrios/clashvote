@@ -458,12 +458,18 @@
   width: 100%;
   @include flex(row);
 
-  .comment-pfp {
-    background-color: slateblue;
-    border-radius: $border-radius-sm;
-    aspect-ratio: 1/1;
-    height: 28px;
+  .comment-pfp-container {
+    @include box(27px);
+    overflow: hidden;
+    border-radius: $border-radius-xs;
     margin-right: $spacing-sm;
+
+    .comment-pfp {
+      transform: scale(101%);
+      aspect-ratio: 1/1;
+      height: 100%;
+      margin-right: $spacing-sm;
+    }
   }
 
   .comment-body {

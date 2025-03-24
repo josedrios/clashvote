@@ -1,4 +1,4 @@
-export async function retrievePostList(setPostList) {
+export async function retrievePostList(setPostList, showAlert) {
   const token = localStorage.getItem('token');
 
   if (!token) {
