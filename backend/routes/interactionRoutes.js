@@ -3,7 +3,8 @@ const {
     addSave,
     removeSave,
     createComment,
-    getComments
+    getComments,
+    voteComment
 } = require('../controllers/interactionController');
 
 const { authenticate } = require('../middleware/authMiddleware');
@@ -17,7 +18,7 @@ router.delete('/saves/:type/:tag', authenticate, removeSave);
 // Comments related routes
 router.post('/comments/create', authenticate, createComment);
 router.post('/comments', getComments);
-//router.post('/comments/vote', authenticate, voteComment);
+router.post('/comments/vote', authenticate, voteComment);
 //router.post('/comments/delete', authenticate, deleteComment);
 //router.post('/comments/report', authenticate, reportComment);
 

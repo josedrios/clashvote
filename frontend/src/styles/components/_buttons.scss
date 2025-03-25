@@ -365,6 +365,40 @@ rect.bars {
   display: none;
 }
 
+.read-more-btn {
+  margin-top: $spacing-xs;
+  background-color: transparent;
+  color: $gray-light;
+  display: block;
+  transition: color $transition-instant;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.comment-vote-btn {
+  @include flex(row, center, center);
+  background-color: transparent;
+  margin-right: $spacing-xs;
+
+  p {
+    color: $gray-lighter;
+  }
+
+  svg {
+    fill: $gray-lighter;
+    transition: fill $transition-fast;
+    margin-right: 2px;
+  }
+
+  &:hover {
+    svg {
+      fill: $primary-color;
+    }
+  }
+}
+
 // Admin Panel
 .create-post-btn {
   height: min-content;

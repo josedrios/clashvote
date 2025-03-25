@@ -27,9 +27,9 @@ export default function VoteHome() {
             const topCandidates = post.candidates.slice(0, 3);
             return (
               <VoteCard
+                key={key}
                 candidates={topCandidates}
                 title={post.title}
-                key={key}
                 navigate={navigate}
                 postId={post._id}
               />
@@ -43,11 +43,10 @@ export default function VoteHome() {
   );
 }
 
-function VoteCard({ candidates, title, key, navigate, postId }) {
+function VoteCard({ candidates, title, navigate, postId }) {
   return (
     <button
       className="vote-card"
-      key={key}
       onClick={() => navigate(`/post/${postId}`)}
     >
       <div className="vote-card-header">
@@ -56,7 +55,7 @@ function VoteCard({ candidates, title, key, navigate, postId }) {
       </div>
       <div className="vote-card-body">
         {candidates.map((unit, key) => {
-          return <CandidateRow name={unit.name} key={key} />;
+          return <CandidateRow key={key} name={unit.name}/>;
         })}
         <div className="vote-card-footer">
           <p>Votes:219</p>
@@ -67,11 +66,11 @@ function VoteCard({ candidates, title, key, navigate, postId }) {
   );
 }
 
-export function CandidateRow({ name, key, voteCount }) {
+export function CandidateRow({ name, voteCount }) {
   const labelName = name.replace('_', ' ');
 
   return (
-    <div className="candidate-row" key={key}>
+    <div className="candidate-row">
       <RetrieveImage name={name} />
       <div className="candidate-row-body">
         <div className="candidate-progress-bar-label">

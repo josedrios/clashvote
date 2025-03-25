@@ -2,6 +2,7 @@ const User = require('../models/User');
 const Player = require('../models/Players');
 const Clan = require('../models/Clans');
 const Comment = require('../models/Comments');
+const CommentVote = require('../models/CommentVote');
 
 exports.addSave = async (req, res) => {
   try {
@@ -127,7 +128,7 @@ exports.getComments = async (req, res) => {
     const comments = await Comment.find({ post: postId })
       .sort({ createdAt: -1 })
       .populate('user', 'username pfpCharacter pfpColor');
-      
+
     return res.json(comments);
   } catch (error) {
     console.log(error.message);
@@ -157,5 +158,60 @@ exports.createComment = async (req, res) => {
     return res
       .status(500)
       .json({ message: 'Error occurred while creating comment', error: error });
+  }
+};
+
+exports.voteComment = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { commentId, vote } = req.body;
+    console.log(commentId);
+
+    const comment = await Comment.findById(commentId);
+
+    const commentVote = await CommentVote.findOne({ commentId, userId });
+    if(commentVote){
+      console.log(commentVote);
+    } else {
+      console.log("COMMENT VOTE MADE");
+    }
+
+    let resultType;
+
+    if (!commentVote) {
+      const newCommentVote = new CommentVote({
+        userId,
+        commentId,
+        vote,
+      });
+      comment[`${vote}s`] += 1;
+      await newCommentVote.save();
+      resultType = 'initial';
+    } else if(commentVote.vote === vote) {
+      console.log('MATCHED:',commentVote.vote," ", vote);
+      comment[`${vote}s`] -= 1;
+      await CommentVote.deleteOne({_id: commentVote._id});
+      resultType = 'remove';
+    } else {
+      console.log('CHANGED: ', commentVote.vote, ' ' , vote)
+      comment[`${commentVote.vote}s`] -= 1;
+      comment[`${vote}s`] += 1;
+      commentVote.vote = vote;
+      await commentVote.save();
+      resultType = 'change';
+    }
+    await comment.save()
+
+
+    return res.status(201).json({ message: 'Comment vote was created', type: resultType});
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(500)
+      .json({
+        message: 'Error occurred while creating comment vote',
+        error: error,
+        type: 'error'
+      });
   }
 };

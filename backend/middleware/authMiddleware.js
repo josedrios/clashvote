@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-function authenticate(req, res, next) {
+async function authenticate(req, res, next) {
   const token = req.header('Authorization')?.split(' ')[1];
   if (!token) {
     return res
@@ -11,18 +11,34 @@ function authenticate(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    User.findById(decoded.id).then(user => {
-      if (!user) return res.status(404).json({ message: 'User not found.' });
-      req.user = user;
-      req.user.id = decoded.id;
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
 
-      next();
-    });
+    req.user = user;
+    next();
   } catch (error) {
-    console.log(error.message)
-    res.status(400).json({ message: 'Invalid token. Please logout and try again.' });
+    console.log(error.message);
+    return res
+      .status(400)
+      .json({ message: 'Invalid token. Please logout and try again.' });
   }
-};
+}
+
+async function optionalAuthenticate(req, res, next) {
+  const token = req.header('Authorization')?.split(' ')[1];
+  if (!token) return next(); 
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id);
+    if (user) req.user = user;
+  } catch (err) {
+  }
+
+  return next();
+}
 
 function isAdmin(req, res, next) {
   if (req.user?.role === 'admin') {

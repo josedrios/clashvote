@@ -6,7 +6,7 @@ import { VscEllipsis } from 'react-icons/vsc';
 import { useParams } from 'react-router-dom';
 import { getPostData } from '../../util/postUtils';
 import { useAlert } from '../../util/AlertContext';
-import { fetchComments, handleCreateComment } from '../../util/commentUtils';
+import { fetchComments, handleCreateComment, handleVoteComment } from '../../util/commentUtils';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -29,7 +29,7 @@ export default function VotePost() {
         <button className="vote-time-dropdown">All Time ▼</button>
         <div className="vote-result-units">
           {postData.candidates?.map((unit, key) => (
-            <CandidateRow name={unit.name} key={key} voteCount="Vote Count" />
+            <CandidateRow key={key} name={unit.name} voteCount="Vote Count" />
           ))}
         </div>
       </div>
@@ -104,7 +104,7 @@ function CommentSection({ showAlert, postId }) {
         </div>
         <div className="comments-container">
           {commentList.map((comment, key) => (
-            <CommentCard comment={comment} key={key} />
+            <CommentCard key={key} comment={comment} showAlert={showAlert}/>
           ))}
         </div>
       </div>
@@ -112,36 +112,84 @@ function CommentSection({ showAlert, postId }) {
   );
 }
 
-function CommentCard({ comment, key }) {
+function CommentCard({ comment, showAlert }) {
   dayjs.extend(relativeTime);
 
   function timeAgo(date) {
     const diffInSeconds = dayjs().diff(dayjs(date), 'second');
-  
+
     if (diffInSeconds < 60) return `${diffInSeconds}s ago`;
     if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
-    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
+    if (diffInSeconds < 86400)
+      return `${Math.floor(diffInSeconds / 3600)}h ago`;
     return `${Math.floor(diffInSeconds / 86400)}d ago`;
   }
 
+  const [expanded, setExpanded] = useState(false);
+
+  const isLong = comment.content.length > 120;
+  const displayText =
+    expanded || !isLong ? comment.content : comment.content.slice(0, 120) + '...';
+
+  const commentId = comment._id;
+
+  const [commentVotes, setCommentVotes] = useState({
+    likes: comment.likes,
+    dislikes: comment.dislikes
+  })
+
+  const changeVoteState = async (commentId, vote, showAlert) => {
+    const voteType = await handleVoteComment(commentId, vote, showAlert);
+  
+    setCommentVotes(prev => {
+      const updated = { ...prev };
+  
+      if (voteType === 'initial') {
+        updated[`${vote}s`] += 1;
+      } else if (voteType === 'change') {
+        const opposite = vote === 'like' ? 'dislike' : 'like';
+        updated[`${vote}s`] += 1;
+        updated[`${opposite}s`] -= 1;
+      } else if (voteType === 'remove') {
+        updated[`${vote}s`] -= 1;
+      }
+  
+      return updated;
+    });
+  };
+
   return (
-    <div className="comment-card" key={key}>
-      <PFP name={comment.user.pfpCharacter} bg={comment.user.pfpColor} classname="comment-pfp" />
+    <div className="comment-card">
+      <PFP
+        name={comment.user.pfpCharacter}
+        bg={comment.user.pfpColor}
+        classname="comment-pfp"
+      />
       <div className="comment-body">
         <div className="comment-header">
           <h5>{comment.user.username}</h5>
           <p>{timeAgo(comment.createdAt)}</p>
         </div>
-        <div className="comment-content">{comment.content}</div>
+        <div className="comment-content">
+          {displayText}
+          {isLong && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="read-more-btn"
+            >
+              {expanded ? 'Show Less' : 'Read More'}
+            </button>
+          )}
+        </div>
         <div className="comment-footer">
-          <div>
+          <button className='comment-vote-btn' onClick={()=> changeVoteState(commentId, 'like', showAlert)}> 
             <FaArrowUp />
-            <p>{comment.likes}</p>{' '}
-          </div>
-          <div>
+            <p>{commentVotes.likes}</p>{' '}
+          </button>
+          <button className='comment-vote-btn' onClick={()=> changeVoteState(commentId, 'dislike', showAlert)}>
             <FaArrowDown />
-            <p>{comment.dislikes}</p>
-          </div>
+            <p>{commentVotes.dislikes}</p>
+          </button>
           <button className="comment-reply-button">Reply</button>
           <button className="comment-misc-button">
             <VscEllipsis />
@@ -156,7 +204,7 @@ function PFP({ name, bg, classname }) {
   const imageSrc = useImage(name);
 
   return (
-    <div className='comment-pfp-container' style={{backgroundColor: bg}}>
+    <div className="comment-pfp-container" style={{ backgroundColor: bg }}>
       <img
         src={imageSrc}
         className={classname}

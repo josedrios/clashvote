@@ -78,4 +78,47 @@ export async function handleCreateComment(content, postId, showAlert) {
   }
 }
 
-export async function handleVoteComment(vote, showAlert) {}
+export async function handleVoteComment(commentId, vote, showAlert) {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    showAlert(
+      'Authentication error: No token found, please logout and try again',
+      'error'
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      `http://localhost:3001/api/interaction/comments/vote`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          commentId,
+          vote
+        }),
+      }
+    );
+
+    const responseData = await response.json();
+
+    if (!response.ok || response.type === 'error') {
+      showAlert(
+        responseData.message ||
+          'Comment vote was unsuccessful, please try again',
+        'error'
+      );
+      return false;
+    }
+    return responseData.type;
+  } catch (error) {
+    console.log('Error: ', error);
+    showAlert('Something went wrong. Please try again later.', 'error');
+    return 'error';
+  }
+}

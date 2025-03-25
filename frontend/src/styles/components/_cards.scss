@@ -140,10 +140,6 @@
 .clan-card-footer {
   width: 100%;
   @include flex(row, space-between, center);
-
-  p {
-    color: $gray-lighter;
-  }
 }
 
 // units
