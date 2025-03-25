@@ -28,6 +28,7 @@ async function authenticate(req, res, next) {
 
 async function optionalAuthenticate(req, res, next) {
   const token = req.header('Authorization')?.split(' ')[1];
+
   if (!token) return next(); 
 
   try {
@@ -35,8 +36,11 @@ async function optionalAuthenticate(req, res, next) {
     const user = await User.findById(decoded.id);
     if (user) req.user = user;
   } catch (err) {
+    console.log(err.message);
+    return res
+      .status(400)
+      .json({ message: 'Error occurred' });
   }
-
   return next();
 }
 
@@ -47,4 +51,4 @@ function isAdmin(req, res, next) {
   return res.status(403).json({ message: 'Access denied: Admin only action'})
 }
 
-module.exports = { authenticate, isAdmin }
+module.exports = { authenticate, optionalAuthenticate ,isAdmin }

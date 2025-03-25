@@ -135,8 +135,12 @@ function CommentCard({ comment, showAlert }) {
 
   const [commentVotes, setCommentVotes] = useState({
     likes: comment.likes,
-    dislikes: comment.dislikes
+    dislikes: comment.dislikes, 
   })
+
+  const [userVote, setUserVote] = useState(comment.userVote);
+
+
 
   const changeVoteState = async (commentId, vote, showAlert) => {
     const voteType = await handleVoteComment(commentId, vote, showAlert);
@@ -146,12 +150,15 @@ function CommentCard({ comment, showAlert }) {
   
       if (voteType === 'initial') {
         updated[`${vote}s`] += 1;
+        setUserVote(vote);
       } else if (voteType === 'change') {
         const opposite = vote === 'like' ? 'dislike' : 'like';
         updated[`${vote}s`] += 1;
         updated[`${opposite}s`] -= 1;
+        setUserVote(vote);
       } else if (voteType === 'remove') {
         updated[`${vote}s`] -= 1;
+        setUserVote(null);
       }
   
       return updated;
@@ -183,11 +190,11 @@ function CommentCard({ comment, showAlert }) {
         </div>
         <div className="comment-footer">
           <button className='comment-vote-btn' onClick={()=> changeVoteState(commentId, 'like', showAlert)}> 
-            <FaArrowUp />
+            <FaArrowUp style={{ fill: userVote === 'like' ? 'rgb(235, 222, 36)' : ''}}/>
             <p>{commentVotes.likes}</p>{' '}
           </button>
           <button className='comment-vote-btn' onClick={()=> changeVoteState(commentId, 'dislike', showAlert)}>
-            <FaArrowDown />
+            <FaArrowDown style={{ fill: userVote === 'dislike' ? 'rgb(235, 222, 36)' : ''}}/>
             <p>{commentVotes.dislikes}</p>
           </button>
           <button className="comment-reply-button">Reply</button>

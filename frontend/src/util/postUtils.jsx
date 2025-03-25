@@ -1,14 +1,6 @@
 export async function retrievePostList(setPostList, showAlert) {
     const token = localStorage.getItem('token');
   
-    if (!token) {
-      showAlert(
-        'Authentication error: No token found, please logout and try again',
-        'error'
-      );
-      return false;
-    }
-  
     try {
       const response = await fetch(`http://localhost:3001/api/post/`, {
         method: 'GET',
@@ -40,14 +32,6 @@ export async function retrievePostList(setPostList, showAlert) {
 
   export async function getPostData(postId, setPostData, showAlert) {
     const token = localStorage.getItem('token');
-  
-    if (!token) {
-      showAlert(
-        'Authentication error: No token found, please logout and try again',
-        'error'
-      );
-      return false;
-    }
   
     try {
       const response = await fetch(`http://localhost:3001/api/post/${postId}`, {

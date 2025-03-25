@@ -1,13 +1,16 @@
 const express = require('express');
 const {
-    addSave,
-    removeSave,
-    createComment,
-    getComments,
-    voteComment
+  addSave,
+  removeSave,
+  createComment,
+  getComments,
+  voteComment,
 } = require('../controllers/interactionController');
 
-const { authenticate } = require('../middleware/authMiddleware');
+const {
+  authenticate,
+  optionalAuthenticate,
+} = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
@@ -17,7 +20,7 @@ router.delete('/saves/:type/:tag', authenticate, removeSave);
 
 // Comments related routes
 router.post('/comments/create', authenticate, createComment);
-router.post('/comments', getComments);
+router.post('/comments', optionalAuthenticate, getComments);
 router.post('/comments/vote', authenticate, voteComment);
 //router.post('/comments/delete', authenticate, deleteComment);
 //router.post('/comments/report', authenticate, reportComment);

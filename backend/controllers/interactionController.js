@@ -123,13 +123,33 @@ exports.removeSave = async (req, res) => {
 exports.getComments = async (req, res) => {
   try {
     const { postId } = req.body;
-    console.log(postId);
 
     const comments = await Comment.find({ post: postId })
       .sort({ createdAt: -1 })
       .populate('user', 'username pfpCharacter pfpColor');
 
-    return res.json(comments);
+    let voteMap = {};
+
+    if(req.user) {
+      const votes = await CommentVote.find({
+        userId: req.user._id,
+        commentId: { $in: comments.map(comment => comment._id)}
+      })
+
+      console.log('Votes:',votes)
+
+      votes.forEach( vote => {
+        voteMap[vote.commentId.toString()] = vote.vote
+      });
+    }
+
+    const votedComments = comments.map(comment => {
+      const obj = comment.toObject();
+      obj.userVote = voteMap[comment._id.toString()] || null;
+      return obj;
+    })
+
+    return res.json(votedComments);
   } catch (error) {
     console.log(error.message);
     return res

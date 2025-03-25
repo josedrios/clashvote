@@ -1,4 +1,6 @@
 export async function fetchComments(postId, setCommentList, showAlert) {
+  const token = localStorage.getItem('token');
+
   try {
     const response = await fetch(
       `http://localhost:3001/api/interaction/comments`,
@@ -6,6 +8,7 @@ export async function fetchComments(postId, setCommentList, showAlert) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...(token && { Authorization: `Bearer ${token}` }),
         },
         body: JSON.stringify({
           postId: postId,
